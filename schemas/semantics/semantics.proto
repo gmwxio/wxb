@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package semantics;
+option go_package = "github.com/wxio/wxb/schemas/semantics";
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FileOptions {
+  WxbSchemaFile file = 49999;
+}
+extend google.protobuf.FieldOptions {
+  WxbSchemaField field = 49999;
+}
+
+message WxbSchemaFile {
+}
+
+message WxbSchemaField {
+  bool manditory = 1;
+}

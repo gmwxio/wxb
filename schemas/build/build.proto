@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package build;
+option go_package = "github.com/wxio/wxb/schemas/build";
+
+import "google/protobuf/descriptor.proto";
+import "semantics/semantics.proto";
+
+extend google.protobuf.FileOptions {
+  WxbBuild file = 50001;
+}
+  
+message WxbBuild {
+  repeated Import import = 1;
+  repeated Rule rule = 2;
+  //
+  message Import {
+    string path = 1 [(semantics.field) = {manditory : true}];
+    // todo oneof path { GoGet goget; Get http; Git git; }
+    string alias = 2;
+  }
+  message Rule {
+    repeated Thirdparty thirdparty = 1;
+    string module = 2 [(semantics.field) = {manditory : true}];
+    string schema = 3 [(semantics.field) = {manditory : true}];
+    map<string,string> values = 4; // TODO need a map<string,any> but what is an any
+    //
+    message Thirdparty {
+      oneof src {
+        Get get = 1;
+        Git git = 2;
+        GoGet goget = 3;
+      }
+      //
+      message Get {
+
+      }
+      message Git {
+
+      }
+      message GoGet {
+
+      }
+    }
+  }
+}
+

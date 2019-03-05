@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/jpillora/opts"
+	"github.com/wxio/wxb/internal/wxb"
 )
 
 var (
@@ -21,6 +22,8 @@ func main() {
 	ro := opts.New(&r).
 		Complete("wxb").
 		Version(Version)
+
+	wxb.Register(ro)
 
 	err := ro.Parse().Run()
 	if err != nil {

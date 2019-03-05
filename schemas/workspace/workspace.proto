@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package workspace;
+option go_package = "github.com/wxio/wxb/schemas/workspace";
+
+import "google/protobuf/descriptor.proto";
+import "semantics/semantics.proto";
+
+extend google.protobuf.FileOptions {
+  WxbWorkspace file = 50000;
+}
+  
+message WxbWorkspace {
+  Module module = 1 [(semantics.field) = {manditory : true}];
+  repeated Require require = 2;
+  repeated Module exclude = 3;
+  repeated Replace replace = 4;
+  //
+  message Module {
+    string path = 1 [(semantics.field) = {manditory : true}];
+    string version = 2;
+  }
+  message Require {
+    string path = 1 [(semantics.field) = {manditory : true}];
+    string version = 2 [(semantics.field) = {manditory : true}];
+    bool indirect = 3;
+  }
+  message Replace {
+    Module old = 1; 
+    Module new = 2; // todo(garym) make a distiction between local, remote(get, git, go, mvn, ivy)?
+  }
+}
