@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package workspace;
-option go_package = "github.com/wxio/wxb/schemas/workspace";
+option go_package = "github.com/wxio/wxb/internal/schemas/workspace";
 
 import "google/protobuf/descriptor.proto";
 import "semantics/semantics.proto";

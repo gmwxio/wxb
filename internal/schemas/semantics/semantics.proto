@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package semantics;
-option go_package = "github.com/wxio/wxb/schemas/semantics";
+option go_package = "github.com/wxio/wxb/internal/schemas/semantics";
 
 import "google/protobuf/descriptor.proto";
 
