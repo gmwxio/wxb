@@ -29,44 +29,6 @@ RCHEVR  : '>';
 DASH    : '-';
 PLUS    : '+';
 
-EXTEND  : 'extend';
-IMPORT  : 'import' ;
-WEAK    : 'weak';
-PUBLIC  : 'public';
-RETURNS : 'returns';
-PACKAGE : 'package';
-OPTION  : 'option';
-ENUM    : 'enum';
-SERVICE : 'service';
-RPC     : 'rpc';
-STREAM  : 'stream';
-RESERVED : 'reserved';
-TO       : 'to';
-REPEATED : 'repeated';
-ONEOF    : 'oneof';
-MAP      : 'map';
-INF      : 'inf';
-NAN      : 'nan';
-TRUE     : 'true';
-FALSE    : 'false';
-
-BOOL    : 'bool';
-BYTES   : 'bytes';
-DOUBLE  : 'double';
-FIXED32 : 'fixed32';
-FIXED64 : 'fixed64';
-FLOAT   : 'float';
-INT32   : 'int32';
-INT64   : 'int64';
-MESSAGE : 'message';
-SFIXED32 : 'sfixed32';
-SFIXED64 : 'sfixed64';
-SINT32  : 'sint32';
-SINT64  : 'sint64';
-STRING  : 'string';
-UINT32  : 'uint32';
-UINT64  : 'uint64';
-
 // Letters and digits
 fragment Letter        : [A-Za-z_];
 fragment DecimalDigit  : [0-9];
@@ -81,23 +43,16 @@ fragment HexLit        : '0' ('x' | 'X') HexDigit+;
 fragment Decimals      : DecimalDigit+;
 fragment Exponent      : ('e' | 'E') ('+' | '-')? Decimals;
 
-StrLit: '\'' CharValue* '\'' | '"' CharValue* '"';
-
-Ident
-    : Letter (Letter | DecimalDigit)*
+STR     : '\'' CharValue* '\'' | '"' CharValue* '"';
+ID      : Letter (Letter | DecimalDigit)*;
+INT     : DecimalLit | OctalLit | HexLit;
+FLT
+    : (
+          Decimals DOT Decimals? Exponent?
+        | Decimals Exponent
+        | DOT Decimals Exponent?
+      )
 ;
-
-Int_lit: DecimalLit | OctalLit | HexLit;
-
-Float_lit: (
-    Decimals DOT Decimals? Exponent?
-    | Decimals Exponent
-    | DOT Decimals Exponent?
-  )
-  | INF
-  | NAN
-;
-
 
 fragment CharValue
     : HexEscape

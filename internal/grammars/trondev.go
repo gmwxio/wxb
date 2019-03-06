@@ -39,7 +39,10 @@ func (et *exerciseTron) Run() error {
 	lexer := parser.NewtronLexer(is)
 	stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 	p := parser.NewtronParser(stream)
-	antlr.ParseTreeWalkerDefault.Walk(&tron_listener{baseR: lexer.BaseRecognizer}, p.Proto())
+	p.AddErrorListener(antlr.NewConsoleErrorListener())
+	ctx := p.Proto()
+	fmt.Println("--------")
+	antlr.ParseTreeWalkerDefault.Walk(&tron_listener{baseR: lexer.BaseRecognizer}, ctx)
 	return nil
 }
 
@@ -51,17 +54,17 @@ type tron_listener struct {
 }
 
 func (tr *tron_listener) VisitTerminal(node antlr.TerminalNode) {
-	fmt.Printf("%s%v\n", tr.indent, node)
+	// fmt.Printf("%s%v\n", tr.indent, node)
 }
 func (tr *tron_listener) VisitErrorNode(node antlr.ErrorNode) {
 	tid := node.GetSymbol().GetTokenType()
 	fmt.Printf("ERROR %d %#+v\n", tid, tr.baseR.LiteralNames[tid])
 }
 func (tr *tron_listener) EnterEveryRule(ctx antlr.ParserRuleContext) {
-	fmt.Printf("%s>>%T\n", tr.indent, ctx)
+	// fmt.Printf("%s>>%T\n", tr.indent, ctx)
 	tr.indent += "  "
 }
 func (tr *tron_listener) ExitEveryRule(ctx antlr.ParserRuleContext) {
-	fmt.Printf("%s<<%T\n", tr.indent, ctx)
+	// fmt.Printf("%s<<%T\n", tr.indent, ctx)
 	tr.indent = tr.indent[2:]
 }

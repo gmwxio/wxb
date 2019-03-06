@@ -6,4 +6,6 @@ goprotoc:
 	protoc -I=schemas --go_out=paths=source_relative:schemas/ schemas/semantics/semantics.proto 
 
 test:
-	protoc -I=schemas -oschemas/test/ds_rpc.ds schemas/test/rpc.proto 
+	protoc -I=schemas -oschemas/test/ds_rpc.ds schemas/test/rpc.proto
+	protoc -I=schemas -oschemas/test/ds_rpc.ds schemas/test/fieldopt.proto
+	protoc -I=schemas -oschemas/test/ds_rpc.ds schemas/test/extends.proto

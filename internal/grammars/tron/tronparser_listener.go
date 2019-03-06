@@ -14,56 +14,38 @@ type tronParserListener interface {
 	// EnterSyntax is called when entering the syntax production.
 	EnterSyntax(c *SyntaxContext)
 
-	// EnterTop_level_statement is called when entering the top_level_statement production.
-	EnterTop_level_statement(c *Top_level_statementContext)
-
-	// EnterOption_File is called when entering the Option_File production.
-	EnterOption_File(c *Option_FileContext)
-
-	// EnterOption_Msg is called when entering the Option_Msg production.
-	EnterOption_Msg(c *Option_MsgContext)
-
-	// EnterOption_Enum is called when entering the Option_Enum production.
-	EnterOption_Enum(c *Option_EnumContext)
-
-	// EnterOption_Service is called when entering the Option_Service production.
-	EnterOption_Service(c *Option_ServiceContext)
-
-	// EnterOption_Rpc is called when entering the Option_Rpc production.
-	EnterOption_Rpc(c *Option_RpcContext)
-
-	// EnterOptionName is called when entering the optionName production.
-	EnterOptionName(c *OptionNameContext)
-
-	// EnterExtend is called when entering the extend production.
-	EnterExtend(c *ExtendContext)
-
-	// EnterImportStatement is called when entering the importStatement production.
+	// EnterImportStatement is called when entering the ImportStatement production.
 	EnterImportStatement(c *ImportStatementContext)
 
-	// EnterPackageStatement is called when entering the packageStatement production.
+	// EnterPackageStatement is called when entering the PackageStatement production.
 	EnterPackageStatement(c *PackageStatementContext)
 
-	// EnterMessage is called when entering the message production.
+	// EnterExtend is called when entering the Extend production.
+	EnterExtend(c *ExtendContext)
+
+	// EnterOptionDef is called when entering the OptionDef production.
+	EnterOptionDef(c *OptionDefContext)
+
+	// EnterMessage is called when entering the Message production.
 	EnterMessage(c *MessageContext)
+
+	// EnterEnumDefinition is called when entering the EnumDefinition production.
+	EnterEnumDefinition(c *EnumDefinitionContext)
+
+	// EnterService is called when entering the Service production.
+	EnterService(c *ServiceContext)
+
+	// EnterEmptyStm is called when entering the EmptyStm production.
+	EnterEmptyStm(c *EmptyStmContext)
 
 	// EnterMessageBody is called when entering the messageBody production.
 	EnterMessageBody(c *MessageBodyContext)
-
-	// EnterEnumDefinition is called when entering the enumDefinition production.
-	EnterEnumDefinition(c *EnumDefinitionContext)
 
 	// EnterEnumBody is called when entering the enumBody production.
 	EnterEnumBody(c *EnumBodyContext)
 
 	// EnterEnumField is called when entering the enumField production.
 	EnterEnumField(c *EnumFieldContext)
-
-	// EnterEnumValueOption is called when entering the enumValueOption production.
-	EnterEnumValueOption(c *EnumValueOptionContext)
-
-	// EnterService is called when entering the service production.
-	EnterService(c *ServiceContext)
 
 	// EnterServiceBody is called when entering the serviceBody production.
 	EnterServiceBody(c *ServiceBodyContext)
@@ -73,6 +55,9 @@ type tronParserListener interface {
 
 	// EnterRpcParam is called when entering the rpcParam production.
 	EnterRpcParam(c *RpcParamContext)
+
+	// EnterRpcStream is called when entering the rpcStream production.
+	EnterRpcStream(c *RpcStreamContext)
 
 	// EnterReserved is called when entering the reserved production.
 	EnterReserved(c *ReservedContext)
@@ -89,17 +74,11 @@ type tronParserListener interface {
 	// EnterTyper is called when entering the typer production.
 	EnterTyper(c *TyperContext)
 
-	// EnterTypes is called when entering the types production.
-	EnterTypes(c *TypesContext)
-
 	// EnterField is called when entering the field production.
 	EnterField(c *FieldContext)
 
-	// EnterFieldOptions is called when entering the fieldOptions production.
-	EnterFieldOptions(c *FieldOptionsContext)
-
-	// EnterFieldOption is called when entering the fieldOption production.
-	EnterFieldOption(c *FieldOptionContext)
+	// EnterFieldRepeat is called when entering the fieldRepeat production.
+	EnterFieldRepeat(c *FieldRepeatContext)
 
 	// EnterOneof is called when entering the oneof production.
 	EnterOneof(c *OneofContext)
@@ -110,26 +89,32 @@ type tronParserListener interface {
 	// EnterMapField is called when entering the mapField production.
 	EnterMapField(c *MapFieldContext)
 
-	// EnterKeyType is called when entering the keyType production.
-	EnterKeyType(c *KeyTypeContext)
-
 	// EnterMessageType is called when entering the messageType production.
 	EnterMessageType(c *MessageTypeContext)
 
 	// EnterMessageOrEnumType is called when entering the messageOrEnumType production.
 	EnterMessageOrEnumType(c *MessageOrEnumTypeContext)
 
-	// EnterBool_lit is called when entering the bool_lit production.
-	EnterBool_lit(c *Bool_litContext)
-
 	// EnterEmptyStatement is called when entering the emptyStatement production.
 	EnterEmptyStatement(c *EmptyStatementContext)
+
+	// EnterOption is called when entering the option production.
+	EnterOption(c *OptionContext)
+
+	// EnterFieldOptions is called when entering the fieldOptions production.
+	EnterFieldOptions(c *FieldOptionsContext)
+
+	// EnterFieldOption is called when entering the fieldOption production.
+	EnterFieldOption(c *FieldOptionContext)
+
+	// EnterOptionName is called when entering the optionName production.
+	EnterOptionName(c *OptionNameContext)
 
 	// EnterConstant is called when entering the constant production.
 	EnterConstant(c *ConstantContext)
 
-	// EnterPron is called when entering the pron production.
-	EnterPron(c *PronContext)
+	// EnterConstantObj is called when entering the constantObj production.
+	EnterConstantObj(c *ConstantObjContext)
 
 	// EnterPronSTR is called when entering the PronSTR production.
 	EnterPronSTR(c *PronSTRContext)
@@ -143,56 +128,38 @@ type tronParserListener interface {
 	// ExitSyntax is called when exiting the syntax production.
 	ExitSyntax(c *SyntaxContext)
 
-	// ExitTop_level_statement is called when exiting the top_level_statement production.
-	ExitTop_level_statement(c *Top_level_statementContext)
-
-	// ExitOption_File is called when exiting the Option_File production.
-	ExitOption_File(c *Option_FileContext)
-
-	// ExitOption_Msg is called when exiting the Option_Msg production.
-	ExitOption_Msg(c *Option_MsgContext)
-
-	// ExitOption_Enum is called when exiting the Option_Enum production.
-	ExitOption_Enum(c *Option_EnumContext)
-
-	// ExitOption_Service is called when exiting the Option_Service production.
-	ExitOption_Service(c *Option_ServiceContext)
-
-	// ExitOption_Rpc is called when exiting the Option_Rpc production.
-	ExitOption_Rpc(c *Option_RpcContext)
-
-	// ExitOptionName is called when exiting the optionName production.
-	ExitOptionName(c *OptionNameContext)
-
-	// ExitExtend is called when exiting the extend production.
-	ExitExtend(c *ExtendContext)
-
-	// ExitImportStatement is called when exiting the importStatement production.
+	// ExitImportStatement is called when exiting the ImportStatement production.
 	ExitImportStatement(c *ImportStatementContext)
 
-	// ExitPackageStatement is called when exiting the packageStatement production.
+	// ExitPackageStatement is called when exiting the PackageStatement production.
 	ExitPackageStatement(c *PackageStatementContext)
 
-	// ExitMessage is called when exiting the message production.
+	// ExitExtend is called when exiting the Extend production.
+	ExitExtend(c *ExtendContext)
+
+	// ExitOptionDef is called when exiting the OptionDef production.
+	ExitOptionDef(c *OptionDefContext)
+
+	// ExitMessage is called when exiting the Message production.
 	ExitMessage(c *MessageContext)
+
+	// ExitEnumDefinition is called when exiting the EnumDefinition production.
+	ExitEnumDefinition(c *EnumDefinitionContext)
+
+	// ExitService is called when exiting the Service production.
+	ExitService(c *ServiceContext)
+
+	// ExitEmptyStm is called when exiting the EmptyStm production.
+	ExitEmptyStm(c *EmptyStmContext)
 
 	// ExitMessageBody is called when exiting the messageBody production.
 	ExitMessageBody(c *MessageBodyContext)
-
-	// ExitEnumDefinition is called when exiting the enumDefinition production.
-	ExitEnumDefinition(c *EnumDefinitionContext)
 
 	// ExitEnumBody is called when exiting the enumBody production.
 	ExitEnumBody(c *EnumBodyContext)
 
 	// ExitEnumField is called when exiting the enumField production.
 	ExitEnumField(c *EnumFieldContext)
-
-	// ExitEnumValueOption is called when exiting the enumValueOption production.
-	ExitEnumValueOption(c *EnumValueOptionContext)
-
-	// ExitService is called when exiting the service production.
-	ExitService(c *ServiceContext)
 
 	// ExitServiceBody is called when exiting the serviceBody production.
 	ExitServiceBody(c *ServiceBodyContext)
@@ -202,6 +169,9 @@ type tronParserListener interface {
 
 	// ExitRpcParam is called when exiting the rpcParam production.
 	ExitRpcParam(c *RpcParamContext)
+
+	// ExitRpcStream is called when exiting the rpcStream production.
+	ExitRpcStream(c *RpcStreamContext)
 
 	// ExitReserved is called when exiting the reserved production.
 	ExitReserved(c *ReservedContext)
@@ -218,17 +188,11 @@ type tronParserListener interface {
 	// ExitTyper is called when exiting the typer production.
 	ExitTyper(c *TyperContext)
 
-	// ExitTypes is called when exiting the types production.
-	ExitTypes(c *TypesContext)
-
 	// ExitField is called when exiting the field production.
 	ExitField(c *FieldContext)
 
-	// ExitFieldOptions is called when exiting the fieldOptions production.
-	ExitFieldOptions(c *FieldOptionsContext)
-
-	// ExitFieldOption is called when exiting the fieldOption production.
-	ExitFieldOption(c *FieldOptionContext)
+	// ExitFieldRepeat is called when exiting the fieldRepeat production.
+	ExitFieldRepeat(c *FieldRepeatContext)
 
 	// ExitOneof is called when exiting the oneof production.
 	ExitOneof(c *OneofContext)
@@ -239,26 +203,32 @@ type tronParserListener interface {
 	// ExitMapField is called when exiting the mapField production.
 	ExitMapField(c *MapFieldContext)
 
-	// ExitKeyType is called when exiting the keyType production.
-	ExitKeyType(c *KeyTypeContext)
-
 	// ExitMessageType is called when exiting the messageType production.
 	ExitMessageType(c *MessageTypeContext)
 
 	// ExitMessageOrEnumType is called when exiting the messageOrEnumType production.
 	ExitMessageOrEnumType(c *MessageOrEnumTypeContext)
 
-	// ExitBool_lit is called when exiting the bool_lit production.
-	ExitBool_lit(c *Bool_litContext)
-
 	// ExitEmptyStatement is called when exiting the emptyStatement production.
 	ExitEmptyStatement(c *EmptyStatementContext)
+
+	// ExitOption is called when exiting the option production.
+	ExitOption(c *OptionContext)
+
+	// ExitFieldOptions is called when exiting the fieldOptions production.
+	ExitFieldOptions(c *FieldOptionsContext)
+
+	// ExitFieldOption is called when exiting the fieldOption production.
+	ExitFieldOption(c *FieldOptionContext)
+
+	// ExitOptionName is called when exiting the optionName production.
+	ExitOptionName(c *OptionNameContext)
 
 	// ExitConstant is called when exiting the constant production.
 	ExitConstant(c *ConstantContext)
 
-	// ExitPron is called when exiting the pron production.
-	ExitPron(c *PronContext)
+	// ExitConstantObj is called when exiting the constantObj production.
+	ExitConstantObj(c *ConstantObjContext)
 
 	// ExitPronSTR is called when exiting the PronSTR production.
 	ExitPronSTR(c *PronSTRContext)
