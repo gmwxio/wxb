@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package rpcish;
+
+service X {
+  rpc Fiz (A) returns (B){;};
+  rpc Foo (A) returns (B)
+  rpc Bar (A) returns (B){;;;;};
+}
+
+message A {
+}
+message B {
+}

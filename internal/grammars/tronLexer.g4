@@ -1,5 +1,16 @@
-lexer grammar tron_lexer;
+lexer grammar tronLexer;
 
+// mode PRE;
+PROTO3  : '"proto3"' | '\'proto3\'';
+SYNTAX  : 'syntax';
+EQ_PRE  : '=' ;
+ENDPRE  : ';' -> mode(TOP);
+
+PRE_WS           : [ \t\r\n\u000C]+ -> skip;
+PRE_COMMENT      : '/*' .*? '*/' -> skip;
+PRE_LINE_COMMENT : '//' ~[\r\n]* -> skip;
+
+mode TOP;
 LCUR    : '{';
 RCUR    : '}';
 EQ      : '=' ;
@@ -18,8 +29,6 @@ RCHEVR  : '>';
 DASH    : '-';
 PLUS    : '+';
 
-PROTO3  : '"proto3"' | '\'proto3\'';
-SYNTAX  : 'syntax';
 EXTEND  : 'extend';
 IMPORT  : 'import' ;
 WEAK    : 'weak';

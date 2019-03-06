@@ -1,82 +1,92 @@
-parser grammar tron_parser;
+parser grammar tronParser;
 
 options {
-  tokenVocab = tron_lexer;
+  tokenVocab = tronLexer;
 }
 
 proto  
     : syntax top_level_statement* EOF
 ;
+syntax
+    : SYNTAX EQ_PRE PROTO3 ENDPRE
+;
 top_level_statement
     : importStatement
     | packageStatement
     | extend
-    | option
+    | optionFile
     | message 
     | enumDefinition 
     | service
     | emptyStatement
 ;
-syntax
-    : SYNTAX EQ PROTO3 SEMI
+optionFile
+    : OPTION optionName EQ ( constant | pron ) SEMI #Option_File
+;
+optionMessage
+    : OPTION optionName EQ ( constant | pron ) SEMI #Option_Msg
+;
+optionEnum
+    : OPTION optionName EQ ( constant | pron ) SEMI #Option_Enum
+;
+optionService
+    : OPTION optionName EQ ( constant | pron ) SEMI #Option_Service
+;
+optionRpc
+    : OPTION optionName EQ ( constant | pron ) SEMI #Option_Rpc
+;
+optionName
+    : (Ident | LPAREN Ident (DOT Ident)* RPAREN) (DOT Ident)*
 ;
 extend
-    : EXTEND fullIdent LCUR field RCUR
+    : EXTEND Ident (DOT Ident)* LCUR field RCUR
 ;
 importStatement
     : IMPORT (WEAK | PUBLIC)? StrLit SEMI
 ;
 packageStatement
-    : PACKAGE fullIdent SEMI
-;
-option
-    : OPTION optionName EQ ( constant | pron ) SEMI
-;
-optionName
-    : (Ident | LPAREN fullIdent RPAREN) (DOT Ident)*
+    : PACKAGE Ident (DOT Ident)* SEMI
 ;
 message
-    : MESSAGE messageName LCUR messageBody* RCUR
+    : MESSAGE Ident LCUR messageBody* RCUR
 ;
-messageBody:
-    field
+messageBody
+    : field
     | enumDefinition
     | message
-    | option
+    | optionMessage
     | oneof
     | mapField
     | reserved
     | emptyStatement
 ;
 enumDefinition
-    : ENUM enumName LCUR enumBody+ RCUR
+    : ENUM Ident LCUR enumBody+ RCUR
 ;
 enumBody
-    : option 
+    : optionEnum
     | enumField
     | emptyStatement
 ;
-enumField:
-  Ident EQ DASH? Int_lit (
-    LSB enumValueOption (COMMA enumValueOption)* RSB
-  )? SEMI
+enumField
+    : Ident EQ DASH? Int_lit enumValueOption? SEMI
 ;
 enumValueOption
-    : optionName EQ constant
+    : LSB optionName EQ constant (COMMA enumValueOption)* RSB
 ;
 service
-    : SERVICE serviceName LCUR serviceBody* RCUR
+    : SERVICE Ident LCUR serviceBody* RCUR
 ;
 serviceBody
-    : option
+    : optionService
     | rpc
     // not defined in the protobuf specification | stream
     | emptyStatement
 ;
 rpc
-    : RPC rpcName rpcParam RETURNS rpcParam 
+    : RPC Ident rpcParam RETURNS rpcParam 
       (
-        (LCUR (option | emptyStatement)* RCUR)
+        (LCUR (optionRpc | emptyStatement)* RCUR)
         | SEMI
       )
 ;
@@ -117,7 +127,7 @@ types
     | BYTES
 ;
 field
-    : REPEATED? typer fieldName EQ Int_lit fieldOptions? SEMI
+    : REPEATED? typer Ident EQ Int_lit fieldOptions? SEMI
 ;
 fieldOptions
     : LSB fieldOption (COMMA fieldOption)* RSB
@@ -126,13 +136,13 @@ fieldOption
     : optionName EQ constant
 ;
 oneof
-    : ONEOF oneofName LCUR (oneofField | emptyStatement)* RCUR
+    : ONEOF Ident LCUR (oneofField | emptyStatement)* RCUR
 ;
 oneofField:
-  typer fieldName EQ Int_lit fieldOptions? SEMI
+  typer Ident EQ Int_lit fieldOptions? SEMI
 ;
 mapField
-    : MAP LCHEVR keyType COMMA typer RCHEVR mapName EQ Int_lit fieldOptions? SEMI
+    : MAP LCHEVR keyType COMMA typer RCHEVR Ident EQ Int_lit fieldOptions? SEMI
 ;
 keyType
     : INT32
@@ -148,35 +158,17 @@ keyType
     | BOOL
     | STRING
 ;
-fullIdent
-    : Ident (DOT Ident)*
-;
-messageName: Ident;
 
-enumName: Ident;
+messageType: DOT? (Ident DOT)* Ident;
 
-messageOrEnumName: Ident;
-
-fieldName: Ident;
-
-oneofName: Ident;
-
-mapName: Ident;
-
-serviceName: Ident;
-
-rpcName: Ident;
-
-messageType: DOT? (Ident DOT)* messageName;
-
-messageOrEnumType: DOT? (Ident DOT)* messageOrEnumName;
+messageOrEnumType: DOT? (Ident DOT)* Ident;
 
 bool_lit: TRUE | FALSE;
 
 emptyStatement: SEMI;
 
-constant:
-  fullIdent
+constant
+  : Ident (DOT Ident)*
   | (DASH | PLUS)? Int_lit
   | (DASH | PLUS)? Float_lit
   | ( StrLit | bool_lit);
@@ -189,3 +181,4 @@ pronElem:
   StrLit	#PronSTR 
   | pron  #PronOBJ
 ;
+

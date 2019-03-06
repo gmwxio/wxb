@@ -10,7 +10,7 @@ import (
 )
 
 var example = `
-syntax = "proto3";
+syntax = "proto3"; 
 import public "other.proto";
 option java_package = "com.example.foo";
 enum EnumAllowingAlias {
@@ -30,30 +30,30 @@ message outer {
 }
 `
 
-type tron_listener struct {
-	*parser.Basetron_parserListener
+type tron_test_listener struct {
+	*parser.BasetronParserListener
 	indent string
 }
 
-func (tr *tron_listener) VisitTerminal(node antlr.TerminalNode) {
+func (tr *tron_test_listener) VisitTerminal(node antlr.TerminalNode) {
 	fmt.Printf("%s%v\n", tr.indent, node)
 }
-func (tr *tron_listener) VisitErrorNode(node antlr.ErrorNode) {
+func (tr *tron_test_listener) VisitErrorNode(node antlr.ErrorNode) {
 	fmt.Printf("ERROR %#+v\n", node.GetSymbol().GetTokenType())
 }
-func (tr *tron_listener) EnterEveryRule(ctx antlr.ParserRuleContext) {
+func (tr *tron_test_listener) EnterEveryRule(ctx antlr.ParserRuleContext) {
+	fmt.Printf("%s>>%T\n", tr.indent, ctx)
 	tr.indent += "  "
-	// fmt.Printf(">> %#+v\n", ctx.GetPayload())
 }
-func (tr *tron_listener) ExitEveryRule(ctx antlr.ParserRuleContext) {
+func (tr *tron_test_listener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 	tr.indent = tr.indent[2:]
 }
 
 func TestExample(t *testing.T) {
 	// Setup the input
 	is := antlr.NewInputStream(example)
-	lexer := parser.Newtron_lexer(is)
+	lexer := parser.NewtronLexer(is)
 	stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
-	p := parser.Newtron_parser(stream)
-	antlr.ParseTreeWalkerDefault.Walk(&tron_listener{}, p.Proto())
+	p := parser.NewtronParser(stream)
+	antlr.ParseTreeWalkerDefault.Walk(&tron_test_listener{}, p.Proto())
 }

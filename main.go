@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/jpillora/opts"
+	tron "github.com/wxio/wxb/internal/grammars"
 	"github.com/wxio/wxb/internal/wxb"
 )
 
@@ -24,6 +25,7 @@ func main() {
 		Version(Version)
 
 	wxb.Register(ro)
+	tron.Register(ro)
 
 	err := ro.Parse().Run()
 	if err != nil {

@@ -1,21 +1,39 @@
-// Code generated from tron_parser.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Code generated from tronParser.g4 by ANTLR 4.7.1. DO NOT EDIT.
 
-package parser // tron_parser
+package parser // tronParser
 
 import "github.com/wxio/goantlr"
 
-// tron_parserListener is a complete listener for a parse tree produced by tron_parser.
-type tron_parserListener interface {
+// tronParserListener is a complete listener for a parse tree produced by tronParser.
+type tronParserListener interface {
 	antlr.ParseTreeListener
 
 	// EnterProto is called when entering the proto production.
 	EnterProto(c *ProtoContext)
 
+	// EnterSyntax is called when entering the syntax production.
+	EnterSyntax(c *SyntaxContext)
+
 	// EnterTop_level_statement is called when entering the top_level_statement production.
 	EnterTop_level_statement(c *Top_level_statementContext)
 
-	// EnterSyntax is called when entering the syntax production.
-	EnterSyntax(c *SyntaxContext)
+	// EnterOption_File is called when entering the Option_File production.
+	EnterOption_File(c *Option_FileContext)
+
+	// EnterOption_Msg is called when entering the Option_Msg production.
+	EnterOption_Msg(c *Option_MsgContext)
+
+	// EnterOption_Enum is called when entering the Option_Enum production.
+	EnterOption_Enum(c *Option_EnumContext)
+
+	// EnterOption_Service is called when entering the Option_Service production.
+	EnterOption_Service(c *Option_ServiceContext)
+
+	// EnterOption_Rpc is called when entering the Option_Rpc production.
+	EnterOption_Rpc(c *Option_RpcContext)
+
+	// EnterOptionName is called when entering the optionName production.
+	EnterOptionName(c *OptionNameContext)
 
 	// EnterExtend is called when entering the extend production.
 	EnterExtend(c *ExtendContext)
@@ -25,12 +43,6 @@ type tron_parserListener interface {
 
 	// EnterPackageStatement is called when entering the packageStatement production.
 	EnterPackageStatement(c *PackageStatementContext)
-
-	// EnterOption is called when entering the option production.
-	EnterOption(c *OptionContext)
-
-	// EnterOptionName is called when entering the optionName production.
-	EnterOptionName(c *OptionNameContext)
 
 	// EnterMessage is called when entering the message production.
 	EnterMessage(c *MessageContext)
@@ -101,33 +113,6 @@ type tron_parserListener interface {
 	// EnterKeyType is called when entering the keyType production.
 	EnterKeyType(c *KeyTypeContext)
 
-	// EnterFullIdent is called when entering the fullIdent production.
-	EnterFullIdent(c *FullIdentContext)
-
-	// EnterMessageName is called when entering the messageName production.
-	EnterMessageName(c *MessageNameContext)
-
-	// EnterEnumName is called when entering the enumName production.
-	EnterEnumName(c *EnumNameContext)
-
-	// EnterMessageOrEnumName is called when entering the messageOrEnumName production.
-	EnterMessageOrEnumName(c *MessageOrEnumNameContext)
-
-	// EnterFieldName is called when entering the fieldName production.
-	EnterFieldName(c *FieldNameContext)
-
-	// EnterOneofName is called when entering the oneofName production.
-	EnterOneofName(c *OneofNameContext)
-
-	// EnterMapName is called when entering the mapName production.
-	EnterMapName(c *MapNameContext)
-
-	// EnterServiceName is called when entering the serviceName production.
-	EnterServiceName(c *ServiceNameContext)
-
-	// EnterRpcName is called when entering the rpcName production.
-	EnterRpcName(c *RpcNameContext)
-
 	// EnterMessageType is called when entering the messageType production.
 	EnterMessageType(c *MessageTypeContext)
 
@@ -155,11 +140,29 @@ type tron_parserListener interface {
 	// ExitProto is called when exiting the proto production.
 	ExitProto(c *ProtoContext)
 
+	// ExitSyntax is called when exiting the syntax production.
+	ExitSyntax(c *SyntaxContext)
+
 	// ExitTop_level_statement is called when exiting the top_level_statement production.
 	ExitTop_level_statement(c *Top_level_statementContext)
 
-	// ExitSyntax is called when exiting the syntax production.
-	ExitSyntax(c *SyntaxContext)
+	// ExitOption_File is called when exiting the Option_File production.
+	ExitOption_File(c *Option_FileContext)
+
+	// ExitOption_Msg is called when exiting the Option_Msg production.
+	ExitOption_Msg(c *Option_MsgContext)
+
+	// ExitOption_Enum is called when exiting the Option_Enum production.
+	ExitOption_Enum(c *Option_EnumContext)
+
+	// ExitOption_Service is called when exiting the Option_Service production.
+	ExitOption_Service(c *Option_ServiceContext)
+
+	// ExitOption_Rpc is called when exiting the Option_Rpc production.
+	ExitOption_Rpc(c *Option_RpcContext)
+
+	// ExitOptionName is called when exiting the optionName production.
+	ExitOptionName(c *OptionNameContext)
 
 	// ExitExtend is called when exiting the extend production.
 	ExitExtend(c *ExtendContext)
@@ -169,12 +172,6 @@ type tron_parserListener interface {
 
 	// ExitPackageStatement is called when exiting the packageStatement production.
 	ExitPackageStatement(c *PackageStatementContext)
-
-	// ExitOption is called when exiting the option production.
-	ExitOption(c *OptionContext)
-
-	// ExitOptionName is called when exiting the optionName production.
-	ExitOptionName(c *OptionNameContext)
 
 	// ExitMessage is called when exiting the message production.
 	ExitMessage(c *MessageContext)
@@ -244,33 +241,6 @@ type tron_parserListener interface {
 
 	// ExitKeyType is called when exiting the keyType production.
 	ExitKeyType(c *KeyTypeContext)
-
-	// ExitFullIdent is called when exiting the fullIdent production.
-	ExitFullIdent(c *FullIdentContext)
-
-	// ExitMessageName is called when exiting the messageName production.
-	ExitMessageName(c *MessageNameContext)
-
-	// ExitEnumName is called when exiting the enumName production.
-	ExitEnumName(c *EnumNameContext)
-
-	// ExitMessageOrEnumName is called when exiting the messageOrEnumName production.
-	ExitMessageOrEnumName(c *MessageOrEnumNameContext)
-
-	// ExitFieldName is called when exiting the fieldName production.
-	ExitFieldName(c *FieldNameContext)
-
-	// ExitOneofName is called when exiting the oneofName production.
-	ExitOneofName(c *OneofNameContext)
-
-	// ExitMapName is called when exiting the mapName production.
-	ExitMapName(c *MapNameContext)
-
-	// ExitServiceName is called when exiting the serviceName production.
-	ExitServiceName(c *ServiceNameContext)
-
-	// ExitRpcName is called when exiting the rpcName production.
-	ExitRpcName(c *RpcNameContext)
 
 	// ExitMessageType is called when exiting the messageType production.
 	ExitMessageType(c *MessageTypeContext)
