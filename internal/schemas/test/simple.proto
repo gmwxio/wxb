@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pkg;
+
+import "google/protobuf/descriptor.proto";
+
+message A {
+  message B {
+    enum C {
+      A = 0;
+    }
+  }
+}
+
+enum C {
+  A = 0;
+}

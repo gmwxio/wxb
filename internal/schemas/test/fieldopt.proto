@@ -1,11 +1,28 @@
 syntax = "proto3";
 
+package pkg;
+
 import "google/protobuf/descriptor.proto";
+
+option (my_file_option) = "Hello world!";
+option (foo_file_options) = { 
+  opt1: 123 
+  opt2: "baz"
+  x : {
+    a: "a"
+    b: 99
+    x : {
+      c: "c"
+      d: 999
+    }
+  }
+};
 
 message FooOptions {
   int32 opt1 = 1;
   string opt2 = 2;
   X x =3;
+  string s  = 4;
   //
   message X {
     string a = 1;
@@ -19,11 +36,18 @@ message FooOptions {
   }
 }
 
+extend google.protobuf.FileOptions {
+  repeated string my_file_option = 50000 [(foo_options).s = "this is a string"];
+  FooOptions foo_file_options = 1234;
+}
 extend google.protobuf.FieldOptions {
   FooOptions foo_options = 1234;
 }
 extend google.protobuf.EnumValueOptions {
   FooOptions fooev_options = 1234;
+}
+extend google.protobuf.MessageOptions {
+  FooOptions foo_msg_options = 1234;
 }
 
 enum EnumAllowingAlias {
@@ -37,6 +61,19 @@ enum EnumAllowingAlias {
 
 // usage:
 message Bar {
+  option (foo_msg_options) = { 
+    opt1: 123 
+    opt2: "baz"
+    x : {
+      a: "a"
+      b: 99
+      x : {
+        c: "c"
+        d: 999
+      }
+    }
+  };
+
   repeated int32 z = 10 [packed=true];
   int32 a = 1 [(foo_options).opt1 = 123, (foo_options).opt2 = "baz"];
   // alternative aggregate syntax (uses TextFormat):
@@ -56,4 +93,20 @@ message Bar {
     }
   }];
 //  int32 e = 5 [(foo_options) = { opt1: 123: opt2: "baz" }];
+}
+
+service X {
+  rpc Fiz (A) returns (B){;};
+  rpc Foo (A) returns (B);
+  rpc Bar (A) returns (B){;;;;};
+}
+message message {
+
+}
+message true {
+
+}
+message A {
+}
+message B {
 }

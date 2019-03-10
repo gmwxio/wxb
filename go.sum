@@ -16,6 +16,8 @@ github.com/posener/complete v1.2.1 h1:LrvDIY//XNo65Lq84G/akBuMGlawHvGBABv8f/ZN6D
 github.com/posener/complete v1.2.1/go.mod h1:6gapUrK/U1TAN7ciCoNRIdVC5sbdBTUh1DKN0g6uH7E=
 github.com/wxio/antlr4-go v4.7.1+incompatible h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 github.com/wxio/antlr4-go v4.7.1+incompatible/go.mod h1:e88dYDL/zYzk99PnTsQPFKITBukA+ZgwYrdxUYTTvJE=
+github.com/wxio/antlr4-go-examples v0.0.0-20170119052849-5e8721d5b799 h1:egKd2pEZ1c7V9ihzKnAWmr6XjxBiJIvO7Nv+MODY4EA=
+github.com/wxio/antlr4-go-examples v0.0.0-20170119052849-5e8721d5b799/go.mod h1:t7hnwHSa/4VH7+J1iVhm0ZHZV52iHVLfVBmxMa3GmFA=
 github.com/wxio/goantlr v0.0.0-20190305104207-374a84528c8e h1:kN3YauMQO0M0w5tu1HmAMAciWR84RsMBV5ZCvPbrwWs=
 github.com/wxio/goantlr v0.0.0-20190305104207-374a84528c8e/go.mod h1:eiJFRvVqhWHHFL/xCfD4vM4MdC3wErF6uAGNU/arMh4=
 github.com/wxio/opts v0.0.0-20190206115711-6da6e02f01d5 h1:BNHKTRB2HIpjvma7+Ki9Majrr6qXtlytgd0c2w2pr+A=

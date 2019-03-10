@@ -7,5 +7,5 @@ goprotoc:
 
 test:
 	protoc -I=schemas -oschemas/test/ds_rpc.ds schemas/test/rpc.proto
-	protoc -I=schemas -oschemas/test/ds_rpc.ds schemas/test/fieldopt.proto
-	protoc -I=schemas -oschemas/test/ds_rpc.ds schemas/test/extends.proto
+	protoc -I=schemas -oschemas/test/ds_fieldopt.ds schemas/test/fieldopt.proto
+	protoc -I=schemas -oschemas/test/ds_extends.ds schemas/test/extends.proto
