@@ -1,0 +1,114 @@
+syntax = "proto3";
+option (tron) = { 
+  syntax : "tron" 
+  major_version: 1
+  minor_version: 0
+  module_name : "xzy"
+};
+// @syntax = tron;
+// @version = 1.0;
+// @module = "xzy";
+// @import "abc";
+// @import "." "abc";
+
+option (tron).import = { path : "abc" };
+option (tron).import = { path : "abc", alias : "." };
+
+option (raise) = {
+    location: ALL
+    message : "BuiltIn"
+    name : "tron"
+};
+option (raise) = {
+  location: FILE
+  message : "BuiltIn"
+  name : "tron"
+};
+
+import "google/protobuf/descriptor.proto";
+import "google/protobuf/struct.proto";
+
+extend google.protobuf.FileOptions {
+  BuiltIn tron  = 50000;
+  repeated Raise raise = 50001;
+  repeated Apply apply = 50002;
+}
+extend google.protobuf.FieldOptions {
+  Card card  = 50000;
+}
+
+message BuiltIn {
+  string syntax = 1;
+  uint32 major_version = 2;
+  uint32 minor_version = 3;
+  string module_name = 4;
+  repeated Import import = 5;
+  //
+  message Import {
+    string alias = 1 [(card) = ZERO_OR_ONE];
+    string path = 2 [(card) = ONE];
+  }
+}
+message Raise {
+  Location location = 1;
+  string message = 2;
+  string name = 3;
+  repeated Part part = 4;
+  //
+  message Part {
+    string name = 1;
+    string message = 2;
+    Card card = 3;
+    // ..  group of parts
+  }
+}
+
+enum Location {
+  ALL = 0;
+  FILE = 1;
+  //...
+}
+enum Card {
+  ONE = 0;
+  ZERO_OR_ONE = 1;
+  ZERO_OR_MORE = 2;
+  ONE_OR_MORE = 3;
+}
+message EBNF {
+  Card card = 1;
+}
+
+message Apply {
+  string message = 1;
+  string target = 2;
+  google.protobuf.Struct annotation = 3;
+}
+
+option (raise) = {
+  location: ALL
+  part : [{
+    name: "apply"
+    message : "Message"
+    card: ONE
+  },{
+    name: "to"
+    message : "Path"
+    card: ONE
+  }]
+};
+
+
+// @apply Card @to BuiltIn.Import.alias = { ZERO_OR_ONE }
+
+option (apply) = {
+  message : "Card"
+  target : "BuiltIn.Import.alias"
+  annotation : {
+    fields : {
+      key: "one"
+      value: {
+        bool_value : true
+      }
+    }
+  }
+};
