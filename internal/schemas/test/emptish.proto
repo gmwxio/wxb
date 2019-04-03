@@ -7,6 +7,7 @@ extend google.protobuf.FileOptions {
   BuiltIn tron  = 50000;
   repeated Raise raise = 50001;
   repeated Apply apply = 50002;
+  repeated With with = 50003;
 }
 extend google.protobuf.FieldOptions {
   Card card  = 50000;
@@ -96,7 +97,18 @@ enum Card {
 message Apply {
   string message = 1;
   string target = 2;
-  google.protobuf.Struct annotation = 3;
+  google.protobuf.Struct annotation = 3; // need a dynamic on type, but schema'ed
+}
+
+message With {
+  string target = 1;
+  repeated Application apply = 2;
+  //
+  message Application {
+    string message = 1;
+    string target = 2;
+    google.protobuf.Struct annotation = 3; // need a dynamic on type, but schema'ed
+  }
 }
 
 option (raise) = {
@@ -119,8 +131,7 @@ option (raise) = {
     ] }
   }
 };
-
-// @apply Card @to BuiltIn.Import.alias = { ZERO_OR_ONE }
+// @raise Apply named apply ...
 
 option (apply) = {
   message : "Card"
@@ -134,3 +145,39 @@ option (apply) = {
     }
   }
 };
+// @apply Card @to BuiltIn.Import.alias = { ZERO_OR_ONE }
+
+option (with) = {
+  target : "BuiltIn.Import"
+  apply : [
+    {
+      message : "Card"
+      target : "alias"
+      annotation : {
+        fields : {
+          key: "optional"
+          value: {
+            bool_value : true
+          }
+        }
+      }
+    },{
+      message : "Card"
+      target : "path"
+      annotation : {
+        fields : {
+          key: "one"
+          value: {
+            bool_value : true
+          }
+        }
+      }
+    }
+  ]
+};
+// @with BuiltIn.Import = {
+//   apply : [
+//     { Card to alias : { ZERO_OR_ONE } },
+//     { Card to import : { ONE } }
+//   ]
+// };
