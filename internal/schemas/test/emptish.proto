@@ -1,4 +1,17 @@
 syntax = "proto3";
+
+import "google/protobuf/descriptor.proto";
+import "google/protobuf/struct.proto";
+
+extend google.protobuf.FileOptions {
+  BuiltIn tron  = 50000;
+  repeated Raise raise = 50001;
+  repeated Apply apply = 50002;
+}
+extend google.protobuf.FieldOptions {
+  Card card  = 50000;
+}
+
 option (tron) = { 
   syntax : "tron" 
   major_version: 1
@@ -14,29 +27,6 @@ option (tron) = {
 option (tron).import = { path : "abc" };
 option (tron).import = { path : "abc", alias : "." };
 
-option (raise) = {
-    location: ALL
-    message : "BuiltIn"
-    name : "tron"
-};
-option (raise) = {
-  location: FILE
-  message : "BuiltIn"
-  name : "tron"
-};
-
-import "google/protobuf/descriptor.proto";
-import "google/protobuf/struct.proto";
-
-extend google.protobuf.FileOptions {
-  BuiltIn tron  = 50000;
-  repeated Raise raise = 50001;
-  repeated Apply apply = 50002;
-}
-extend google.protobuf.FieldOptions {
-  Card card  = 50000;
-}
-
 message BuiltIn {
   string syntax = 1;
   uint32 major_version = 2;
@@ -51,17 +41,45 @@ message BuiltIn {
 }
 message Raise {
   Location location = 1;
-  string message = 2;
-  string name = 3;
-  repeated Part part = 4;
+  Part part = 2;
   //
   message Part {
+    Card card = 1;
+    oneof annon {
+      Def def = 2;
+      Parts sum = 3;
+      Parts prod = 4;
+    }
+  }
+  //
+  message Def {
     string name = 1;
     string message = 2;
-    Card card = 3;
-    // ..  group of parts
+  }
+  message Parts {
+    repeated Part part = 1;
+    Card card = 2;
   }
 }
+
+option (raise) = {
+  location: ALL
+  part : {
+    def : {
+      message : "BuiltIn"
+      name : "tron"    
+    }
+  }
+};
+option (raise) = {
+  location: FILE
+  part : {
+    def : {
+      message : "BuiltIn"
+      name : "tron"    
+    }
+  }
+};
 
 enum Location {
   ALL = 0;
@@ -74,9 +92,6 @@ enum Card {
   ZERO_OR_MORE = 2;
   ONE_OR_MORE = 3;
 }
-message EBNF {
-  Card card = 1;
-}
 
 message Apply {
   string message = 1;
@@ -86,17 +101,24 @@ message Apply {
 
 option (raise) = {
   location: ALL
-  part : [{
-    name: "apply"
-    message : "Message"
-    card: ONE
-  },{
-    name: "to"
-    message : "Path"
-    card: ONE
-  }]
+  part : {
+    prod : { part : [
+      {
+        card: ONE
+        def : {
+          name: "apply"
+          message : "Message"
+        }
+      },{
+        card: ONE
+        def : {
+          name: "to"
+          message : "Path"
+        }
+      }
+    ] }
+  }
 };
-
 
 // @apply Card @to BuiltIn.Import.alias = { ZERO_OR_ONE }
 
