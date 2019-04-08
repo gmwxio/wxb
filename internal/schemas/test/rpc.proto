@@ -3,9 +3,12 @@ syntax = "proto3";
 package rpc;
 
 service X {
+  rpc Foz (A) returns (B){}
+  rpc Fozz (A) returns (B){};;;;
   rpc Fiz (A) returns (B){;};
-  rpc Foo (A) returns (B);
-  rpc Bar (A) returns (B){;;;;};
+  rpc Fizz (A) returns (B){;;};;
+  rpc Foo (A) returns (B);;
+  rpc Bar (A) returns (B){;;;;};;
 }
 message message {
 

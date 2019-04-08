@@ -6,6 +6,7 @@ import (
 
 	"strings"
 
+	"github.com/golang/glog"
 	antlr "github.com/wxio/goantlr"
 
 	"github.com/wxio/wxb/internal/ctree"
@@ -76,14 +77,22 @@ type ExtendNode struct {
 	MyToken
 	Name []string
 }
+type OneofNode struct {
+	MyToken
+	Name []string
+}
 type EmptyNode struct {
 	MyToken
 }
 type FieldNode struct {
 	MyToken
-	Repeated bool
 	Local    bool
-	Name     []string
+	TypeName []string
+	Name     string
+}
+type DatastructNode struct {
+	MyToken
+	Type string
 }
 type MapFieldNode struct {
 	MyToken
@@ -93,22 +102,25 @@ type MapFieldNode struct {
 }
 type EnumValueNode struct {
 	MyToken
-	Name string
+	Name  string
+	Index int32
 }
 
-func (e *ENode) String() string         { return "" }
-func (e *ErrorNode) String() string     { return "error expected:" + e.Expected + " got:" + e.Received }
-func (e *ImportNode) String() string    { return "import" }
-func (e *PackageNode) String() string   { return "package" }
-func (e *OptionNode) String() string    { return "option" }
-func (e *EmptyNode) String() string     { return ";" }
-func (e *FieldNode) String() string     { return "field" }
-func (e *MapFieldNode) String() string  { return "map" }
-func (e *MessageNode) String() string   { return "message" }
-func (e *EnumNode) String() string      { return "enum" }
-func (e *EnumValueNode) String() string { return "enumValue" }
-func (e *ServiceNode) String() string   { return "service" }
-func (e *ExtendNode) String() string    { return "extend" }
+func (e *ENode) String() string          { return "" }
+func (e *ErrorNode) String() string      { return "error expected:" + e.Expected + " got:" + e.Received }
+func (e *ImportNode) String() string     { return "import" }
+func (e *PackageNode) String() string    { return "package" }
+func (e *OptionNode) String() string     { return "option" }
+func (e *EmptyNode) String() string      { return ";" }
+func (e *FieldNode) String() string      { return "field" }
+func (e *MapFieldNode) String() string   { return "map" }
+func (e *MessageNode) String() string    { return "message" }
+func (e *EnumNode) String() string       { return "enum" }
+func (e *EnumValueNode) String() string  { return "enumValue" }
+func (e *ServiceNode) String() string    { return "service" }
+func (e *ExtendNode) String() string     { return "extend" }
+func (e *OneofNode) String() string      { return "oneof" }
+func (e *DatastructNode) String() string { return "datastructure" }
 
 type TronBuildListener struct {
 	*parser.BaseTronParserListener
@@ -132,7 +144,10 @@ func (tr *TronBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			n := &ErrorNode{MyToken: MyToken{Token: ctx.GetImp(), TType: parser.TronParserERROR}, Expected: "import", Received: ctx.GetImp().GetText()}
 			tr.Builder.Add(n)
 		} else {
-			n := &ImportNode{MyToken: MyToken{Token: ctx.GetImp(), TType: parser.TronParserImport}, Path: ctx.GetB().GetText()}
+			n := &ImportNode{
+				MyToken: MyToken{Token: ctx.GetImp(), TType: parser.TronParserImport},
+				Path:    strings.Trim(ctx.GetB().GetText(), `"`),
+			}
 			tr.Builder.Add(n)
 		}
 	case *parser.PackageStatementContext:
@@ -183,6 +198,11 @@ func (tr *TronBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			} //,, Name: ctx.GetA()}
 			tr.Builder.Add(n)
 			tr.Builder.Down()
+		// case "oneof":
+		// 	n := &OneofNode{
+		// 		MyToken: MyToken{Token: ctx.GetMese(), TType: parser.TronParserOneof},
+		// 	} //,, Name: ctx.GetA()}
+		// 	tr.Builder.Add(n)
 		default:
 			n := &ErrorNode{
 				MyToken:  MyToken{Token: ctx.GetMese(), TType: parser.TronParserERROR},
@@ -215,6 +235,11 @@ func (tr *TronBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 		case "extend":
 			n := &ExtendNode{
 				MyToken: MyToken{Token: ctx.GetMsg(), TType: parser.TronParserExtend},
+			} //,, Name: ctx.GetA()}
+			tr.Builder.Add(n)
+		case "oneof":
+			n := &OneofNode{
+				MyToken: MyToken{Token: ctx.GetMsg(), TType: parser.TronParserOneof},
 			} //,, Name: ctx.GetA()}
 			tr.Builder.Add(n)
 		default:
@@ -251,6 +276,12 @@ func (tr *TronBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			} //,, Name: ctx.GetA()}
 			tr.Builder.Add(n)
 			tr.Builder.Down()
+		case "oneof":
+			n := &OneofNode{
+				MyToken: MyToken{Token: ctx.GetMese(), TType: parser.TronParserOneof},
+			} //,, Name: ctx.GetA()}
+			tr.Builder.Add(n)
+			tr.Builder.Down()
 		default:
 			n := &ErrorNode{
 				MyToken:  MyToken{Token: ctx.GetMese(), TType: parser.TronParserERROR},
@@ -282,9 +313,14 @@ func (tr *TronBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 		}
 	case *parser.EmptyStmStmContext:
 	case *parser.EnumLeftContext:
+		v, err := strconv.Atoi(ctx.GetV().GetText())
+		if err != nil {
+			panic("")
+		}
 		n := &EnumValueNode{
 			MyToken: MyToken{Token: ctx.GetA(), TType: parser.TronParserEnumValue},
 			Name:    ctx.GetA().GetText(),
+			Index:   int32(v),
 		}
 		tr.Builder.Add(n)
 	case *parser.Opt_SingleContext:
@@ -314,45 +350,65 @@ func (tr *TronBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			tr.Builder.Add(n)
 		}
 	case *parser.SingleFull_RepLocalContext:
-		if ctx.GetA().GetText() == "repeated" {
-			n := &FieldNode{
-				MyToken:  MyToken{Token: ctx.GetA(), TType: parser.TronParserField},
-				Repeated: true,
-				Local:    true,
-			}
-			name := make([]string, len(ctx.GetB()))
-			for i, tkb := range ctx.GetB() {
-				name[i] = tkb.GetText()
-			}
-			n.Name = name
-			tr.Builder.Add(n)
-		} else {
-			n := &FieldNode{
-				MyToken: MyToken{Token: ctx.GetA(), TType: parser.TronParserField},
-			} //,, Name: ctx.GetA()}
-			name := make([]string, len(ctx.GetB())+1)
-			name[0] = ctx.GetA().GetText()
-			for i, tkb := range ctx.GetB() {
-				name[i+1] = tkb.GetText()
-			}
-			n.Name = name
-			tr.Builder.Add(n)
+		n := &FieldNode{
+			MyToken: MyToken{Token: ctx.GetB()[0], TType: parser.TronParserField},
+		} //,, Name: ctx.GetA()}
+		tname := make([]string, len(ctx.GetB()))
+		for i, tkb := range ctx.GetB() {
+			tname[i] = tkb.GetText()
 		}
+		n.TypeName = tname
+		n.Name = ctx.GetC().GetText()
+		tr.Builder.Add(n)
 	case *parser.SingleLocalContext:
 		// fmt.Printf("\n%s>>%T %v", tr.indent, ctx, "field local")
 	case *parser.RepeatedContext:
+		tname := make([]string, len(ctx.GetB()))
+		for i, tks := range ctx.GetB() {
+			tname[i] = tks.GetText()
+		}
 		n := &FieldNode{
-			MyToken:  MyToken{Token: ctx.GetA(), TType: parser.TronParserField},
-			Repeated: true,
+			MyToken:  MyToken{Token: ctx.GetB()[0], TType: parser.TronParserField},
+			TypeName: tname,
+			Name:     ctx.GetC().GetText(),
 		} //,, Name: ctx.GetA()}
 		tr.Builder.Add(n)
+		ds := &DatastructNode{
+			MyToken: MyToken{Token: ctx.GetA(), TType: parser.TronParserDatastructure},
+			Type:    ctx.GetA().GetText(),
+		}
+		tr.Builder.Add(ds)
 		// fmt.Printf("\n%s>>%T %v", tr.indent, ctx, "repeated field")
 	case *parser.MapLeftContext:
 		n := &MapFieldNode{
 			MyToken: MyToken{Token: ctx.GetMpt(), TType: parser.TronParserMap},
 		} //,, Name: ctx.GetA()}
 		tr.Builder.Add(n)
-		// fmt.Printf("\n%s>>%T %v", tr.indent, ctx, "map")
+	// fmt.Printf("\n%s>>%T %v", tr.indent, ctx, "map")
+	case *parser.MessageTypeContext:
+	case *parser.RpcDelimContext:
+	case *parser.SyntaxContext:
+	case *parser.ConstantContext:
+	case *parser.ConstantObjContext:
+	case *parser.FieldOptionContext:
+	case *parser.FieldOptionsContext:
+		n := &OptionNode{
+			MyToken: MyToken{Token: ctx.GetStart(), TType: parser.TronParserOption},
+		} //,, Name: ctx.GetA()}
+		tr.Builder.Add(n)
+		tr.Builder.Down()
+	case *parser.MsgSvcExtContext:
+	case *parser.OptionNameContext:
+	case *parser.PronSTRContext:
+	case *parser.RangeeContext:
+	case *parser.RangesContext:
+	case *parser.Right_assocContext:
+	case *parser.TronObjContext:
+	case *parser.PronARRAYContext:
+	// case *parser.ConstantObjElemContext:
+	case *parser.TronObjsContext:
+	default:
+		glog.Warningf("Unhandled in EnterEveryRule case %T:\n", ctx)
 	}
 	// fmt.Printf("\n%s>>%T ", tr.indent, ctx)
 	tr.indent += "  "
@@ -399,6 +455,27 @@ func (tr *TronBuildListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 	case *parser.SingleLocalContext:
 	case *parser.RepeatedContext:
 	case *parser.MapLeftContext:
+	case *parser.MessageTypeContext:
+	case *parser.RpcDelimContext:
+	case *parser.SyntaxContext:
+	case *parser.ConstantContext:
+	case *parser.ConstantObjContext:
+	case *parser.FieldOptionContext:
+	case *parser.FieldOptionsContext:
+		tr.Builder.Up()
+	case *parser.MsgSvcExtContext:
+	case *parser.OptionNameContext:
+	case *parser.PronSTRContext:
+	case *parser.RangeeContext:
+	case *parser.RangesContext:
+	case *parser.Right_assocContext:
+	case *parser.TronObjContext:
+	case *parser.PronARRAYContext:
+	case *parser.TronObjsContext:
+	// case *parser.ConstantObjElemContext:
+	// 	fmt.Printf("%#+v %v\n", ctx.GetText(), ctx.GetStart())
+	default:
+		glog.Warningf("Unhandled in ExitEveryRule case %T:\n", ctx)
 	}
 }
 

@@ -8,31 +8,36 @@ proto
     : DOWN ROOT syntax? (DOWN tld* UP)? UP EOF
 ;
 syntax
-    : SYNTAX
+    : SYNTAX                        #SyntaxNode
 ;
 tld
-    : Package
-    | Import
-    | Message (DOWN msgBody* UP)?
-    | Enum (DOWN enumBody* UP)?
-    | Service (DOWN svcBody* UP)?
-    | Extend (DOWN extendBody* UP)?
+    : Package                       #PkgNode
+    | Import                        #ImportNode
+    | Message (DOWN msgBody* UP)?   #MsgNode
+    | Enum (DOWN enumBody* UP)?     #EnumNode
+    | Service (DOWN svcBody* UP)?   #SvcNode
+    | Extend (DOWN extendBody* UP)? #ExtNode
 ;
 msgBody
-    : Option
-    | Field
-    | Message (DOWN msgBody* UP)?
-    | Enum (DOWN enumBody* UP)?
+    : Option                        #MsgOptNode
+    | Field Datastructure? Option?  #MsgFldNode
+    | Message (DOWN msgBody* UP)?   #MsgMsgNode
+    | Enum (DOWN enumBody* UP)?     #MsgEnumNode
+    | Oneof (DOWN oneofBody* UP)?   #MsgOneofNode
+;
+oneofBody
+    : Option                        #OneofOptNode
+    | Field Option?                 #OneofFldNode
 ;
 enumBody
-    : Option
-    | EnumValue EnumNum?
+    : Option                        #EnumOptNode
+    | EnumValue EnumNum? Option?    #EnumValNode
 ;
 svcBody
-    : Option
-    | Rpc
+    : Option                        #SvcOptNode
+    | Rpc                           #SvcRpcNode
 ;
 extendBody
-    : Option
-    | Field
+    : Option                        #ExtOptNode
+    | Field Datastructure? Option?  #ExtFldNode
 ;

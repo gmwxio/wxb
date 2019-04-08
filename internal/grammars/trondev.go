@@ -3,7 +3,11 @@ package tron
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 
+	"github.com/gogo/protobuf/proto"
+	"github.com/golang/glog"
+	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/jpillora/opts"
 	antlr "github.com/wxio/goantlr"
 
@@ -18,15 +22,30 @@ type exerciseTron struct {
 	File string `type:"arg" help:"proto file" predict:"files"`
 }
 
-func Register(opts opts.Builder) opts.Builder {
+type printDS struct {
+}
+
+func (obj *printDS) Run() error {
+	// reader := bufio.NewReader(os.Stdin)
+	b, _ := ioutil.ReadAll(os.Stdin)
+	// reader.ReadAll()
+	fds := descriptor.FileDescriptorSet{}
+	proto.Unmarshal(b, &fds)
+	fmt.Printf("%v", fds)
+	return nil
+}
+
+func Register(parent opts.Opts) opts.Opts {
 	rt := rootTron{}
-	rto := opts.SubCmd("tron", &rt)
 	et := exerciseTron{}
-	eto := rto.SubCmd("exec", &et)
-	_ = eto
 	wt := walkTron{}
-	wto := rto.SubCmd("walk", &wt)
-	_ = wto
+	pbt := walkTronPB{}
+	rto := parent.AddCommand(opts.NewNamed(&rt, "tron").
+		AddCommand(opts.NewNamed(&et, "exec")).
+		AddCommand(opts.NewNamed(&wt, "walk")).
+		AddCommand(opts.NewNamed(&printDS{}, "ds")).
+		AddCommand(opts.NewNamed(&pbt, "buildpb")),
+	)
 	return rto
 }
 
@@ -40,7 +59,8 @@ func (et *exerciseTron) Run() error {
 	}
 	tr, _, _, err := BuildTronAST(string(by))
 	if err != nil {
-		return err
+		glog.Warningf("BuildTronAST err:%v", err)
+		return nil
 	}
 	fmt.Printf("%v\n", tr)
 	// return nil

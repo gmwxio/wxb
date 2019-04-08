@@ -10,42 +10,126 @@ type TronWalkerListener interface {
 	// EnterProto is called when entering the proto production.
 	EnterProto(c *ProtoContext)
 
-	// EnterSyntax is called when entering the syntax production.
-	EnterSyntax(c *SyntaxContext)
+	// EnterSyntaxNode is called when entering the SyntaxNode production.
+	EnterSyntaxNode(c *SyntaxNodeContext)
 
-	// EnterTld is called when entering the tld production.
-	EnterTld(c *TldContext)
+	// EnterPkgNode is called when entering the PkgNode production.
+	EnterPkgNode(c *PkgNodeContext)
 
-	// EnterMsgBody is called when entering the msgBody production.
-	EnterMsgBody(c *MsgBodyContext)
+	// EnterImportNode is called when entering the ImportNode production.
+	EnterImportNode(c *ImportNodeContext)
 
-	// EnterEnumBody is called when entering the enumBody production.
-	EnterEnumBody(c *EnumBodyContext)
+	// EnterMsgNode is called when entering the MsgNode production.
+	EnterMsgNode(c *MsgNodeContext)
 
-	// EnterSvcBody is called when entering the svcBody production.
-	EnterSvcBody(c *SvcBodyContext)
+	// EnterEnumNode is called when entering the EnumNode production.
+	EnterEnumNode(c *EnumNodeContext)
 
-	// EnterExtendBody is called when entering the extendBody production.
-	EnterExtendBody(c *ExtendBodyContext)
+	// EnterSvcNode is called when entering the SvcNode production.
+	EnterSvcNode(c *SvcNodeContext)
+
+	// EnterExtNode is called when entering the ExtNode production.
+	EnterExtNode(c *ExtNodeContext)
+
+	// EnterMsgOptNode is called when entering the MsgOptNode production.
+	EnterMsgOptNode(c *MsgOptNodeContext)
+
+	// EnterMsgFldNode is called when entering the MsgFldNode production.
+	EnterMsgFldNode(c *MsgFldNodeContext)
+
+	// EnterMsgMsgNode is called when entering the MsgMsgNode production.
+	EnterMsgMsgNode(c *MsgMsgNodeContext)
+
+	// EnterMsgEnumNode is called when entering the MsgEnumNode production.
+	EnterMsgEnumNode(c *MsgEnumNodeContext)
+
+	// EnterMsgOneofNode is called when entering the MsgOneofNode production.
+	EnterMsgOneofNode(c *MsgOneofNodeContext)
+
+	// EnterOneofOptNode is called when entering the OneofOptNode production.
+	EnterOneofOptNode(c *OneofOptNodeContext)
+
+	// EnterOneofFldNode is called when entering the OneofFldNode production.
+	EnterOneofFldNode(c *OneofFldNodeContext)
+
+	// EnterEnumOptNode is called when entering the EnumOptNode production.
+	EnterEnumOptNode(c *EnumOptNodeContext)
+
+	// EnterEnumValNode is called when entering the EnumValNode production.
+	EnterEnumValNode(c *EnumValNodeContext)
+
+	// EnterSvcOptNode is called when entering the SvcOptNode production.
+	EnterSvcOptNode(c *SvcOptNodeContext)
+
+	// EnterSvcRpcNode is called when entering the SvcRpcNode production.
+	EnterSvcRpcNode(c *SvcRpcNodeContext)
+
+	// EnterExtOptNode is called when entering the ExtOptNode production.
+	EnterExtOptNode(c *ExtOptNodeContext)
+
+	// EnterExtFldNode is called when entering the ExtFldNode production.
+	EnterExtFldNode(c *ExtFldNodeContext)
 
 	// ExitProto is called when exiting the proto production.
 	ExitProto(c *ProtoContext)
 
-	// ExitSyntax is called when exiting the syntax production.
-	ExitSyntax(c *SyntaxContext)
+	// ExitSyntaxNode is called when exiting the SyntaxNode production.
+	ExitSyntaxNode(c *SyntaxNodeContext)
 
-	// ExitTld is called when exiting the tld production.
-	ExitTld(c *TldContext)
+	// ExitPkgNode is called when exiting the PkgNode production.
+	ExitPkgNode(c *PkgNodeContext)
 
-	// ExitMsgBody is called when exiting the msgBody production.
-	ExitMsgBody(c *MsgBodyContext)
+	// ExitImportNode is called when exiting the ImportNode production.
+	ExitImportNode(c *ImportNodeContext)
 
-	// ExitEnumBody is called when exiting the enumBody production.
-	ExitEnumBody(c *EnumBodyContext)
+	// ExitMsgNode is called when exiting the MsgNode production.
+	ExitMsgNode(c *MsgNodeContext)
 
-	// ExitSvcBody is called when exiting the svcBody production.
-	ExitSvcBody(c *SvcBodyContext)
+	// ExitEnumNode is called when exiting the EnumNode production.
+	ExitEnumNode(c *EnumNodeContext)
 
-	// ExitExtendBody is called when exiting the extendBody production.
-	ExitExtendBody(c *ExtendBodyContext)
+	// ExitSvcNode is called when exiting the SvcNode production.
+	ExitSvcNode(c *SvcNodeContext)
+
+	// ExitExtNode is called when exiting the ExtNode production.
+	ExitExtNode(c *ExtNodeContext)
+
+	// ExitMsgOptNode is called when exiting the MsgOptNode production.
+	ExitMsgOptNode(c *MsgOptNodeContext)
+
+	// ExitMsgFldNode is called when exiting the MsgFldNode production.
+	ExitMsgFldNode(c *MsgFldNodeContext)
+
+	// ExitMsgMsgNode is called when exiting the MsgMsgNode production.
+	ExitMsgMsgNode(c *MsgMsgNodeContext)
+
+	// ExitMsgEnumNode is called when exiting the MsgEnumNode production.
+	ExitMsgEnumNode(c *MsgEnumNodeContext)
+
+	// ExitMsgOneofNode is called when exiting the MsgOneofNode production.
+	ExitMsgOneofNode(c *MsgOneofNodeContext)
+
+	// ExitOneofOptNode is called when exiting the OneofOptNode production.
+	ExitOneofOptNode(c *OneofOptNodeContext)
+
+	// ExitOneofFldNode is called when exiting the OneofFldNode production.
+	ExitOneofFldNode(c *OneofFldNodeContext)
+
+	// ExitEnumOptNode is called when exiting the EnumOptNode production.
+	ExitEnumOptNode(c *EnumOptNodeContext)
+
+	// ExitEnumValNode is called when exiting the EnumValNode production.
+	ExitEnumValNode(c *EnumValNodeContext)
+
+	// ExitSvcOptNode is called when exiting the SvcOptNode production.
+	ExitSvcOptNode(c *SvcOptNodeContext)
+
+	// ExitSvcRpcNode is called when exiting the SvcRpcNode production.
+	ExitSvcRpcNode(c *SvcRpcNodeContext)
+
+	// ExitExtOptNode is called when exiting the ExtOptNode production.
+	ExitExtOptNode(c *ExtOptNodeContext)
+
+	// ExitExtFldNode is called when exiting the ExtFldNode production.
+	ExitExtFldNode(c *ExtFldNodeContext)
 }

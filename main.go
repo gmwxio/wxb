@@ -20,8 +20,9 @@ type root struct {
 
 func main() {
 	r := root{}
-	ro := opts.New(&r).
-		Complete("wxb").
+	ro := opts.New(&r).Name("wxb").
+		AddGlobalFlagSet().
+		Complete().
 		Version(Version)
 
 	wxb.Register(ro)

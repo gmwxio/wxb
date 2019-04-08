@@ -17,6 +17,7 @@ extend google.protobuf.EnumOptions {
 }
 extend google.protobuf.EnumValueOptions {
   uint32 my_enum_value_option = 50004;
+  uint32 my_enum_value_option2 = 50005;
 }
 extend google.protobuf.ServiceOptions {
   MyEnum my_service_option = 50005;
@@ -37,7 +38,7 @@ message MyMessage {
 enum MyEnum {
   option (my_enum_option) = true;
 
-  FOO = 0 [(my_enum_value_option) = 321];
+  FOO = 0 [(my_enum_value_option) = 321, (my_enum_value_option2) = 321];
   BAR = 1;
 }
 

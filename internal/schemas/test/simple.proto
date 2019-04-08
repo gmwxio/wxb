@@ -1,17 +1,23 @@
 syntax = "proto3";
 
 package pkg;
+option go_package = "github.com/wxio/wxb/internal/schemas/test";
 
 import "google/protobuf/descriptor.proto";
 
 message A {
+  repeated B b = 1;
+  B c = 2;
+  B d = 3;
+  repeated repeated e = 4;
   message B {
     enum C {
       A = 0;
     }
   }
+  message repeated {}
 }
 
 enum C {
-  A = 0;
+  Aish = 0;
 }

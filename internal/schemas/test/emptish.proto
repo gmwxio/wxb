@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package package.name;
+
 import "google/protobuf/descriptor.proto";
 import "google/protobuf/struct.proto";
 
@@ -12,9 +14,18 @@ extend google.protobuf.FileOptions {
 extend google.protobuf.FieldOptions {
   Card card  = 50000;
 }
+option (raise) = {
+  location: FIELD
+  part : {
+    def : {
+      message : "Card"
+      name : "card"
+    }
+  }
+};
 
-option (tron) = { 
-  syntax : "tron" 
+option (tron) = {
+  syntax : "tron"
   major_version: 1
   minor_version: 0
   module_name : "xzy"
@@ -39,6 +50,7 @@ message BuiltIn {
     string alias = 1 [(card) = ZERO_OR_ONE];
     string path = 2 [(card) = ONE];
   }
+  // @raise import:Import ????????
 }
 message Raise {
   Location location = 1;
@@ -68,7 +80,7 @@ option (raise) = {
   part : {
     def : {
       message : "BuiltIn"
-      name : "tron"    
+      name : "tron"
     }
   }
 };
@@ -77,7 +89,7 @@ option (raise) = {
   part : {
     def : {
       message : "BuiltIn"
-      name : "tron"    
+      name : "tron"
     }
   }
 };
@@ -85,6 +97,7 @@ option (raise) = {
 enum Location {
   ALL = 0;
   FILE = 1;
+  FIELD = 2;
   //...
 }
 enum Card {
@@ -131,7 +144,7 @@ option (raise) = {
     ] }
   }
 };
-// @raise Apply named apply ...
+// @raise apply:Apply to:Thing ???
 
 option (apply) = {
   message : "Card"

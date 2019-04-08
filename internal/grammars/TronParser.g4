@@ -3,7 +3,7 @@ parser grammar TronParser;
 tokens {
     DOWN, UP, ROOT, ERROR,
     /* SYNTAX,*/ Import, Package, Option, Extend, Message, Enum, Service, 
-    Oneof, Map, Field, Repeated, Reserved, Rpc, Keytype, 
+    Oneof, Map, Field, Datastructure, Reserved, Rpc, Keytype, 
     EnumValue, EnumNum,
     INF, NAN, MAX, WEAK, PUBLIC, 
     Returns, Stream, To,
@@ -41,13 +41,13 @@ msg_enum_svc_ext
     | SEMI      #EmptyStmStm
 ;
 associaton
-    : left_assoc EQ right_assoc SEMI
+    : a=ID EQ v=INT fieldOptions? SEMI   #EnumLeft
+    | left_assoc EQ right_assoc SEMI   #MsgSvcExt
 ;
 left_assoc
-    : a=ID    #EnumLeft
-    | a=ID b=ID     #Opt_Single                 //option or single
+    : a=ID b=ID     #Opt_Single                 //option or single
     | a=ID LPAREN ID (DOT ID)* RPAREN (DOT ID)*   #Opt //option
-    | a=ID DOT b+=ID DOT (b+=ID DOT)* b+=ID c=ID     #SingleFull_RepLocal         // single or repeated field
+    | b+=ID DOT b+=ID DOT (b+=ID DOT)* b+=ID c=ID     #SingleFull_RepLocal         // single or repeated field
     | DOT (a+=ID DOT)* a+=ID ID   #SingleLocal                          // single field
     | a=ID b+=ID (DOT (b+=ID DOT)+ b+=ID)? c=ID      #Repeated            // repeated
     | mpt=ID LCHEVR kt=ID COMMA (v+=ID DOT)* v+=ID RCHEVR c=ID    #MapLeft
@@ -57,17 +57,24 @@ right_assoc
     : constant //option
     | INT fieldOptions?    // single field
 ;
-
-fullname : ID (DOT ID)*;
-
+constant
+  : ID (DOT ID)+
+  | id=ID     // include bool_lit, nan, inf, max
+  | (DASH | PLUS)? INT
+  | (DASH | PLUS)? FLT
+  | STR
+  | constantObj
+;
+fullname
+    : ID (DOT ID)*
+;
 messageType
     : LPAREN (stream=ID /*{$stream.text == "stream"}?*/)? DOT? (ID DOT)* ID RPAREN
 ;
 rpcDelim
-    : LCUR (
-          opt=ID optionName EQ constant SEMI 
-        | SEMI )* RCUR // emptyStatement
-    | SEMI
+    : LCUR (opt=ID optionName EQ constant SEMI )* RCUR SEMI* // emptyStatement
+    | LCUR SEMI* RCUR SEMI* // emptyStatement
+    | SEMI+
 ;
 ranges
     : rangee (COMMA rangee)*
@@ -84,20 +91,16 @@ fieldOption
     : optionName EQ constant
 ;
 optionName
-        : (ID | LPAREN ID (DOT ID)* RPAREN) (DOT ID)*
-;
-constant
-  : ID (DOT ID)+
-  | id=ID     // include bool_lit, nan, inf, max
-  | (DASH | PLUS)? INT
-  | (DASH | PLUS)? FLT
-  | STR
-  | constantObj
+    : ID (DOT ID)*
+    | LPAREN ID (DOT ID)* RPAREN (DOT ID)*
 ;
 constantObj
-    : LCUR constantObjElem ((COMMA|SEMI)? constantObjElem)* RCUR 
+    : LCUR constantObjElem RCUR #TronObj
+    | LCUR constantObjElem ((COMMA|SEMI)? constantObjElem)+ RCUR #TronObjs
 ;
 constantObjElem
     : id=ID COLON constant    #PronSTR 
-    | id=ID COLON constantObj        #PronOBJ
+    // | id=ID COLON constantObj        #PronOBJ
+    | id=ID COLON LSB (constant COMMA?)* RSB #PronARRAY
+    | id=ID COLON LSB (constantObj COMMA?)* RSB #PronARRAYOFOBJ
 ;

@@ -26,38 +26,122 @@ func (s *BaseTronWalkerListener) EnterProto(ctx *ProtoContext) {}
 // ExitProto is called when production proto is exited.
 func (s *BaseTronWalkerListener) ExitProto(ctx *ProtoContext) {}
 
-// EnterSyntax is called when production syntax is entered.
-func (s *BaseTronWalkerListener) EnterSyntax(ctx *SyntaxContext) {}
+// EnterSyntaxNode is called when production SyntaxNode is entered.
+func (s *BaseTronWalkerListener) EnterSyntaxNode(ctx *SyntaxNodeContext) {}
 
-// ExitSyntax is called when production syntax is exited.
-func (s *BaseTronWalkerListener) ExitSyntax(ctx *SyntaxContext) {}
+// ExitSyntaxNode is called when production SyntaxNode is exited.
+func (s *BaseTronWalkerListener) ExitSyntaxNode(ctx *SyntaxNodeContext) {}
 
-// EnterTld is called when production tld is entered.
-func (s *BaseTronWalkerListener) EnterTld(ctx *TldContext) {}
+// EnterPkgNode is called when production PkgNode is entered.
+func (s *BaseTronWalkerListener) EnterPkgNode(ctx *PkgNodeContext) {}
 
-// ExitTld is called when production tld is exited.
-func (s *BaseTronWalkerListener) ExitTld(ctx *TldContext) {}
+// ExitPkgNode is called when production PkgNode is exited.
+func (s *BaseTronWalkerListener) ExitPkgNode(ctx *PkgNodeContext) {}
 
-// EnterMsgBody is called when production msgBody is entered.
-func (s *BaseTronWalkerListener) EnterMsgBody(ctx *MsgBodyContext) {}
+// EnterImportNode is called when production ImportNode is entered.
+func (s *BaseTronWalkerListener) EnterImportNode(ctx *ImportNodeContext) {}
 
-// ExitMsgBody is called when production msgBody is exited.
-func (s *BaseTronWalkerListener) ExitMsgBody(ctx *MsgBodyContext) {}
+// ExitImportNode is called when production ImportNode is exited.
+func (s *BaseTronWalkerListener) ExitImportNode(ctx *ImportNodeContext) {}
 
-// EnterEnumBody is called when production enumBody is entered.
-func (s *BaseTronWalkerListener) EnterEnumBody(ctx *EnumBodyContext) {}
+// EnterMsgNode is called when production MsgNode is entered.
+func (s *BaseTronWalkerListener) EnterMsgNode(ctx *MsgNodeContext) {}
 
-// ExitEnumBody is called when production enumBody is exited.
-func (s *BaseTronWalkerListener) ExitEnumBody(ctx *EnumBodyContext) {}
+// ExitMsgNode is called when production MsgNode is exited.
+func (s *BaseTronWalkerListener) ExitMsgNode(ctx *MsgNodeContext) {}
 
-// EnterSvcBody is called when production svcBody is entered.
-func (s *BaseTronWalkerListener) EnterSvcBody(ctx *SvcBodyContext) {}
+// EnterEnumNode is called when production EnumNode is entered.
+func (s *BaseTronWalkerListener) EnterEnumNode(ctx *EnumNodeContext) {}
 
-// ExitSvcBody is called when production svcBody is exited.
-func (s *BaseTronWalkerListener) ExitSvcBody(ctx *SvcBodyContext) {}
+// ExitEnumNode is called when production EnumNode is exited.
+func (s *BaseTronWalkerListener) ExitEnumNode(ctx *EnumNodeContext) {}
 
-// EnterExtendBody is called when production extendBody is entered.
-func (s *BaseTronWalkerListener) EnterExtendBody(ctx *ExtendBodyContext) {}
+// EnterSvcNode is called when production SvcNode is entered.
+func (s *BaseTronWalkerListener) EnterSvcNode(ctx *SvcNodeContext) {}
 
-// ExitExtendBody is called when production extendBody is exited.
-func (s *BaseTronWalkerListener) ExitExtendBody(ctx *ExtendBodyContext) {}
+// ExitSvcNode is called when production SvcNode is exited.
+func (s *BaseTronWalkerListener) ExitSvcNode(ctx *SvcNodeContext) {}
+
+// EnterExtNode is called when production ExtNode is entered.
+func (s *BaseTronWalkerListener) EnterExtNode(ctx *ExtNodeContext) {}
+
+// ExitExtNode is called when production ExtNode is exited.
+func (s *BaseTronWalkerListener) ExitExtNode(ctx *ExtNodeContext) {}
+
+// EnterMsgOptNode is called when production MsgOptNode is entered.
+func (s *BaseTronWalkerListener) EnterMsgOptNode(ctx *MsgOptNodeContext) {}
+
+// ExitMsgOptNode is called when production MsgOptNode is exited.
+func (s *BaseTronWalkerListener) ExitMsgOptNode(ctx *MsgOptNodeContext) {}
+
+// EnterMsgFldNode is called when production MsgFldNode is entered.
+func (s *BaseTronWalkerListener) EnterMsgFldNode(ctx *MsgFldNodeContext) {}
+
+// ExitMsgFldNode is called when production MsgFldNode is exited.
+func (s *BaseTronWalkerListener) ExitMsgFldNode(ctx *MsgFldNodeContext) {}
+
+// EnterMsgMsgNode is called when production MsgMsgNode is entered.
+func (s *BaseTronWalkerListener) EnterMsgMsgNode(ctx *MsgMsgNodeContext) {}
+
+// ExitMsgMsgNode is called when production MsgMsgNode is exited.
+func (s *BaseTronWalkerListener) ExitMsgMsgNode(ctx *MsgMsgNodeContext) {}
+
+// EnterMsgEnumNode is called when production MsgEnumNode is entered.
+func (s *BaseTronWalkerListener) EnterMsgEnumNode(ctx *MsgEnumNodeContext) {}
+
+// ExitMsgEnumNode is called when production MsgEnumNode is exited.
+func (s *BaseTronWalkerListener) ExitMsgEnumNode(ctx *MsgEnumNodeContext) {}
+
+// EnterMsgOneofNode is called when production MsgOneofNode is entered.
+func (s *BaseTronWalkerListener) EnterMsgOneofNode(ctx *MsgOneofNodeContext) {}
+
+// ExitMsgOneofNode is called when production MsgOneofNode is exited.
+func (s *BaseTronWalkerListener) ExitMsgOneofNode(ctx *MsgOneofNodeContext) {}
+
+// EnterOneofOptNode is called when production OneofOptNode is entered.
+func (s *BaseTronWalkerListener) EnterOneofOptNode(ctx *OneofOptNodeContext) {}
+
+// ExitOneofOptNode is called when production OneofOptNode is exited.
+func (s *BaseTronWalkerListener) ExitOneofOptNode(ctx *OneofOptNodeContext) {}
+
+// EnterOneofFldNode is called when production OneofFldNode is entered.
+func (s *BaseTronWalkerListener) EnterOneofFldNode(ctx *OneofFldNodeContext) {}
+
+// ExitOneofFldNode is called when production OneofFldNode is exited.
+func (s *BaseTronWalkerListener) ExitOneofFldNode(ctx *OneofFldNodeContext) {}
+
+// EnterEnumOptNode is called when production EnumOptNode is entered.
+func (s *BaseTronWalkerListener) EnterEnumOptNode(ctx *EnumOptNodeContext) {}
+
+// ExitEnumOptNode is called when production EnumOptNode is exited.
+func (s *BaseTronWalkerListener) ExitEnumOptNode(ctx *EnumOptNodeContext) {}
+
+// EnterEnumValNode is called when production EnumValNode is entered.
+func (s *BaseTronWalkerListener) EnterEnumValNode(ctx *EnumValNodeContext) {}
+
+// ExitEnumValNode is called when production EnumValNode is exited.
+func (s *BaseTronWalkerListener) ExitEnumValNode(ctx *EnumValNodeContext) {}
+
+// EnterSvcOptNode is called when production SvcOptNode is entered.
+func (s *BaseTronWalkerListener) EnterSvcOptNode(ctx *SvcOptNodeContext) {}
+
+// ExitSvcOptNode is called when production SvcOptNode is exited.
+func (s *BaseTronWalkerListener) ExitSvcOptNode(ctx *SvcOptNodeContext) {}
+
+// EnterSvcRpcNode is called when production SvcRpcNode is entered.
+func (s *BaseTronWalkerListener) EnterSvcRpcNode(ctx *SvcRpcNodeContext) {}
+
+// ExitSvcRpcNode is called when production SvcRpcNode is exited.
+func (s *BaseTronWalkerListener) ExitSvcRpcNode(ctx *SvcRpcNodeContext) {}
+
+// EnterExtOptNode is called when production ExtOptNode is entered.
+func (s *BaseTronWalkerListener) EnterExtOptNode(ctx *ExtOptNodeContext) {}
+
+// ExitExtOptNode is called when production ExtOptNode is exited.
+func (s *BaseTronWalkerListener) ExitExtOptNode(ctx *ExtOptNodeContext) {}
+
+// EnterExtFldNode is called when production ExtFldNode is entered.
+func (s *BaseTronWalkerListener) EnterExtFldNode(ctx *ExtFldNodeContext) {}
+
+// ExitExtFldNode is called when production ExtFldNode is exited.
+func (s *BaseTronWalkerListener) ExitExtFldNode(ctx *ExtFldNodeContext) {}

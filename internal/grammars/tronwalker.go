@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"strings"
 
+	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	antlr "github.com/wxio/goantlr"
 	"github.com/wxio/wxb/internal/ctree"
 	"github.com/wxio/wxb/internal/grammars/walker"
@@ -47,7 +48,7 @@ func (et *walkTron) Run() error {
 			break
 		}
 		fmt.Printf("%d ", to.GetTokenType())
-		fmt.Printf("%d : %v\n", i, p.BaseRecognizer.SymbolicNames[to.GetTokenType()])
+		fmt.Printf("%d : %v %v\n", i, p.BaseRecognizer.SymbolicNames[to.GetTokenType()], to.GetText())
 		i++
 	}
 	// return nil
@@ -68,6 +69,7 @@ func (et *walkTron) Run() error {
 type WalkListener struct {
 	*walker.BaseTronWalkerListener
 	//
+	protoDS *descriptor.FileDescriptorSet
 	indent  string
 	debug   bool
 	warning string
@@ -80,17 +82,18 @@ func (tr *WalkListener) EnterTld(ctx *walker.TldContext) {
 }
 
 func (tr *WalkListener) VisitTerminal(node antlr.TerminalNode) {
-	fmt.Printf("%v", node)
+	fmt.Printf("'%T'", node.GetPayload())
 }
 func (tr *WalkListener) VisitErrorNode(node antlr.ErrorNode) {
 	tid := node.GetSymbol().GetTokenType()
-	fmt.Printf("\n2.ERROR %d", tid)
+	fmt.Printf("\n2.ERROR %d %+v", tid, node)
 }
 func (tr *WalkListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
-	fmt.Printf("\n%s>>%T kids:%d ", tr.indent, ctx, ctx.GetChildCount())
+	fmt.Printf("\n%s>>%T ", tr.indent, ctx)
 	tr.indent += "  "
 }
 func (tr *WalkListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
+	// fmt.Printf("\n")
 	tr.indent = tr.indent[2:]
 	// fmt.Printf("\n%s<<%T", tr.indent, ctx)
 }
