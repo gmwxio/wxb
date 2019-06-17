@@ -16,12 +16,16 @@ github.com/hashicorp/go-multierror v1.0.0 h1:iVjPR7a6H0tWELX5NxNe7bYopibicUzc7uP
 github.com/hashicorp/go-multierror v1.0.0/go.mod h1:dHtQlpGsu+cZNNAkkCN/P3hoUDHhCYQXV3UM06sGGrk=
 github.com/jpillora/opts v0.0.0-20160806153215-3f7962811f23 h1:Oba9AG0bpHgp5FZFG+XfiNDlFX6tLO0AWCMe/YJR0GM=
 github.com/jpillora/opts v0.0.0-20160806153215-3f7962811f23/go.mod h1:8/sC6XyMKHq/ybiU9Oqc1i0tDjFA/6otW7+Ha/qtnfo=
+github.com/jpillora/opts v1.0.6-0.20190605124758-00ce6796b18f h1:vBNqZ3rIt4MYwAOImF4a8Q48KN0iB1JYbpDWroiWaC4=
+github.com/jpillora/opts v1.0.6-0.20190605124758-00ce6796b18f/go.mod h1:7p7X/vlpKZmtaDFYKs956EujFqA6aCrOkcCaS6UBcR4=
 github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0 h1:iQTw/8FWTuc7uiaSepXwyf3o52HaUYcV+Tu66S3F5GA=
 github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0/go.mod h1:1NbS8ALrpOvjt0rHPNLyCIeMtbizbir8U//inJ+zuB8=
 github.com/kisielk/errcheck v1.1.0/go.mod h1:EZBBE59ingxPouuu3KfxchcWSUPOHkagtvWXihfKN4Q=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/posener/complete v1.2.1 h1:LrvDIY//XNo65Lq84G/akBuMGlawHvGBABv8f/ZN6DI=
 github.com/posener/complete v1.2.1/go.mod h1:6gapUrK/U1TAN7ciCoNRIdVC5sbdBTUh1DKN0g6uH7E=
+github.com/posener/complete v1.2.2-0.20190308074557-af07aa5181b3 h1:GqpA1/5oN1NgsxoSA4RH0YWTaqvUlQNeOpHXD/JRbOQ=
+github.com/posener/complete v1.2.2-0.20190308074557-af07aa5181b3/go.mod h1:6gapUrK/U1TAN7ciCoNRIdVC5sbdBTUh1DKN0g6uH7E=
 github.com/wxio/antlr4-go v4.7.1+incompatible h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 github.com/wxio/antlr4-go v4.7.1+incompatible/go.mod h1:e88dYDL/zYzk99PnTsQPFKITBukA+ZgwYrdxUYTTvJE=
 github.com/wxio/antlr4-go-examples v0.0.0-20170119052849-5e8721d5b799 h1:egKd2pEZ1c7V9ihzKnAWmr6XjxBiJIvO7Nv+MODY4EA=

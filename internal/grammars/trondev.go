@@ -40,11 +40,11 @@ func Register(parent opts.Opts) opts.Opts {
 	et := exerciseTron{}
 	wt := walkTron{}
 	pbt := walkTronPB{}
-	rto := parent.AddCommand(opts.NewNamed(&rt, "tron").
-		AddCommand(opts.NewNamed(&et, "exec")).
-		AddCommand(opts.NewNamed(&wt, "walk")).
-		AddCommand(opts.NewNamed(&printDS{}, "ds")).
-		AddCommand(opts.NewNamed(&pbt, "buildpb")),
+	rto := parent.AddCommand(opts.New(&rt).Name("tron").
+		AddCommand(opts.New(&et).Name("exec")).
+		AddCommand(opts.New(&wt).Name("walk")).
+		AddCommand(opts.New(&printDS{}).Name("ds")).
+		AddCommand(opts.New(&pbt).Name("buildpb")),
 	)
 	return rto
 }

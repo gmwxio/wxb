@@ -6,7 +6,7 @@ import (
 
 	"github.com/jpillora/opts"
 	tron "github.com/wxio/wxb/internal/grammars"
-	"github.com/wxio/wxb/internal/wxb"
+	// "github.com/wxio/wxb/internal/wxb"
 )
 
 var (
@@ -21,11 +21,11 @@ type root struct {
 func main() {
 	r := root{}
 	ro := opts.New(&r).Name("wxb").
-		AddGlobalFlagSet().
+		EmbedGlobalFlagSet().
 		Complete().
 		Version(Version)
 
-	wxb.Register(ro)
+	// wxb.Register(ro)
 	tron.Register(ro)
 
 	err := ro.Parse().Run()
