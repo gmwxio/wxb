@@ -17,6 +17,12 @@ type ADLParserListener interface {
 	// EnterImportStatement is called when entering the ImportStatement production.
 	EnterImportStatement(c *ImportStatementContext)
 
+	// EnterLocalAnno is called when entering the LocalAnno production.
+	EnterLocalAnno(c *LocalAnnoContext)
+
+	// EnterDocAnno is called when entering the DocAnno production.
+	EnterDocAnno(c *DocAnnoContext)
+
 	// EnterStructOrUnion is called when entering the StructOrUnion production.
 	EnterStructOrUnion(c *StructOrUnionContext)
 
@@ -32,14 +38,17 @@ type ADLParserListener interface {
 	// EnterFieldAnnotation is called when entering the FieldAnnotation production.
 	EnterFieldAnnotation(c *FieldAnnotationContext)
 
-	// EnterTypeParam is called when entering the typeParam production.
-	EnterTypeParam(c *TypeParamContext)
+	// EnterTypeParameter is called when entering the TypeParameter production.
+	EnterTypeParameter(c *TypeParameterContext)
 
-	// EnterTypeExpr is called when entering the typeExpr production.
-	EnterTypeExpr(c *TypeExprContext)
+	// EnterTypeExpression is called when entering the TypeExpression production.
+	EnterTypeExpression(c *TypeExpressionContext)
 
-	// EnterSoruBody is called when entering the soruBody production.
-	EnterSoruBody(c *SoruBodyContext)
+	// EnterTypeExpressionElem is called when entering the TypeExpressionElem production.
+	EnterTypeExpressionElem(c *TypeExpressionElemContext)
+
+	// EnterFieldStatement is called when entering the FieldStatement production.
+	EnterFieldStatement(c *FieldStatementContext)
 
 	// EnterStringStatement is called when entering the StringStatement production.
 	EnterStringStatement(c *StringStatementContext)
@@ -68,6 +77,12 @@ type ADLParserListener interface {
 	// ExitImportStatement is called when exiting the ImportStatement production.
 	ExitImportStatement(c *ImportStatementContext)
 
+	// ExitLocalAnno is called when exiting the LocalAnno production.
+	ExitLocalAnno(c *LocalAnnoContext)
+
+	// ExitDocAnno is called when exiting the DocAnno production.
+	ExitDocAnno(c *DocAnnoContext)
+
 	// ExitStructOrUnion is called when exiting the StructOrUnion production.
 	ExitStructOrUnion(c *StructOrUnionContext)
 
@@ -83,14 +98,17 @@ type ADLParserListener interface {
 	// ExitFieldAnnotation is called when exiting the FieldAnnotation production.
 	ExitFieldAnnotation(c *FieldAnnotationContext)
 
-	// ExitTypeParam is called when exiting the typeParam production.
-	ExitTypeParam(c *TypeParamContext)
+	// ExitTypeParameter is called when exiting the TypeParameter production.
+	ExitTypeParameter(c *TypeParameterContext)
 
-	// ExitTypeExpr is called when exiting the typeExpr production.
-	ExitTypeExpr(c *TypeExprContext)
+	// ExitTypeExpression is called when exiting the TypeExpression production.
+	ExitTypeExpression(c *TypeExpressionContext)
 
-	// ExitSoruBody is called when exiting the soruBody production.
-	ExitSoruBody(c *SoruBodyContext)
+	// ExitTypeExpressionElem is called when exiting the TypeExpressionElem production.
+	ExitTypeExpressionElem(c *TypeExpressionElemContext)
+
+	// ExitFieldStatement is called when exiting the FieldStatement production.
+	ExitFieldStatement(c *FieldStatementContext)
 
 	// ExitStringStatement is called when exiting the StringStatement production.
 	ExitStringStatement(c *StringStatementContext)

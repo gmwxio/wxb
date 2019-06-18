@@ -83,8 +83,8 @@ func (tr *adl_listener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 	tr.indent += "  "
 }
 func (tr *adl_listener) ExitEveryRule(ctx antlr.ParserRuleContext) {
-	fmt.Printf("%s<<%T\n", tr.indent, ctx)
 	tr.indent = tr.indent[2:]
+	fmt.Printf("%s<<%T\n", tr.indent, ctx)
 }
 
 func BuildAdlAST(str string) (ctree.Tree, *antlr.BaseLexer, antlr.TokenStream, error) {
@@ -120,7 +120,10 @@ type MyToken struct {
 
 func (t *MyToken) GetTokenType() int { return t.TType }
 
-type ENode struct{ MyToken }
+type ModuleNode struct {
+	MyToken
+	Name []string
+}
 type ErrorNode struct {
 	MyToken
 	Expected string
@@ -128,76 +131,86 @@ type ErrorNode struct {
 }
 type ImportNode struct {
 	MyToken
-	Weak, Public bool
-	Path         string
+	Path string
+	Star bool
 }
-type PackageNode struct {
+type AnnoNode struct {
 	MyToken
-	Pkg []string
+	Name string
 }
-type OptionNode struct {
+type StructNode struct {
 	MyToken
+	Name string
 }
-type MessageNode struct {
+type UnionNode struct {
 	MyToken
-	Name []string
+	Name string
 }
-type EnumNode struct {
+type TypeNode struct {
 	MyToken
-	Name []string
+	Name    string
+	TypeRef string
 }
-type ServiceNode struct {
+type NewTypeNode struct {
 	MyToken
-	Name []string
+	Name    string
+	TypeRef string
 }
-type ExtendNode struct {
+type ModuleAnnoNode struct {
 	MyToken
-	Name []string
+	TypeRef string
 }
-type OneofNode struct {
+type DeclAnnoNode struct {
 	MyToken
-	Name []string
+	DeclRef string
+	TypeRef string
 }
-type EmptyNode struct {
+type FieldAnnoNode struct {
+	MyToken
+	DeclRef  string
+	FieldRef string
+	TypeRef  string
+}
+type TypeParamNode struct {
+	MyToken
+	Params []string
+}
+type TypeExprNode struct {
 	MyToken
 }
 type FieldNode struct {
 	MyToken
-	Local    bool
-	TypeName []string
-	Name     string
+	TypeRef string
+	Name    string
 }
-type DatastructNode struct {
+type JsonNode struct {
 	MyToken
-	Type string
 }
-type MapFieldNode struct {
+type JsonStrNode struct {
 	MyToken
-	Local bool
-	Key   string
-	Value []string
+	Value string
 }
-type EnumValueNode struct {
+type JsonBoolNode struct {
 	MyToken
-	Name  string
-	Index int32
+	Value bool
 }
-
-func (e *ENode) String() string          { return "" }
-func (e *ErrorNode) String() string      { return "error expected:" + e.Expected + " got:" + e.Received }
-func (e *ImportNode) String() string     { return "import" }
-func (e *PackageNode) String() string    { return "package" }
-func (e *OptionNode) String() string     { return "option" }
-func (e *EmptyNode) String() string      { return ";" }
-func (e *FieldNode) String() string      { return "field" }
-func (e *MapFieldNode) String() string   { return "map" }
-func (e *MessageNode) String() string    { return "message" }
-func (e *EnumNode) String() string       { return "enum" }
-func (e *EnumValueNode) String() string  { return "enumValue" }
-func (e *ServiceNode) String() string    { return "service" }
-func (e *ExtendNode) String() string     { return "extend" }
-func (e *OneofNode) String() string      { return "oneof" }
-func (e *DatastructNode) String() string { return "datastructure" }
+type JsonNullNode struct {
+	MyToken
+}
+type JsonIntNode struct {
+	MyToken
+	Value int64
+}
+type JsonFloatNode struct {
+	MyToken
+	Value float64
+}
+type JsonArrayNode struct {
+	MyToken
+}
+type JsonObjNode struct {
+	MyToken
+}
 
 type ADLBuildListener struct {
 	*parser.BaseADLParserListener

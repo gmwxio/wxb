@@ -39,6 +39,18 @@ func (s *BaseADLParserListener) EnterImportStatement(ctx *ImportStatementContext
 // ExitImportStatement is called when production ImportStatement is exited.
 func (s *BaseADLParserListener) ExitImportStatement(ctx *ImportStatementContext) {}
 
+// EnterLocalAnno is called when production LocalAnno is entered.
+func (s *BaseADLParserListener) EnterLocalAnno(ctx *LocalAnnoContext) {}
+
+// ExitLocalAnno is called when production LocalAnno is exited.
+func (s *BaseADLParserListener) ExitLocalAnno(ctx *LocalAnnoContext) {}
+
+// EnterDocAnno is called when production DocAnno is entered.
+func (s *BaseADLParserListener) EnterDocAnno(ctx *DocAnnoContext) {}
+
+// ExitDocAnno is called when production DocAnno is exited.
+func (s *BaseADLParserListener) ExitDocAnno(ctx *DocAnnoContext) {}
+
 // EnterStructOrUnion is called when production StructOrUnion is entered.
 func (s *BaseADLParserListener) EnterStructOrUnion(ctx *StructOrUnionContext) {}
 
@@ -69,23 +81,29 @@ func (s *BaseADLParserListener) EnterFieldAnnotation(ctx *FieldAnnotationContext
 // ExitFieldAnnotation is called when production FieldAnnotation is exited.
 func (s *BaseADLParserListener) ExitFieldAnnotation(ctx *FieldAnnotationContext) {}
 
-// EnterTypeParam is called when production typeParam is entered.
-func (s *BaseADLParserListener) EnterTypeParam(ctx *TypeParamContext) {}
+// EnterTypeParameter is called when production TypeParameter is entered.
+func (s *BaseADLParserListener) EnterTypeParameter(ctx *TypeParameterContext) {}
 
-// ExitTypeParam is called when production typeParam is exited.
-func (s *BaseADLParserListener) ExitTypeParam(ctx *TypeParamContext) {}
+// ExitTypeParameter is called when production TypeParameter is exited.
+func (s *BaseADLParserListener) ExitTypeParameter(ctx *TypeParameterContext) {}
 
-// EnterTypeExpr is called when production typeExpr is entered.
-func (s *BaseADLParserListener) EnterTypeExpr(ctx *TypeExprContext) {}
+// EnterTypeExpression is called when production TypeExpression is entered.
+func (s *BaseADLParserListener) EnterTypeExpression(ctx *TypeExpressionContext) {}
 
-// ExitTypeExpr is called when production typeExpr is exited.
-func (s *BaseADLParserListener) ExitTypeExpr(ctx *TypeExprContext) {}
+// ExitTypeExpression is called when production TypeExpression is exited.
+func (s *BaseADLParserListener) ExitTypeExpression(ctx *TypeExpressionContext) {}
 
-// EnterSoruBody is called when production soruBody is entered.
-func (s *BaseADLParserListener) EnterSoruBody(ctx *SoruBodyContext) {}
+// EnterTypeExpressionElem is called when production TypeExpressionElem is entered.
+func (s *BaseADLParserListener) EnterTypeExpressionElem(ctx *TypeExpressionElemContext) {}
 
-// ExitSoruBody is called when production soruBody is exited.
-func (s *BaseADLParserListener) ExitSoruBody(ctx *SoruBodyContext) {}
+// ExitTypeExpressionElem is called when production TypeExpressionElem is exited.
+func (s *BaseADLParserListener) ExitTypeExpressionElem(ctx *TypeExpressionElemContext) {}
+
+// EnterFieldStatement is called when production FieldStatement is entered.
+func (s *BaseADLParserListener) EnterFieldStatement(ctx *FieldStatementContext) {}
+
+// ExitFieldStatement is called when production FieldStatement is exited.
+func (s *BaseADLParserListener) ExitFieldStatement(ctx *FieldStatementContext) {}
 
 // EnterStringStatement is called when production StringStatement is entered.
 func (s *BaseADLParserListener) EnterStringStatement(ctx *StringStatementContext) {}

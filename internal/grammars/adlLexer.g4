@@ -15,6 +15,7 @@ COMMA   : ',';
 LCHEVR  : '<';
 RCHEVR  : '>';
 STAR    : '*';
+AT      : '@';
 
 // Letters and digits
 fragment Letter        : [A-Za-z_];
@@ -62,4 +63,5 @@ fragment CharEscape : '\\' [abfnrtv\\'"];
 
 WS           : [ \t\r\n\u000C]+ -> skip;
 // COMMENT      : '/*' .*? '*/' -> skip;
+LINE_DOC : '///' ~[\r\n]*;
 LINE_COMMENT : '//' ~[\r\n]* -> skip;
