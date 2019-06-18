@@ -2,7 +2,7 @@ parser grammar ADLParser;
 
 tokens {
     DOWN, UP, ROOT, ERROR,
-    Module, Import, Annotation, Struct, Union, Newtype, Type, TypeParam, TypeExpr, Field, 
+    ADL, Module, Import, Annotation, Struct, Union, Newtype, Type, TypeParam, TypeExpr, Field, 
     Json, JsonStr, JsonBool, JsonNull, JsonInt, JsonFloat, JsonArray, JsonObj,
     ModuleAnno, DeclAnno, FieldAnno
 }
@@ -15,21 +15,21 @@ adl
     : module LCUR imports* top_level_statement* RCUR SEMI EOF
 ;
 module
-    : annon* kw_mod=ID name+=ID (DOT name+=ID)*                         #ModuleStatement
+    : annon* kw=ID name+=ID (DOT name+=ID)*                             #ModuleStatement
 ;
 imports
-    : kw_impt=ID a+=ID (DOT a+=ID)* (DOT s=STAR)? SEMI                  #ImportStatement
+    : kw=ID a+=ID (DOT a+=ID)* (DOT s=STAR)? SEMI                       #ImportStatement
 ;
 annon
     : AT ID jsonValue                                                   #LocalAnno
     | LINE_DOC                                                          #DocAnno
 ;
 top_level_statement
-    : annon* kw_soru=ID a=ID typeParam? LCUR soruBody* RCUR SEMI                #StructOrUnion
-    | annon* kw_tnew=ID a=ID typeParam? EQ b=ID typeExpr? (EQ jsonValue)? SEMI  #TypeOrNewtype
-    | kw_anno=ID a=ID jsonValue SEMI                                            #ModuleAnnotation
-    | kw_anno=ID a=ID b=ID  jsonValue SEMI                                      #DeclAnnotation
-    | kw_anno=ID a=ID DCOLON b=ID c=ID jsonValue SEMI                           #FieldAnnotation
+    : annon* kw=ID a=ID typeParam? LCUR soruBody* RCUR SEMI                #StructOrUnion
+    | annon* kw=ID a=ID typeParam? EQ b=ID typeExpr? (EQ jsonValue)? SEMI  #TypeOrNewtype
+    | kw=ID a=ID jsonValue SEMI                                            #ModuleAnnotation
+    | kw=ID a=ID b=ID  jsonValue SEMI                                      #DeclAnnotation
+    | kw=ID a=ID DCOLON b=ID c=ID jsonValue SEMI                           #FieldAnnotation
 ;
 typeParam
     : LCHEVR typep+=ID (COMMA typep+=ID)* RCHEVR                                #TypeParameter
@@ -45,7 +45,7 @@ soruBody
 ;
 jsonValue
     : s=STR                                                             #StringStatement
-    | kw_tfn=ID                                                         #TrueFalseNull
+    | kw=ID                                                             #TrueFalseNull
     | INT                                                               #NumberStatement
     | FLT                                                               #FloatStatement
     | LSQ (jsonValue (COMMA jsonValue)*)? RSQ                           #ArrayStatement

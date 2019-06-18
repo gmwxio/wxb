@@ -16,7 +16,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 50, 216,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 51, 216,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 3, 2, 3, 2, 3, 2, 7,
 	2, 26, 10, 2, 12, 2, 14, 2, 29, 11, 2, 3, 2, 7, 2, 32, 10, 2, 12, 2, 14,
@@ -123,10 +123,11 @@ var literalNames = []string{
 var symbolicNames = []string{
 	"", "LCUR", "RCUR", "LSQ", "RSQ", "EQ", "DQ", "SQ", "SEMI", "DCOLON", "COLON",
 	"DOT", "COMMA", "LCHEVR", "RCHEVR", "STAR", "AT", "STR", "ID", "INT", "FLT",
-	"WS", "LINE_DOC", "LINE_COMMENT", "DOWN", "UP", "ROOT", "ERROR", "Module",
-	"Import", "Annotation", "Struct", "Union", "Newtype", "Type", "TypeParam",
-	"TypeExpr", "Field", "Json", "JsonStr", "JsonBool", "JsonNull", "JsonInt",
-	"JsonFloat", "JsonArray", "JsonObj", "ModuleAnno", "DeclAnno", "FieldAnno",
+	"WS", "LINE_DOC", "LINE_COMMENT", "DOWN", "UP", "ROOT", "ERROR", "ADL",
+	"Module", "Import", "Annotation", "Struct", "Union", "Newtype", "Type",
+	"TypeParam", "TypeExpr", "Field", "Json", "JsonStr", "JsonBool", "JsonNull",
+	"JsonInt", "JsonFloat", "JsonArray", "JsonObj", "ModuleAnno", "DeclAnno",
+	"FieldAnno",
 }
 
 var ruleNames = []string{
@@ -189,27 +190,28 @@ const (
 	ADLParserUP           = 25
 	ADLParserROOT         = 26
 	ADLParserERROR        = 27
-	ADLParserModule       = 28
-	ADLParserImport       = 29
-	ADLParserAnnotation   = 30
-	ADLParserStruct       = 31
-	ADLParserUnion        = 32
-	ADLParserNewtype      = 33
-	ADLParserType         = 34
-	ADLParserTypeParam    = 35
-	ADLParserTypeExpr     = 36
-	ADLParserField        = 37
-	ADLParserJson         = 38
-	ADLParserJsonStr      = 39
-	ADLParserJsonBool     = 40
-	ADLParserJsonNull     = 41
-	ADLParserJsonInt      = 42
-	ADLParserJsonFloat    = 43
-	ADLParserJsonArray    = 44
-	ADLParserJsonObj      = 45
-	ADLParserModuleAnno   = 46
-	ADLParserDeclAnno     = 47
-	ADLParserFieldAnno    = 48
+	ADLParserADL          = 28
+	ADLParserModule       = 29
+	ADLParserImport       = 30
+	ADLParserAnnotation   = 31
+	ADLParserStruct       = 32
+	ADLParserUnion        = 33
+	ADLParserNewtype      = 34
+	ADLParserType         = 35
+	ADLParserTypeParam    = 36
+	ADLParserTypeExpr     = 37
+	ADLParserField        = 38
+	ADLParserJson         = 39
+	ADLParserJsonStr      = 40
+	ADLParserJsonBool     = 41
+	ADLParserJsonNull     = 42
+	ADLParserJsonInt      = 43
+	ADLParserJsonFloat    = 44
+	ADLParserJsonArray    = 45
+	ADLParserJsonObj      = 46
+	ADLParserModuleAnno   = 47
+	ADLParserDeclAnno     = 48
+	ADLParserFieldAnno    = 49
 )
 
 // ADLParser rules.
@@ -486,9 +488,9 @@ func (s *ModuleContext) ToStringTree(ruleNames []string, recog antlr.Recognizer)
 
 type ModuleStatementContext struct {
 	*ModuleContext
-	kw_mod antlr.Token
-	_ID    antlr.Token
-	name   []antlr.Token
+	kw   antlr.Token
+	_ID  antlr.Token
+	name []antlr.Token
 }
 
 func NewModuleStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ModuleStatementContext {
@@ -501,11 +503,11 @@ func NewModuleStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext)
 	return p
 }
 
-func (s *ModuleStatementContext) GetKw_mod() antlr.Token { return s.kw_mod }
+func (s *ModuleStatementContext) GetKw() antlr.Token { return s.kw }
 
 func (s *ModuleStatementContext) Get_ID() antlr.Token { return s._ID }
 
-func (s *ModuleStatementContext) SetKw_mod(v antlr.Token) { s.kw_mod = v }
+func (s *ModuleStatementContext) SetKw(v antlr.Token) { s.kw = v }
 
 func (s *ModuleStatementContext) Set_ID(v antlr.Token) { s._ID = v }
 
@@ -610,7 +612,7 @@ func (p *ADLParser) Module() (localctx IModuleContext) {
 
 		var _m = p.Match(ADLParserID)
 
-		localctx.(*ModuleStatementContext).kw_mod = _m
+		localctx.(*ModuleStatementContext).kw = _m
 	}
 	{
 		p.SetState(45)
@@ -698,10 +700,10 @@ func (s *ImportsContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 
 type ImportStatementContext struct {
 	*ImportsContext
-	kw_impt antlr.Token
-	_ID     antlr.Token
-	a       []antlr.Token
-	s       antlr.Token
+	kw  antlr.Token
+	_ID antlr.Token
+	a   []antlr.Token
+	s   antlr.Token
 }
 
 func NewImportStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ImportStatementContext {
@@ -714,13 +716,13 @@ func NewImportStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext)
 	return p
 }
 
-func (s *ImportStatementContext) GetKw_impt() antlr.Token { return s.kw_impt }
+func (s *ImportStatementContext) GetKw() antlr.Token { return s.kw }
 
 func (s *ImportStatementContext) Get_ID() antlr.Token { return s._ID }
 
 func (s *ImportStatementContext) GetS() antlr.Token { return s.s }
 
-func (s *ImportStatementContext) SetKw_impt(v antlr.Token) { s.kw_impt = v }
+func (s *ImportStatementContext) SetKw(v antlr.Token) { s.kw = v }
 
 func (s *ImportStatementContext) Set_ID(v antlr.Token) { s._ID = v }
 
@@ -800,7 +802,7 @@ func (p *ADLParser) Imports() (localctx IImportsContext) {
 
 		var _m = p.Match(ADLParserID)
 
-		localctx.(*ImportStatementContext).kw_impt = _m
+		localctx.(*ImportStatementContext).kw = _m
 	}
 	{
 		p.SetState(54)
@@ -1099,8 +1101,8 @@ func (s *Top_level_statementContext) ToStringTree(ruleNames []string, recog antl
 
 type StructOrUnionContext struct {
 	*Top_level_statementContext
-	kw_soru antlr.Token
-	a       antlr.Token
+	kw antlr.Token
+	a  antlr.Token
 }
 
 func NewStructOrUnionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *StructOrUnionContext {
@@ -1113,11 +1115,11 @@ func NewStructOrUnionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *
 	return p
 }
 
-func (s *StructOrUnionContext) GetKw_soru() antlr.Token { return s.kw_soru }
+func (s *StructOrUnionContext) GetKw() antlr.Token { return s.kw }
 
 func (s *StructOrUnionContext) GetA() antlr.Token { return s.a }
 
-func (s *StructOrUnionContext) SetKw_soru(v antlr.Token) { s.kw_soru = v }
+func (s *StructOrUnionContext) SetKw(v antlr.Token) { s.kw = v }
 
 func (s *StructOrUnionContext) SetA(v antlr.Token) { s.a = v }
 
@@ -1215,9 +1217,9 @@ func (s *StructOrUnionContext) ExitRule(listener antlr.ParseTreeListener) {
 
 type DeclAnnotationContext struct {
 	*Top_level_statementContext
-	kw_anno antlr.Token
-	a       antlr.Token
-	b       antlr.Token
+	kw antlr.Token
+	a  antlr.Token
+	b  antlr.Token
 }
 
 func NewDeclAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DeclAnnotationContext {
@@ -1230,13 +1232,13 @@ func NewDeclAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 	return p
 }
 
-func (s *DeclAnnotationContext) GetKw_anno() antlr.Token { return s.kw_anno }
+func (s *DeclAnnotationContext) GetKw() antlr.Token { return s.kw }
 
 func (s *DeclAnnotationContext) GetA() antlr.Token { return s.a }
 
 func (s *DeclAnnotationContext) GetB() antlr.Token { return s.b }
 
-func (s *DeclAnnotationContext) SetKw_anno(v antlr.Token) { s.kw_anno = v }
+func (s *DeclAnnotationContext) SetKw(v antlr.Token) { s.kw = v }
 
 func (s *DeclAnnotationContext) SetA(v antlr.Token) { s.a = v }
 
@@ -1282,10 +1284,10 @@ func (s *DeclAnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
 
 type FieldAnnotationContext struct {
 	*Top_level_statementContext
-	kw_anno antlr.Token
-	a       antlr.Token
-	b       antlr.Token
-	c       antlr.Token
+	kw antlr.Token
+	a  antlr.Token
+	b  antlr.Token
+	c  antlr.Token
 }
 
 func NewFieldAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FieldAnnotationContext {
@@ -1298,7 +1300,7 @@ func NewFieldAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext)
 	return p
 }
 
-func (s *FieldAnnotationContext) GetKw_anno() antlr.Token { return s.kw_anno }
+func (s *FieldAnnotationContext) GetKw() antlr.Token { return s.kw }
 
 func (s *FieldAnnotationContext) GetA() antlr.Token { return s.a }
 
@@ -1306,7 +1308,7 @@ func (s *FieldAnnotationContext) GetB() antlr.Token { return s.b }
 
 func (s *FieldAnnotationContext) GetC() antlr.Token { return s.c }
 
-func (s *FieldAnnotationContext) SetKw_anno(v antlr.Token) { s.kw_anno = v }
+func (s *FieldAnnotationContext) SetKw(v antlr.Token) { s.kw = v }
 
 func (s *FieldAnnotationContext) SetA(v antlr.Token) { s.a = v }
 
@@ -1358,9 +1360,9 @@ func (s *FieldAnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
 
 type TypeOrNewtypeContext struct {
 	*Top_level_statementContext
-	kw_tnew antlr.Token
-	a       antlr.Token
-	b       antlr.Token
+	kw antlr.Token
+	a  antlr.Token
+	b  antlr.Token
 }
 
 func NewTypeOrNewtypeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *TypeOrNewtypeContext {
@@ -1373,13 +1375,13 @@ func NewTypeOrNewtypeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *
 	return p
 }
 
-func (s *TypeOrNewtypeContext) GetKw_tnew() antlr.Token { return s.kw_tnew }
+func (s *TypeOrNewtypeContext) GetKw() antlr.Token { return s.kw }
 
 func (s *TypeOrNewtypeContext) GetA() antlr.Token { return s.a }
 
 func (s *TypeOrNewtypeContext) GetB() antlr.Token { return s.b }
 
-func (s *TypeOrNewtypeContext) SetKw_tnew(v antlr.Token) { s.kw_tnew = v }
+func (s *TypeOrNewtypeContext) SetKw(v antlr.Token) { s.kw = v }
 
 func (s *TypeOrNewtypeContext) SetA(v antlr.Token) { s.a = v }
 
@@ -1476,8 +1478,8 @@ func (s *TypeOrNewtypeContext) ExitRule(listener antlr.ParseTreeListener) {
 
 type ModuleAnnotationContext struct {
 	*Top_level_statementContext
-	kw_anno antlr.Token
-	a       antlr.Token
+	kw antlr.Token
+	a  antlr.Token
 }
 
 func NewModuleAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ModuleAnnotationContext {
@@ -1490,11 +1492,11 @@ func NewModuleAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext
 	return p
 }
 
-func (s *ModuleAnnotationContext) GetKw_anno() antlr.Token { return s.kw_anno }
+func (s *ModuleAnnotationContext) GetKw() antlr.Token { return s.kw }
 
 func (s *ModuleAnnotationContext) GetA() antlr.Token { return s.a }
 
-func (s *ModuleAnnotationContext) SetKw_anno(v antlr.Token) { s.kw_anno = v }
+func (s *ModuleAnnotationContext) SetKw(v antlr.Token) { s.kw = v }
 
 func (s *ModuleAnnotationContext) SetA(v antlr.Token) { s.a = v }
 
@@ -1582,7 +1584,7 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 
 			var _m = p.Match(ADLParserID)
 
-			localctx.(*StructOrUnionContext).kw_soru = _m
+			localctx.(*StructOrUnionContext).kw = _m
 		}
 		{
 			p.SetState(81)
@@ -1651,7 +1653,7 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 
 			var _m = p.Match(ADLParserID)
 
-			localctx.(*TypeOrNewtypeContext).kw_tnew = _m
+			localctx.(*TypeOrNewtypeContext).kw = _m
 		}
 		{
 			p.SetState(101)
@@ -1721,7 +1723,7 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 
 			var _m = p.Match(ADLParserID)
 
-			localctx.(*ModuleAnnotationContext).kw_anno = _m
+			localctx.(*ModuleAnnotationContext).kw = _m
 		}
 		{
 			p.SetState(116)
@@ -1747,7 +1749,7 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 
 			var _m = p.Match(ADLParserID)
 
-			localctx.(*DeclAnnotationContext).kw_anno = _m
+			localctx.(*DeclAnnotationContext).kw = _m
 		}
 		{
 			p.SetState(121)
@@ -1780,7 +1782,7 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 
 			var _m = p.Match(ADLParserID)
 
-			localctx.(*FieldAnnotationContext).kw_anno = _m
+			localctx.(*FieldAnnotationContext).kw = _m
 		}
 		{
 			p.SetState(127)
@@ -2616,7 +2618,7 @@ func (s *JsonValueContext) ToStringTree(ruleNames []string, recog antlr.Recogniz
 
 type TrueFalseNullContext struct {
 	*JsonValueContext
-	kw_tfn antlr.Token
+	kw antlr.Token
 }
 
 func NewTrueFalseNullContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *TrueFalseNullContext {
@@ -2629,9 +2631,9 @@ func NewTrueFalseNullContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *
 	return p
 }
 
-func (s *TrueFalseNullContext) GetKw_tfn() antlr.Token { return s.kw_tfn }
+func (s *TrueFalseNullContext) GetKw() antlr.Token { return s.kw }
 
-func (s *TrueFalseNullContext) SetKw_tfn(v antlr.Token) { s.kw_tfn = v }
+func (s *TrueFalseNullContext) SetKw(v antlr.Token) { s.kw = v }
 
 func (s *TrueFalseNullContext) GetRuleContext() antlr.RuleContext {
 	return s
@@ -2958,7 +2960,7 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 
 			var _m = p.Match(ADLParserID)
 
-			localctx.(*TrueFalseNullContext).kw_tfn = _m
+			localctx.(*TrueFalseNullContext).kw = _m
 		}
 
 	case ADLParserINT:

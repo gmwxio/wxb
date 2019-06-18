@@ -26,9 +26,10 @@ type exerciseTron struct {
 func Register(parent opts.Opts) opts.Opts {
 	rt := rootTron{}
 	et := exerciseTron{}
-	rto := parent.AddCommand(opts.New(&rt).Name("adl").
-		AddCommand(opts.New(&et).Name("exec")),
-	)
+	rto := parent.
+		AddCommand(opts.New(&rt).Name("adl").
+			AddCommand(opts.New(&et).Name("exec")),
+		)
 	return rto
 }
 
@@ -40,21 +41,46 @@ func (et *exerciseTron) Run() error {
 	if err != nil {
 		return err
 	}
+
+	var tr ctree.Tree
+	{
+		errListener := &errorListener{}
+		r := &ADLNode{MyToken: MyToken{Token: nil, TType: parser.ADLParserADL}}
+		tbl := &ADLBuildListener{
+			debug:   true,
+			Builder: ctree.NewWalkableBuild("TREE", r),
+		}
+		is := antlr.NewInputStream(string(by))
+		lexer := parser.NewadlLexer(is)
+		lexer.RemoveErrorListeners()
+		lexer.AddErrorListener(errListener)
+
+		stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
+		p := parser.NewADLParser(stream)
+		p.RemoveErrorListeners()
+		p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
+		p.AddErrorListener(tbl)
+		p.BuildParseTrees = true
+		ctx := p.Adl()
+		fmt.Println("--------")
+		antlr.ParseTreeWalkerDefault.Walk(tbl, ctx)
+		tr = tbl.Builder.Build()
+	}
 	// tr, _, _, err := BuildAdlAST(string(by))
 	// if err != nil {
 	// 	glog.Warningf("BuildTronAST err:%v", err)
 	// 	return nil
 	// }
-	// fmt.Printf("%v\n", tr)
+	fmt.Printf("%v\n", tr)
 	// return nil
-	is := antlr.NewInputStream(string(by))
-	lexer := parser.NewadlLexer(is)
-	stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
-	p := parser.NewADLParser(stream)
-	p.AddErrorListener(antlr.NewConsoleErrorListener())
-	ctx := p.Adl()
-	fmt.Println("--------")
-	antlr.ParseTreeWalkerDefault.Walk(&adl_listener{baseR: lexer.BaseRecognizer}, ctx)
+	// is := antlr.NewInputStream(string(by))
+	// lexer := parser.NewadlLexer(is)
+	// stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
+	// p := parser.NewADLParser(stream)
+	// p.AddErrorListener(antlr.NewConsoleErrorListener())
+	// ctx := p.Adl()
+	// fmt.Println("--------")
+	// antlr.ParseTreeWalkerDefault.Walk(&adl_listener{baseR: lexer.BaseRecognizer}, ctx)
 	return nil
 }
 
@@ -106,110 +132,11 @@ func BuildAdlAST(str string) (ctree.Tree, *antlr.BaseLexer, antlr.TokenStream, e
 	ctx := p.Adl()
 	fmt.Println("--------")
 	antlr.ParseTreeWalkerDefault.Walk(tbl, ctx)
-	if tbl.err != "" {
-		return nil, lexer.BaseLexer, stream, fmt.Errorf("ERROR:%v", tbl.err)
-	}
-	return nil, nil, nil, nil
+	// if tbl.err != "" {
+	// 	return nil, lexer.BaseLexer, stream, fmt.Errorf("ERROR:%v", tbl.err)
+	// }
+	// return nil, nil, nil, nil
 	return tbl.Builder.Build(), lexer.BaseLexer, stream, nil
-}
-
-type MyToken struct {
-	antlr.Token
-	TType int
-}
-
-func (t *MyToken) GetTokenType() int { return t.TType }
-
-type ModuleNode struct {
-	MyToken
-	Name []string
-}
-type ErrorNode struct {
-	MyToken
-	Expected string
-	Received string
-}
-type ImportNode struct {
-	MyToken
-	Path string
-	Star bool
-}
-type AnnoNode struct {
-	MyToken
-	Name string
-}
-type StructNode struct {
-	MyToken
-	Name string
-}
-type UnionNode struct {
-	MyToken
-	Name string
-}
-type TypeNode struct {
-	MyToken
-	Name    string
-	TypeRef string
-}
-type NewTypeNode struct {
-	MyToken
-	Name    string
-	TypeRef string
-}
-type ModuleAnnoNode struct {
-	MyToken
-	TypeRef string
-}
-type DeclAnnoNode struct {
-	MyToken
-	DeclRef string
-	TypeRef string
-}
-type FieldAnnoNode struct {
-	MyToken
-	DeclRef  string
-	FieldRef string
-	TypeRef  string
-}
-type TypeParamNode struct {
-	MyToken
-	Params []string
-}
-type TypeExprNode struct {
-	MyToken
-}
-type FieldNode struct {
-	MyToken
-	TypeRef string
-	Name    string
-}
-type JsonNode struct {
-	MyToken
-}
-type JsonStrNode struct {
-	MyToken
-	Value string
-}
-type JsonBoolNode struct {
-	MyToken
-	Value bool
-}
-type JsonNullNode struct {
-	MyToken
-}
-type JsonIntNode struct {
-	MyToken
-	Value int64
-}
-type JsonFloatNode struct {
-	MyToken
-	Value float64
-}
-type JsonArrayNode struct {
-	MyToken
-}
-type JsonObjNode struct {
-	MyToken
 }
 
 type ADLBuildListener struct {
@@ -223,9 +150,123 @@ type ADLBuildListener struct {
 	debug   bool
 }
 
+func tokens2strings(arr []antlr.Token) []string {
+	name := make([]string, len(arr))
+	for i, tks := range arr {
+		name[i] = tks.GetText()
+	}
+	return name
+}
+
 // EnterEveryRule is called when any rule is entered.
 func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 	switch ctx := ctx.(type) {
+	case *parser.AdlContext:
+		// r := &ADLNode{MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserADL}}
+		// tr.Builder = ctree.NewWalkableBuild("TREE", r)
+	case *parser.ModuleStatementContext:
+		if ctx.GetKw().GetText() != "module" {
+			n := &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserERROR},
+				Expected: "module", Received: ctx.GetKw().GetText()}
+			tr.Builder.Add(n)
+		} else {
+			n := &ModuleNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserModule},
+				Name:    tokens2strings(ctx.GetName()),
+			}
+			tr.Builder.Add(n)
+		}
+		tr.Builder.Down()
+	case *parser.ImportStatementContext:
+		if ctx.GetKw().GetText() != "import" {
+			n := &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserERROR},
+				Expected: "import", Received: ctx.GetKw().GetText()}
+			tr.Builder.Add(n)
+		} else {
+			n := &ImportNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserImport},
+				Path:    tokens2strings(ctx.GetA()),
+				Star:    ctx.GetS() != nil,
+			}
+			tr.Builder.Add(n)
+		}
+	case *parser.LocalAnnoContext:
+	case *parser.DocAnnoContext:
+	case *parser.StructOrUnionContext:
+		switch ctx.GetKw().GetText() {
+		case "struct":
+			n := &StructNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserStruct},
+				Name:    ctx.GetA().GetText(),
+			}
+			tr.Builder.Add(n)
+			tr.Builder.Down()
+		case "union":
+			n := &UnionNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserUnion},
+				Name:    ctx.GetA().GetText(),
+			}
+			tr.Builder.Add(n)
+			tr.Builder.Down()
+		default:
+			n := &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserERROR},
+				Expected: "struct|union", Received: ctx.GetKw().GetText()}
+			tr.Builder.Add(n)
+			tr.Builder.Down()
+		}
+	case *parser.TypeOrNewtypeContext:
+		switch ctx.GetKw().GetText() {
+		case "type":
+			n := &TypeNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserType},
+				Name:    ctx.GetA().GetText(),
+				TypeRef: ctx.GetB().GetText(),
+			}
+			tr.Builder.Add(n)
+			tr.Builder.Down()
+		case "newtype":
+			n := &NewTypeNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserNewtype},
+				Name:    ctx.GetA().GetText(),
+				TypeRef: ctx.GetB().GetText(),
+			}
+			tr.Builder.Add(n)
+			tr.Builder.Down()
+		default:
+			n := &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserERROR},
+				Expected: "type|newtype", Received: ctx.GetKw().GetText()}
+			tr.Builder.Add(n)
+			tr.Builder.Down()
+		}
+	case *parser.ModuleAnnotationContext:
+	case *parser.DeclAnnotationContext:
+	case *parser.FieldAnnotationContext:
+	case *parser.TypeParameterContext:
+		n := &TypeParamNode{
+			MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserTypeParam},
+			Params:  tokens2strings(ctx.GetTypep()),
+		}
+		tr.Builder.Add(n)
+	case *parser.TypeExpressionContext:
+	case *parser.TypeExpressionElemContext:
+	case *parser.FieldStatementContext:
+	case *parser.StringStatementContext:
+	case *parser.TrueFalseNullContext:
+	case *parser.NumberStatementContext:
+	case *parser.FloatStatementContext:
+	case *parser.ArrayStatementContext:
+	case *parser.ObjStatementContext:
+		// rules name occur on errors
+	case *parser.Top_level_statementContext:
+		n := &ErrorNode{
+			MyToken:  MyToken{Token: ctx.GetStart(), TType: parser.ADLParserERROR},
+			Expected: "@|struct|union|annotation", Received: ctx.GetStart().GetText()}
+		tr.Builder.Add(n)
+
 	// case *parser.ProtoContext:
 	// 	r := &ENode{MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserROOT}}
 	// 	tr.Builder = ctree.NewWalkableBuild("TREE", r)
@@ -521,6 +562,30 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 // ExitEveryRule
 func (tr *ADLBuildListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 	switch ctx.(type) {
+	case *parser.AdlContext:
+	case *parser.ModuleStatementContext:
+		tr.Builder.Up()
+	case *parser.ImportStatementContext:
+	case *parser.LocalAnnoContext:
+	case *parser.DocAnnoContext:
+	case *parser.StructOrUnionContext:
+		tr.Builder.Up()
+	case *parser.TypeOrNewtypeContext:
+		tr.Builder.Up()
+	case *parser.ModuleAnnotationContext:
+	case *parser.DeclAnnotationContext:
+	case *parser.FieldAnnotationContext:
+	case *parser.TypeParameterContext:
+	case *parser.TypeExpressionContext:
+	case *parser.TypeExpressionElemContext:
+	case *parser.FieldStatementContext:
+	case *parser.StringStatementContext:
+	case *parser.TrueFalseNullContext:
+	case *parser.NumberStatementContext:
+	case *parser.FloatStatementContext:
+	case *parser.ArrayStatementContext:
+	case *parser.ObjStatementContext:
+
 	// case *parser.ProtoContext:
 	// case *parser.ImportStatementContext:
 	// case *parser.PackageStatementContext:
@@ -591,6 +656,16 @@ func (d *errorListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *a
 }
 
 func (tbl *ADLBuildListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+	n := &ErrorNode{
+		MyToken: MyToken{
+			Token: e.GetOffendingToken(),
+			TType: parser.ADLParserERROR,
+		},
+		Expected: msg,
+		Received: fmt.Sprintf("%v", offendingSymbol),
+	}
+	tbl.Builder.Add(n)
+
 	if tbl.debug {
 		fmt.Printf("SyntaxError %d:%d <%s>\n", line, column, msg)
 	}
