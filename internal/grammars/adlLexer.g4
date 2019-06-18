@@ -30,7 +30,7 @@ fragment HexLit        : '0' ('x' | 'X') HexDigit+;
 fragment Decimals      : DecimalDigit+;
 fragment Exponent      : ('e' | 'E') ('+' | '-')? Decimals;
 
-STR     : '\'' CharValue* '\'' | '"' CharValue* '"';
+STR     : '\'' SqChar* '\'' | '"' DqChar* '"';
 ID      : Letter (Letter | DecimalDigit)*;
 INT     : DecimalLit | OctalLit | HexLit;
 FLT
@@ -41,6 +41,14 @@ FLT
       )
 ;
 
+fragment SqChar
+    : '\\\''
+    | ~[']
+;
+fragment DqChar
+    : '\\"'
+    | ~["]
+;
 fragment CharValue
     : HexEscape
     | OctEscape

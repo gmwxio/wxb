@@ -40,12 +40,12 @@ func (et *exerciseTron) Run() error {
 	if err != nil {
 		return err
 	}
-	tr, _, _, err := BuildAdlAST(string(by))
-	if err != nil {
-		glog.Warningf("BuildTronAST err:%v", err)
-		return nil
-	}
-	fmt.Printf("%v\n", tr)
+	// tr, _, _, err := BuildAdlAST(string(by))
+	// if err != nil {
+	// 	glog.Warningf("BuildTronAST err:%v", err)
+	// 	return nil
+	// }
+	// fmt.Printf("%v\n", tr)
 	// return nil
 	is := antlr.NewInputStream(string(by))
 	lexer := parser.NewadlLexer(is)
@@ -109,6 +109,7 @@ func BuildAdlAST(str string) (ctree.Tree, *antlr.BaseLexer, antlr.TokenStream, e
 	if tbl.err != "" {
 		return nil, lexer.BaseLexer, stream, fmt.Errorf("ERROR:%v", tbl.err)
 	}
+	return nil, nil, nil, nil
 	return tbl.Builder.Build(), lexer.BaseLexer, stream, nil
 }
 

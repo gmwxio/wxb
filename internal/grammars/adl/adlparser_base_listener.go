@@ -75,6 +75,12 @@ func (s *BaseADLParserListener) EnterTypeParam(ctx *TypeParamContext) {}
 // ExitTypeParam is called when production typeParam is exited.
 func (s *BaseADLParserListener) ExitTypeParam(ctx *TypeParamContext) {}
 
+// EnterTypeExpr is called when production typeExpr is entered.
+func (s *BaseADLParserListener) EnterTypeExpr(ctx *TypeExprContext) {}
+
+// ExitTypeExpr is called when production typeExpr is exited.
+func (s *BaseADLParserListener) ExitTypeExpr(ctx *TypeExprContext) {}
+
 // EnterSoruBody is called when production soruBody is entered.
 func (s *BaseADLParserListener) EnterSoruBody(ctx *SoruBodyContext) {}
 

@@ -17,23 +17,26 @@ module
 ;
 top_level_statement
     : kw_impt=ID a+=ID (DOT a+=ID)* (DOT s=STAR)? SEMI          #ImportStatement
-    | kw_soru=ID a=ID typeParam? LCUR soruBody* RCUR SEMI        #StructOrUnion
-    | kw_tnew=ID a=ID typeParam? EQ b=ID typeParam? SEMI        #TypeOrNewtype
+    | kw_soru=ID a=ID typeParam? LCUR soruBody* RCUR SEMI       #StructOrUnion
+    | kw_tnew=ID a=ID typeParam? EQ b=ID typeExpr? SEMI         #TypeOrNewtype
     | kw_anno=ID a=ID jsonValue SEMI                            #ModuleAnnotation
     | kw_anno=ID a=ID b=ID  jsonValue SEMI                      #DeclAnnotation
     | kw_anno=ID a=ID DCOLON b=ID jsonValue SEMI                #FieldAnnotation
 ;
 typeParam
-    : LCHEVR typep+=ID typeParam? (COMMA typep+=ID typeParam?)* RCHEVR
+    : LCHEVR typep+=ID (COMMA typep+=ID)* RCHEVR
+;
+typeExpr
+    : LCHEVR typep+=ID typeExpr? (COMMA typep+=ID typeExpr?)* RCHEVR
 ;
 soruBody
-    : ID typeParam? ID SEMI
+    : ID typeExpr? ID SEMI
 ;
 jsonValue
     : s=STR                                                     #StringStatement
     | kw_tfn=ID                                                 #TrueFalseNull
     | INT                                                       #NumberStatement
     | FLT                                                       #FloatStatement
-    | LSQ jsonValue (COMMA jsonValue)* RSQ                      #ArrayStatement
-    | LCUR STR COLON jsonValue (COMMA STR COLON jsonValue)* RCUR    #ObjStatement
+    | LSQ (jsonValue (COMMA jsonValue)*)? RSQ                      #ArrayStatement
+    | LCUR (STR COLON jsonValue (COMMA STR COLON jsonValue)*)? RCUR    #ObjStatement
 ;

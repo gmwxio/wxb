@@ -35,6 +35,9 @@ type ADLParserListener interface {
 	// EnterTypeParam is called when entering the typeParam production.
 	EnterTypeParam(c *TypeParamContext)
 
+	// EnterTypeExpr is called when entering the typeExpr production.
+	EnterTypeExpr(c *TypeExprContext)
+
 	// EnterSoruBody is called when entering the soruBody production.
 	EnterSoruBody(c *SoruBodyContext)
 
@@ -82,6 +85,9 @@ type ADLParserListener interface {
 
 	// ExitTypeParam is called when exiting the typeParam production.
 	ExitTypeParam(c *TypeParamContext)
+
+	// ExitTypeExpr is called when exiting the typeExpr production.
+	ExitTypeExpr(c *TypeExprContext)
 
 	// ExitSoruBody is called when exiting the soruBody production.
 	ExitSoruBody(c *SoruBodyContext)
