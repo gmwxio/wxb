@@ -6,6 +6,7 @@ import (
 
 	"github.com/jpillora/opts"
 	tron "github.com/wxio/wxb/internal/grammars"
+	"github.com/wxio/wxb/internal/grammars/adlproc"
 	// "github.com/wxio/wxb/internal/wxb"
 )
 
@@ -27,6 +28,7 @@ func main() {
 
 	// wxb.Register(ro)
 	tron.Register(ro)
+	adlproc.Register(ro)
 
 	err := ro.Parse().Run()
 	if err != nil {
