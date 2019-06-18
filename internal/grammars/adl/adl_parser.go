@@ -16,7 +16,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 35, 216,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 50, 216,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 3, 2, 3, 2, 3, 2, 7,
 	2, 26, 10, 2, 12, 2, 14, 2, 29, 11, 2, 3, 2, 7, 2, 32, 10, 2, 12, 2, 14,
@@ -124,7 +124,9 @@ var symbolicNames = []string{
 	"", "LCUR", "RCUR", "LSQ", "RSQ", "EQ", "DQ", "SQ", "SEMI", "DCOLON", "COLON",
 	"DOT", "COMMA", "LCHEVR", "RCHEVR", "STAR", "AT", "STR", "ID", "INT", "FLT",
 	"WS", "LINE_DOC", "LINE_COMMENT", "DOWN", "UP", "ROOT", "ERROR", "Module",
-	"Import", "Annotation", "Struct", "Union", "Newtype",
+	"Import", "Annotation", "Struct", "Union", "Newtype", "Type", "TypeParam",
+	"TypeExpr", "Field", "Json", "JsonStr", "JsonBool", "JsonNull", "JsonInt",
+	"JsonFloat", "JsonArray", "JsonObj", "ModuleAnno", "DeclAnno", "FieldAnno",
 }
 
 var ruleNames = []string{
@@ -193,6 +195,21 @@ const (
 	ADLParserStruct       = 31
 	ADLParserUnion        = 32
 	ADLParserNewtype      = 33
+	ADLParserType         = 34
+	ADLParserTypeParam    = 35
+	ADLParserTypeExpr     = 36
+	ADLParserField        = 37
+	ADLParserJson         = 38
+	ADLParserJsonStr      = 39
+	ADLParserJsonBool     = 40
+	ADLParserJsonNull     = 41
+	ADLParserJsonInt      = 42
+	ADLParserJsonFloat    = 43
+	ADLParserJsonArray    = 44
+	ADLParserJsonObj      = 45
+	ADLParserModuleAnno   = 46
+	ADLParserDeclAnno     = 47
+	ADLParserFieldAnno    = 48
 )
 
 // ADLParser rules.
