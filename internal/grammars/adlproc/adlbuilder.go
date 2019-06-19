@@ -26,9 +26,11 @@ type exerciseTron struct {
 func Register(parent opts.Opts) opts.Opts {
 	rt := rootTron{}
 	et := exerciseTron{}
+	wt := walkADL{}
 	rto := parent.
 		AddCommand(opts.New(&rt).Name("adl").
-			AddCommand(opts.New(&et).Name("exec")),
+			AddCommand(opts.New(&et).Name("exec")).
+			AddCommand(opts.New(&wt).Name("walk")),
 		)
 	return rto
 }
@@ -45,11 +47,6 @@ func (et *exerciseTron) Run() error {
 	var tr ctree.Tree
 	{
 		errListener := &errorListener{}
-		r := &ADLNode{MyToken: MyToken{Token: nil, TType: parser.ADLParserADL}}
-		tbl := &ADLBuildListener{
-			debug:   true,
-			Builder: ctree.NewWalkableBuild("TREE", r),
-		}
 		is := antlr.NewInputStream(string(by))
 		lexer := parser.NewadlLexer(is)
 		lexer.RemoveErrorListeners()
@@ -59,6 +56,17 @@ func (et *exerciseTron) Run() error {
 		p := parser.NewADLParser(stream)
 		p.RemoveErrorListeners()
 		p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
+
+		r := &ADLNode{
+			MyToken: MyToken{
+				Token: antlr.NewCommonToken(nil, parser.ADLParserADL, antlr.TokenDefaultChannel, 0, 0),
+				TType: parser.ADLParserADL},
+		}
+		tbl := &ADLBuildListener{
+			debug:   true,
+			Builder: ctree.NewWalkableBuild("TREE", r),
+		}
+
 		p.AddErrorListener(tbl)
 		p.BuildParseTrees = true
 		ctx := p.Adl()
@@ -656,9 +664,13 @@ func (d *errorListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *a
 }
 
 func (tbl *ADLBuildListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+	t, ok := offendingSymbol.(antlr.Token)
+	if !ok && e != nil {
+		t = e.GetOffendingToken()
+	}
 	n := &ErrorNode{
 		MyToken: MyToken{
-			Token: e.GetOffendingToken(),
+			Token: t,
 			TType: parser.ADLParserERROR,
 		},
 		Expected: msg,
