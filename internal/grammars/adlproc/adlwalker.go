@@ -114,7 +114,7 @@ func (tr *WalkListener) VisitErrorNode(node antlr.ErrorNode) {
 	fmt.Printf("2.ERROR #%d %d:%d  len:%d start_stop:%d:%d  tok_type:%d %v %+v\n", tr.ruleCount, sym.GetLine(), sym.GetColumn(), len(sym.GetText()), sym.GetStart(), sym.GetStop(), tid, sym, node)
 }
 func (tr *WalkListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
-	tr.ruleCount++
+	// tr.ruleCount++
 	fmt.Printf("%s>>%T\n", tr.indent, ctx)
 	tr.indent += "  "
 }

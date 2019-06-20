@@ -86,6 +86,12 @@ func (s *BaseADLWalkerListener) EnterField(ctx *FieldContext) {}
 // ExitField is called when production Field is exited.
 func (s *BaseADLWalkerListener) ExitField(ctx *FieldContext) {}
 
+// EnterAnnotation is called when production annotation is entered.
+func (s *BaseADLWalkerListener) EnterAnnotation(ctx *AnnotationContext) {}
+
+// ExitAnnotation is called when production annotation is exited.
+func (s *BaseADLWalkerListener) ExitAnnotation(ctx *AnnotationContext) {}
+
 // EnterTypeExpr_ is called when production typeExpr_ is entered.
 func (s *BaseADLWalkerListener) EnterTypeExpr_(ctx *TypeExpr_Context) {}
 

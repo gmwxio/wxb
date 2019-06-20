@@ -3205,6 +3205,7 @@ func (s *ObjStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 
 type FloatStatementContext struct {
 	*JsonValueContext
+	f antlr.Token
 }
 
 func NewFloatStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FloatStatementContext {
@@ -3216,6 +3217,10 @@ func NewFloatStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 
 	return p
 }
+
+func (s *FloatStatementContext) GetF() antlr.Token { return s.f }
+
+func (s *FloatStatementContext) SetF(v antlr.Token) { s.f = v }
 
 func (s *FloatStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
@@ -3308,6 +3313,7 @@ func (s *ArrayStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 
 type NumberStatementContext struct {
 	*JsonValueContext
+	n antlr.Token
 }
 
 func NewNumberStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NumberStatementContext {
@@ -3319,6 +3325,10 @@ func NewNumberStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext)
 
 	return p
 }
+
+func (s *NumberStatementContext) GetN() antlr.Token { return s.n }
+
+func (s *NumberStatementContext) SetN(v antlr.Token) { s.n = v }
 
 func (s *NumberStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
@@ -3431,7 +3441,10 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(234)
-			p.Match(ADLParserINT)
+
+			var _m = p.Match(ADLParserINT)
+
+			localctx.(*NumberStatementContext).n = _m
 		}
 
 	case ADLParserFLT:
@@ -3439,7 +3452,10 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 		p.EnterOuterAlt(localctx, 4)
 		{
 			p.SetState(235)
-			p.Match(ADLParserFLT)
+
+			var _m = p.Match(ADLParserFLT)
+
+			localctx.(*FloatStatementContext).f = _m
 		}
 
 	case ADLParserLSQ:

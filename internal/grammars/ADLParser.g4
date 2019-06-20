@@ -51,8 +51,8 @@ soruBody
 jsonValue
     : s=STR                                                             #StringStatement
     | kw=ID                                                             #TrueFalseNull
-    | INT                                                               #NumberStatement
-    | FLT                                                               #FloatStatement
+    | n=INT                                                               #NumberStatement
+    | f=FLT                                                               #FloatStatement
     | LSQ (jsonValue (COMMA jsonValue)*)? RSQ                           #ArrayStatement
     | LCUR (STR COLON jsonValue (COMMA STR COLON jsonValue)*)? RCUR     #ObjStatement
 ;

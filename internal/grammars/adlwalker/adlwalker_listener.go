@@ -40,6 +40,9 @@ type ADLWalkerListener interface {
 	// EnterField is called when entering the Field production.
 	EnterField(c *FieldContext)
 
+	// EnterAnnotation is called when entering the annotation production.
+	EnterAnnotation(c *AnnotationContext)
+
 	// EnterTypeExpr_ is called when entering the typeExpr_ production.
 	EnterTypeExpr_(c *TypeExpr_Context)
 
@@ -99,6 +102,9 @@ type ADLWalkerListener interface {
 
 	// ExitField is called when exiting the Field production.
 	ExitField(c *FieldContext)
+
+	// ExitAnnotation is called when exiting the annotation production.
+	ExitAnnotation(c *AnnotationContext)
 
 	// ExitTypeExpr_ is called when exiting the typeExpr_ production.
 	ExitTypeExpr_(c *TypeExpr_Context)

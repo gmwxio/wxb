@@ -208,6 +208,7 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			Name:    ctx.GetA().GetText(),
 		}
 		tr.Builder.Add(n)
+		tr.Builder.Down()
 	case *parser.DocAnnoContext:
 		n := &AnnoNode{
 			MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserAnnotation},
@@ -277,6 +278,7 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 				Expected: "annotation", Received: ctx.GetKw().GetText()}
 			tr.Builder.Add(n)
 		}
+		tr.Builder.Down()
 	case *parser.DeclAnnotationContext:
 		switch ctx.GetKw().GetText() {
 		case "annotation":
@@ -292,6 +294,7 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 				Expected: "annotation", Received: ctx.GetKw().GetText()}
 			tr.Builder.Add(n)
 		}
+		tr.Builder.Down()
 	case *parser.FieldAnnotationContext:
 		switch ctx.GetKw().GetText() {
 		case "annotation":
@@ -308,6 +311,7 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 				Expected: "annotation", Received: ctx.GetKw().GetText()}
 			tr.Builder.Add(n)
 		}
+		tr.Builder.Down()
 	case *parser.TypeParameterContext:
 		n := &TypeParamNode{
 			MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserTypeParam},
@@ -336,11 +340,74 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 		tr.Builder.Add(n)
 		tr.Builder.Down()
 	case *parser.StringStatementContext:
+		n := &JsonStrNode{
+			MyToken: MyToken{Token: ctx.GetS(), TType: parser.ADLParserJsonStr},
+			Value:   ctx.GetS().GetText(),
+		}
+		tr.Builder.Add(n)
 	case *parser.TrueFalseNullContext:
+		var n antlr.Token
+		switch strings.ToLower(ctx.GetKw().GetText()) {
+		case "true":
+			n = &JsonBoolNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserJsonBool},
+				Value:   true,
+			}
+		case "false":
+			n = &JsonBoolNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserJsonBool},
+				Value:   false,
+			}
+		case "null":
+			n = &JsonBoolNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserJsonNull},
+			}
+		default:
+			n = &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetStart(), TType: parser.ADLParserERROR},
+				Expected: "true|false|null", Received: ctx.GetKw().GetText()}
+		}
+		tr.Builder.Add(n)
 	case *parser.NumberStatementContext:
+		i, err := strconv.ParseInt(ctx.GetN().GetText(), 10, 64)
+		if err != nil {
+			n := &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetStart(), TType: parser.ADLParserERROR},
+				Expected: "<number>", Received: ctx.GetN().GetText()}
+			tr.Builder.Add(n)
+		} else {
+			n := &JsonIntNode{
+				MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserJsonInt},
+				Value:   i,
+			}
+			tr.Builder.Add(n)
+		}
 	case *parser.FloatStatementContext:
+		i, err := strconv.ParseFloat(ctx.GetF().GetText(), 64)
+		if err != nil {
+			n := &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetStart(), TType: parser.ADLParserERROR},
+				Expected: "<float>", Received: ctx.GetF().GetText()}
+			tr.Builder.Add(n)
+		} else {
+			n := &JsonFloatNode{
+				MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserJsonFloat},
+				Value:   i,
+			}
+			tr.Builder.Add(n)
+		}
 	case *parser.ArrayStatementContext:
+		n := &JsonArrayNode{
+			MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserJsonArray},
+		}
+		tr.Builder.Add(n)
+		tr.Builder.Down()
 	case *parser.ObjStatementContext:
+		n := &JsonObjNode{
+			MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserJsonObj},
+		}
+		tr.Builder.Add(n)
+		tr.Builder.Down()
 		// rules name occur on errors
 	case *parser.Top_level_statementContext:
 		n := &ErrorNode{
@@ -367,14 +434,18 @@ func (tr *ADLBuildListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 		tr.Builder.Up()
 	case *parser.ImportStatementContext:
 	case *parser.LocalAnnoContext:
+		tr.Builder.Up()
 	case *parser.DocAnnoContext:
 	case *parser.StructOrUnionContext:
 		tr.Builder.Up()
 	case *parser.TypeOrNewtypeContext:
 		tr.Builder.Up()
 	case *parser.ModuleAnnotationContext:
+		tr.Builder.Up()
 	case *parser.DeclAnnotationContext:
+		tr.Builder.Up()
 	case *parser.FieldAnnotationContext:
+		tr.Builder.Up()
 	case *parser.TypeParameterContext:
 	case *parser.TypeExpressionContext:
 		tr.Builder.Up()
@@ -387,7 +458,9 @@ func (tr *ADLBuildListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 	case *parser.NumberStatementContext:
 	case *parser.FloatStatementContext:
 	case *parser.ArrayStatementContext:
+		tr.Builder.Up()
 	case *parser.ObjStatementContext:
+		tr.Builder.Up()
 	default:
 		glog.Warningf("Unhandled in <ExitEveryRule case %T:\n", ctx)
 	}
