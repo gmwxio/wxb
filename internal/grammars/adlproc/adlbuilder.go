@@ -317,6 +317,13 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 	case *parser.TypeExpressionContext:
 	case *parser.TypeExpressionElemContext:
 	case *parser.FieldStatementContext:
+		n := &FieldNode{
+			MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserField},
+			Name:    ctx.GetB().GetText(),
+			TypeRef: ctx.GetA().GetText(),
+		}
+		tr.Builder.Add(n)
+		tr.Builder.Down()
 	case *parser.StringStatementContext:
 	case *parser.TrueFalseNullContext:
 	case *parser.NumberStatementContext:
@@ -357,6 +364,7 @@ func (tr *ADLBuildListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 	case *parser.TypeExpressionContext:
 	case *parser.TypeExpressionElemContext:
 	case *parser.FieldStatementContext:
+		tr.Builder.Up()
 	case *parser.StringStatementContext:
 	case *parser.TrueFalseNullContext:
 	case *parser.NumberStatementContext:
