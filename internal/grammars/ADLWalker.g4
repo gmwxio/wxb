@@ -10,14 +10,22 @@ module
 tld
     : Struct  (DOWN Annotation* TypeParam? nameBody* UP)?            #Struct
     | Union   (DOWN Annotation* TypeParam? nameBody* UP)?            #Union
-    | Type    (DOWN Annotation* TypeParam? TypeExpr? jsonVal* UP)?   #Type
-    | Newtype (DOWN Annotation* TypeParam? TypeExpr? jsonVal* UP)?   #Newtype
+    | Type    (DOWN Annotation* TypeParam? typeExpr_? jsonVal* UP)?   #Type
+    | Newtype (DOWN Annotation* TypeParam? typeExpr_? jsonVal* UP)?   #Newtype
     | ModuleAnno                                                     #ModAnno
     | DeclAnno                                                       #DeclAnno
     | FieldAnno                                                      #FieldAnno
+    | (Struct|Union) DOWN Annotation* ERROR nameBody* UP             #TypeParamError
+    | (Type|Newtype) DOWN Annotation* ERROR typeExpr_? jsonVal* UP?  #TypeParamError
 ;
 nameBody
-    : Field (DOWN Annotation* TypeExpr? jsonVal? UP)?               #Field
+    : Field (DOWN Annotation* typeExpr_? jsonVal? UP)?               #Field
+;
+typeExpr_
+    : TypeExpr (DOWN typeExprElem_+ UP)?
+;
+typeExprElem_
+    : TypeExprElem (DOWN typeExprElem_+ UP)?                         #TypeParams
 ;
 jsonVal
     : Json DOWN JsonStr UP                                          #JsonStr

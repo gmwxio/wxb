@@ -87,6 +87,18 @@ func (s *BaseADLParserListener) EnterTypeParameter(ctx *TypeParameterContext) {}
 // ExitTypeParameter is called when production TypeParameter is exited.
 func (s *BaseADLParserListener) ExitTypeParameter(ctx *TypeParameterContext) {}
 
+// EnterErrorTypeParam is called when production ErrorTypeParam is entered.
+func (s *BaseADLParserListener) EnterErrorTypeParam(ctx *ErrorTypeParamContext) {}
+
+// ExitErrorTypeParam is called when production ErrorTypeParam is exited.
+func (s *BaseADLParserListener) ExitErrorTypeParam(ctx *ErrorTypeParamContext) {}
+
+// EnterTypeParamError is called when production typeParamError is entered.
+func (s *BaseADLParserListener) EnterTypeParamError(ctx *TypeParamErrorContext) {}
+
+// ExitTypeParamError is called when production typeParamError is exited.
+func (s *BaseADLParserListener) ExitTypeParamError(ctx *TypeParamErrorContext) {}
+
 // EnterTypeExpression is called when production TypeExpression is entered.
 func (s *BaseADLParserListener) EnterTypeExpression(ctx *TypeExpressionContext) {}
 

@@ -7,7 +7,7 @@ import common.db.DbTable;
 // comment
 /// doccmt
 @Path "localanno"
-type Hello = Post<HelloReq, HelloResp<String,Int32,Float>>;
+type Hello<A<B>> = Post<HelloReq, HelloResp<Vector<Vector<Vector<A>>>,Int32,Float>>;
 
 /// doconstr
 @SA { "a" : "b" }

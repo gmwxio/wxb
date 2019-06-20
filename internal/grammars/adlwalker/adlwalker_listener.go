@@ -34,8 +34,17 @@ type ADLWalkerListener interface {
 	// EnterFieldAnno is called when entering the FieldAnno production.
 	EnterFieldAnno(c *FieldAnnoContext)
 
+	// EnterTypeParamError is called when entering the TypeParamError production.
+	EnterTypeParamError(c *TypeParamErrorContext)
+
 	// EnterField is called when entering the Field production.
 	EnterField(c *FieldContext)
+
+	// EnterTypeExpr_ is called when entering the typeExpr_ production.
+	EnterTypeExpr_(c *TypeExpr_Context)
+
+	// EnterTypeParams is called when entering the TypeParams production.
+	EnterTypeParams(c *TypeParamsContext)
 
 	// EnterJsonStr is called when entering the JsonStr production.
 	EnterJsonStr(c *JsonStrContext)
@@ -85,8 +94,17 @@ type ADLWalkerListener interface {
 	// ExitFieldAnno is called when exiting the FieldAnno production.
 	ExitFieldAnno(c *FieldAnnoContext)
 
+	// ExitTypeParamError is called when exiting the TypeParamError production.
+	ExitTypeParamError(c *TypeParamErrorContext)
+
 	// ExitField is called when exiting the Field production.
 	ExitField(c *FieldContext)
+
+	// ExitTypeExpr_ is called when exiting the typeExpr_ production.
+	ExitTypeExpr_(c *TypeExpr_Context)
+
+	// ExitTypeParams is called when exiting the TypeParams production.
+	ExitTypeParams(c *TypeParamsContext)
 
 	// ExitJsonStr is called when exiting the JsonStr production.
 	ExitJsonStr(c *JsonStrContext)

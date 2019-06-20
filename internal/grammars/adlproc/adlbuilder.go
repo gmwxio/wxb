@@ -315,7 +315,18 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 		}
 		tr.Builder.Add(n)
 	case *parser.TypeExpressionContext:
+		n := &TypeExprNode{
+			MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserTypeExpr},
+		}
+		tr.Builder.Add(n)
+		tr.Builder.Down()
 	case *parser.TypeExpressionElemContext:
+		n := &TypeExprElemNode{
+			MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserTypeExprElem},
+			Name:    ctx.GetA().GetText(),
+		}
+		tr.Builder.Add(n)
+		tr.Builder.Down()
 	case *parser.FieldStatementContext:
 		n := &FieldNode{
 			MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserField},
@@ -336,7 +347,11 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			MyToken:  MyToken{Token: ctx.GetStart(), TType: parser.ADLParserERROR},
 			Expected: "@|struct|union|annotation", Received: ctx.GetStart().GetText()}
 		tr.Builder.Add(n)
-
+	case *parser.ErrorTypeParamContext:
+		n := &ErrorNode{
+			MyToken:  MyToken{Token: ctx.GetStart(), TType: parser.ADLParserERROR},
+			Expected: "Need Type Param looks like a Type Expression. ie type A<B> ok, type A<B<C>> not", Received: ctx.GetStart().GetText()}
+		tr.Builder.Add(n)
 	default:
 		glog.Warningf("Unhandled in >EnterEveryRule case %T:\n", ctx)
 	}
@@ -362,7 +377,9 @@ func (tr *ADLBuildListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 	case *parser.FieldAnnotationContext:
 	case *parser.TypeParameterContext:
 	case *parser.TypeExpressionContext:
+		tr.Builder.Up()
 	case *parser.TypeExpressionElemContext:
+		tr.Builder.Up()
 	case *parser.FieldStatementContext:
 		tr.Builder.Up()
 	case *parser.StringStatementContext:

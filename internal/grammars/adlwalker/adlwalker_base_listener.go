@@ -74,11 +74,29 @@ func (s *BaseADLWalkerListener) EnterFieldAnno(ctx *FieldAnnoContext) {}
 // ExitFieldAnno is called when production FieldAnno is exited.
 func (s *BaseADLWalkerListener) ExitFieldAnno(ctx *FieldAnnoContext) {}
 
+// EnterTypeParamError is called when production TypeParamError is entered.
+func (s *BaseADLWalkerListener) EnterTypeParamError(ctx *TypeParamErrorContext) {}
+
+// ExitTypeParamError is called when production TypeParamError is exited.
+func (s *BaseADLWalkerListener) ExitTypeParamError(ctx *TypeParamErrorContext) {}
+
 // EnterField is called when production Field is entered.
 func (s *BaseADLWalkerListener) EnterField(ctx *FieldContext) {}
 
 // ExitField is called when production Field is exited.
 func (s *BaseADLWalkerListener) ExitField(ctx *FieldContext) {}
+
+// EnterTypeExpr_ is called when production typeExpr_ is entered.
+func (s *BaseADLWalkerListener) EnterTypeExpr_(ctx *TypeExpr_Context) {}
+
+// ExitTypeExpr_ is called when production typeExpr_ is exited.
+func (s *BaseADLWalkerListener) ExitTypeExpr_(ctx *TypeExpr_Context) {}
+
+// EnterTypeParams is called when production TypeParams is entered.
+func (s *BaseADLWalkerListener) EnterTypeParams(ctx *TypeParamsContext) {}
+
+// ExitTypeParams is called when production TypeParams is exited.
+func (s *BaseADLWalkerListener) ExitTypeParams(ctx *TypeParamsContext) {}
 
 // EnterJsonStr is called when production JsonStr is entered.
 func (s *BaseADLWalkerListener) EnterJsonStr(ctx *JsonStrContext) {}

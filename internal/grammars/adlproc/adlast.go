@@ -119,6 +119,10 @@ func (node TypeParamNode) String() string {
 type TypeExprNode struct {
 	MyToken
 }
+type TypeExprElemNode struct {
+	MyToken
+	Name string
+}
 type FieldNode struct {
 	MyToken
 	TypeRef string

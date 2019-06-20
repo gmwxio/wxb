@@ -90,11 +90,12 @@ func (et *walkADL) Run() error {
 type WalkListener struct {
 	*walker.BaseADLWalkerListener
 	//
-	protoDS *descriptor.FileDescriptorSet
-	indent  string
-	debug   bool
-	warning string
-	err     error
+	ruleCount int
+	protoDS   *descriptor.FileDescriptorSet
+	indent    string
+	debug     bool
+	warning   string
+	err       error
 }
 
 // EnterTld is called when production tld is entered.
@@ -103,14 +104,17 @@ func (tr *WalkListener) EnterTld(ctx *walker.TldContext) {
 }
 
 func (tr *WalkListener) VisitTerminal(node antlr.TerminalNode) {
+	tr.ruleCount++
 	fmt.Printf("%s  '%T'\n", tr.indent, node.GetPayload())
 }
 func (tr *WalkListener) VisitErrorNode(node antlr.ErrorNode) {
+	tr.ruleCount++
 	tid := node.GetSymbol().GetTokenType()
 	sym := node.GetSymbol()
-	fmt.Printf("2.ERROR %d %v %+v\n", tid, sym, node)
+	fmt.Printf("2.ERROR #%d %d:%d  len:%d start_stop:%d:%d  tok_type:%d %v %+v\n", tr.ruleCount, sym.GetLine(), sym.GetColumn(), len(sym.GetText()), sym.GetStart(), sym.GetStop(), tid, sym, node)
 }
 func (tr *WalkListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
+	tr.ruleCount++
 	fmt.Printf("%s>>%T\n", tr.indent, ctx)
 	tr.indent += "  "
 }
@@ -126,7 +130,7 @@ func (tbl *WalkListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbo
 		t = e.GetOffendingToken()
 	}
 	if tbl.debug {
-		fmt.Printf("SyntaxError %d:%d %v <%s>\n", line, column, t, msg)
+		fmt.Printf("SyntaxError #:%d %d:%d '%v' <%s>\n", tbl.ruleCount, line, column, t, msg)
 	}
 	if strings.HasPrefix(msg, "report") { // TODO remove NewDiagnosticErrorListener and move warning to ReportAmbiguity etc. when getDecisionDescription is make public
 		tbl.warning = fmt.Sprintf("At %d:%d <%s>", line, column, msg)

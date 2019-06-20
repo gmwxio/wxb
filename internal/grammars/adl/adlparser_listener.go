@@ -41,6 +41,12 @@ type ADLParserListener interface {
 	// EnterTypeParameter is called when entering the TypeParameter production.
 	EnterTypeParameter(c *TypeParameterContext)
 
+	// EnterErrorTypeParam is called when entering the ErrorTypeParam production.
+	EnterErrorTypeParam(c *ErrorTypeParamContext)
+
+	// EnterTypeParamError is called when entering the typeParamError production.
+	EnterTypeParamError(c *TypeParamErrorContext)
+
 	// EnterTypeExpression is called when entering the TypeExpression production.
 	EnterTypeExpression(c *TypeExpressionContext)
 
@@ -100,6 +106,12 @@ type ADLParserListener interface {
 
 	// ExitTypeParameter is called when exiting the TypeParameter production.
 	ExitTypeParameter(c *TypeParameterContext)
+
+	// ExitErrorTypeParam is called when exiting the ErrorTypeParam production.
+	ExitErrorTypeParam(c *ErrorTypeParamContext)
+
+	// ExitTypeParamError is called when exiting the typeParamError production.
+	ExitTypeParamError(c *TypeParamErrorContext)
 
 	// ExitTypeExpression is called when exiting the TypeExpression production.
 	ExitTypeExpression(c *TypeExpressionContext)
