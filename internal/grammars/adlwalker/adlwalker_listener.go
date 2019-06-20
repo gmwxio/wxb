@@ -13,29 +13,50 @@ type ADLWalkerListener interface {
 	// EnterModule is called when entering the module production.
 	EnterModule(c *ModuleContext)
 
-	// EnterPkgNode is called when entering the PkgNode production.
-	EnterPkgNode(c *PkgNodeContext)
+	// EnterStruct is called when entering the Struct production.
+	EnterStruct(c *StructContext)
 
-	// EnterImportNode is called when entering the ImportNode production.
-	EnterImportNode(c *ImportNodeContext)
+	// EnterUnion is called when entering the Union production.
+	EnterUnion(c *UnionContext)
 
-	// EnterMsgNode is called when entering the MsgNode production.
-	EnterMsgNode(c *MsgNodeContext)
+	// EnterType is called when entering the Type production.
+	EnterType(c *TypeContext)
 
-	// EnterExtNode is called when entering the ExtNode production.
-	EnterExtNode(c *ExtNodeContext)
+	// EnterNewtype is called when entering the Newtype production.
+	EnterNewtype(c *NewtypeContext)
 
-	// EnterDeclAnnoNode is called when entering the DeclAnnoNode production.
-	EnterDeclAnnoNode(c *DeclAnnoNodeContext)
+	// EnterModAnno is called when entering the ModAnno production.
+	EnterModAnno(c *ModAnnoContext)
 
-	// EnterFieldAnnoNode is called when entering the FieldAnnoNode production.
-	EnterFieldAnnoNode(c *FieldAnnoNodeContext)
+	// EnterDeclAnno is called when entering the DeclAnno production.
+	EnterDeclAnno(c *DeclAnnoContext)
 
-	// EnterNameBody is called when entering the nameBody production.
-	EnterNameBody(c *NameBodyContext)
+	// EnterFieldAnno is called when entering the FieldAnno production.
+	EnterFieldAnno(c *FieldAnnoContext)
 
-	// EnterJsonVal is called when entering the jsonVal production.
-	EnterJsonVal(c *JsonValContext)
+	// EnterField is called when entering the Field production.
+	EnterField(c *FieldContext)
+
+	// EnterJsonStr is called when entering the JsonStr production.
+	EnterJsonStr(c *JsonStrContext)
+
+	// EnterJsonBool is called when entering the JsonBool production.
+	EnterJsonBool(c *JsonBoolContext)
+
+	// EnterJsonNull is called when entering the JsonNull production.
+	EnterJsonNull(c *JsonNullContext)
+
+	// EnterJsonInt is called when entering the JsonInt production.
+	EnterJsonInt(c *JsonIntContext)
+
+	// EnterJsonFloat is called when entering the JsonFloat production.
+	EnterJsonFloat(c *JsonFloatContext)
+
+	// EnterJsonArray is called when entering the JsonArray production.
+	EnterJsonArray(c *JsonArrayContext)
+
+	// EnterJsonObj is called when entering the JsonObj production.
+	EnterJsonObj(c *JsonObjContext)
 
 	// ExitAdl is called when exiting the adl production.
 	ExitAdl(c *AdlContext)
@@ -43,27 +64,48 @@ type ADLWalkerListener interface {
 	// ExitModule is called when exiting the module production.
 	ExitModule(c *ModuleContext)
 
-	// ExitPkgNode is called when exiting the PkgNode production.
-	ExitPkgNode(c *PkgNodeContext)
+	// ExitStruct is called when exiting the Struct production.
+	ExitStruct(c *StructContext)
 
-	// ExitImportNode is called when exiting the ImportNode production.
-	ExitImportNode(c *ImportNodeContext)
+	// ExitUnion is called when exiting the Union production.
+	ExitUnion(c *UnionContext)
 
-	// ExitMsgNode is called when exiting the MsgNode production.
-	ExitMsgNode(c *MsgNodeContext)
+	// ExitType is called when exiting the Type production.
+	ExitType(c *TypeContext)
 
-	// ExitExtNode is called when exiting the ExtNode production.
-	ExitExtNode(c *ExtNodeContext)
+	// ExitNewtype is called when exiting the Newtype production.
+	ExitNewtype(c *NewtypeContext)
 
-	// ExitDeclAnnoNode is called when exiting the DeclAnnoNode production.
-	ExitDeclAnnoNode(c *DeclAnnoNodeContext)
+	// ExitModAnno is called when exiting the ModAnno production.
+	ExitModAnno(c *ModAnnoContext)
 
-	// ExitFieldAnnoNode is called when exiting the FieldAnnoNode production.
-	ExitFieldAnnoNode(c *FieldAnnoNodeContext)
+	// ExitDeclAnno is called when exiting the DeclAnno production.
+	ExitDeclAnno(c *DeclAnnoContext)
 
-	// ExitNameBody is called when exiting the nameBody production.
-	ExitNameBody(c *NameBodyContext)
+	// ExitFieldAnno is called when exiting the FieldAnno production.
+	ExitFieldAnno(c *FieldAnnoContext)
 
-	// ExitJsonVal is called when exiting the jsonVal production.
-	ExitJsonVal(c *JsonValContext)
+	// ExitField is called when exiting the Field production.
+	ExitField(c *FieldContext)
+
+	// ExitJsonStr is called when exiting the JsonStr production.
+	ExitJsonStr(c *JsonStrContext)
+
+	// ExitJsonBool is called when exiting the JsonBool production.
+	ExitJsonBool(c *JsonBoolContext)
+
+	// ExitJsonNull is called when exiting the JsonNull production.
+	ExitJsonNull(c *JsonNullContext)
+
+	// ExitJsonInt is called when exiting the JsonInt production.
+	ExitJsonInt(c *JsonIntContext)
+
+	// ExitJsonFloat is called when exiting the JsonFloat production.
+	ExitJsonFloat(c *JsonFloatContext)
+
+	// ExitJsonArray is called when exiting the JsonArray production.
+	ExitJsonArray(c *JsonArrayContext)
+
+	// ExitJsonObj is called when exiting the JsonObj production.
+	ExitJsonObj(c *JsonObjContext)
 }

@@ -15,94 +15,100 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 51, 191,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 51, 202,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 3, 7, 3, 22, 10, 3, 12, 3, 14, 3,
-	25, 11, 3, 3, 3, 3, 3, 7, 3, 29, 10, 3, 12, 3, 14, 3, 32, 11, 3, 3, 3,
-	7, 3, 35, 10, 3, 12, 3, 14, 3, 38, 11, 3, 3, 4, 7, 4, 41, 10, 4, 12, 4,
-	14, 4, 44, 11, 4, 3, 4, 3, 4, 3, 4, 5, 4, 49, 10, 4, 3, 4, 7, 4, 52, 10,
-	4, 12, 4, 14, 4, 55, 11, 4, 3, 4, 5, 4, 58, 10, 4, 3, 4, 7, 4, 61, 10,
-	4, 12, 4, 14, 4, 64, 11, 4, 3, 4, 3, 4, 3, 4, 5, 4, 69, 10, 4, 3, 4, 7,
-	4, 72, 10, 4, 12, 4, 14, 4, 75, 11, 4, 3, 4, 5, 4, 78, 10, 4, 3, 4, 7,
-	4, 81, 10, 4, 12, 4, 14, 4, 84, 11, 4, 3, 4, 3, 4, 3, 4, 5, 4, 89, 10,
-	4, 3, 4, 5, 4, 92, 10, 4, 3, 4, 7, 4, 95, 10, 4, 12, 4, 14, 4, 98, 11,
-	4, 3, 4, 5, 4, 101, 10, 4, 3, 4, 7, 4, 104, 10, 4, 12, 4, 14, 4, 107, 11,
-	4, 3, 4, 3, 4, 3, 4, 5, 4, 112, 10, 4, 3, 4, 5, 4, 115, 10, 4, 3, 4, 7,
-	4, 118, 10, 4, 12, 4, 14, 4, 121, 11, 4, 3, 4, 5, 4, 124, 10, 4, 3, 4,
-	3, 4, 3, 4, 5, 4, 129, 10, 4, 3, 5, 7, 5, 132, 10, 5, 12, 5, 14, 5, 135,
-	11, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 5, 5, 143, 10, 5, 3, 6, 3, 6,
-	3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6,
-	3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 6, 6,
-	170, 10, 6, 13, 6, 14, 6, 171, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6,
-	3, 6, 6, 6, 182, 10, 6, 13, 6, 14, 6, 183, 3, 6, 3, 6, 3, 6, 5, 6, 189,
-	10, 6, 3, 6, 2, 2, 7, 2, 4, 6, 8, 10, 2, 2, 2, 222, 2, 12, 3, 2, 2, 2,
-	4, 23, 3, 2, 2, 2, 6, 128, 3, 2, 2, 2, 8, 133, 3, 2, 2, 2, 10, 188, 3,
-	2, 2, 2, 12, 13, 7, 26, 2, 2, 13, 14, 7, 30, 2, 2, 14, 15, 7, 26, 2, 2,
-	15, 16, 5, 4, 3, 2, 16, 17, 7, 27, 2, 2, 17, 18, 7, 27, 2, 2, 18, 19, 7,
-	2, 2, 3, 19, 3, 3, 2, 2, 2, 20, 22, 7, 33, 2, 2, 21, 20, 3, 2, 2, 2, 22,
-	25, 3, 2, 2, 2, 23, 21, 3, 2, 2, 2, 23, 24, 3, 2, 2, 2, 24, 26, 3, 2, 2,
-	2, 25, 23, 3, 2, 2, 2, 26, 30, 7, 31, 2, 2, 27, 29, 7, 32, 2, 2, 28, 27,
-	3, 2, 2, 2, 29, 32, 3, 2, 2, 2, 30, 28, 3, 2, 2, 2, 30, 31, 3, 2, 2, 2,
-	31, 36, 3, 2, 2, 2, 32, 30, 3, 2, 2, 2, 33, 35, 5, 6, 4, 2, 34, 33, 3,
-	2, 2, 2, 35, 38, 3, 2, 2, 2, 36, 34, 3, 2, 2, 2, 36, 37, 3, 2, 2, 2, 37,
-	5, 3, 2, 2, 2, 38, 36, 3, 2, 2, 2, 39, 41, 7, 33, 2, 2, 40, 39, 3, 2, 2,
-	2, 41, 44, 3, 2, 2, 2, 42, 40, 3, 2, 2, 2, 42, 43, 3, 2, 2, 2, 43, 45,
-	3, 2, 2, 2, 44, 42, 3, 2, 2, 2, 45, 57, 7, 34, 2, 2, 46, 48, 7, 26, 2,
-	2, 47, 49, 7, 38, 2, 2, 48, 47, 3, 2, 2, 2, 48, 49, 3, 2, 2, 2, 49, 53,
-	3, 2, 2, 2, 50, 52, 5, 8, 5, 2, 51, 50, 3, 2, 2, 2, 52, 55, 3, 2, 2, 2,
-	53, 51, 3, 2, 2, 2, 53, 54, 3, 2, 2, 2, 54, 56, 3, 2, 2, 2, 55, 53, 3,
-	2, 2, 2, 56, 58, 7, 27, 2, 2, 57, 46, 3, 2, 2, 2, 57, 58, 3, 2, 2, 2, 58,
-	129, 3, 2, 2, 2, 59, 61, 7, 33, 2, 2, 60, 59, 3, 2, 2, 2, 61, 64, 3, 2,
-	2, 2, 62, 60, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2, 63, 65, 3, 2, 2, 2, 64, 62,
-	3, 2, 2, 2, 65, 77, 7, 35, 2, 2, 66, 68, 7, 26, 2, 2, 67, 69, 7, 38, 2,
-	2, 68, 67, 3, 2, 2, 2, 68, 69, 3, 2, 2, 2, 69, 73, 3, 2, 2, 2, 70, 72,
-	5, 8, 5, 2, 71, 70, 3, 2, 2, 2, 72, 75, 3, 2, 2, 2, 73, 71, 3, 2, 2, 2,
-	73, 74, 3, 2, 2, 2, 74, 76, 3, 2, 2, 2, 75, 73, 3, 2, 2, 2, 76, 78, 7,
-	27, 2, 2, 77, 66, 3, 2, 2, 2, 77, 78, 3, 2, 2, 2, 78, 129, 3, 2, 2, 2,
-	79, 81, 7, 33, 2, 2, 80, 79, 3, 2, 2, 2, 81, 84, 3, 2, 2, 2, 82, 80, 3,
-	2, 2, 2, 82, 83, 3, 2, 2, 2, 83, 85, 3, 2, 2, 2, 84, 82, 3, 2, 2, 2, 85,
-	100, 7, 37, 2, 2, 86, 88, 7, 26, 2, 2, 87, 89, 7, 38, 2, 2, 88, 87, 3,
-	2, 2, 2, 88, 89, 3, 2, 2, 2, 89, 91, 3, 2, 2, 2, 90, 92, 7, 39, 2, 2, 91,
-	90, 3, 2, 2, 2, 91, 92, 3, 2, 2, 2, 92, 96, 3, 2, 2, 2, 93, 95, 5, 10,
-	6, 2, 94, 93, 3, 2, 2, 2, 95, 98, 3, 2, 2, 2, 96, 94, 3, 2, 2, 2, 96, 97,
-	3, 2, 2, 2, 97, 99, 3, 2, 2, 2, 98, 96, 3, 2, 2, 2, 99, 101, 7, 27, 2,
-	2, 100, 86, 3, 2, 2, 2, 100, 101, 3, 2, 2, 2, 101, 129, 3, 2, 2, 2, 102,
-	104, 7, 33, 2, 2, 103, 102, 3, 2, 2, 2, 104, 107, 3, 2, 2, 2, 105, 103,
-	3, 2, 2, 2, 105, 106, 3, 2, 2, 2, 106, 108, 3, 2, 2, 2, 107, 105, 3, 2,
-	2, 2, 108, 123, 7, 36, 2, 2, 109, 111, 7, 26, 2, 2, 110, 112, 7, 38, 2,
-	2, 111, 110, 3, 2, 2, 2, 111, 112, 3, 2, 2, 2, 112, 114, 3, 2, 2, 2, 113,
-	115, 7, 39, 2, 2, 114, 113, 3, 2, 2, 2, 114, 115, 3, 2, 2, 2, 115, 119,
-	3, 2, 2, 2, 116, 118, 5, 10, 6, 2, 117, 116, 3, 2, 2, 2, 118, 121, 3, 2,
-	2, 2, 119, 117, 3, 2, 2, 2, 119, 120, 3, 2, 2, 2, 120, 122, 3, 2, 2, 2,
-	121, 119, 3, 2, 2, 2, 122, 124, 7, 27, 2, 2, 123, 109, 3, 2, 2, 2, 123,
-	124, 3, 2, 2, 2, 124, 129, 3, 2, 2, 2, 125, 129, 7, 49, 2, 2, 126, 129,
-	7, 50, 2, 2, 127, 129, 7, 51, 2, 2, 128, 42, 3, 2, 2, 2, 128, 62, 3, 2,
-	2, 2, 128, 82, 3, 2, 2, 2, 128, 105, 3, 2, 2, 2, 128, 125, 3, 2, 2, 2,
-	128, 126, 3, 2, 2, 2, 128, 127, 3, 2, 2, 2, 129, 7, 3, 2, 2, 2, 130, 132,
-	7, 33, 2, 2, 131, 130, 3, 2, 2, 2, 132, 135, 3, 2, 2, 2, 133, 131, 3, 2,
-	2, 2, 133, 134, 3, 2, 2, 2, 134, 136, 3, 2, 2, 2, 135, 133, 3, 2, 2, 2,
-	136, 142, 7, 40, 2, 2, 137, 138, 7, 26, 2, 2, 138, 139, 7, 39, 2, 2, 139,
-	140, 5, 10, 6, 2, 140, 141, 7, 27, 2, 2, 141, 143, 3, 2, 2, 2, 142, 137,
-	3, 2, 2, 2, 142, 143, 3, 2, 2, 2, 143, 9, 3, 2, 2, 2, 144, 145, 7, 41,
-	2, 2, 145, 146, 7, 26, 2, 2, 146, 147, 7, 42, 2, 2, 147, 189, 7, 27, 2,
-	2, 148, 149, 7, 41, 2, 2, 149, 150, 7, 26, 2, 2, 150, 151, 7, 43, 2, 2,
-	151, 189, 7, 27, 2, 2, 152, 153, 7, 41, 2, 2, 153, 154, 7, 26, 2, 2, 154,
-	155, 7, 44, 2, 2, 155, 189, 7, 27, 2, 2, 156, 157, 7, 41, 2, 2, 157, 158,
-	7, 26, 2, 2, 158, 159, 7, 45, 2, 2, 159, 189, 7, 27, 2, 2, 160, 161, 7,
-	41, 2, 2, 161, 162, 7, 26, 2, 2, 162, 163, 7, 46, 2, 2, 163, 189, 7, 27,
-	2, 2, 164, 165, 7, 41, 2, 2, 165, 166, 7, 26, 2, 2, 166, 167, 7, 47, 2,
-	2, 167, 169, 7, 26, 2, 2, 168, 170, 5, 10, 6, 2, 169, 168, 3, 2, 2, 2,
-	170, 171, 3, 2, 2, 2, 171, 169, 3, 2, 2, 2, 171, 172, 3, 2, 2, 2, 172,
-	173, 3, 2, 2, 2, 173, 174, 7, 27, 2, 2, 174, 175, 7, 27, 2, 2, 175, 189,
-	3, 2, 2, 2, 176, 177, 7, 41, 2, 2, 177, 178, 7, 26, 2, 2, 178, 179, 7,
-	48, 2, 2, 179, 181, 7, 26, 2, 2, 180, 182, 5, 10, 6, 2, 181, 180, 3, 2,
-	2, 2, 182, 183, 3, 2, 2, 2, 183, 181, 3, 2, 2, 2, 183, 184, 3, 2, 2, 2,
-	184, 185, 3, 2, 2, 2, 185, 186, 7, 27, 2, 2, 186, 187, 7, 27, 2, 2, 187,
-	189, 3, 2, 2, 2, 188, 144, 3, 2, 2, 2, 188, 148, 3, 2, 2, 2, 188, 152,
-	3, 2, 2, 2, 188, 156, 3, 2, 2, 2, 188, 160, 3, 2, 2, 2, 188, 164, 3, 2,
-	2, 2, 188, 176, 3, 2, 2, 2, 189, 11, 3, 2, 2, 2, 29, 23, 30, 36, 42, 48,
-	53, 57, 62, 68, 73, 77, 82, 88, 91, 96, 100, 105, 111, 114, 119, 123, 128,
-	133, 142, 171, 183, 188,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 7, 3, 24, 10, 3,
+	12, 3, 14, 3, 27, 11, 3, 3, 3, 7, 3, 30, 10, 3, 12, 3, 14, 3, 33, 11, 3,
+	3, 3, 7, 3, 36, 10, 3, 12, 3, 14, 3, 39, 11, 3, 3, 3, 5, 3, 42, 10, 3,
+	3, 4, 3, 4, 3, 4, 7, 4, 47, 10, 4, 12, 4, 14, 4, 50, 11, 4, 3, 4, 5, 4,
+	53, 10, 4, 3, 4, 7, 4, 56, 10, 4, 12, 4, 14, 4, 59, 11, 4, 3, 4, 5, 4,
+	62, 10, 4, 3, 4, 3, 4, 3, 4, 7, 4, 67, 10, 4, 12, 4, 14, 4, 70, 11, 4,
+	3, 4, 5, 4, 73, 10, 4, 3, 4, 7, 4, 76, 10, 4, 12, 4, 14, 4, 79, 11, 4,
+	3, 4, 5, 4, 82, 10, 4, 3, 4, 3, 4, 3, 4, 7, 4, 87, 10, 4, 12, 4, 14, 4,
+	90, 11, 4, 3, 4, 5, 4, 93, 10, 4, 3, 4, 5, 4, 96, 10, 4, 3, 4, 7, 4, 99,
+	10, 4, 12, 4, 14, 4, 102, 11, 4, 3, 4, 5, 4, 105, 10, 4, 3, 4, 3, 4, 3,
+	4, 7, 4, 110, 10, 4, 12, 4, 14, 4, 113, 11, 4, 3, 4, 5, 4, 116, 10, 4,
+	3, 4, 5, 4, 119, 10, 4, 3, 4, 7, 4, 122, 10, 4, 12, 4, 14, 4, 125, 11,
+	4, 3, 4, 5, 4, 128, 10, 4, 3, 4, 3, 4, 3, 4, 5, 4, 133, 10, 4, 3, 5, 3,
+	5, 3, 5, 7, 5, 138, 10, 5, 12, 5, 14, 5, 141, 11, 5, 3, 5, 5, 5, 144, 10,
+	5, 3, 5, 5, 5, 147, 10, 5, 3, 5, 5, 5, 150, 10, 5, 3, 6, 3, 6, 3, 6, 3,
+	6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3,
+	6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 6, 6, 177, 10,
+	6, 13, 6, 14, 6, 178, 3, 6, 3, 6, 5, 6, 183, 10, 6, 3, 6, 3, 6, 3, 6, 3,
+	6, 3, 6, 3, 6, 6, 6, 191, 10, 6, 13, 6, 14, 6, 192, 3, 6, 3, 6, 5, 6, 197,
+	10, 6, 3, 6, 5, 6, 200, 10, 6, 3, 6, 2, 2, 7, 2, 4, 6, 8, 10, 2, 2, 2,
+	238, 2, 12, 3, 2, 2, 2, 4, 20, 3, 2, 2, 2, 6, 132, 3, 2, 2, 2, 8, 134,
+	3, 2, 2, 2, 10, 199, 3, 2, 2, 2, 12, 13, 7, 26, 2, 2, 13, 14, 7, 30, 2,
+	2, 14, 15, 7, 26, 2, 2, 15, 16, 5, 4, 3, 2, 16, 17, 7, 27, 2, 2, 17, 18,
+	7, 27, 2, 2, 18, 19, 7, 2, 2, 3, 19, 3, 3, 2, 2, 2, 20, 41, 7, 31, 2, 2,
+	21, 25, 7, 26, 2, 2, 22, 24, 7, 33, 2, 2, 23, 22, 3, 2, 2, 2, 24, 27, 3,
+	2, 2, 2, 25, 23, 3, 2, 2, 2, 25, 26, 3, 2, 2, 2, 26, 31, 3, 2, 2, 2, 27,
+	25, 3, 2, 2, 2, 28, 30, 7, 32, 2, 2, 29, 28, 3, 2, 2, 2, 30, 33, 3, 2,
+	2, 2, 31, 29, 3, 2, 2, 2, 31, 32, 3, 2, 2, 2, 32, 37, 3, 2, 2, 2, 33, 31,
+	3, 2, 2, 2, 34, 36, 5, 6, 4, 2, 35, 34, 3, 2, 2, 2, 36, 39, 3, 2, 2, 2,
+	37, 35, 3, 2, 2, 2, 37, 38, 3, 2, 2, 2, 38, 40, 3, 2, 2, 2, 39, 37, 3,
+	2, 2, 2, 40, 42, 7, 27, 2, 2, 41, 21, 3, 2, 2, 2, 41, 42, 3, 2, 2, 2, 42,
+	5, 3, 2, 2, 2, 43, 61, 7, 34, 2, 2, 44, 48, 7, 26, 2, 2, 45, 47, 7, 33,
+	2, 2, 46, 45, 3, 2, 2, 2, 47, 50, 3, 2, 2, 2, 48, 46, 3, 2, 2, 2, 48, 49,
+	3, 2, 2, 2, 49, 52, 3, 2, 2, 2, 50, 48, 3, 2, 2, 2, 51, 53, 7, 38, 2, 2,
+	52, 51, 3, 2, 2, 2, 52, 53, 3, 2, 2, 2, 53, 57, 3, 2, 2, 2, 54, 56, 5,
+	8, 5, 2, 55, 54, 3, 2, 2, 2, 56, 59, 3, 2, 2, 2, 57, 55, 3, 2, 2, 2, 57,
+	58, 3, 2, 2, 2, 58, 60, 3, 2, 2, 2, 59, 57, 3, 2, 2, 2, 60, 62, 7, 27,
+	2, 2, 61, 44, 3, 2, 2, 2, 61, 62, 3, 2, 2, 2, 62, 133, 3, 2, 2, 2, 63,
+	81, 7, 35, 2, 2, 64, 68, 7, 26, 2, 2, 65, 67, 7, 33, 2, 2, 66, 65, 3, 2,
+	2, 2, 67, 70, 3, 2, 2, 2, 68, 66, 3, 2, 2, 2, 68, 69, 3, 2, 2, 2, 69, 72,
+	3, 2, 2, 2, 70, 68, 3, 2, 2, 2, 71, 73, 7, 38, 2, 2, 72, 71, 3, 2, 2, 2,
+	72, 73, 3, 2, 2, 2, 73, 77, 3, 2, 2, 2, 74, 76, 5, 8, 5, 2, 75, 74, 3,
+	2, 2, 2, 76, 79, 3, 2, 2, 2, 77, 75, 3, 2, 2, 2, 77, 78, 3, 2, 2, 2, 78,
+	80, 3, 2, 2, 2, 79, 77, 3, 2, 2, 2, 80, 82, 7, 27, 2, 2, 81, 64, 3, 2,
+	2, 2, 81, 82, 3, 2, 2, 2, 82, 133, 3, 2, 2, 2, 83, 104, 7, 37, 2, 2, 84,
+	88, 7, 26, 2, 2, 85, 87, 7, 33, 2, 2, 86, 85, 3, 2, 2, 2, 87, 90, 3, 2,
+	2, 2, 88, 86, 3, 2, 2, 2, 88, 89, 3, 2, 2, 2, 89, 92, 3, 2, 2, 2, 90, 88,
+	3, 2, 2, 2, 91, 93, 7, 38, 2, 2, 92, 91, 3, 2, 2, 2, 92, 93, 3, 2, 2, 2,
+	93, 95, 3, 2, 2, 2, 94, 96, 7, 39, 2, 2, 95, 94, 3, 2, 2, 2, 95, 96, 3,
+	2, 2, 2, 96, 100, 3, 2, 2, 2, 97, 99, 5, 10, 6, 2, 98, 97, 3, 2, 2, 2,
+	99, 102, 3, 2, 2, 2, 100, 98, 3, 2, 2, 2, 100, 101, 3, 2, 2, 2, 101, 103,
+	3, 2, 2, 2, 102, 100, 3, 2, 2, 2, 103, 105, 7, 27, 2, 2, 104, 84, 3, 2,
+	2, 2, 104, 105, 3, 2, 2, 2, 105, 133, 3, 2, 2, 2, 106, 127, 7, 36, 2, 2,
+	107, 111, 7, 26, 2, 2, 108, 110, 7, 33, 2, 2, 109, 108, 3, 2, 2, 2, 110,
+	113, 3, 2, 2, 2, 111, 109, 3, 2, 2, 2, 111, 112, 3, 2, 2, 2, 112, 115,
+	3, 2, 2, 2, 113, 111, 3, 2, 2, 2, 114, 116, 7, 38, 2, 2, 115, 114, 3, 2,
+	2, 2, 115, 116, 3, 2, 2, 2, 116, 118, 3, 2, 2, 2, 117, 119, 7, 39, 2, 2,
+	118, 117, 3, 2, 2, 2, 118, 119, 3, 2, 2, 2, 119, 123, 3, 2, 2, 2, 120,
+	122, 5, 10, 6, 2, 121, 120, 3, 2, 2, 2, 122, 125, 3, 2, 2, 2, 123, 121,
+	3, 2, 2, 2, 123, 124, 3, 2, 2, 2, 124, 126, 3, 2, 2, 2, 125, 123, 3, 2,
+	2, 2, 126, 128, 7, 27, 2, 2, 127, 107, 3, 2, 2, 2, 127, 128, 3, 2, 2, 2,
+	128, 133, 3, 2, 2, 2, 129, 133, 7, 49, 2, 2, 130, 133, 7, 50, 2, 2, 131,
+	133, 7, 51, 2, 2, 132, 43, 3, 2, 2, 2, 132, 63, 3, 2, 2, 2, 132, 83, 3,
+	2, 2, 2, 132, 106, 3, 2, 2, 2, 132, 129, 3, 2, 2, 2, 132, 130, 3, 2, 2,
+	2, 132, 131, 3, 2, 2, 2, 133, 7, 3, 2, 2, 2, 134, 149, 7, 40, 2, 2, 135,
+	139, 7, 26, 2, 2, 136, 138, 7, 33, 2, 2, 137, 136, 3, 2, 2, 2, 138, 141,
+	3, 2, 2, 2, 139, 137, 3, 2, 2, 2, 139, 140, 3, 2, 2, 2, 140, 143, 3, 2,
+	2, 2, 141, 139, 3, 2, 2, 2, 142, 144, 7, 39, 2, 2, 143, 142, 3, 2, 2, 2,
+	143, 144, 3, 2, 2, 2, 144, 146, 3, 2, 2, 2, 145, 147, 5, 10, 6, 2, 146,
+	145, 3, 2, 2, 2, 146, 147, 3, 2, 2, 2, 147, 148, 3, 2, 2, 2, 148, 150,
+	7, 27, 2, 2, 149, 135, 3, 2, 2, 2, 149, 150, 3, 2, 2, 2, 150, 9, 3, 2,
+	2, 2, 151, 152, 7, 41, 2, 2, 152, 153, 7, 26, 2, 2, 153, 154, 7, 42, 2,
+	2, 154, 200, 7, 27, 2, 2, 155, 156, 7, 41, 2, 2, 156, 157, 7, 26, 2, 2,
+	157, 158, 7, 43, 2, 2, 158, 200, 7, 27, 2, 2, 159, 160, 7, 41, 2, 2, 160,
+	161, 7, 26, 2, 2, 161, 162, 7, 44, 2, 2, 162, 200, 7, 27, 2, 2, 163, 164,
+	7, 41, 2, 2, 164, 165, 7, 26, 2, 2, 165, 166, 7, 45, 2, 2, 166, 200, 7,
+	27, 2, 2, 167, 168, 7, 41, 2, 2, 168, 169, 7, 26, 2, 2, 169, 170, 7, 46,
+	2, 2, 170, 200, 7, 27, 2, 2, 171, 172, 7, 41, 2, 2, 172, 173, 7, 26, 2,
+	2, 173, 182, 7, 47, 2, 2, 174, 176, 7, 26, 2, 2, 175, 177, 5, 10, 6, 2,
+	176, 175, 3, 2, 2, 2, 177, 178, 3, 2, 2, 2, 178, 176, 3, 2, 2, 2, 178,
+	179, 3, 2, 2, 2, 179, 180, 3, 2, 2, 2, 180, 181, 7, 27, 2, 2, 181, 183,
+	3, 2, 2, 2, 182, 174, 3, 2, 2, 2, 182, 183, 3, 2, 2, 2, 183, 184, 3, 2,
+	2, 2, 184, 200, 7, 27, 2, 2, 185, 186, 7, 41, 2, 2, 186, 187, 7, 26, 2,
+	2, 187, 196, 7, 48, 2, 2, 188, 190, 7, 26, 2, 2, 189, 191, 5, 10, 6, 2,
+	190, 189, 3, 2, 2, 2, 191, 192, 3, 2, 2, 2, 192, 190, 3, 2, 2, 2, 192,
+	193, 3, 2, 2, 2, 193, 194, 3, 2, 2, 2, 194, 195, 7, 27, 2, 2, 195, 197,
+	3, 2, 2, 2, 196, 188, 3, 2, 2, 2, 196, 197, 3, 2, 2, 2, 197, 198, 3, 2,
+	2, 2, 198, 200, 7, 27, 2, 2, 199, 151, 3, 2, 2, 2, 199, 155, 3, 2, 2, 2,
+	199, 159, 3, 2, 2, 2, 199, 163, 3, 2, 2, 2, 199, 167, 3, 2, 2, 2, 199,
+	171, 3, 2, 2, 2, 199, 185, 3, 2, 2, 2, 200, 11, 3, 2, 2, 2, 34, 25, 31,
+	37, 41, 48, 52, 57, 61, 68, 72, 77, 81, 88, 92, 95, 100, 104, 111, 115,
+	118, 123, 127, 132, 139, 143, 146, 149, 178, 182, 192, 196, 199,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -400,6 +406,14 @@ func (s *ModuleContext) Module() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerModule, 0)
 }
 
+func (s *ModuleContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *ModuleContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
 func (s *ModuleContext) AllAnnotation() []antlr.TerminalNode {
 	return s.GetTokens(ADLWalkerAnnotation)
 }
@@ -481,51 +495,66 @@ func (p *ADLWalker) Module() (localctx IModuleContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(21)
+	{
+		p.SetState(18)
+		p.Match(ADLWalkerModule)
+	}
+	p.SetState(39)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == ADLWalkerAnnotation {
+	if _la == ADLWalkerDOWN {
 		{
-			p.SetState(18)
-			p.Match(ADLWalkerAnnotation)
+			p.SetState(19)
+			p.Match(ADLWalkerDOWN)
 		}
-
 		p.SetState(23)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
-	}
-	{
-		p.SetState(24)
-		p.Match(ADLWalkerModule)
-	}
-	p.SetState(28)
-	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
 
-	for _la == ADLWalkerImport {
-		{
+		for _la == ADLWalkerAnnotation {
+			{
+				p.SetState(20)
+				p.Match(ADLWalkerAnnotation)
+			}
+
 			p.SetState(25)
-			p.Match(ADLWalkerImport)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
 		}
-
-		p.SetState(30)
+		p.SetState(29)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
-	}
-	p.SetState(34)
-	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
 
-	for ((_la-31)&-(0x1f+1)) == 0 && ((1<<uint((_la-31)))&((1<<(ADLWalkerAnnotation-31))|(1<<(ADLWalkerStruct-31))|(1<<(ADLWalkerUnion-31))|(1<<(ADLWalkerNewtype-31))|(1<<(ADLWalkerType-31))|(1<<(ADLWalkerModuleAnno-31))|(1<<(ADLWalkerDeclAnno-31))|(1<<(ADLWalkerFieldAnno-31)))) != 0 {
-		{
+		for _la == ADLWalkerImport {
+			{
+				p.SetState(26)
+				p.Match(ADLWalkerImport)
+			}
+
 			p.SetState(31)
-			p.Tld()
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
 		}
-
-		p.SetState(36)
+		p.SetState(35)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
+
+		for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerStruct-32))|(1<<(ADLWalkerUnion-32))|(1<<(ADLWalkerNewtype-32))|(1<<(ADLWalkerType-32))|(1<<(ADLWalkerModuleAnno-32))|(1<<(ADLWalkerDeclAnno-32))|(1<<(ADLWalkerFieldAnno-32)))) != 0 {
+			{
+				p.SetState(32)
+				p.Tld()
+			}
+
+			p.SetState(37)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(38)
+			p.Match(ADLWalkerUP)
+		}
+
 	}
 
 	return localctx
@@ -581,12 +610,12 @@ func (s *TldContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) st
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-type PkgNodeContext struct {
+type TypeContext struct {
 	*TldContext
 }
 
-func NewPkgNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *PkgNodeContext {
-	var p = new(PkgNodeContext)
+func NewTypeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *TypeContext {
+	var p = new(TypeContext)
 
 	p.TldContext = NewEmptyTldContext()
 	p.parser = parser
@@ -595,295 +624,39 @@ func NewPkgNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *PkgNod
 	return p
 }
 
-func (s *PkgNodeContext) GetRuleContext() antlr.RuleContext {
+func (s *TypeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *PkgNodeContext) Struct() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerStruct, 0)
-}
-
-func (s *PkgNodeContext) AllAnnotation() []antlr.TerminalNode {
-	return s.GetTokens(ADLWalkerAnnotation)
-}
-
-func (s *PkgNodeContext) Annotation(i int) antlr.TerminalNode {
-	return s.GetToken(ADLWalkerAnnotation, i)
-}
-
-func (s *PkgNodeContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerDOWN, 0)
-}
-
-func (s *PkgNodeContext) UP() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerUP, 0)
-}
-
-func (s *PkgNodeContext) TypeParam() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerTypeParam, 0)
-}
-
-func (s *PkgNodeContext) AllNameBody() []INameBodyContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*INameBodyContext)(nil)).Elem())
-	var tst = make([]INameBodyContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(INameBodyContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *PkgNodeContext) NameBody(i int) INameBodyContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*INameBodyContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(INameBodyContext)
-}
-
-func (s *PkgNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.EnterPkgNode(s)
-	}
-}
-
-func (s *PkgNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.ExitPkgNode(s)
-	}
-}
-
-type ExtNodeContext struct {
-	*TldContext
-}
-
-func NewExtNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ExtNodeContext {
-	var p = new(ExtNodeContext)
-
-	p.TldContext = NewEmptyTldContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*TldContext))
-
-	return p
-}
-
-func (s *ExtNodeContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ExtNodeContext) ModuleAnno() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerModuleAnno, 0)
-}
-
-func (s *ExtNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.EnterExtNode(s)
-	}
-}
-
-func (s *ExtNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.ExitExtNode(s)
-	}
-}
-
-type FieldAnnoNodeContext struct {
-	*TldContext
-}
-
-func NewFieldAnnoNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FieldAnnoNodeContext {
-	var p = new(FieldAnnoNodeContext)
-
-	p.TldContext = NewEmptyTldContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*TldContext))
-
-	return p
-}
-
-func (s *FieldAnnoNodeContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *FieldAnnoNodeContext) FieldAnno() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerFieldAnno, 0)
-}
-
-func (s *FieldAnnoNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.EnterFieldAnnoNode(s)
-	}
-}
-
-func (s *FieldAnnoNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.ExitFieldAnnoNode(s)
-	}
-}
-
-type DeclAnnoNodeContext struct {
-	*TldContext
-}
-
-func NewDeclAnnoNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DeclAnnoNodeContext {
-	var p = new(DeclAnnoNodeContext)
-
-	p.TldContext = NewEmptyTldContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*TldContext))
-
-	return p
-}
-
-func (s *DeclAnnoNodeContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *DeclAnnoNodeContext) DeclAnno() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerDeclAnno, 0)
-}
-
-func (s *DeclAnnoNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.EnterDeclAnnoNode(s)
-	}
-}
-
-func (s *DeclAnnoNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.ExitDeclAnnoNode(s)
-	}
-}
-
-type ImportNodeContext struct {
-	*TldContext
-}
-
-func NewImportNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ImportNodeContext {
-	var p = new(ImportNodeContext)
-
-	p.TldContext = NewEmptyTldContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*TldContext))
-
-	return p
-}
-
-func (s *ImportNodeContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ImportNodeContext) Union() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerUnion, 0)
-}
-
-func (s *ImportNodeContext) AllAnnotation() []antlr.TerminalNode {
-	return s.GetTokens(ADLWalkerAnnotation)
-}
-
-func (s *ImportNodeContext) Annotation(i int) antlr.TerminalNode {
-	return s.GetToken(ADLWalkerAnnotation, i)
-}
-
-func (s *ImportNodeContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerDOWN, 0)
-}
-
-func (s *ImportNodeContext) UP() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerUP, 0)
-}
-
-func (s *ImportNodeContext) TypeParam() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerTypeParam, 0)
-}
-
-func (s *ImportNodeContext) AllNameBody() []INameBodyContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*INameBodyContext)(nil)).Elem())
-	var tst = make([]INameBodyContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(INameBodyContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *ImportNodeContext) NameBody(i int) INameBodyContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*INameBodyContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(INameBodyContext)
-}
-
-func (s *ImportNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.EnterImportNode(s)
-	}
-}
-
-func (s *ImportNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.ExitImportNode(s)
-	}
-}
-
-type MsgNodeContext struct {
-	*TldContext
-}
-
-func NewMsgNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *MsgNodeContext {
-	var p = new(MsgNodeContext)
-
-	p.TldContext = NewEmptyTldContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*TldContext))
-
-	return p
-}
-
-func (s *MsgNodeContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *MsgNodeContext) Type() antlr.TerminalNode {
+func (s *TypeContext) Type() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerType, 0)
 }
 
-func (s *MsgNodeContext) AllAnnotation() []antlr.TerminalNode {
-	return s.GetTokens(ADLWalkerAnnotation)
-}
-
-func (s *MsgNodeContext) Annotation(i int) antlr.TerminalNode {
-	return s.GetToken(ADLWalkerAnnotation, i)
-}
-
-func (s *MsgNodeContext) DOWN() antlr.TerminalNode {
+func (s *TypeContext) DOWN() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerDOWN, 0)
 }
 
-func (s *MsgNodeContext) UP() antlr.TerminalNode {
+func (s *TypeContext) UP() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerUP, 0)
 }
 
-func (s *MsgNodeContext) TypeParam() antlr.TerminalNode {
+func (s *TypeContext) AllAnnotation() []antlr.TerminalNode {
+	return s.GetTokens(ADLWalkerAnnotation)
+}
+
+func (s *TypeContext) Annotation(i int) antlr.TerminalNode {
+	return s.GetToken(ADLWalkerAnnotation, i)
+}
+
+func (s *TypeContext) TypeParam() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerTypeParam, 0)
 }
 
-func (s *MsgNodeContext) TypeExpr() antlr.TerminalNode {
+func (s *TypeContext) TypeExpr() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerTypeExpr, 0)
 }
 
-func (s *MsgNodeContext) AllJsonVal() []IJsonValContext {
+func (s *TypeContext) AllJsonVal() []IJsonValContext {
 	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IJsonValContext)(nil)).Elem())
 	var tst = make([]IJsonValContext, len(ts))
 
@@ -896,7 +669,7 @@ func (s *MsgNodeContext) AllJsonVal() []IJsonValContext {
 	return tst
 }
 
-func (s *MsgNodeContext) JsonVal(i int) IJsonValContext {
+func (s *TypeContext) JsonVal(i int) IJsonValContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), i)
 
 	if t == nil {
@@ -906,19 +679,352 @@ func (s *MsgNodeContext) JsonVal(i int) IJsonValContext {
 	return t.(IJsonValContext)
 }
 
-func (s *MsgNodeContext) Newtype() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerNewtype, 0)
-}
-
-func (s *MsgNodeContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *TypeContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.EnterMsgNode(s)
+		listenerT.EnterType(s)
 	}
 }
 
-func (s *MsgNodeContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *TypeContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.ExitMsgNode(s)
+		listenerT.ExitType(s)
+	}
+}
+
+type NewtypeContext struct {
+	*TldContext
+}
+
+func NewNewtypeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NewtypeContext {
+	var p = new(NewtypeContext)
+
+	p.TldContext = NewEmptyTldContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*TldContext))
+
+	return p
+}
+
+func (s *NewtypeContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NewtypeContext) Newtype() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerNewtype, 0)
+}
+
+func (s *NewtypeContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *NewtypeContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
+func (s *NewtypeContext) AllAnnotation() []antlr.TerminalNode {
+	return s.GetTokens(ADLWalkerAnnotation)
+}
+
+func (s *NewtypeContext) Annotation(i int) antlr.TerminalNode {
+	return s.GetToken(ADLWalkerAnnotation, i)
+}
+
+func (s *NewtypeContext) TypeParam() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerTypeParam, 0)
+}
+
+func (s *NewtypeContext) TypeExpr() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerTypeExpr, 0)
+}
+
+func (s *NewtypeContext) AllJsonVal() []IJsonValContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IJsonValContext)(nil)).Elem())
+	var tst = make([]IJsonValContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IJsonValContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *NewtypeContext) JsonVal(i int) IJsonValContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IJsonValContext)
+}
+
+func (s *NewtypeContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterNewtype(s)
+	}
+}
+
+func (s *NewtypeContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitNewtype(s)
+	}
+}
+
+type ModAnnoContext struct {
+	*TldContext
+}
+
+func NewModAnnoContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ModAnnoContext {
+	var p = new(ModAnnoContext)
+
+	p.TldContext = NewEmptyTldContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*TldContext))
+
+	return p
+}
+
+func (s *ModAnnoContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *ModAnnoContext) ModuleAnno() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerModuleAnno, 0)
+}
+
+func (s *ModAnnoContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterModAnno(s)
+	}
+}
+
+func (s *ModAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitModAnno(s)
+	}
+}
+
+type FieldAnnoContext struct {
+	*TldContext
+}
+
+func NewFieldAnnoContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FieldAnnoContext {
+	var p = new(FieldAnnoContext)
+
+	p.TldContext = NewEmptyTldContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*TldContext))
+
+	return p
+}
+
+func (s *FieldAnnoContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FieldAnnoContext) FieldAnno() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerFieldAnno, 0)
+}
+
+func (s *FieldAnnoContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterFieldAnno(s)
+	}
+}
+
+func (s *FieldAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitFieldAnno(s)
+	}
+}
+
+type UnionContext struct {
+	*TldContext
+}
+
+func NewUnionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *UnionContext {
+	var p = new(UnionContext)
+
+	p.TldContext = NewEmptyTldContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*TldContext))
+
+	return p
+}
+
+func (s *UnionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *UnionContext) Union() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUnion, 0)
+}
+
+func (s *UnionContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *UnionContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
+func (s *UnionContext) AllAnnotation() []antlr.TerminalNode {
+	return s.GetTokens(ADLWalkerAnnotation)
+}
+
+func (s *UnionContext) Annotation(i int) antlr.TerminalNode {
+	return s.GetToken(ADLWalkerAnnotation, i)
+}
+
+func (s *UnionContext) TypeParam() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerTypeParam, 0)
+}
+
+func (s *UnionContext) AllNameBody() []INameBodyContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*INameBodyContext)(nil)).Elem())
+	var tst = make([]INameBodyContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(INameBodyContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *UnionContext) NameBody(i int) INameBodyContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*INameBodyContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(INameBodyContext)
+}
+
+func (s *UnionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterUnion(s)
+	}
+}
+
+func (s *UnionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitUnion(s)
+	}
+}
+
+type DeclAnnoContext struct {
+	*TldContext
+}
+
+func NewDeclAnnoContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DeclAnnoContext {
+	var p = new(DeclAnnoContext)
+
+	p.TldContext = NewEmptyTldContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*TldContext))
+
+	return p
+}
+
+func (s *DeclAnnoContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *DeclAnnoContext) DeclAnno() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDeclAnno, 0)
+}
+
+func (s *DeclAnnoContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterDeclAnno(s)
+	}
+}
+
+func (s *DeclAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitDeclAnno(s)
+	}
+}
+
+type StructContext struct {
+	*TldContext
+}
+
+func NewStructContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *StructContext {
+	var p = new(StructContext)
+
+	p.TldContext = NewEmptyTldContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*TldContext))
+
+	return p
+}
+
+func (s *StructContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *StructContext) Struct() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerStruct, 0)
+}
+
+func (s *StructContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *StructContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
+func (s *StructContext) AllAnnotation() []antlr.TerminalNode {
+	return s.GetTokens(ADLWalkerAnnotation)
+}
+
+func (s *StructContext) Annotation(i int) antlr.TerminalNode {
+	return s.GetToken(ADLWalkerAnnotation, i)
+}
+
+func (s *StructContext) TypeParam() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerTypeParam, 0)
+}
+
+func (s *StructContext) AllNameBody() []INameBodyContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*INameBodyContext)(nil)).Elem())
+	var tst = make([]INameBodyContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(INameBodyContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *StructContext) NameBody(i int) INameBodyContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*INameBodyContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(INameBodyContext)
+}
+
+func (s *StructContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterStruct(s)
+	}
+}
+
+func (s *StructContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitStruct(s)
 	}
 }
 
@@ -943,303 +1049,306 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		}
 	}()
 
-	p.SetState(126)
+	p.SetState(130)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 21, p.GetParserRuleContext()) {
-	case 1:
-		localctx = NewPkgNodeContext(p, localctx)
+
+	switch p.GetTokenStream().LA(1) {
+	case ADLWalkerStruct:
+		localctx = NewStructContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
-		p.SetState(40)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for _la == ADLWalkerAnnotation {
-			{
-				p.SetState(37)
-				p.Match(ADLWalkerAnnotation)
-			}
-
-			p.SetState(42)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-		}
 		{
-			p.SetState(43)
+			p.SetState(41)
 			p.Match(ADLWalkerStruct)
 		}
-		p.SetState(55)
+		p.SetState(59)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(44)
+				p.SetState(42)
 				p.Match(ADLWalkerDOWN)
 			}
 			p.SetState(46)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
+			for _la == ADLWalkerAnnotation {
+				{
+					p.SetState(43)
+					p.Match(ADLWalkerAnnotation)
+				}
+
+				p.SetState(48)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			p.SetState(50)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
 			if _la == ADLWalkerTypeParam {
 				{
-					p.SetState(45)
+					p.SetState(49)
 					p.Match(ADLWalkerTypeParam)
 				}
 
 			}
-			p.SetState(51)
+			p.SetState(55)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for _la == ADLWalkerAnnotation || _la == ADLWalkerField {
+			for _la == ADLWalkerField {
 				{
-					p.SetState(48)
+					p.SetState(52)
 					p.NameBody()
 				}
 
-				p.SetState(53)
+				p.SetState(57)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(54)
+				p.SetState(58)
 				p.Match(ADLWalkerUP)
 			}
 
 		}
 
-	case 2:
-		localctx = NewImportNodeContext(p, localctx)
+	case ADLWalkerUnion:
+		localctx = NewUnionContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
-		p.SetState(60)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for _la == ADLWalkerAnnotation {
-			{
-				p.SetState(57)
-				p.Match(ADLWalkerAnnotation)
-			}
-
-			p.SetState(62)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-		}
 		{
-			p.SetState(63)
+			p.SetState(61)
 			p.Match(ADLWalkerUnion)
 		}
-		p.SetState(75)
+		p.SetState(79)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(64)
+				p.SetState(62)
 				p.Match(ADLWalkerDOWN)
 			}
 			p.SetState(66)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
+			for _la == ADLWalkerAnnotation {
+				{
+					p.SetState(63)
+					p.Match(ADLWalkerAnnotation)
+				}
+
+				p.SetState(68)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			p.SetState(70)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
 			if _la == ADLWalkerTypeParam {
 				{
-					p.SetState(65)
+					p.SetState(69)
 					p.Match(ADLWalkerTypeParam)
 				}
 
 			}
-			p.SetState(71)
+			p.SetState(75)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for _la == ADLWalkerAnnotation || _la == ADLWalkerField {
+			for _la == ADLWalkerField {
 				{
-					p.SetState(68)
+					p.SetState(72)
 					p.NameBody()
 				}
 
-				p.SetState(73)
+				p.SetState(77)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(74)
+				p.SetState(78)
 				p.Match(ADLWalkerUP)
 			}
 
 		}
 
-	case 3:
-		localctx = NewMsgNodeContext(p, localctx)
+	case ADLWalkerType:
+		localctx = NewTypeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
-		p.SetState(80)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for _la == ADLWalkerAnnotation {
-			{
-				p.SetState(77)
-				p.Match(ADLWalkerAnnotation)
-			}
-
-			p.SetState(82)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-		}
 		{
-			p.SetState(83)
+			p.SetState(81)
 			p.Match(ADLWalkerType)
 		}
-		p.SetState(98)
+		p.SetState(102)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(84)
+				p.SetState(82)
 				p.Match(ADLWalkerDOWN)
 			}
 			p.SetState(86)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
+			for _la == ADLWalkerAnnotation {
+				{
+					p.SetState(83)
+					p.Match(ADLWalkerAnnotation)
+				}
+
+				p.SetState(88)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			p.SetState(90)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
 			if _la == ADLWalkerTypeParam {
 				{
-					p.SetState(85)
+					p.SetState(89)
 					p.Match(ADLWalkerTypeParam)
 				}
 
 			}
-			p.SetState(89)
+			p.SetState(93)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			if _la == ADLWalkerTypeExpr {
 				{
-					p.SetState(88)
+					p.SetState(92)
 					p.Match(ADLWalkerTypeExpr)
 				}
 
 			}
-			p.SetState(94)
+			p.SetState(98)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == ADLWalkerJson {
 				{
-					p.SetState(91)
+					p.SetState(95)
 					p.JsonVal()
 				}
 
-				p.SetState(96)
+				p.SetState(100)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(97)
+				p.SetState(101)
 				p.Match(ADLWalkerUP)
 			}
 
 		}
 
-	case 4:
-		localctx = NewMsgNodeContext(p, localctx)
+	case ADLWalkerNewtype:
+		localctx = NewNewtypeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
-		p.SetState(103)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for _la == ADLWalkerAnnotation {
-			{
-				p.SetState(100)
-				p.Match(ADLWalkerAnnotation)
-			}
-
-			p.SetState(105)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-		}
 		{
-			p.SetState(106)
+			p.SetState(104)
 			p.Match(ADLWalkerNewtype)
 		}
-		p.SetState(121)
+		p.SetState(125)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(107)
+				p.SetState(105)
 				p.Match(ADLWalkerDOWN)
 			}
 			p.SetState(109)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
+			for _la == ADLWalkerAnnotation {
+				{
+					p.SetState(106)
+					p.Match(ADLWalkerAnnotation)
+				}
+
+				p.SetState(111)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			p.SetState(113)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
 			if _la == ADLWalkerTypeParam {
 				{
-					p.SetState(108)
+					p.SetState(112)
 					p.Match(ADLWalkerTypeParam)
 				}
 
 			}
-			p.SetState(112)
+			p.SetState(116)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			if _la == ADLWalkerTypeExpr {
 				{
-					p.SetState(111)
+					p.SetState(115)
 					p.Match(ADLWalkerTypeExpr)
 				}
 
 			}
-			p.SetState(117)
+			p.SetState(121)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == ADLWalkerJson {
 				{
-					p.SetState(114)
+					p.SetState(118)
 					p.JsonVal()
 				}
 
-				p.SetState(119)
+				p.SetState(123)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(120)
+				p.SetState(124)
 				p.Match(ADLWalkerUP)
 			}
 
 		}
 
-	case 5:
-		localctx = NewExtNodeContext(p, localctx)
+	case ADLWalkerModuleAnno:
+		localctx = NewModAnnoContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(123)
+			p.SetState(127)
 			p.Match(ADLWalkerModuleAnno)
 		}
 
-	case 6:
-		localctx = NewDeclAnnoNodeContext(p, localctx)
+	case ADLWalkerDeclAnno:
+		localctx = NewDeclAnnoContext(p, localctx)
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(124)
+			p.SetState(128)
 			p.Match(ADLWalkerDeclAnno)
 		}
 
-	case 7:
-		localctx = NewFieldAnnoNodeContext(p, localctx)
+	case ADLWalkerFieldAnno:
+		localctx = NewFieldAnnoContext(p, localctx)
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(125)
+			p.SetState(129)
 			p.Match(ADLWalkerFieldAnno)
 		}
 
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 
 	return localctx
@@ -1283,38 +1392,8 @@ func NewNameBodyContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 
 func (s *NameBodyContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *NameBodyContext) Field() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerField, 0)
-}
-
-func (s *NameBodyContext) AllAnnotation() []antlr.TerminalNode {
-	return s.GetTokens(ADLWalkerAnnotation)
-}
-
-func (s *NameBodyContext) Annotation(i int) antlr.TerminalNode {
-	return s.GetToken(ADLWalkerAnnotation, i)
-}
-
-func (s *NameBodyContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerDOWN, 0)
-}
-
-func (s *NameBodyContext) TypeExpr() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerTypeExpr, 0)
-}
-
-func (s *NameBodyContext) JsonVal() IJsonValContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IJsonValContext)
-}
-
-func (s *NameBodyContext) UP() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerUP, 0)
+func (s *NameBodyContext) CopyFrom(ctx *NameBodyContext) {
+	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
 
 func (s *NameBodyContext) GetRuleContext() antlr.RuleContext {
@@ -1325,15 +1404,67 @@ func (s *NameBodyContext) ToStringTree(ruleNames []string, recog antlr.Recognize
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *NameBodyContext) EnterRule(listener antlr.ParseTreeListener) {
+type FieldContext struct {
+	*NameBodyContext
+}
+
+func NewFieldContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FieldContext {
+	var p = new(FieldContext)
+
+	p.NameBodyContext = NewEmptyNameBodyContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*NameBodyContext))
+
+	return p
+}
+
+func (s *FieldContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FieldContext) Field() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerField, 0)
+}
+
+func (s *FieldContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *FieldContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
+func (s *FieldContext) AllAnnotation() []antlr.TerminalNode {
+	return s.GetTokens(ADLWalkerAnnotation)
+}
+
+func (s *FieldContext) Annotation(i int) antlr.TerminalNode {
+	return s.GetToken(ADLWalkerAnnotation, i)
+}
+
+func (s *FieldContext) TypeExpr() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerTypeExpr, 0)
+}
+
+func (s *FieldContext) JsonVal() IJsonValContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IJsonValContext)
+}
+
+func (s *FieldContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.EnterNameBody(s)
+		listenerT.EnterField(s)
 	}
 }
 
-func (s *NameBodyContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *FieldContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.ExitNameBody(s)
+		listenerT.ExitField(s)
 	}
 }
 
@@ -1358,44 +1489,59 @@ func (p *ADLWalker) NameBody() (localctx INameBodyContext) {
 		}
 	}()
 
+	localctx = NewFieldContext(p, localctx)
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(131)
-	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
-
-	for _la == ADLWalkerAnnotation {
-		{
-			p.SetState(128)
-			p.Match(ADLWalkerAnnotation)
-		}
-
-		p.SetState(133)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-	}
 	{
-		p.SetState(134)
+		p.SetState(132)
 		p.Match(ADLWalkerField)
 	}
-	p.SetState(140)
+	p.SetState(147)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ADLWalkerDOWN {
 		{
-			p.SetState(135)
+			p.SetState(133)
 			p.Match(ADLWalkerDOWN)
 		}
-		{
-			p.SetState(136)
-			p.Match(ADLWalkerTypeExpr)
+		p.SetState(137)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for _la == ADLWalkerAnnotation {
+			{
+				p.SetState(134)
+				p.Match(ADLWalkerAnnotation)
+			}
+
+			p.SetState(139)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		p.SetState(141)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == ADLWalkerTypeExpr {
+			{
+				p.SetState(140)
+				p.Match(ADLWalkerTypeExpr)
+			}
+
+		}
+		p.SetState(144)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == ADLWalkerJson {
+			{
+				p.SetState(143)
+				p.JsonVal()
+			}
+
 		}
 		{
-			p.SetState(137)
-			p.JsonVal()
-		}
-		{
-			p.SetState(138)
+			p.SetState(146)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -1442,51 +1588,107 @@ func NewJsonValContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 
 func (s *JsonValContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *JsonValContext) Json() antlr.TerminalNode {
+func (s *JsonValContext) CopyFrom(ctx *JsonValContext) {
+	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
+}
+
+func (s *JsonValContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *JsonValContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+type JsonStrContext struct {
+	*JsonValContext
+}
+
+func NewJsonStrContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonStrContext {
+	var p = new(JsonStrContext)
+
+	p.JsonValContext = NewEmptyJsonValContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*JsonValContext))
+
+	return p
+}
+
+func (s *JsonStrContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *JsonStrContext) Json() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerJson, 0)
 }
 
-func (s *JsonValContext) AllDOWN() []antlr.TerminalNode {
-	return s.GetTokens(ADLWalkerDOWN)
+func (s *JsonStrContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
 }
 
-func (s *JsonValContext) DOWN(i int) antlr.TerminalNode {
-	return s.GetToken(ADLWalkerDOWN, i)
-}
-
-func (s *JsonValContext) JsonStr() antlr.TerminalNode {
+func (s *JsonStrContext) JsonStr() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerJsonStr, 0)
 }
 
-func (s *JsonValContext) AllUP() []antlr.TerminalNode {
-	return s.GetTokens(ADLWalkerUP)
+func (s *JsonStrContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
 }
 
-func (s *JsonValContext) UP(i int) antlr.TerminalNode {
-	return s.GetToken(ADLWalkerUP, i)
+func (s *JsonStrContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterJsonStr(s)
+	}
 }
 
-func (s *JsonValContext) JsonBool() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerJsonBool, 0)
+func (s *JsonStrContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitJsonStr(s)
+	}
 }
 
-func (s *JsonValContext) JsonNull() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerJsonNull, 0)
+type JsonArrayContext struct {
+	*JsonValContext
 }
 
-func (s *JsonValContext) JsonInt() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerJsonInt, 0)
+func NewJsonArrayContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonArrayContext {
+	var p = new(JsonArrayContext)
+
+	p.JsonValContext = NewEmptyJsonValContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*JsonValContext))
+
+	return p
 }
 
-func (s *JsonValContext) JsonFloat() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerJsonFloat, 0)
+func (s *JsonArrayContext) GetRuleContext() antlr.RuleContext {
+	return s
 }
 
-func (s *JsonValContext) JsonArray() antlr.TerminalNode {
+func (s *JsonArrayContext) Json() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJson, 0)
+}
+
+func (s *JsonArrayContext) AllDOWN() []antlr.TerminalNode {
+	return s.GetTokens(ADLWalkerDOWN)
+}
+
+func (s *JsonArrayContext) DOWN(i int) antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, i)
+}
+
+func (s *JsonArrayContext) JsonArray() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerJsonArray, 0)
 }
 
-func (s *JsonValContext) AllJsonVal() []IJsonValContext {
+func (s *JsonArrayContext) AllUP() []antlr.TerminalNode {
+	return s.GetTokens(ADLWalkerUP)
+}
+
+func (s *JsonArrayContext) UP(i int) antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, i)
+}
+
+func (s *JsonArrayContext) AllJsonVal() []IJsonValContext {
 	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IJsonValContext)(nil)).Elem())
 	var tst = make([]IJsonValContext, len(ts))
 
@@ -1499,7 +1701,7 @@ func (s *JsonValContext) AllJsonVal() []IJsonValContext {
 	return tst
 }
 
-func (s *JsonValContext) JsonVal(i int) IJsonValContext {
+func (s *JsonArrayContext) JsonVal(i int) IJsonValContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), i)
 
 	if t == nil {
@@ -1509,27 +1711,276 @@ func (s *JsonValContext) JsonVal(i int) IJsonValContext {
 	return t.(IJsonValContext)
 }
 
-func (s *JsonValContext) JsonObj() antlr.TerminalNode {
-	return s.GetToken(ADLWalkerJsonObj, 0)
-}
-
-func (s *JsonValContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *JsonValContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *JsonValContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *JsonArrayContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.EnterJsonVal(s)
+		listenerT.EnterJsonArray(s)
 	}
 }
 
-func (s *JsonValContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *JsonArrayContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
-		listenerT.ExitJsonVal(s)
+		listenerT.ExitJsonArray(s)
+	}
+}
+
+type JsonFloatContext struct {
+	*JsonValContext
+}
+
+func NewJsonFloatContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonFloatContext {
+	var p = new(JsonFloatContext)
+
+	p.JsonValContext = NewEmptyJsonValContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*JsonValContext))
+
+	return p
+}
+
+func (s *JsonFloatContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *JsonFloatContext) Json() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJson, 0)
+}
+
+func (s *JsonFloatContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *JsonFloatContext) JsonFloat() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJsonFloat, 0)
+}
+
+func (s *JsonFloatContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
+func (s *JsonFloatContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterJsonFloat(s)
+	}
+}
+
+func (s *JsonFloatContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitJsonFloat(s)
+	}
+}
+
+type JsonObjContext struct {
+	*JsonValContext
+}
+
+func NewJsonObjContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonObjContext {
+	var p = new(JsonObjContext)
+
+	p.JsonValContext = NewEmptyJsonValContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*JsonValContext))
+
+	return p
+}
+
+func (s *JsonObjContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *JsonObjContext) Json() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJson, 0)
+}
+
+func (s *JsonObjContext) AllDOWN() []antlr.TerminalNode {
+	return s.GetTokens(ADLWalkerDOWN)
+}
+
+func (s *JsonObjContext) DOWN(i int) antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, i)
+}
+
+func (s *JsonObjContext) JsonObj() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJsonObj, 0)
+}
+
+func (s *JsonObjContext) AllUP() []antlr.TerminalNode {
+	return s.GetTokens(ADLWalkerUP)
+}
+
+func (s *JsonObjContext) UP(i int) antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, i)
+}
+
+func (s *JsonObjContext) AllJsonVal() []IJsonValContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IJsonValContext)(nil)).Elem())
+	var tst = make([]IJsonValContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IJsonValContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *JsonObjContext) JsonVal(i int) IJsonValContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IJsonValContext)
+}
+
+func (s *JsonObjContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterJsonObj(s)
+	}
+}
+
+func (s *JsonObjContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitJsonObj(s)
+	}
+}
+
+type JsonBoolContext struct {
+	*JsonValContext
+}
+
+func NewJsonBoolContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonBoolContext {
+	var p = new(JsonBoolContext)
+
+	p.JsonValContext = NewEmptyJsonValContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*JsonValContext))
+
+	return p
+}
+
+func (s *JsonBoolContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *JsonBoolContext) Json() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJson, 0)
+}
+
+func (s *JsonBoolContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *JsonBoolContext) JsonBool() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJsonBool, 0)
+}
+
+func (s *JsonBoolContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
+func (s *JsonBoolContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterJsonBool(s)
+	}
+}
+
+func (s *JsonBoolContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitJsonBool(s)
+	}
+}
+
+type JsonIntContext struct {
+	*JsonValContext
+}
+
+func NewJsonIntContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonIntContext {
+	var p = new(JsonIntContext)
+
+	p.JsonValContext = NewEmptyJsonValContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*JsonValContext))
+
+	return p
+}
+
+func (s *JsonIntContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *JsonIntContext) Json() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJson, 0)
+}
+
+func (s *JsonIntContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *JsonIntContext) JsonInt() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJsonInt, 0)
+}
+
+func (s *JsonIntContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
+func (s *JsonIntContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterJsonInt(s)
+	}
+}
+
+func (s *JsonIntContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitJsonInt(s)
+	}
+}
+
+type JsonNullContext struct {
+	*JsonValContext
+}
+
+func NewJsonNullContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonNullContext {
+	var p = new(JsonNullContext)
+
+	p.JsonValContext = NewEmptyJsonValContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*JsonValContext))
+
+	return p
+}
+
+func (s *JsonNullContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *JsonNullContext) Json() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJson, 0)
+}
+
+func (s *JsonNullContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *JsonNullContext) JsonNull() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerJsonNull, 0)
+}
+
+func (s *JsonNullContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
+func (s *JsonNullContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.EnterJsonNull(s)
+	}
+}
+
+func (s *JsonNullContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ADLWalkerListener); ok {
+		listenerT.ExitJsonNull(s)
 	}
 }
 
@@ -1554,183 +2005,204 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		}
 	}()
 
-	p.SetState(186)
+	p.SetState(197)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 26, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 31, p.GetParserRuleContext()) {
 	case 1:
+		localctx = NewJsonStrContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(142)
+			p.SetState(149)
 			p.Match(ADLWalkerJson)
 		}
 		{
-			p.SetState(143)
+			p.SetState(150)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(144)
+			p.SetState(151)
 			p.Match(ADLWalkerJsonStr)
 		}
 		{
-			p.SetState(145)
+			p.SetState(152)
 			p.Match(ADLWalkerUP)
 		}
 
 	case 2:
+		localctx = NewJsonBoolContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(146)
+			p.SetState(153)
 			p.Match(ADLWalkerJson)
 		}
 		{
-			p.SetState(147)
+			p.SetState(154)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(148)
+			p.SetState(155)
 			p.Match(ADLWalkerJsonBool)
 		}
 		{
-			p.SetState(149)
+			p.SetState(156)
 			p.Match(ADLWalkerUP)
 		}
 
 	case 3:
+		localctx = NewJsonNullContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(150)
+			p.SetState(157)
 			p.Match(ADLWalkerJson)
 		}
 		{
-			p.SetState(151)
+			p.SetState(158)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(152)
+			p.SetState(159)
 			p.Match(ADLWalkerJsonNull)
 		}
 		{
-			p.SetState(153)
+			p.SetState(160)
 			p.Match(ADLWalkerUP)
 		}
 
 	case 4:
+		localctx = NewJsonIntContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(154)
+			p.SetState(161)
 			p.Match(ADLWalkerJson)
 		}
 		{
-			p.SetState(155)
+			p.SetState(162)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(156)
+			p.SetState(163)
 			p.Match(ADLWalkerJsonInt)
 		}
 		{
-			p.SetState(157)
+			p.SetState(164)
 			p.Match(ADLWalkerUP)
 		}
 
 	case 5:
+		localctx = NewJsonFloatContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(158)
+			p.SetState(165)
 			p.Match(ADLWalkerJson)
 		}
 		{
-			p.SetState(159)
+			p.SetState(166)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(160)
+			p.SetState(167)
 			p.Match(ADLWalkerJsonFloat)
 		}
 		{
-			p.SetState(161)
+			p.SetState(168)
 			p.Match(ADLWalkerUP)
 		}
 
 	case 6:
+		localctx = NewJsonArrayContext(p, localctx)
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(162)
+			p.SetState(169)
 			p.Match(ADLWalkerJson)
 		}
 		{
-			p.SetState(163)
+			p.SetState(170)
 			p.Match(ADLWalkerDOWN)
-		}
-		{
-			p.SetState(164)
-			p.Match(ADLWalkerJsonArray)
-		}
-		{
-			p.SetState(165)
-			p.Match(ADLWalkerDOWN)
-		}
-		p.SetState(167)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for ok := true; ok; ok = _la == ADLWalkerJson {
-			{
-				p.SetState(166)
-				p.JsonVal()
-			}
-
-			p.SetState(169)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
 		}
 		{
 			p.SetState(171)
-			p.Match(ADLWalkerUP)
+			p.Match(ADLWalkerJsonArray)
+		}
+		p.SetState(180)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == ADLWalkerDOWN {
+			{
+				p.SetState(172)
+				p.Match(ADLWalkerDOWN)
+			}
+			p.SetState(174)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			for ok := true; ok; ok = _la == ADLWalkerJson {
+				{
+					p.SetState(173)
+					p.JsonVal()
+				}
+
+				p.SetState(176)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			{
+				p.SetState(178)
+				p.Match(ADLWalkerUP)
+			}
+
 		}
 		{
-			p.SetState(172)
+			p.SetState(182)
 			p.Match(ADLWalkerUP)
 		}
 
 	case 7:
+		localctx = NewJsonObjContext(p, localctx)
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(174)
+			p.SetState(183)
 			p.Match(ADLWalkerJson)
 		}
 		{
-			p.SetState(175)
+			p.SetState(184)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(176)
+			p.SetState(185)
 			p.Match(ADLWalkerJsonObj)
 		}
-		{
-			p.SetState(177)
-			p.Match(ADLWalkerDOWN)
-		}
-		p.SetState(179)
+		p.SetState(194)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for ok := true; ok; ok = _la == ADLWalkerJson {
+		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(178)
-				p.JsonVal()
+				p.SetState(186)
+				p.Match(ADLWalkerDOWN)
 			}
-
-			p.SetState(181)
+			p.SetState(188)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
+
+			for ok := true; ok; ok = _la == ADLWalkerJson {
+				{
+					p.SetState(187)
+					p.JsonVal()
+				}
+
+				p.SetState(190)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			{
+				p.SetState(192)
+				p.Match(ADLWalkerUP)
+			}
+
 		}
 		{
-			p.SetState(183)
-			p.Match(ADLWalkerUP)
-		}
-		{
-			p.SetState(184)
+			p.SetState(196)
 			p.Match(ADLWalkerUP)
 		}
 

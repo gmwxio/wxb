@@ -32,50 +32,92 @@ func (s *BaseADLWalkerListener) EnterModule(ctx *ModuleContext) {}
 // ExitModule is called when production module is exited.
 func (s *BaseADLWalkerListener) ExitModule(ctx *ModuleContext) {}
 
-// EnterPkgNode is called when production PkgNode is entered.
-func (s *BaseADLWalkerListener) EnterPkgNode(ctx *PkgNodeContext) {}
+// EnterStruct is called when production Struct is entered.
+func (s *BaseADLWalkerListener) EnterStruct(ctx *StructContext) {}
 
-// ExitPkgNode is called when production PkgNode is exited.
-func (s *BaseADLWalkerListener) ExitPkgNode(ctx *PkgNodeContext) {}
+// ExitStruct is called when production Struct is exited.
+func (s *BaseADLWalkerListener) ExitStruct(ctx *StructContext) {}
 
-// EnterImportNode is called when production ImportNode is entered.
-func (s *BaseADLWalkerListener) EnterImportNode(ctx *ImportNodeContext) {}
+// EnterUnion is called when production Union is entered.
+func (s *BaseADLWalkerListener) EnterUnion(ctx *UnionContext) {}
 
-// ExitImportNode is called when production ImportNode is exited.
-func (s *BaseADLWalkerListener) ExitImportNode(ctx *ImportNodeContext) {}
+// ExitUnion is called when production Union is exited.
+func (s *BaseADLWalkerListener) ExitUnion(ctx *UnionContext) {}
 
-// EnterMsgNode is called when production MsgNode is entered.
-func (s *BaseADLWalkerListener) EnterMsgNode(ctx *MsgNodeContext) {}
+// EnterType is called when production Type is entered.
+func (s *BaseADLWalkerListener) EnterType(ctx *TypeContext) {}
 
-// ExitMsgNode is called when production MsgNode is exited.
-func (s *BaseADLWalkerListener) ExitMsgNode(ctx *MsgNodeContext) {}
+// ExitType is called when production Type is exited.
+func (s *BaseADLWalkerListener) ExitType(ctx *TypeContext) {}
 
-// EnterExtNode is called when production ExtNode is entered.
-func (s *BaseADLWalkerListener) EnterExtNode(ctx *ExtNodeContext) {}
+// EnterNewtype is called when production Newtype is entered.
+func (s *BaseADLWalkerListener) EnterNewtype(ctx *NewtypeContext) {}
 
-// ExitExtNode is called when production ExtNode is exited.
-func (s *BaseADLWalkerListener) ExitExtNode(ctx *ExtNodeContext) {}
+// ExitNewtype is called when production Newtype is exited.
+func (s *BaseADLWalkerListener) ExitNewtype(ctx *NewtypeContext) {}
 
-// EnterDeclAnnoNode is called when production DeclAnnoNode is entered.
-func (s *BaseADLWalkerListener) EnterDeclAnnoNode(ctx *DeclAnnoNodeContext) {}
+// EnterModAnno is called when production ModAnno is entered.
+func (s *BaseADLWalkerListener) EnterModAnno(ctx *ModAnnoContext) {}
 
-// ExitDeclAnnoNode is called when production DeclAnnoNode is exited.
-func (s *BaseADLWalkerListener) ExitDeclAnnoNode(ctx *DeclAnnoNodeContext) {}
+// ExitModAnno is called when production ModAnno is exited.
+func (s *BaseADLWalkerListener) ExitModAnno(ctx *ModAnnoContext) {}
 
-// EnterFieldAnnoNode is called when production FieldAnnoNode is entered.
-func (s *BaseADLWalkerListener) EnterFieldAnnoNode(ctx *FieldAnnoNodeContext) {}
+// EnterDeclAnno is called when production DeclAnno is entered.
+func (s *BaseADLWalkerListener) EnterDeclAnno(ctx *DeclAnnoContext) {}
 
-// ExitFieldAnnoNode is called when production FieldAnnoNode is exited.
-func (s *BaseADLWalkerListener) ExitFieldAnnoNode(ctx *FieldAnnoNodeContext) {}
+// ExitDeclAnno is called when production DeclAnno is exited.
+func (s *BaseADLWalkerListener) ExitDeclAnno(ctx *DeclAnnoContext) {}
 
-// EnterNameBody is called when production nameBody is entered.
-func (s *BaseADLWalkerListener) EnterNameBody(ctx *NameBodyContext) {}
+// EnterFieldAnno is called when production FieldAnno is entered.
+func (s *BaseADLWalkerListener) EnterFieldAnno(ctx *FieldAnnoContext) {}
 
-// ExitNameBody is called when production nameBody is exited.
-func (s *BaseADLWalkerListener) ExitNameBody(ctx *NameBodyContext) {}
+// ExitFieldAnno is called when production FieldAnno is exited.
+func (s *BaseADLWalkerListener) ExitFieldAnno(ctx *FieldAnnoContext) {}
 
-// EnterJsonVal is called when production jsonVal is entered.
-func (s *BaseADLWalkerListener) EnterJsonVal(ctx *JsonValContext) {}
+// EnterField is called when production Field is entered.
+func (s *BaseADLWalkerListener) EnterField(ctx *FieldContext) {}
 
-// ExitJsonVal is called when production jsonVal is exited.
-func (s *BaseADLWalkerListener) ExitJsonVal(ctx *JsonValContext) {}
+// ExitField is called when production Field is exited.
+func (s *BaseADLWalkerListener) ExitField(ctx *FieldContext) {}
+
+// EnterJsonStr is called when production JsonStr is entered.
+func (s *BaseADLWalkerListener) EnterJsonStr(ctx *JsonStrContext) {}
+
+// ExitJsonStr is called when production JsonStr is exited.
+func (s *BaseADLWalkerListener) ExitJsonStr(ctx *JsonStrContext) {}
+
+// EnterJsonBool is called when production JsonBool is entered.
+func (s *BaseADLWalkerListener) EnterJsonBool(ctx *JsonBoolContext) {}
+
+// ExitJsonBool is called when production JsonBool is exited.
+func (s *BaseADLWalkerListener) ExitJsonBool(ctx *JsonBoolContext) {}
+
+// EnterJsonNull is called when production JsonNull is entered.
+func (s *BaseADLWalkerListener) EnterJsonNull(ctx *JsonNullContext) {}
+
+// ExitJsonNull is called when production JsonNull is exited.
+func (s *BaseADLWalkerListener) ExitJsonNull(ctx *JsonNullContext) {}
+
+// EnterJsonInt is called when production JsonInt is entered.
+func (s *BaseADLWalkerListener) EnterJsonInt(ctx *JsonIntContext) {}
+
+// ExitJsonInt is called when production JsonInt is exited.
+func (s *BaseADLWalkerListener) ExitJsonInt(ctx *JsonIntContext) {}
+
+// EnterJsonFloat is called when production JsonFloat is entered.
+func (s *BaseADLWalkerListener) EnterJsonFloat(ctx *JsonFloatContext) {}
+
+// ExitJsonFloat is called when production JsonFloat is exited.
+func (s *BaseADLWalkerListener) ExitJsonFloat(ctx *JsonFloatContext) {}
+
+// EnterJsonArray is called when production JsonArray is entered.
+func (s *BaseADLWalkerListener) EnterJsonArray(ctx *JsonArrayContext) {}
+
+// ExitJsonArray is called when production JsonArray is exited.
+func (s *BaseADLWalkerListener) ExitJsonArray(ctx *JsonArrayContext) {}
+
+// EnterJsonObj is called when production JsonObj is entered.
+func (s *BaseADLWalkerListener) EnterJsonObj(ctx *JsonObjContext) {}
+
+// ExitJsonObj is called when production JsonObj is exited.
+func (s *BaseADLWalkerListener) ExitJsonObj(ctx *JsonObjContext) {}

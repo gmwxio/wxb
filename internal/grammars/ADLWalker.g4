@@ -1,33 +1,30 @@
 parser grammar ADLWalker;
-
-options {
-  tokenVocab = ADLParser;
-}
+options {  tokenVocab = ADLParser; }
 
 adl
     : DOWN ADL DOWN module UP UP EOF
 ;
 module
-    : Annotation* Module Import* tld*
+    : Module (DOWN Annotation* Import* tld* UP)?
 ;
 tld
-    : Annotation* Struct (DOWN TypeParam? nameBody* UP)?                     #PkgNode
-    | Annotation* Union  (DOWN TypeParam? nameBody* UP)?                        #ImportNode
-    | Annotation* Type   (DOWN TypeParam? TypeExpr? jsonVal* UP)?   #MsgNode
-    | Annotation* Newtype   (DOWN TypeParam? TypeExpr? jsonVal* UP)?   #MsgNode
-    | ModuleAnno #ExtNode
-    | DeclAnno #DeclAnnoNode
-    | FieldAnno #FieldAnnoNode
+    : Struct  (DOWN Annotation* TypeParam? nameBody* UP)?            #Struct
+    | Union   (DOWN Annotation* TypeParam? nameBody* UP)?            #Union
+    | Type    (DOWN Annotation* TypeParam? TypeExpr? jsonVal* UP)?   #Type
+    | Newtype (DOWN Annotation* TypeParam? TypeExpr? jsonVal* UP)?   #Newtype
+    | ModuleAnno                                                     #ModAnno
+    | DeclAnno                                                       #DeclAnno
+    | FieldAnno                                                      #FieldAnno
 ;
 nameBody
-    : Annotation* Field (DOWN TypeExpr jsonVal UP)?
+    : Field (DOWN Annotation* TypeExpr? jsonVal? UP)?               #Field
 ;
 jsonVal
-    : Json DOWN JsonStr UP
-    | Json DOWN JsonBool UP
-    | Json DOWN JsonNull UP
-    | Json DOWN JsonInt UP
-    | Json DOWN JsonFloat UP
-    | Json DOWN JsonArray DOWN jsonVal+ UP UP
-    | Json DOWN JsonObj DOWN jsonVal+ UP UP
+    : Json DOWN JsonStr UP                                          #JsonStr
+    | Json DOWN JsonBool UP                                         #JsonBool
+    | Json DOWN JsonNull UP                                         #JsonNull
+    | Json DOWN JsonInt UP                                          #JsonInt
+    | Json DOWN JsonFloat UP                                        #JsonFloat
+    | Json DOWN JsonArray (DOWN jsonVal+ UP)? UP                    #JsonArray
+    | Json DOWN JsonObj (DOWN jsonVal+ UP)? UP                      #JsonObj
 ;

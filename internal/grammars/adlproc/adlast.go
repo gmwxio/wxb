@@ -52,6 +52,7 @@ func (node ImportNode) String() string {
 type AnnoNode struct {
 	MyToken
 	Name string
+	Doc  bool
 }
 type StructNode struct {
 	MyToken

@@ -50,6 +50,7 @@ func (et *walkADL) Run() error {
 		ctx := p.Adl()
 		fmt.Println("--------")
 		antlr.ParseTreeWalkerDefault.Walk(tbl, ctx)
+		fmt.Println("--------")
 		tr = tbl.Builder.Build()
 	}
 
@@ -63,22 +64,24 @@ func (et *walkADL) Run() error {
 			break
 		}
 		fmt.Printf("%d ", to.GetTokenType())
-		fmt.Printf("%d : %v\n", i,
+		fmt.Printf("%d : %v\t\t%v\n", i,
 			p.BaseRecognizer.SymbolicNames[to.GetTokenType()],
-			// to.GetText(),
+			to.GetLine(),
 		)
 		i++
 	}
 	// return nil
 
 	p.SetTokenStream(tts)
-	// p.RemoveErrorListeners()
-	// p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
+	p.RemoveErrorListeners()
+	p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 	tbl := &WalkListener{}
 	tbl.debug = true
-	// p.AddErrorListener(tbl)
+	p.AddErrorListener(tbl)
 	// p.BuildParseTrees = false
+	fmt.Printf("-----\n")
 	ret := p.Adl()
+	fmt.Printf("-----\n")
 	// fmt.Printf("ret %#+v\n", tbl)
 	antlr.ParseTreeWalkerDefault.Walk(tbl, ret)
 	return tbl.err
@@ -104,7 +107,8 @@ func (tr *WalkListener) VisitTerminal(node antlr.TerminalNode) {
 }
 func (tr *WalkListener) VisitErrorNode(node antlr.ErrorNode) {
 	tid := node.GetSymbol().GetTokenType()
-	fmt.Printf("2.ERROR %d %+v\n", tid, node)
+	sym := node.GetSymbol()
+	fmt.Printf("2.ERROR %d %v %+v\n", tid, sym, node)
 }
 func (tr *WalkListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 	fmt.Printf("%s>>%T\n", tr.indent, ctx)
@@ -113,12 +117,16 @@ func (tr *WalkListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 func (tr *WalkListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 	// fmt.Printf("\n")
 	tr.indent = tr.indent[2:]
-	// fmt.Printf("\n%s<<%T", tr.indent, ctx)
+	fmt.Printf("%s<<%T\n", tr.indent, ctx)
 }
 
 func (tbl *WalkListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+	t, ok := offendingSymbol.(antlr.Token)
+	if !ok && e != nil {
+		t = e.GetOffendingToken()
+	}
 	if tbl.debug {
-		fmt.Printf("SyntaxError %d:%d <%s>\n", line, column, msg)
+		fmt.Printf("SyntaxError %d:%d %v <%s>\n", line, column, t, msg)
 	}
 	if strings.HasPrefix(msg, "report") { // TODO remove NewDiagnosticErrorListener and move warning to ReportAmbiguity etc. when getDecisionDescription is make public
 		tbl.warning = fmt.Sprintf("At %d:%d <%s>", line, column, msg)

@@ -57,14 +57,14 @@ func (et *exerciseTron) Run() error {
 		p.RemoveErrorListeners()
 		p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 
-		r := &ADLNode{
-			MyToken: MyToken{
-				Token: antlr.NewCommonToken(nil, parser.ADLParserADL, antlr.TokenDefaultChannel, 0, 0),
-				TType: parser.ADLParserADL},
-		}
+		// r := &ADLNode{
+		// 	MyToken: MyToken{
+		// 		Token: antlr.NewCommonToken(nil, parser.ADLParserADL, antlr.TokenDefaultChannel, 0, 0),
+		// 		TType: parser.ADLParserADL},
+		// }
 		tbl := &ADLBuildListener{
-			debug:   true,
-			Builder: ctree.NewWalkableBuild("TREE", r),
+			debug: true,
+			// Builder: ctree.NewWalkableBuild("TREE", r),
 		}
 
 		p.AddErrorListener(tbl)
@@ -153,6 +153,8 @@ type ADLBuildListener struct {
 	baseR   *antlr.BaseRecognizer
 	indent  string
 
+	errs []*ErrorNode
+
 	warning string
 	err     string
 	debug   bool
@@ -170,8 +172,8 @@ func tokens2strings(arr []antlr.Token) []string {
 func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 	switch ctx := ctx.(type) {
 	case *parser.AdlContext:
-		// r := &ADLNode{MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserADL}}
-		// tr.Builder = ctree.NewWalkableBuild("TREE", r)
+		r := &ADLNode{MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserADL}}
+		tr.Builder = ctree.NewWalkableBuild("TREE", r)
 	case *parser.ModuleStatementContext:
 		if ctx.GetKw().GetText() != "module" {
 			n := &ErrorNode{
@@ -201,7 +203,18 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			tr.Builder.Add(n)
 		}
 	case *parser.LocalAnnoContext:
+		n := &AnnoNode{
+			MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserAnnotation},
+			Name:    ctx.GetA().GetText(),
+		}
+		tr.Builder.Add(n)
 	case *parser.DocAnnoContext:
+		n := &AnnoNode{
+			MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserAnnotation},
+			Name:    ctx.GetA().GetText(),
+			Doc:     true,
+		}
+		tr.Builder.Add(n)
 	case *parser.StructOrUnionContext:
 		switch ctx.GetKw().GetText() {
 		case "struct":
@@ -251,8 +264,50 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			tr.Builder.Down()
 		}
 	case *parser.ModuleAnnotationContext:
+		switch ctx.GetKw().GetText() {
+		case "annotation":
+			n := &ModuleAnnoNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserModuleAnno},
+				TypeRef: ctx.GetA().GetText(),
+			}
+			tr.Builder.Add(n)
+		default:
+			n := &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserERROR},
+				Expected: "annotation", Received: ctx.GetKw().GetText()}
+			tr.Builder.Add(n)
+		}
 	case *parser.DeclAnnotationContext:
+		switch ctx.GetKw().GetText() {
+		case "annotation":
+			n := &DeclAnnoNode{
+				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserDeclAnno},
+				TypeRef: ctx.GetA().GetText(),
+				DeclRef: ctx.GetB().GetText(),
+			}
+			tr.Builder.Add(n)
+		default:
+			n := &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserERROR},
+				Expected: "annotation", Received: ctx.GetKw().GetText()}
+			tr.Builder.Add(n)
+		}
 	case *parser.FieldAnnotationContext:
+		switch ctx.GetKw().GetText() {
+		case "annotation":
+			n := &FieldAnnoNode{
+				MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserDeclAnno},
+				TypeRef:  ctx.GetA().GetText(),
+				DeclRef:  ctx.GetB().GetText(),
+				FieldRef: ctx.GetC().GetText(),
+			}
+			tr.Builder.Add(n)
+		default:
+			n := &ErrorNode{
+				MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserERROR},
+				Expected: "annotation", Received: ctx.GetKw().GetText()}
+			tr.Builder.Add(n)
+		}
 	case *parser.TypeParameterContext:
 		n := &TypeParamNode{
 			MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserTypeParam},
@@ -275,296 +330,11 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			Expected: "@|struct|union|annotation", Received: ctx.GetStart().GetText()}
 		tr.Builder.Add(n)
 
-	// case *parser.ProtoContext:
-	// 	r := &ENode{MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserROOT}}
-	// 	tr.Builder = ctree.NewWalkableBuild("TREE", r)
-	// case *parser.ImportStatementContext:
-	// 	if ctx.GetImp().GetText() != "import" {
-	// 		n := &ErrorNode{MyToken: MyToken{Token: ctx.GetImp(), TType: parser.ADLParserERROR}, Expected: "import", Received: ctx.GetImp().GetText()}
-	// 		tr.Builder.Add(n)
-	// 	} else {
-	// 		n := &ImportNode{
-	// 			MyToken: MyToken{Token: ctx.GetImp(), TType: parser.ADLParserImport},
-	// 			Path:    strings.Trim(ctx.GetB().GetText(), `"`),
-	// 		}
-	// 		tr.Builder.Add(n)
-	// 	}
-	// case *parser.PackageStatementContext:
-	// 	switch ctx.GetPkg().GetText() {
-	// 	case "package":
-	// 		n := &MessageNode{
-	// 			MyToken: MyToken{Token: ctx.GetPkg(), TType: parser.ADLParserPackage},
-	// 		}
-	// 		name := make([]string, len(ctx.GetA()))
-	// 		for i, tks := range ctx.GetA() {
-	// 			name[i] = tks.GetText()
-	// 		}
-	// 		n.Name = name
-	// 		tr.Builder.Add(n)
-	// 	default:
-	// 		n := &ErrorNode{
-	// 			MyToken:  MyToken{Token: ctx.GetPkg(), TType: parser.ADLParserERROR},
-	// 			Expected: "package",
-	// 			Received: ctx.GetPkg().GetText(),
-	// 		}
-	// 		tr.Builder.Add(n)
-	// 	}
-	// case *parser.OptionFileDefContext:
-	// case *parser.Ext_Msg_Enum_SvcContext:
-	// 	switch ctx.GetMese().GetText() {
-	// 	case "message":
-	// 		n := &MessageNode{
-	// 			MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserMessage},
-	// 			//Name: ctx.GetA(),
-	// 		}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	case "enum":
-	// 		n := &EnumNode{
-	// 			MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserEnum},
-	// 		} //, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	case "service":
-	// 		n := &ServiceNode{
-	// 			MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserService},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	case "extend":
-	// 		n := &ExtendNode{
-	// 			MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserExtend},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	// case "oneof":
-	// 	// 	n := &OneofNode{
-	// 	// 		MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserOneof},
-	// 	// 	} //,, Name: ctx.GetA()}
-	// 	// 	tr.Builder.Add(n)
-	// 	default:
-	// 		n := &ErrorNode{
-	// 			MyToken:  MyToken{Token: ctx.GetMese(), TType: parser.ADLParserERROR},
-	// 			Expected: "msg|enum|svc|extend",
-	// 			Received: ctx.GetMese().GetText(),
-	// 		}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	}
-	// case *parser.EmptyStmContext:
-	// case *parser.AssocContext:
-	// case *parser.EmptyTopLvlContext:
-	// 	switch ctx.GetMsg().GetText() {
-	// 	case "message":
-	// 		n := &MessageNode{
-	// 			MyToken: MyToken{Token: ctx.GetMsg(), TType: parser.ADLParserMessage},
-	// 		} //, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 	case "enum":
-	// 		n := &EnumNode{
-	// 			MyToken: MyToken{Token: ctx.GetMsg(), TType: parser.ADLParserEnum},
-	// 		} //, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 	case "service":
-	// 		//TODO this should be an error - as per the spec
-	// 		n := &ServiceNode{
-	// 			MyToken: MyToken{Token: ctx.GetMsg(), TType: parser.ADLParserService},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 	case "extend":
-	// 		n := &ExtendNode{
-	// 			MyToken: MyToken{Token: ctx.GetMsg(), TType: parser.ADLParserExtend},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 	case "oneof":
-	// 		n := &OneofNode{
-	// 			MyToken: MyToken{Token: ctx.GetMsg(), TType: parser.ADLParserOneof},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 	default:
-	// 		n := &ErrorNode{
-	// 			MyToken:  MyToken{Token: ctx.GetMsg(), TType: parser.ADLParserERROR},
-	// 			Expected: "msg|enum|svc|extend",
-	// 			Received: ctx.GetMsg().GetText(),
-	// 		}
-	// 		tr.Builder.Add(n)
-	// 	}
-	// case *parser.MsgEnumSvcExtContext:
-	// 	switch ctx.GetMese().GetText() {
-	// 	case "message":
-	// 		n := &MessageNode{
-	// 			MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserMessage},
-	// 		} //, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	case "enum":
-	// 		n := &EnumNode{
-	// 			MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserEnum},
-	// 		} //, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	case "service":
-	// 		n := &ServiceNode{
-	// 			MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserService},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	case "extend":
-	// 		n := &ExtendNode{
-	// 			MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserExtend},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	case "oneof":
-	// 		n := &OneofNode{
-	// 			MyToken: MyToken{Token: ctx.GetMese(), TType: parser.ADLParserOneof},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	default:
-	// 		n := &ErrorNode{
-	// 			MyToken:  MyToken{Token: ctx.GetMese(), TType: parser.ADLParserERROR},
-	// 			Expected: "msg|enum|svc|extend",
-	// 			Received: ctx.GetMese().GetText(),
-	// 		}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	}
-	// case *parser.EmptyTopLvlStmContext:
-	// case *parser.RangeContext:
-	// case *parser.TLIOptionContext:
-	// case *parser.RPCSigContext:
-	// 	switch ctx.GetRpcID().GetText() {
-	// 	case "rpc":
-	// 		n := &MessageNode{
-	// 			MyToken: MyToken{Token: ctx.GetRpcID(), TType: parser.ADLParserRpc},
-	// 		} //, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	default:
-	// 		n := &ErrorNode{
-	// 			MyToken:  MyToken{Token: ctx.GetRpcID(), TType: parser.ADLParserERROR},
-	// 			Expected: "rpc",
-	// 			Received: ctx.GetRpcID().GetText(),
-	// 		}
-	// 		tr.Builder.Add(n)
-	// 		tr.Builder.Down()
-	// 	}
-	// case *parser.EmptyStmStmContext:
-	// case *parser.EnumLeftContext:
-	// 	v, err := strconv.Atoi(ctx.GetV().GetText())
-	// 	if err != nil {
-	// 		panic("")
-	// 	}
-	// 	n := &EnumValueNode{
-	// 		MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserEnumValue},
-	// 		Name:    ctx.GetA().GetText(),
-	// 		Index:   int32(v),
-	// 	}
-	// 	tr.Builder.Add(n)
-	// case *parser.Opt_SingleContext:
-	// 	if ctx.GetA().GetText() == "option" {
-	// 		n := &OptionNode{
-	// 			MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserOption},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 	} else {
-	// 		n := &FieldNode{
-	// 			MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserField},
-	// 		} //,, Name: ctx.GetA()}
-	// 		tr.Builder.Add(n)
-	// 	}
-	// case *parser.OptContext:
-	// 	if ctx.GetA().GetText() != "option" {
-	// 		n := &ErrorNode{
-	// 			MyToken:  MyToken{Token: ctx.GetA(), TType: parser.ADLParserERROR},
-	// 			Expected: "option",
-	// 			Received: ctx.GetA().GetText(),
-	// 		}
-	// 		tr.Builder.Add(n)
-	// 	} else {
-	// 		n := &OptionNode{
-	// 			MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserOption},
-	// 		} //, Path: ctx.GetB().GetText()}
-	// 		tr.Builder.Add(n)
-	// 	}
-	// case *parser.SingleFull_RepLocalContext:
-	// 	n := &FieldNode{
-	// 		MyToken: MyToken{Token: ctx.GetB()[0], TType: parser.ADLParserField},
-	// 	} //,, Name: ctx.GetA()}
-	// 	tname := make([]string, len(ctx.GetB()))
-	// 	for i, tkb := range ctx.GetB() {
-	// 		tname[i] = tkb.GetText()
-	// 	}
-	// 	n.TypeName = tname
-	// 	n.Name = ctx.GetC().GetText()
-	// 	tr.Builder.Add(n)
-	// case *parser.SingleLocalContext:
-	// 	// fmt.Printf("\n%s>>%T %v", tr.indent, ctx, "field local")
-	// case *parser.RepeatedContext:
-	// 	tname := make([]string, len(ctx.GetB()))
-	// 	for i, tks := range ctx.GetB() {
-	// 		tname[i] = tks.GetText()
-	// 	}
-	// 	n := &FieldNode{
-	// 		MyToken:  MyToken{Token: ctx.GetB()[0], TType: parser.ADLParserField},
-	// 		TypeName: tname,
-	// 		Name:     ctx.GetC().GetText(),
-	// 	} //,, Name: ctx.GetA()}
-	// 	tr.Builder.Add(n)
-	// 	ds := &DatastructNode{
-	// 		MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserDatastructure},
-	// 		Type:    ctx.GetA().GetText(),
-	// 	}
-	// 	tr.Builder.Add(ds)
-	// 	// fmt.Printf("\n%s>>%T %v", tr.indent, ctx, "repeated field")
-	// case *parser.MapLeftContext:
-	// 	n := &MapFieldNode{
-	// 		MyToken: MyToken{Token: ctx.GetMpt(), TType: parser.ADLParserMap},
-	// 	} //,, Name: ctx.GetA()}
-	// 	tr.Builder.Add(n)
-	// // fmt.Printf("\n%s>>%T %v", tr.indent, ctx, "map")
-	// case *parser.MessageTypeContext:
-	// case *parser.RpcDelimContext:
-	// case *parser.SyntaxContext:
-	// case *parser.ConstantContext:
-	// case *parser.ConstantObjContext:
-	// case *parser.FieldOptionContext:
-	// case *parser.FieldOptionsContext:
-	// 	n := &OptionNode{
-	// 		MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserOption},
-	// 	} //,, Name: ctx.GetA()}
-	// 	tr.Builder.Add(n)
-	// 	tr.Builder.Down()
-	// case *parser.MsgSvcExtContext:
-	// case *parser.OptionNameContext:
-	// case *parser.PronSTRContext:
-	// case *parser.RangeeContext:
-	// case *parser.RangesContext:
-	// case *parser.Right_assocContext:
-	// case *parser.ADLObjContext:
-	// case *parser.PronARRAYContext:
-	// // case *parser.ConstantObjElemContext:
-	// case *parser.ADLObjsContext:
 	default:
 		glog.Warningf("Unhandled in >EnterEveryRule case %T:\n", ctx)
 	}
 	// fmt.Printf("\n%s>>%T ", tr.indent, ctx)
 	tr.indent += "  "
-
-	// switch ctx := ctx.(type) {
-	// 	v, err := strconv.Atoi(ctx.GetA().GetText())
-	// 	var v float64
-	// 	_, err := fmt.Sscanf(ctx.GetA().GetText(), "%f", &v)
-	// 	name := ctx.GetFirst().GetText()
-	// 	for _, r := range ctx.GetRest() {
-	// 		name = name + r.GetText()
-	// 	}
-	// 		Col: ctx.CHAR().GetSymbol().GetText(),
-	// 		Row: ctx.INT().GetSymbol().GetText(),
-	// 	if ctx.GetRow1() == nil || ctx.GetRow2() == nil { // this only happen under antlr error recovery
-	// 		return
-	// 	}
 }
 
 // ExitEveryRule
@@ -593,50 +363,6 @@ func (tr *ADLBuildListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 	case *parser.FloatStatementContext:
 	case *parser.ArrayStatementContext:
 	case *parser.ObjStatementContext:
-
-	// case *parser.ProtoContext:
-	// case *parser.ImportStatementContext:
-	// case *parser.PackageStatementContext:
-	// case *parser.OptionFileDefContext:
-	// case *parser.Ext_Msg_Enum_SvcContext:
-	// 	tr.Builder.Up()
-	// case *parser.EmptyStmContext:
-	// case *parser.AssocContext:
-	// case *parser.EmptyTopLvlContext:
-	// case *parser.MsgEnumSvcExtContext:
-	// 	tr.Builder.Up()
-	// case *parser.EmptyTopLvlStmContext:
-	// case *parser.RangeContext:
-	// case *parser.TLIOptionContext:
-	// case *parser.RPCSigContext:
-	// 	tr.Builder.Up()
-	// case *parser.EmptyStmStmContext:
-	// case *parser.EnumLeftContext:
-	// case *parser.Opt_SingleContext:
-	// case *parser.OptContext:
-	// case *parser.SingleFull_RepLocalContext:
-	// case *parser.SingleLocalContext:
-	// case *parser.RepeatedContext:
-	// case *parser.MapLeftContext:
-	// case *parser.MessageTypeContext:
-	// case *parser.RpcDelimContext:
-	// case *parser.SyntaxContext:
-	// case *parser.ConstantContext:
-	// case *parser.ConstantObjContext:
-	// case *parser.FieldOptionContext:
-	// case *parser.FieldOptionsContext:
-	// 	tr.Builder.Up()
-	// case *parser.MsgSvcExtContext:
-	// case *parser.OptionNameContext:
-	// case *parser.PronSTRContext:
-	// case *parser.RangeeContext:
-	// case *parser.RangesContext:
-	// case *parser.Right_assocContext:
-	// case *parser.ADLObjContext:
-	// case *parser.PronARRAYContext:
-	// case *parser.ADLObjsContext:
-	// case *parser.ConstantObjElemContext:
-	// 	fmt.Printf("%#+v %v\n", ctx.GetText(), ctx.GetStart())
 	default:
 		glog.Warningf("Unhandled in <ExitEveryRule case %T:\n", ctx)
 	}
@@ -676,8 +402,11 @@ func (tbl *ADLBuildListener) SyntaxError(recognizer antlr.Recognizer, offendingS
 		Expected: msg,
 		Received: fmt.Sprintf("%v", offendingSymbol),
 	}
-	tbl.Builder.Add(n)
-
+	if tbl.Builder == nil {
+		tbl.errs = append(tbl.errs, n)
+	} else {
+		tbl.Builder.Add(n)
+	}
 	if tbl.debug {
 		fmt.Printf("SyntaxError %d:%d <%s>\n", line, column, msg)
 	}

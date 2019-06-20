@@ -12,17 +12,17 @@ options {
 }
 
 adl  
-    : module LCUR imports* top_level_statement* RCUR SEMI EOF
+    : module  EOF
 ;
 module
-    : annon* kw=ID name+=ID (DOT name+=ID)*                             #ModuleStatement
+    : annon* kw=ID name+=ID (DOT name+=ID)*  LCUR imports* top_level_statement* RCUR SEMI                           #ModuleStatement
 ;
 imports
     : kw=ID a+=ID (DOT a+=ID)* (DOT s=STAR)? SEMI                       #ImportStatement
 ;
 annon
-    : AT ID jsonValue                                                   #LocalAnno
-    | LINE_DOC                                                          #DocAnno
+    : AT a=ID jsonValue                                                   #LocalAnno
+    | a=LINE_DOC                                                          #DocAnno
 ;
 top_level_statement
     : annon* kw=ID a=ID typeParam? LCUR soruBody* RCUR SEMI                #StructOrUnion
