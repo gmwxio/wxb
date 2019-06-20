@@ -1,0 +1,42 @@
+module helix.protoapp.requests {
+
+import common.*;
+import common.db.DbKey;
+
+// comment
+/// doccmt
+@Path "localanno"
+type Hello = Post<HelloReq, HelloResp>;
+
+/// doconstr
+@SA 
+struct HelloReq {
+  String name;
+};
+
+struct HelloResp<A,B,C> {
+};
+
+/// docontype
+@Path "/debug/time"
+type CurrentTime = Get<Instant>;
+
+/// doconnewtype
+@Path "/debug/dummy-exception"
+newtype DummyException = Post<String, Unit>;
+
+union LoginResp<T> {
+  @FA { "a" : "b" }
+  T accessToken;
+};
+
+annotation SomeStr "mod anno str";
+
+annotation HelloReq::name SomeStr "field anno";
+
+annotation AppUser DbTable {
+  "withIdPrimaryKey" : true,
+  "indexes" : [["username"]]
+};
+
+};
