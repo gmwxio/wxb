@@ -1,4 +1,7 @@
 parser grammar ADLWalker;
+tokens {
+    Name, Exnotation
+}
 options {  tokenVocab = ADLParser; }
 
 adl

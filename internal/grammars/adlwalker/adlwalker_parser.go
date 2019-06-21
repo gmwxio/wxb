@@ -15,7 +15,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 52, 265,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 54, 265,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 3, 3, 3, 3, 3, 7, 3, 30, 10, 3, 12, 3, 14, 3, 33, 11, 3, 3, 3, 7, 3,
@@ -155,7 +155,7 @@ var symbolicNames = []string{
 	"Module", "Import", "Annotation", "Struct", "Union", "Newtype", "Type",
 	"TypeParam", "TypeExpr", "TypeExprElem", "Field", "Json", "JsonStr", "JsonBool",
 	"JsonNull", "JsonInt", "JsonFloat", "JsonArray", "JsonObj", "ModuleAnno",
-	"DeclAnno", "FieldAnno",
+	"DeclAnno", "FieldAnno", "Name", "Exnotation",
 }
 
 var ruleNames = []string{
@@ -241,6 +241,8 @@ const (
 	ADLWalkerModuleAnno   = 48
 	ADLWalkerDeclAnno     = 49
 	ADLWalkerFieldAnno    = 50
+	ADLWalkerName         = 51
+	ADLWalkerExnotation   = 52
 )
 
 // ADLWalker rules.
