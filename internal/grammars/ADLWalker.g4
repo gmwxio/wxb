@@ -1,6 +1,6 @@
 parser grammar ADLWalker;
 tokens {
-    Name, Exnotation
+    DNAC, Name, Exnotation
 }
 options {  tokenVocab = ADLParser; }
 

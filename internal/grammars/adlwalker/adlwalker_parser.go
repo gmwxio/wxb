@@ -15,7 +15,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 54, 265,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 55, 265,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 3, 3, 3, 3, 3, 7, 3, 30, 10, 3, 12, 3, 14, 3, 33, 11, 3, 3, 3, 7, 3,
@@ -155,7 +155,7 @@ var symbolicNames = []string{
 	"Module", "Import", "Annotation", "Struct", "Union", "Newtype", "Type",
 	"TypeParam", "TypeExpr", "TypeExprElem", "Field", "Json", "JsonStr", "JsonBool",
 	"JsonNull", "JsonInt", "JsonFloat", "JsonArray", "JsonObj", "ModuleAnno",
-	"DeclAnno", "FieldAnno", "Name", "Exnotation",
+	"DeclAnno", "FieldAnno", "DNAC", "Name", "Exnotation",
 }
 
 var ruleNames = []string{
@@ -241,8 +241,9 @@ const (
 	ADLWalkerModuleAnno   = 48
 	ADLWalkerDeclAnno     = 49
 	ADLWalkerFieldAnno    = 50
-	ADLWalkerName         = 51
-	ADLWalkerExnotation   = 52
+	ADLWalkerDNAC         = 51
+	ADLWalkerName         = 52
+	ADLWalkerExnotation   = 53
 )
 
 // ADLWalker rules.
@@ -346,6 +347,16 @@ func (s *AdlContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *AdlContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
 		listenerT.ExitAdl(s)
+	}
+}
+
+func (s *AdlContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitAdl(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -523,6 +534,16 @@ func (s *ModuleContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ModuleContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
 		listenerT.ExitModule(s)
+	}
+}
+
+func (s *ModuleContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitModule(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -765,6 +786,16 @@ func (s *TypeContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *TypeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitType(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type TypeParamErrorContext struct {
 	*TldContext
 }
@@ -902,6 +933,16 @@ func (s *TypeParamErrorContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *TypeParamErrorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitTypeParamError(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type NewtypeContext struct {
 	*TldContext
 }
@@ -1004,6 +1045,16 @@ func (s *NewtypeContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *NewtypeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitNewtype(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type ModAnnoContext struct {
 	*TldContext
 }
@@ -1056,6 +1107,16 @@ func (s *ModAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *ModAnnoContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitModAnno(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type FieldAnnoContext struct {
 	*TldContext
 }
@@ -1105,6 +1166,16 @@ func (s *FieldAnnoContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *FieldAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
 		listenerT.ExitFieldAnno(s)
+	}
+}
+
+func (s *FieldAnnoContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitFieldAnno(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1200,6 +1271,16 @@ func (s *UnionContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *UnionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitUnion(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type DeclAnnoContext struct {
 	*TldContext
 }
@@ -1249,6 +1330,16 @@ func (s *DeclAnnoContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *DeclAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
 		listenerT.ExitDeclAnno(s)
+	}
+}
+
+func (s *DeclAnnoContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitDeclAnno(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1341,6 +1432,16 @@ func (s *StructContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *StructContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
 		listenerT.ExitStruct(s)
+	}
+}
+
+func (s *StructContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitStruct(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1965,6 +2066,16 @@ func (s *FieldContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *FieldContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitField(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *ADLWalker) NameBody() (localctx INameBodyContext) {
 	localctx = NewNameBodyContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 6, ADLWalkerRULE_nameBody)
@@ -2127,6 +2238,16 @@ func (s *AnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *AnnotationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitAnnotation(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *ADLWalker) Annotation() (localctx IAnnotationContext) {
 	localctx = NewAnnotationContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 8, ADLWalkerRULE_annotation)
@@ -2266,6 +2387,16 @@ func (s *TypeExpr_Context) EnterRule(listener antlr.ParseTreeListener) {
 func (s *TypeExpr_Context) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
 		listenerT.ExitTypeExpr_(s)
+	}
+}
+
+func (s *TypeExpr_Context) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitTypeExpr_(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -2443,6 +2574,16 @@ func (s *TypeParamsContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *TypeParamsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitTypeParams(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *ADLWalker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 	localctx = NewTypeExprElem_Context(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 12, ADLWalkerRULE_typeExprElem_)
@@ -2587,6 +2728,16 @@ func (s *JsonStrContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *JsonStrContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitJsonStr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type JsonArrayContext struct {
 	*JsonValContext
 }
@@ -2652,6 +2803,16 @@ func (s *JsonArrayContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *JsonArrayContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitJsonArray(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type JsonFloatContext struct {
 	*JsonValContext
 }
@@ -2683,6 +2844,16 @@ func (s *JsonFloatContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *JsonFloatContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
 		listenerT.ExitJsonFloat(s)
+	}
+}
+
+func (s *JsonFloatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitJsonFloat(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -2751,6 +2922,16 @@ func (s *JsonObjContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *JsonObjContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitJsonObj(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type JsonBoolContext struct {
 	*JsonValContext
 }
@@ -2782,6 +2963,16 @@ func (s *JsonBoolContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *JsonBoolContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
 		listenerT.ExitJsonBool(s)
+	}
+}
+
+func (s *JsonBoolContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitJsonBool(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -2819,6 +3010,16 @@ func (s *JsonIntContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *JsonIntContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitJsonInt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type JsonNullContext struct {
 	*JsonValContext
 }
@@ -2850,6 +3051,16 @@ func (s *JsonNullContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *JsonNullContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ADLWalkerListener); ok {
 		listenerT.ExitJsonNull(s)
+	}
+}
+
+func (s *JsonNullContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case ADLWalkerVisitor:
+		return t.VisitJsonNull(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 

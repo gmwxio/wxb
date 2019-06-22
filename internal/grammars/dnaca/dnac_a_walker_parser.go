@@ -1,6 +1,6 @@
-// Code generated from DNAC_01_Walker.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Code generated from DNAC_A_Walker.g4 by ANTLR 4.7.1. DO NOT EDIT.
 
-package dnaca // DNAC_01_Walker
+package dnaca // DNAC_A_Walker
 import (
 	"fmt"
 	"reflect"
@@ -15,7 +15,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 54, 148,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 56, 148,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 7, 3,
 	26, 10, 3, 12, 3, 14, 3, 29, 11, 3, 3, 3, 5, 3, 32, 10, 3, 3, 3, 7, 3,
@@ -35,7 +35,7 @@ var parserATN = []uint16{
 	6, 89, 3, 2, 2, 2, 8, 96, 3, 2, 2, 2, 10, 107, 3, 2, 2, 2, 12, 145, 3,
 	2, 2, 2, 14, 15, 7, 26, 2, 2, 15, 16, 7, 30, 2, 2, 16, 17, 7, 26, 2, 2,
 	17, 18, 5, 4, 3, 2, 18, 19, 7, 27, 2, 2, 19, 20, 7, 27, 2, 2, 20, 21, 7,
-	2, 2, 3, 21, 3, 3, 2, 2, 2, 22, 40, 7, 53, 2, 2, 23, 27, 7, 26, 2, 2, 24,
+	2, 2, 3, 21, 3, 3, 2, 2, 2, 22, 40, 7, 54, 2, 2, 23, 27, 7, 26, 2, 2, 24,
 	26, 5, 6, 4, 2, 25, 24, 3, 2, 2, 2, 26, 29, 3, 2, 2, 2, 27, 25, 3, 2, 2,
 	2, 27, 28, 3, 2, 2, 2, 28, 31, 3, 2, 2, 2, 29, 27, 3, 2, 2, 2, 30, 32,
 	7, 38, 2, 2, 31, 30, 3, 2, 2, 2, 31, 32, 3, 2, 2, 2, 32, 36, 3, 2, 2, 2,
@@ -50,7 +50,7 @@ var parserATN = []uint16{
 	12, 7, 2, 57, 56, 3, 2, 2, 2, 58, 61, 3, 2, 2, 2, 59, 57, 3, 2, 2, 2, 59,
 	60, 3, 2, 2, 2, 60, 62, 3, 2, 2, 2, 61, 59, 3, 2, 2, 2, 62, 64, 7, 27,
 	2, 2, 63, 43, 3, 2, 2, 2, 63, 64, 3, 2, 2, 2, 64, 88, 3, 2, 2, 2, 65, 66,
-	7, 54, 2, 2, 66, 67, 7, 26, 2, 2, 67, 68, 5, 12, 7, 2, 68, 69, 7, 27, 2,
+	7, 55, 2, 2, 66, 67, 7, 26, 2, 2, 67, 68, 5, 12, 7, 2, 68, 69, 7, 27, 2,
 	2, 69, 88, 3, 2, 2, 2, 70, 85, 7, 41, 2, 2, 71, 75, 7, 26, 2, 2, 72, 74,
 	5, 6, 4, 2, 73, 72, 3, 2, 2, 2, 74, 77, 3, 2, 2, 2, 75, 73, 3, 2, 2, 2,
 	75, 76, 3, 2, 2, 2, 76, 79, 3, 2, 2, 2, 77, 75, 3, 2, 2, 2, 78, 80, 5,
@@ -98,7 +98,7 @@ var symbolicNames = []string{
 	"Module", "Import", "Annotation", "Struct", "Union", "Newtype", "Type",
 	"TypeParam", "TypeExpr", "TypeExprElem", "Field", "Json", "JsonStr", "JsonBool",
 	"JsonNull", "JsonInt", "JsonFloat", "JsonArray", "JsonObj", "ModuleAnno",
-	"DeclAnno", "FieldAnno", "Name", "Exnotation",
+	"DeclAnno", "FieldAnno", "DNAC", "Name", "Exnotation", "Default",
 }
 
 var ruleNames = []string{
@@ -112,12 +112,12 @@ func init() {
 	}
 }
 
-type DNAC_01_Walker struct {
+type DNAC_A_Walker struct {
 	*antlr.BaseParser
 }
 
-func NewDNAC_01_Walker(input antlr.TokenStream) *DNAC_01_Walker {
-	this := new(DNAC_01_Walker)
+func NewDNAC_A_Walker(input antlr.TokenStream) *DNAC_A_Walker {
+	this := new(DNAC_A_Walker)
 
 	this.BaseParser = antlr.NewBaseParser(input)
 
@@ -125,76 +125,78 @@ func NewDNAC_01_Walker(input antlr.TokenStream) *DNAC_01_Walker {
 	this.RuleNames = ruleNames
 	this.LiteralNames = literalNames
 	this.SymbolicNames = symbolicNames
-	this.GrammarFileName = "DNAC_01_Walker.g4"
+	this.GrammarFileName = "DNAC_A_Walker.g4"
 
 	return this
 }
 
-// DNAC_01_Walker tokens.
+// DNAC_A_Walker tokens.
 const (
-	DNAC_01_WalkerEOF          = antlr.TokenEOF
-	DNAC_01_WalkerLCUR         = 1
-	DNAC_01_WalkerRCUR         = 2
-	DNAC_01_WalkerLSQ          = 3
-	DNAC_01_WalkerRSQ          = 4
-	DNAC_01_WalkerEQ           = 5
-	DNAC_01_WalkerDQ           = 6
-	DNAC_01_WalkerSQ           = 7
-	DNAC_01_WalkerSEMI         = 8
-	DNAC_01_WalkerDCOLON       = 9
-	DNAC_01_WalkerCOLON        = 10
-	DNAC_01_WalkerDOT          = 11
-	DNAC_01_WalkerCOMMA        = 12
-	DNAC_01_WalkerLCHEVR       = 13
-	DNAC_01_WalkerRCHEVR       = 14
-	DNAC_01_WalkerSTAR         = 15
-	DNAC_01_WalkerAT           = 16
-	DNAC_01_WalkerSTR          = 17
-	DNAC_01_WalkerID           = 18
-	DNAC_01_WalkerINT          = 19
-	DNAC_01_WalkerFLT          = 20
-	DNAC_01_WalkerWS           = 21
-	DNAC_01_WalkerLINE_DOC     = 22
-	DNAC_01_WalkerLINE_COMMENT = 23
-	DNAC_01_WalkerDOWN         = 24
-	DNAC_01_WalkerUP           = 25
-	DNAC_01_WalkerROOT         = 26
-	DNAC_01_WalkerERROR        = 27
-	DNAC_01_WalkerADL          = 28
-	DNAC_01_WalkerModule       = 29
-	DNAC_01_WalkerImport       = 30
-	DNAC_01_WalkerAnnotation   = 31
-	DNAC_01_WalkerStruct       = 32
-	DNAC_01_WalkerUnion        = 33
-	DNAC_01_WalkerNewtype      = 34
-	DNAC_01_WalkerType         = 35
-	DNAC_01_WalkerTypeParam    = 36
-	DNAC_01_WalkerTypeExpr     = 37
-	DNAC_01_WalkerTypeExprElem = 38
-	DNAC_01_WalkerField        = 39
-	DNAC_01_WalkerJson         = 40
-	DNAC_01_WalkerJsonStr      = 41
-	DNAC_01_WalkerJsonBool     = 42
-	DNAC_01_WalkerJsonNull     = 43
-	DNAC_01_WalkerJsonInt      = 44
-	DNAC_01_WalkerJsonFloat    = 45
-	DNAC_01_WalkerJsonArray    = 46
-	DNAC_01_WalkerJsonObj      = 47
-	DNAC_01_WalkerModuleAnno   = 48
-	DNAC_01_WalkerDeclAnno     = 49
-	DNAC_01_WalkerFieldAnno    = 50
-	DNAC_01_WalkerName         = 51
-	DNAC_01_WalkerExnotation   = 52
+	DNAC_A_WalkerEOF          = antlr.TokenEOF
+	DNAC_A_WalkerLCUR         = 1
+	DNAC_A_WalkerRCUR         = 2
+	DNAC_A_WalkerLSQ          = 3
+	DNAC_A_WalkerRSQ          = 4
+	DNAC_A_WalkerEQ           = 5
+	DNAC_A_WalkerDQ           = 6
+	DNAC_A_WalkerSQ           = 7
+	DNAC_A_WalkerSEMI         = 8
+	DNAC_A_WalkerDCOLON       = 9
+	DNAC_A_WalkerCOLON        = 10
+	DNAC_A_WalkerDOT          = 11
+	DNAC_A_WalkerCOMMA        = 12
+	DNAC_A_WalkerLCHEVR       = 13
+	DNAC_A_WalkerRCHEVR       = 14
+	DNAC_A_WalkerSTAR         = 15
+	DNAC_A_WalkerAT           = 16
+	DNAC_A_WalkerSTR          = 17
+	DNAC_A_WalkerID           = 18
+	DNAC_A_WalkerINT          = 19
+	DNAC_A_WalkerFLT          = 20
+	DNAC_A_WalkerWS           = 21
+	DNAC_A_WalkerLINE_DOC     = 22
+	DNAC_A_WalkerLINE_COMMENT = 23
+	DNAC_A_WalkerDOWN         = 24
+	DNAC_A_WalkerUP           = 25
+	DNAC_A_WalkerROOT         = 26
+	DNAC_A_WalkerERROR        = 27
+	DNAC_A_WalkerADL          = 28
+	DNAC_A_WalkerModule       = 29
+	DNAC_A_WalkerImport       = 30
+	DNAC_A_WalkerAnnotation   = 31
+	DNAC_A_WalkerStruct       = 32
+	DNAC_A_WalkerUnion        = 33
+	DNAC_A_WalkerNewtype      = 34
+	DNAC_A_WalkerType         = 35
+	DNAC_A_WalkerTypeParam    = 36
+	DNAC_A_WalkerTypeExpr     = 37
+	DNAC_A_WalkerTypeExprElem = 38
+	DNAC_A_WalkerField        = 39
+	DNAC_A_WalkerJson         = 40
+	DNAC_A_WalkerJsonStr      = 41
+	DNAC_A_WalkerJsonBool     = 42
+	DNAC_A_WalkerJsonNull     = 43
+	DNAC_A_WalkerJsonInt      = 44
+	DNAC_A_WalkerJsonFloat    = 45
+	DNAC_A_WalkerJsonArray    = 46
+	DNAC_A_WalkerJsonObj      = 47
+	DNAC_A_WalkerModuleAnno   = 48
+	DNAC_A_WalkerDeclAnno     = 49
+	DNAC_A_WalkerFieldAnno    = 50
+	DNAC_A_WalkerDNAC         = 51
+	DNAC_A_WalkerName         = 52
+	DNAC_A_WalkerExnotation   = 53
+	DNAC_A_WalkerDefault      = 54
 )
 
-// DNAC_01_Walker rules.
+// DNAC_A_Walker rules.
 const (
-	DNAC_01_WalkerRULE_adl           = 0
-	DNAC_01_WalkerRULE_tld           = 1
-	DNAC_01_WalkerRULE_annotation    = 2
-	DNAC_01_WalkerRULE_typeExpr_     = 3
-	DNAC_01_WalkerRULE_typeExprElem_ = 4
-	DNAC_01_WalkerRULE_jsonVal       = 5
+	DNAC_A_WalkerRULE_adl           = 0
+	DNAC_A_WalkerRULE_tld           = 1
+	DNAC_A_WalkerRULE_annotation    = 2
+	DNAC_A_WalkerRULE_typeExpr_     = 3
+	DNAC_A_WalkerRULE_typeExprElem_ = 4
+	DNAC_A_WalkerRULE_jsonVal       = 5
 )
 
 // IAdlContext is an interface to support dynamic dispatch.
@@ -216,7 +218,7 @@ type AdlContext struct {
 func NewEmptyAdlContext() *AdlContext {
 	var p = new(AdlContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = DNAC_01_WalkerRULE_adl
+	p.RuleIndex = DNAC_A_WalkerRULE_adl
 	return p
 }
 
@@ -228,7 +230,7 @@ func NewAdlContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = DNAC_01_WalkerRULE_adl
+	p.RuleIndex = DNAC_A_WalkerRULE_adl
 
 	return p
 }
@@ -236,15 +238,15 @@ func NewAdlContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 func (s *AdlContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *AdlContext) AllDOWN() []antlr.TerminalNode {
-	return s.GetTokens(DNAC_01_WalkerDOWN)
+	return s.GetTokens(DNAC_A_WalkerDOWN)
 }
 
 func (s *AdlContext) DOWN(i int) antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, i)
+	return s.GetToken(DNAC_A_WalkerDOWN, i)
 }
 
 func (s *AdlContext) ADL() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerADL, 0)
+	return s.GetToken(DNAC_A_WalkerADL, 0)
 }
 
 func (s *AdlContext) Tld() ITldContext {
@@ -258,15 +260,15 @@ func (s *AdlContext) Tld() ITldContext {
 }
 
 func (s *AdlContext) AllUP() []antlr.TerminalNode {
-	return s.GetTokens(DNAC_01_WalkerUP)
+	return s.GetTokens(DNAC_A_WalkerUP)
 }
 
 func (s *AdlContext) UP(i int) antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, i)
+	return s.GetToken(DNAC_A_WalkerUP, i)
 }
 
 func (s *AdlContext) EOF() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerEOF, 0)
+	return s.GetToken(DNAC_A_WalkerEOF, 0)
 }
 
 func (s *AdlContext) GetRuleContext() antlr.RuleContext {
@@ -278,20 +280,30 @@ func (s *AdlContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) st
 }
 
 func (s *AdlContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterAdl(s)
 	}
 }
 
 func (s *AdlContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitAdl(s)
 	}
 }
 
-func (p *DNAC_01_Walker) Adl() (localctx IAdlContext) {
+func (s *AdlContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitAdl(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *DNAC_A_Walker) Adl() (localctx IAdlContext) {
 	localctx = NewAdlContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 0, DNAC_01_WalkerRULE_adl)
+	p.EnterRule(localctx, 0, DNAC_A_WalkerRULE_adl)
 
 	defer func() {
 		p.ExitRule()
@@ -312,15 +324,15 @@ func (p *DNAC_01_Walker) Adl() (localctx IAdlContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(12)
-		p.Match(DNAC_01_WalkerDOWN)
+		p.Match(DNAC_A_WalkerDOWN)
 	}
 	{
 		p.SetState(13)
-		p.Match(DNAC_01_WalkerADL)
+		p.Match(DNAC_A_WalkerADL)
 	}
 	{
 		p.SetState(14)
-		p.Match(DNAC_01_WalkerDOWN)
+		p.Match(DNAC_A_WalkerDOWN)
 	}
 	{
 		p.SetState(15)
@@ -328,15 +340,15 @@ func (p *DNAC_01_Walker) Adl() (localctx IAdlContext) {
 	}
 	{
 		p.SetState(16)
-		p.Match(DNAC_01_WalkerUP)
+		p.Match(DNAC_A_WalkerUP)
 	}
 	{
 		p.SetState(17)
-		p.Match(DNAC_01_WalkerUP)
+		p.Match(DNAC_A_WalkerUP)
 	}
 	{
 		p.SetState(18)
-		p.Match(DNAC_01_WalkerEOF)
+		p.Match(DNAC_A_WalkerEOF)
 	}
 
 	return localctx
@@ -361,7 +373,7 @@ type TldContext struct {
 func NewEmptyTldContext() *TldContext {
 	var p = new(TldContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = DNAC_01_WalkerRULE_tld
+	p.RuleIndex = DNAC_A_WalkerRULE_tld
 	return p
 }
 
@@ -373,7 +385,7 @@ func NewTldContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = DNAC_01_WalkerRULE_tld
+	p.RuleIndex = DNAC_A_WalkerRULE_tld
 
 	return p
 }
@@ -411,15 +423,15 @@ func (s *NameNodeContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *NameNodeContext) Name() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerName, 0)
+	return s.GetToken(DNAC_A_WalkerName, 0)
 }
 
 func (s *NameNodeContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, 0)
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
 }
 
 func (s *NameNodeContext) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, 0)
+	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
 func (s *NameNodeContext) AllAnnotation() []IAnnotationContext {
@@ -446,7 +458,7 @@ func (s *NameNodeContext) Annotation(i int) IAnnotationContext {
 }
 
 func (s *NameNodeContext) TypeParam() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerTypeParam, 0)
+	return s.GetToken(DNAC_A_WalkerTypeParam, 0)
 }
 
 func (s *NameNodeContext) AllTld() []ITldContext {
@@ -473,14 +485,24 @@ func (s *NameNodeContext) Tld(i int) ITldContext {
 }
 
 func (s *NameNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterNameNode(s)
 	}
 }
 
 func (s *NameNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitNameNode(s)
+	}
+}
+
+func (s *NameNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitNameNode(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -503,15 +525,15 @@ func (s *TypeNodeContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *TypeNodeContext) Type() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerType, 0)
+	return s.GetToken(DNAC_A_WalkerType, 0)
 }
 
 func (s *TypeNodeContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, 0)
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
 }
 
 func (s *TypeNodeContext) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, 0)
+	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
 func (s *TypeNodeContext) AllAnnotation() []IAnnotationContext {
@@ -538,7 +560,7 @@ func (s *TypeNodeContext) Annotation(i int) IAnnotationContext {
 }
 
 func (s *TypeNodeContext) TypeParam() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerTypeParam, 0)
+	return s.GetToken(DNAC_A_WalkerTypeParam, 0)
 }
 
 func (s *TypeNodeContext) TypeExpr_() ITypeExpr_Context {
@@ -575,14 +597,24 @@ func (s *TypeNodeContext) JsonVal(i int) IJsonValContext {
 }
 
 func (s *TypeNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterTypeNode(s)
 	}
 }
 
 func (s *TypeNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitTypeNode(s)
+	}
+}
+
+func (s *TypeNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitTypeNode(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -605,11 +637,11 @@ func (s *ExnotationNodeContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *ExnotationNodeContext) Exnotation() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerExnotation, 0)
+	return s.GetToken(DNAC_A_WalkerExnotation, 0)
 }
 
 func (s *ExnotationNodeContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, 0)
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
 }
 
 func (s *ExnotationNodeContext) JsonVal() IJsonValContext {
@@ -623,18 +655,28 @@ func (s *ExnotationNodeContext) JsonVal() IJsonValContext {
 }
 
 func (s *ExnotationNodeContext) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, 0)
+	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
 func (s *ExnotationNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterExnotationNode(s)
 	}
 }
 
 func (s *ExnotationNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitExnotationNode(s)
+	}
+}
+
+func (s *ExnotationNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitExnotationNode(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -657,15 +699,15 @@ func (s *NameBodyNodeContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *NameBodyNodeContext) Field() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerField, 0)
+	return s.GetToken(DNAC_A_WalkerField, 0)
 }
 
 func (s *NameBodyNodeContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, 0)
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
 }
 
 func (s *NameBodyNodeContext) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, 0)
+	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
 func (s *NameBodyNodeContext) AllAnnotation() []IAnnotationContext {
@@ -712,20 +754,30 @@ func (s *NameBodyNodeContext) JsonVal() IJsonValContext {
 }
 
 func (s *NameBodyNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterNameBodyNode(s)
 	}
 }
 
 func (s *NameBodyNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitNameBodyNode(s)
 	}
 }
 
-func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
+func (s *NameBodyNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitNameBodyNode(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *DNAC_A_Walker) Tld() (localctx ITldContext) {
 	localctx = NewTldContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, DNAC_01_WalkerRULE_tld)
+	p.EnterRule(localctx, 2, DNAC_A_WalkerRULE_tld)
 	var _la int
 
 	defer func() {
@@ -748,27 +800,27 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case DNAC_01_WalkerName:
+	case DNAC_A_WalkerName:
 		localctx = NewNameNodeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(20)
-			p.Match(DNAC_01_WalkerName)
+			p.Match(DNAC_A_WalkerName)
 		}
 		p.SetState(38)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		if _la == DNAC_01_WalkerDOWN {
+		if _la == DNAC_A_WalkerDOWN {
 			{
 				p.SetState(21)
-				p.Match(DNAC_01_WalkerDOWN)
+				p.Match(DNAC_A_WalkerDOWN)
 			}
 			p.SetState(25)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for _la == DNAC_01_WalkerAnnotation {
+			for _la == DNAC_A_WalkerAnnotation {
 				{
 					p.SetState(22)
 					p.Annotation()
@@ -782,10 +834,10 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if _la == DNAC_01_WalkerTypeParam {
+			if _la == DNAC_A_WalkerTypeParam {
 				{
 					p.SetState(28)
-					p.Match(DNAC_01_WalkerTypeParam)
+					p.Match(DNAC_A_WalkerTypeParam)
 				}
 
 			}
@@ -793,7 +845,7 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for ((_la-35)&-(0x1f+1)) == 0 && ((1<<uint((_la-35)))&((1<<(DNAC_01_WalkerType-35))|(1<<(DNAC_01_WalkerField-35))|(1<<(DNAC_01_WalkerName-35))|(1<<(DNAC_01_WalkerExnotation-35)))) != 0 {
+			for ((_la-35)&-(0x1f+1)) == 0 && ((1<<uint((_la-35)))&((1<<(DNAC_A_WalkerType-35))|(1<<(DNAC_A_WalkerField-35))|(1<<(DNAC_A_WalkerName-35))|(1<<(DNAC_A_WalkerExnotation-35)))) != 0 {
 				{
 					p.SetState(31)
 					p.Tld()
@@ -805,32 +857,32 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			}
 			{
 				p.SetState(37)
-				p.Match(DNAC_01_WalkerUP)
+				p.Match(DNAC_A_WalkerUP)
 			}
 
 		}
 
-	case DNAC_01_WalkerType:
+	case DNAC_A_WalkerType:
 		localctx = NewTypeNodeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(40)
-			p.Match(DNAC_01_WalkerType)
+			p.Match(DNAC_A_WalkerType)
 		}
 		p.SetState(61)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		if _la == DNAC_01_WalkerDOWN {
+		if _la == DNAC_A_WalkerDOWN {
 			{
 				p.SetState(41)
-				p.Match(DNAC_01_WalkerDOWN)
+				p.Match(DNAC_A_WalkerDOWN)
 			}
 			p.SetState(45)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for _la == DNAC_01_WalkerAnnotation {
+			for _la == DNAC_A_WalkerAnnotation {
 				{
 					p.SetState(42)
 					p.Annotation()
@@ -844,10 +896,10 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if _la == DNAC_01_WalkerTypeParam {
+			if _la == DNAC_A_WalkerTypeParam {
 				{
 					p.SetState(48)
-					p.Match(DNAC_01_WalkerTypeParam)
+					p.Match(DNAC_A_WalkerTypeParam)
 				}
 
 			}
@@ -855,7 +907,7 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if _la == DNAC_01_WalkerTypeExpr {
+			if _la == DNAC_A_WalkerTypeExpr {
 				{
 					p.SetState(51)
 					p.TypeExpr_()
@@ -866,7 +918,7 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_01_WalkerJsonStr-41))|(1<<(DNAC_01_WalkerJsonBool-41))|(1<<(DNAC_01_WalkerJsonNull-41))|(1<<(DNAC_01_WalkerJsonInt-41))|(1<<(DNAC_01_WalkerJsonFloat-41))|(1<<(DNAC_01_WalkerJsonArray-41))|(1<<(DNAC_01_WalkerJsonObj-41)))) != 0 {
+			for ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_A_WalkerJsonStr-41))|(1<<(DNAC_A_WalkerJsonBool-41))|(1<<(DNAC_A_WalkerJsonNull-41))|(1<<(DNAC_A_WalkerJsonInt-41))|(1<<(DNAC_A_WalkerJsonFloat-41))|(1<<(DNAC_A_WalkerJsonArray-41))|(1<<(DNAC_A_WalkerJsonObj-41)))) != 0 {
 				{
 					p.SetState(54)
 					p.JsonVal()
@@ -878,21 +930,21 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			}
 			{
 				p.SetState(60)
-				p.Match(DNAC_01_WalkerUP)
+				p.Match(DNAC_A_WalkerUP)
 			}
 
 		}
 
-	case DNAC_01_WalkerExnotation:
+	case DNAC_A_WalkerExnotation:
 		localctx = NewExnotationNodeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(63)
-			p.Match(DNAC_01_WalkerExnotation)
+			p.Match(DNAC_A_WalkerExnotation)
 		}
 		{
 			p.SetState(64)
-			p.Match(DNAC_01_WalkerDOWN)
+			p.Match(DNAC_A_WalkerDOWN)
 		}
 		{
 			p.SetState(65)
@@ -900,30 +952,30 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 		}
 		{
 			p.SetState(66)
-			p.Match(DNAC_01_WalkerUP)
+			p.Match(DNAC_A_WalkerUP)
 		}
 
-	case DNAC_01_WalkerField:
+	case DNAC_A_WalkerField:
 		localctx = NewNameBodyNodeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
 			p.SetState(68)
-			p.Match(DNAC_01_WalkerField)
+			p.Match(DNAC_A_WalkerField)
 		}
 		p.SetState(83)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		if _la == DNAC_01_WalkerDOWN {
+		if _la == DNAC_A_WalkerDOWN {
 			{
 				p.SetState(69)
-				p.Match(DNAC_01_WalkerDOWN)
+				p.Match(DNAC_A_WalkerDOWN)
 			}
 			p.SetState(73)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for _la == DNAC_01_WalkerAnnotation {
+			for _la == DNAC_A_WalkerAnnotation {
 				{
 					p.SetState(70)
 					p.Annotation()
@@ -937,7 +989,7 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if _la == DNAC_01_WalkerTypeExpr {
+			if _la == DNAC_A_WalkerTypeExpr {
 				{
 					p.SetState(76)
 					p.TypeExpr_()
@@ -948,7 +1000,7 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_01_WalkerJsonStr-41))|(1<<(DNAC_01_WalkerJsonBool-41))|(1<<(DNAC_01_WalkerJsonNull-41))|(1<<(DNAC_01_WalkerJsonInt-41))|(1<<(DNAC_01_WalkerJsonFloat-41))|(1<<(DNAC_01_WalkerJsonArray-41))|(1<<(DNAC_01_WalkerJsonObj-41)))) != 0 {
+			if ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_A_WalkerJsonStr-41))|(1<<(DNAC_A_WalkerJsonBool-41))|(1<<(DNAC_A_WalkerJsonNull-41))|(1<<(DNAC_A_WalkerJsonInt-41))|(1<<(DNAC_A_WalkerJsonFloat-41))|(1<<(DNAC_A_WalkerJsonArray-41))|(1<<(DNAC_A_WalkerJsonObj-41)))) != 0 {
 				{
 					p.SetState(79)
 					p.JsonVal()
@@ -957,7 +1009,7 @@ func (p *DNAC_01_Walker) Tld() (localctx ITldContext) {
 			}
 			{
 				p.SetState(82)
-				p.Match(DNAC_01_WalkerUP)
+				p.Match(DNAC_A_WalkerUP)
 			}
 
 		}
@@ -988,7 +1040,7 @@ type AnnotationContext struct {
 func NewEmptyAnnotationContext() *AnnotationContext {
 	var p = new(AnnotationContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = DNAC_01_WalkerRULE_annotation
+	p.RuleIndex = DNAC_A_WalkerRULE_annotation
 	return p
 }
 
@@ -1000,7 +1052,7 @@ func NewAnnotationContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = DNAC_01_WalkerRULE_annotation
+	p.RuleIndex = DNAC_A_WalkerRULE_annotation
 
 	return p
 }
@@ -1008,11 +1060,11 @@ func NewAnnotationContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 func (s *AnnotationContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *AnnotationContext) Annotation() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerAnnotation, 0)
+	return s.GetToken(DNAC_A_WalkerAnnotation, 0)
 }
 
 func (s *AnnotationContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, 0)
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
 }
 
 func (s *AnnotationContext) JsonVal() IJsonValContext {
@@ -1026,7 +1078,7 @@ func (s *AnnotationContext) JsonVal() IJsonValContext {
 }
 
 func (s *AnnotationContext) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, 0)
+	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
 func (s *AnnotationContext) GetRuleContext() antlr.RuleContext {
@@ -1038,20 +1090,30 @@ func (s *AnnotationContext) ToStringTree(ruleNames []string, recog antlr.Recogni
 }
 
 func (s *AnnotationContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterAnnotation(s)
 	}
 }
 
 func (s *AnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitAnnotation(s)
 	}
 }
 
-func (p *DNAC_01_Walker) Annotation() (localctx IAnnotationContext) {
+func (s *AnnotationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitAnnotation(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *DNAC_A_Walker) Annotation() (localctx IAnnotationContext) {
 	localctx = NewAnnotationContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, DNAC_01_WalkerRULE_annotation)
+	p.EnterRule(localctx, 4, DNAC_A_WalkerRULE_annotation)
 	var _la int
 
 	defer func() {
@@ -1073,16 +1135,16 @@ func (p *DNAC_01_Walker) Annotation() (localctx IAnnotationContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(87)
-		p.Match(DNAC_01_WalkerAnnotation)
+		p.Match(DNAC_A_WalkerAnnotation)
 	}
 	p.SetState(92)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if _la == DNAC_01_WalkerDOWN {
+	if _la == DNAC_A_WalkerDOWN {
 		{
 			p.SetState(88)
-			p.Match(DNAC_01_WalkerDOWN)
+			p.Match(DNAC_A_WalkerDOWN)
 		}
 		{
 			p.SetState(89)
@@ -1090,7 +1152,7 @@ func (p *DNAC_01_Walker) Annotation() (localctx IAnnotationContext) {
 		}
 		{
 			p.SetState(90)
-			p.Match(DNAC_01_WalkerUP)
+			p.Match(DNAC_A_WalkerUP)
 		}
 
 	}
@@ -1117,7 +1179,7 @@ type TypeExpr_Context struct {
 func NewEmptyTypeExpr_Context() *TypeExpr_Context {
 	var p = new(TypeExpr_Context)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = DNAC_01_WalkerRULE_typeExpr_
+	p.RuleIndex = DNAC_A_WalkerRULE_typeExpr_
 	return p
 }
 
@@ -1129,7 +1191,7 @@ func NewTypeExpr_Context(parser antlr.Parser, parent antlr.ParserRuleContext, in
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = DNAC_01_WalkerRULE_typeExpr_
+	p.RuleIndex = DNAC_A_WalkerRULE_typeExpr_
 
 	return p
 }
@@ -1137,15 +1199,15 @@ func NewTypeExpr_Context(parser antlr.Parser, parent antlr.ParserRuleContext, in
 func (s *TypeExpr_Context) GetParser() antlr.Parser { return s.parser }
 
 func (s *TypeExpr_Context) TypeExpr() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerTypeExpr, 0)
+	return s.GetToken(DNAC_A_WalkerTypeExpr, 0)
 }
 
 func (s *TypeExpr_Context) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, 0)
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
 }
 
 func (s *TypeExpr_Context) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, 0)
+	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
 func (s *TypeExpr_Context) AllTypeExprElem_() []ITypeExprElem_Context {
@@ -1180,20 +1242,30 @@ func (s *TypeExpr_Context) ToStringTree(ruleNames []string, recog antlr.Recogniz
 }
 
 func (s *TypeExpr_Context) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterTypeExpr_(s)
 	}
 }
 
 func (s *TypeExpr_Context) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitTypeExpr_(s)
 	}
 }
 
-func (p *DNAC_01_Walker) TypeExpr_() (localctx ITypeExpr_Context) {
+func (s *TypeExpr_Context) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitTypeExpr_(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *DNAC_A_Walker) TypeExpr_() (localctx ITypeExpr_Context) {
 	localctx = NewTypeExpr_Context(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 6, DNAC_01_WalkerRULE_typeExpr_)
+	p.EnterRule(localctx, 6, DNAC_A_WalkerRULE_typeExpr_)
 	var _la int
 
 	defer func() {
@@ -1215,22 +1287,22 @@ func (p *DNAC_01_Walker) TypeExpr_() (localctx ITypeExpr_Context) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(94)
-		p.Match(DNAC_01_WalkerTypeExpr)
+		p.Match(DNAC_A_WalkerTypeExpr)
 	}
 	p.SetState(103)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if _la == DNAC_01_WalkerDOWN {
+	if _la == DNAC_A_WalkerDOWN {
 		{
 			p.SetState(95)
-			p.Match(DNAC_01_WalkerDOWN)
+			p.Match(DNAC_A_WalkerDOWN)
 		}
 		p.SetState(97)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for ok := true; ok; ok = _la == DNAC_01_WalkerTypeExprElem {
+		for ok := true; ok; ok = _la == DNAC_A_WalkerTypeExprElem {
 			{
 				p.SetState(96)
 				p.TypeExprElem_()
@@ -1242,7 +1314,7 @@ func (p *DNAC_01_Walker) TypeExpr_() (localctx ITypeExpr_Context) {
 		}
 		{
 			p.SetState(101)
-			p.Match(DNAC_01_WalkerUP)
+			p.Match(DNAC_A_WalkerUP)
 		}
 
 	}
@@ -1269,7 +1341,7 @@ type TypeExprElem_Context struct {
 func NewEmptyTypeExprElem_Context() *TypeExprElem_Context {
 	var p = new(TypeExprElem_Context)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = DNAC_01_WalkerRULE_typeExprElem_
+	p.RuleIndex = DNAC_A_WalkerRULE_typeExprElem_
 	return p
 }
 
@@ -1281,7 +1353,7 @@ func NewTypeExprElem_Context(parser antlr.Parser, parent antlr.ParserRuleContext
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = DNAC_01_WalkerRULE_typeExprElem_
+	p.RuleIndex = DNAC_A_WalkerRULE_typeExprElem_
 
 	return p
 }
@@ -1319,15 +1391,15 @@ func (s *TypeParamsContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *TypeParamsContext) TypeExprElem() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerTypeExprElem, 0)
+	return s.GetToken(DNAC_A_WalkerTypeExprElem, 0)
 }
 
 func (s *TypeParamsContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, 0)
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
 }
 
 func (s *TypeParamsContext) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, 0)
+	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
 func (s *TypeParamsContext) AllTypeExprElem_() []ITypeExprElem_Context {
@@ -1354,20 +1426,30 @@ func (s *TypeParamsContext) TypeExprElem_(i int) ITypeExprElem_Context {
 }
 
 func (s *TypeParamsContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterTypeParams(s)
 	}
 }
 
 func (s *TypeParamsContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitTypeParams(s)
 	}
 }
 
-func (p *DNAC_01_Walker) TypeExprElem_() (localctx ITypeExprElem_Context) {
+func (s *TypeParamsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitTypeParams(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *DNAC_A_Walker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 	localctx = NewTypeExprElem_Context(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, DNAC_01_WalkerRULE_typeExprElem_)
+	p.EnterRule(localctx, 8, DNAC_A_WalkerRULE_typeExprElem_)
 	var _la int
 
 	defer func() {
@@ -1390,22 +1472,22 @@ func (p *DNAC_01_Walker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(105)
-		p.Match(DNAC_01_WalkerTypeExprElem)
+		p.Match(DNAC_A_WalkerTypeExprElem)
 	}
 	p.SetState(114)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if _la == DNAC_01_WalkerDOWN {
+	if _la == DNAC_A_WalkerDOWN {
 		{
 			p.SetState(106)
-			p.Match(DNAC_01_WalkerDOWN)
+			p.Match(DNAC_A_WalkerDOWN)
 		}
 		p.SetState(108)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for ok := true; ok; ok = _la == DNAC_01_WalkerTypeExprElem {
+		for ok := true; ok; ok = _la == DNAC_A_WalkerTypeExprElem {
 			{
 				p.SetState(107)
 				p.TypeExprElem_()
@@ -1417,7 +1499,7 @@ func (p *DNAC_01_Walker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 		}
 		{
 			p.SetState(112)
-			p.Match(DNAC_01_WalkerUP)
+			p.Match(DNAC_A_WalkerUP)
 		}
 
 	}
@@ -1444,7 +1526,7 @@ type JsonValContext struct {
 func NewEmptyJsonValContext() *JsonValContext {
 	var p = new(JsonValContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = DNAC_01_WalkerRULE_jsonVal
+	p.RuleIndex = DNAC_A_WalkerRULE_jsonVal
 	return p
 }
 
@@ -1456,7 +1538,7 @@ func NewJsonValContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = DNAC_01_WalkerRULE_jsonVal
+	p.RuleIndex = DNAC_A_WalkerRULE_jsonVal
 
 	return p
 }
@@ -1494,18 +1576,28 @@ func (s *JsonStrContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *JsonStrContext) JsonStr() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerJsonStr, 0)
+	return s.GetToken(DNAC_A_WalkerJsonStr, 0)
 }
 
 func (s *JsonStrContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterJsonStr(s)
 	}
 }
 
 func (s *JsonStrContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitJsonStr(s)
+	}
+}
+
+func (s *JsonStrContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitJsonStr(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1528,15 +1620,15 @@ func (s *JsonArrayContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *JsonArrayContext) JsonArray() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerJsonArray, 0)
+	return s.GetToken(DNAC_A_WalkerJsonArray, 0)
 }
 
 func (s *JsonArrayContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, 0)
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
 }
 
 func (s *JsonArrayContext) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, 0)
+	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
 func (s *JsonArrayContext) AllJsonVal() []IJsonValContext {
@@ -1563,14 +1655,24 @@ func (s *JsonArrayContext) JsonVal(i int) IJsonValContext {
 }
 
 func (s *JsonArrayContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterJsonArray(s)
 	}
 }
 
 func (s *JsonArrayContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitJsonArray(s)
+	}
+}
+
+func (s *JsonArrayContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitJsonArray(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1593,18 +1695,28 @@ func (s *JsonFloatContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *JsonFloatContext) JsonFloat() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerJsonFloat, 0)
+	return s.GetToken(DNAC_A_WalkerJsonFloat, 0)
 }
 
 func (s *JsonFloatContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterJsonFloat(s)
 	}
 }
 
 func (s *JsonFloatContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitJsonFloat(s)
+	}
+}
+
+func (s *JsonFloatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitJsonFloat(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1627,15 +1739,15 @@ func (s *JsonObjContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *JsonObjContext) JsonObj() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerJsonObj, 0)
+	return s.GetToken(DNAC_A_WalkerJsonObj, 0)
 }
 
 func (s *JsonObjContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerDOWN, 0)
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
 }
 
 func (s *JsonObjContext) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerUP, 0)
+	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
 func (s *JsonObjContext) AllJsonVal() []IJsonValContext {
@@ -1662,14 +1774,24 @@ func (s *JsonObjContext) JsonVal(i int) IJsonValContext {
 }
 
 func (s *JsonObjContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterJsonObj(s)
 	}
 }
 
 func (s *JsonObjContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitJsonObj(s)
+	}
+}
+
+func (s *JsonObjContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitJsonObj(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1692,18 +1814,28 @@ func (s *JsonBoolContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *JsonBoolContext) JsonBool() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerJsonBool, 0)
+	return s.GetToken(DNAC_A_WalkerJsonBool, 0)
 }
 
 func (s *JsonBoolContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterJsonBool(s)
 	}
 }
 
 func (s *JsonBoolContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitJsonBool(s)
+	}
+}
+
+func (s *JsonBoolContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitJsonBool(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1726,18 +1858,28 @@ func (s *JsonIntContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *JsonIntContext) JsonInt() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerJsonInt, 0)
+	return s.GetToken(DNAC_A_WalkerJsonInt, 0)
 }
 
 func (s *JsonIntContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterJsonInt(s)
 	}
 }
 
 func (s *JsonIntContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitJsonInt(s)
+	}
+}
+
+func (s *JsonIntContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitJsonInt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1760,24 +1902,34 @@ func (s *JsonNullContext) GetRuleContext() antlr.RuleContext {
 }
 
 func (s *JsonNullContext) JsonNull() antlr.TerminalNode {
-	return s.GetToken(DNAC_01_WalkerJsonNull, 0)
+	return s.GetToken(DNAC_A_WalkerJsonNull, 0)
 }
 
 func (s *JsonNullContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.EnterJsonNull(s)
 	}
 }
 
 func (s *JsonNullContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_01_WalkerListener); ok {
+	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
 		listenerT.ExitJsonNull(s)
 	}
 }
 
-func (p *DNAC_01_Walker) JsonVal() (localctx IJsonValContext) {
+func (s *JsonNullContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case DNAC_A_WalkerVisitor:
+		return t.VisitJsonNull(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 	localctx = NewJsonValContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, DNAC_01_WalkerRULE_jsonVal)
+	p.EnterRule(localctx, 10, DNAC_A_WalkerRULE_jsonVal)
 	var _la int
 
 	defer func() {
@@ -1800,67 +1952,67 @@ func (p *DNAC_01_Walker) JsonVal() (localctx IJsonValContext) {
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case DNAC_01_WalkerJsonStr:
+	case DNAC_A_WalkerJsonStr:
 		localctx = NewJsonStrContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(116)
-			p.Match(DNAC_01_WalkerJsonStr)
+			p.Match(DNAC_A_WalkerJsonStr)
 		}
 
-	case DNAC_01_WalkerJsonBool:
+	case DNAC_A_WalkerJsonBool:
 		localctx = NewJsonBoolContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(117)
-			p.Match(DNAC_01_WalkerJsonBool)
+			p.Match(DNAC_A_WalkerJsonBool)
 		}
 
-	case DNAC_01_WalkerJsonNull:
+	case DNAC_A_WalkerJsonNull:
 		localctx = NewJsonNullContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(118)
-			p.Match(DNAC_01_WalkerJsonNull)
+			p.Match(DNAC_A_WalkerJsonNull)
 		}
 
-	case DNAC_01_WalkerJsonInt:
+	case DNAC_A_WalkerJsonInt:
 		localctx = NewJsonIntContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
 			p.SetState(119)
-			p.Match(DNAC_01_WalkerJsonInt)
+			p.Match(DNAC_A_WalkerJsonInt)
 		}
 
-	case DNAC_01_WalkerJsonFloat:
+	case DNAC_A_WalkerJsonFloat:
 		localctx = NewJsonFloatContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
 			p.SetState(120)
-			p.Match(DNAC_01_WalkerJsonFloat)
+			p.Match(DNAC_A_WalkerJsonFloat)
 		}
 
-	case DNAC_01_WalkerJsonArray:
+	case DNAC_A_WalkerJsonArray:
 		localctx = NewJsonArrayContext(p, localctx)
 		p.EnterOuterAlt(localctx, 6)
 		{
 			p.SetState(121)
-			p.Match(DNAC_01_WalkerJsonArray)
+			p.Match(DNAC_A_WalkerJsonArray)
 		}
 		p.SetState(130)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		if _la == DNAC_01_WalkerDOWN {
+		if _la == DNAC_A_WalkerDOWN {
 			{
 				p.SetState(122)
-				p.Match(DNAC_01_WalkerDOWN)
+				p.Match(DNAC_A_WalkerDOWN)
 			}
 			p.SetState(124)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for ok := true; ok; ok = (((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_01_WalkerJsonStr-41))|(1<<(DNAC_01_WalkerJsonBool-41))|(1<<(DNAC_01_WalkerJsonNull-41))|(1<<(DNAC_01_WalkerJsonInt-41))|(1<<(DNAC_01_WalkerJsonFloat-41))|(1<<(DNAC_01_WalkerJsonArray-41))|(1<<(DNAC_01_WalkerJsonObj-41)))) != 0) {
+			for ok := true; ok; ok = (((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_A_WalkerJsonStr-41))|(1<<(DNAC_A_WalkerJsonBool-41))|(1<<(DNAC_A_WalkerJsonNull-41))|(1<<(DNAC_A_WalkerJsonInt-41))|(1<<(DNAC_A_WalkerJsonFloat-41))|(1<<(DNAC_A_WalkerJsonArray-41))|(1<<(DNAC_A_WalkerJsonObj-41)))) != 0) {
 				{
 					p.SetState(123)
 					p.JsonVal()
@@ -1872,32 +2024,32 @@ func (p *DNAC_01_Walker) JsonVal() (localctx IJsonValContext) {
 			}
 			{
 				p.SetState(128)
-				p.Match(DNAC_01_WalkerUP)
+				p.Match(DNAC_A_WalkerUP)
 			}
 
 		}
 
-	case DNAC_01_WalkerJsonObj:
+	case DNAC_A_WalkerJsonObj:
 		localctx = NewJsonObjContext(p, localctx)
 		p.EnterOuterAlt(localctx, 7)
 		{
 			p.SetState(132)
-			p.Match(DNAC_01_WalkerJsonObj)
+			p.Match(DNAC_A_WalkerJsonObj)
 		}
 		p.SetState(141)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		if _la == DNAC_01_WalkerDOWN {
+		if _la == DNAC_A_WalkerDOWN {
 			{
 				p.SetState(133)
-				p.Match(DNAC_01_WalkerDOWN)
+				p.Match(DNAC_A_WalkerDOWN)
 			}
 			p.SetState(135)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for ok := true; ok; ok = (((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_01_WalkerJsonStr-41))|(1<<(DNAC_01_WalkerJsonBool-41))|(1<<(DNAC_01_WalkerJsonNull-41))|(1<<(DNAC_01_WalkerJsonInt-41))|(1<<(DNAC_01_WalkerJsonFloat-41))|(1<<(DNAC_01_WalkerJsonArray-41))|(1<<(DNAC_01_WalkerJsonObj-41)))) != 0) {
+			for ok := true; ok; ok = (((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_A_WalkerJsonStr-41))|(1<<(DNAC_A_WalkerJsonBool-41))|(1<<(DNAC_A_WalkerJsonNull-41))|(1<<(DNAC_A_WalkerJsonInt-41))|(1<<(DNAC_A_WalkerJsonFloat-41))|(1<<(DNAC_A_WalkerJsonArray-41))|(1<<(DNAC_A_WalkerJsonObj-41)))) != 0) {
 				{
 					p.SetState(134)
 					p.JsonVal()
@@ -1909,7 +2061,7 @@ func (p *DNAC_01_Walker) JsonVal() (localctx IJsonValContext) {
 			}
 			{
 				p.SetState(139)
-				p.Match(DNAC_01_WalkerUP)
+				p.Match(DNAC_A_WalkerUP)
 			}
 
 		}

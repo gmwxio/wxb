@@ -1,10 +1,10 @@
-// Code generated from DNAC_01_Walker.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Code generated from DNAC_A_Walker.g4 by ANTLR 4.7.1. DO NOT EDIT.
 
-package dnaca // DNAC_01_Walker
+package dnaca // DNAC_A_Walker
 import "github.com/wxio/goantlr"
 
-// DNAC_01_WalkerListener is a complete listener for a parse tree produced by DNAC_01_Walker.
-type DNAC_01_WalkerListener interface {
+// DNAC_A_WalkerListener is a complete listener for a parse tree produced by DNAC_A_Walker.
+type DNAC_A_WalkerListener interface {
 	antlr.ParseTreeListener
 
 	// EnterAdl is called when entering the adl production.

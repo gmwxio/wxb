@@ -1,4 +1,7 @@
-parser grammar DNAC_01_Walker;
+parser grammar DNAC_A_Walker;
+tokens {
+    Default
+}
 options {  tokenVocab = ADLWalker; }
 
 adl
