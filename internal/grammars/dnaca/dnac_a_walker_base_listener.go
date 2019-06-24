@@ -1,111 +1,182 @@
-// Code generated from DNAC_A_Walker.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from DNAC_A_Walker.g4 by ANTLR 4.7.
 
 package dnaca // DNAC_A_Walker
-import "github.com/wxio/goantlr"
+//import "github.com/wxio/goantlr"
+//import "generated code if in another package"
 
-// BaseDNAC_A_WalkerListener is a complete listener for a parse tree produced by DNAC_A_Walker.
-type BaseDNAC_A_WalkerListener struct{}
+//// Commented out basic implementation for your convenience.
 
-var _ DNAC_A_WalkerListener = &BaseDNAC_A_WalkerListener{}
+//func Example(s string) {
+//  // Setup
+//  input := antlr.NewInputStream(s)
+//  lexer := dnaca.NewDNAC_A_WalkerLexer(input)
+//  stream := antlr.NewCommonTokenStream(lexer, 0)
+//  p := dnaca.NewDNAC_A_WalkerParser(stream)
 
-// VisitTerminal is called when a terminal node is visited.
-func (s *BaseDNAC_A_WalkerListener) VisitTerminal(node antlr.TerminalNode) {}
+//  // Antlr error listener - turns reports (ambiguity etc) into syntax errors
+//  p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 
-// VisitErrorNode is called when an error node is visited.
-func (s *BaseDNAC_A_WalkerListener) VisitErrorNode(node antlr.ErrorNode) {}
+//  // Custom error listener, register before the parse
+//  el := &DNAC_A_WalkerErrorListener{}
+//  p.AddErrorListener(el)
 
-// EnterEveryRule is called when any rule is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterEveryRule(ctx antlr.ParserRuleContext) {}
+//  // Parse - start rule
+//  tree := p.Start()
 
-// ExitEveryRule is called when any rule is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
+//  // Antlr provided parse tree representation
+//  sexpr := antlr.TreesStringTree(tree, nil, p)
+//  fmt.Printf("%s\n", sexpr)
 
-// EnterAdl is called when production adl is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterAdl(ctx *AdlContext) {}
+//  // Custom listener
+//  l := &DNAC_A_WalkerListener{}
+//  antlr.ParseTreeWalkerDefault.Walk(l, tree)
 
-// ExitAdl is called when production adl is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitAdl(ctx *AdlContext) {}
+//  // Custom visitor
+//  v := &DNAC_A_WalkerVisitor{}
+//  tree.Accept(v)
+// }
 
-// EnterNameNode is called when production NameNode is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterNameNode(ctx *NameNodeContext) {}
+//// implemented all listeners methods
+//var _ dnaca.DNAC_A_WalkerListener = &DNAC_A_WalkerListener{}
+//// implemented specific
+//var _ dnaca.AdlEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.AdlExitListener = &DNAC_A_WalkerListener{}
 
-// ExitNameNode is called when production NameNode is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitNameNode(ctx *NameNodeContext) {}
+//var _ dnaca.NameNodeEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.NameNodeExitListener = &DNAC_A_WalkerListener{}
 
-// EnterTypeNode is called when production TypeNode is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterTypeNode(ctx *TypeNodeContext) {}
+//var _ dnaca.NameRuleEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.NameRuleExitListener = &DNAC_A_WalkerListener{}
 
-// ExitTypeNode is called when production TypeNode is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitTypeNode(ctx *TypeNodeContext) {}
+//var _ dnaca.TypeNodeEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.TypeNodeExitListener = &DNAC_A_WalkerListener{}
 
-// EnterExnotationNode is called when production ExnotationNode is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterExnotationNode(ctx *ExnotationNodeContext) {}
+//var _ dnaca.ExnotationNodeEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.ExnotationNodeExitListener = &DNAC_A_WalkerListener{}
 
-// ExitExnotationNode is called when production ExnotationNode is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitExnotationNode(ctx *ExnotationNodeContext) {}
+//var _ dnaca.NameBodyNodeEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.NameBodyNodeExitListener = &DNAC_A_WalkerListener{}
 
-// EnterNameBodyNode is called when production NameBodyNode is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterNameBodyNode(ctx *NameBodyNodeContext) {}
+//var _ dnaca.AnnotationEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.AnnotationExitListener = &DNAC_A_WalkerListener{}
 
-// ExitNameBodyNode is called when production NameBodyNode is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitNameBodyNode(ctx *NameBodyNodeContext) {}
+//var _ dnaca.TypeExpr_EntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.TypeExpr_ExitListener = &DNAC_A_WalkerListener{}
 
-// EnterAnnotation is called when production annotation is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterAnnotation(ctx *AnnotationContext) {}
+//var _ dnaca.TypeParamsEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.TypeParamsExitListener = &DNAC_A_WalkerListener{}
 
-// ExitAnnotation is called when production annotation is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitAnnotation(ctx *AnnotationContext) {}
+//var _ dnaca.JsonStrEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.JsonStrExitListener = &DNAC_A_WalkerListener{}
 
-// EnterTypeExpr_ is called when production typeExpr_ is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterTypeExpr_(ctx *TypeExpr_Context) {}
+//var _ dnaca.JsonBoolEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.JsonBoolExitListener = &DNAC_A_WalkerListener{}
 
-// ExitTypeExpr_ is called when production typeExpr_ is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitTypeExpr_(ctx *TypeExpr_Context) {}
+//var _ dnaca.JsonNullEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.JsonNullExitListener = &DNAC_A_WalkerListener{}
 
-// EnterTypeParams is called when production TypeParams is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterTypeParams(ctx *TypeParamsContext) {}
+//var _ dnaca.JsonIntEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.JsonIntExitListener = &DNAC_A_WalkerListener{}
 
-// ExitTypeParams is called when production TypeParams is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitTypeParams(ctx *TypeParamsContext) {}
+//var _ dnaca.JsonFloatEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.JsonFloatExitListener = &DNAC_A_WalkerListener{}
 
-// EnterJsonStr is called when production JsonStr is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterJsonStr(ctx *JsonStrContext) {}
+//var _ dnaca.JsonArrayEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.JsonArrayExitListener = &DNAC_A_WalkerListener{}
 
-// ExitJsonStr is called when production JsonStr is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitJsonStr(ctx *JsonStrContext) {}
+//var _ dnaca.JsonObjEntryListener = &DNAC_A_WalkerListener{}
+//var _ dnaca.JsonObjExitListener = &DNAC_A_WalkerListener{}
 
-// EnterJsonBool is called when production JsonBool is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterJsonBool(ctx *JsonBoolContext) {}
+//type DNAC_A_WalkerListener struct {
+//}
 
-// ExitJsonBool is called when production JsonBool is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitJsonBool(ctx *JsonBoolContext) {}
+//type DNAC_A_WalkerErrorListener struct {
+//    Warning string
+//    Err     error
+//    Debug   bool
+//}
 
-// EnterJsonNull is called when production JsonNull is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterJsonNull(ctx *JsonNullContext) {}
+// func (cb *DNAC_A_WalkerErrorListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+//  if cb.Debug {
+//      fmt.Printf("SyntaxError %d:%d <%s>\n", line, column, msg)
+//  }
+//  if strings.HasPrefix(msg, "report") { // TODO remove NewDiagnosticErrorListener and move warning to ReportAmbiguity etc. when getDecisionDescription is make public
+//      cb.Warning = fmt.Sprintf("At %d:%d <%s>", line, column, msg)
+//  } else {
+//      cb.Err = fmt.Errorf("SyntaxError %d:%d <%s>", line, column, msg)
+//  }
+// }
+// func (cb *DNAC_A_WalkerErrorListener) ReportAmbiguity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int,
+//  exact bool, ambigAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportAmbiguity rec:%v dfs:%v start:%d stop:%d, exact:%v, ambigAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs)
+//  }
+// }
+// func (cb *DNAC_A_WalkerErrorListener) ReportAttemptingFullContext(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int, conflictingAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportAttemptingFullContext rec:%v dfs:%v start:%d stop:%d, conflictingAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs)
+//  }
+// }
+// func (cb *DNAC_A_WalkerErrorListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex, prediction int, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportContextSensitivity rec:%v dfs:%v start:%d stop:%d, prediction:%v configs:%v\n", recognizer, dfa, startIndex, stopIndex, prediction, configs)
+//  }
+// }
 
-// ExitJsonNull is called when production JsonNull is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitJsonNull(ctx *JsonNullContext) {}
+//// antlr.ParseTreeListener implementation.
+//// All required.
 
-// EnterJsonInt is called when production JsonInt is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterJsonInt(ctx *JsonIntContext) {}
+//func (s *DNAC_A_WalkerListener ) VisitTerminal(node  antlr.TerminalNode) {   }
+//func (s *DNAC_A_WalkerListener ) VisitErrorNode(node antlr.ErrorNode)    {   }
+//func (s *DNAC_A_WalkerListener ) EnterEveryRule(ctx antlr.ParserRuleContext) {  }
+//func (s *DNAC_A_WalkerListener ) ExitEveryRule(ctx antlr.ParserRuleContext) {  }
 
-// ExitJsonInt is called when production JsonInt is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitJsonInt(ctx *JsonIntContext) {}
+//// Only implemented as needed.
 
-// EnterJsonFloat is called when production JsonFloat is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterJsonFloat(ctx *JsonFloatContext) {}
+//func (s *DNAC_A_WalkerListener) EnterAdl(ctx dnaca.*dnaca.AdlContext) {}
+//func (s *DNAC_A_WalkerListener) ExitAdl(ctx dnaca.*dnaca.AdlContext) {}
 
-// ExitJsonFloat is called when production JsonFloat is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitJsonFloat(ctx *JsonFloatContext) {}
+//func (s *DNAC_A_WalkerListener) EnterNameNode(ctx dnaca.*dnaca.NameNodeContext) {}
+//func (s *DNAC_A_WalkerListener) ExitNameNode(ctx dnaca.*dnaca.NameNodeContext) {}
 
-// EnterJsonArray is called when production JsonArray is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterJsonArray(ctx *JsonArrayContext) {}
+//func (s *DNAC_A_WalkerListener) EnterNameRule(ctx dnaca.*dnaca.NameRuleContext) {}
+//func (s *DNAC_A_WalkerListener) ExitNameRule(ctx dnaca.*dnaca.NameRuleContext) {}
 
-// ExitJsonArray is called when production JsonArray is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitJsonArray(ctx *JsonArrayContext) {}
+//func (s *DNAC_A_WalkerListener) EnterTypeNode(ctx dnaca.*dnaca.TypeNodeContext) {}
+//func (s *DNAC_A_WalkerListener) ExitTypeNode(ctx dnaca.*dnaca.TypeNodeContext) {}
 
-// EnterJsonObj is called when production JsonObj is entered.
-func (s *BaseDNAC_A_WalkerListener) EnterJsonObj(ctx *JsonObjContext) {}
+//func (s *DNAC_A_WalkerListener) EnterExnotationNode(ctx dnaca.*dnaca.ExnotationNodeContext) {}
+//func (s *DNAC_A_WalkerListener) ExitExnotationNode(ctx dnaca.*dnaca.ExnotationNodeContext) {}
 
-// ExitJsonObj is called when production JsonObj is exited.
-func (s *BaseDNAC_A_WalkerListener) ExitJsonObj(ctx *JsonObjContext) {}
+//func (s *DNAC_A_WalkerListener) EnterNameBodyNode(ctx dnaca.*dnaca.NameBodyNodeContext) {}
+//func (s *DNAC_A_WalkerListener) ExitNameBodyNode(ctx dnaca.*dnaca.NameBodyNodeContext) {}
+
+//func (s *DNAC_A_WalkerListener) EnterAnnotation(ctx dnaca.*dnaca.AnnotationContext) {}
+//func (s *DNAC_A_WalkerListener) ExitAnnotation(ctx dnaca.*dnaca.AnnotationContext) {}
+
+//func (s *DNAC_A_WalkerListener) EnterTypeExpr_(ctx dnaca.*dnaca.TypeExpr_Context) {}
+//func (s *DNAC_A_WalkerListener) ExitTypeExpr_(ctx dnaca.*dnaca.TypeExpr_Context) {}
+
+//func (s *DNAC_A_WalkerListener) EnterTypeParams(ctx dnaca.*dnaca.TypeParamsContext) {}
+//func (s *DNAC_A_WalkerListener) ExitTypeParams(ctx dnaca.*dnaca.TypeParamsContext) {}
+
+//func (s *DNAC_A_WalkerListener) EnterJsonStr(ctx dnaca.*dnaca.JsonStrContext) {}
+//func (s *DNAC_A_WalkerListener) ExitJsonStr(ctx dnaca.*dnaca.JsonStrContext) {}
+
+//func (s *DNAC_A_WalkerListener) EnterJsonBool(ctx dnaca.*dnaca.JsonBoolContext) {}
+//func (s *DNAC_A_WalkerListener) ExitJsonBool(ctx dnaca.*dnaca.JsonBoolContext) {}
+
+//func (s *DNAC_A_WalkerListener) EnterJsonNull(ctx dnaca.*dnaca.JsonNullContext) {}
+//func (s *DNAC_A_WalkerListener) ExitJsonNull(ctx dnaca.*dnaca.JsonNullContext) {}
+
+//func (s *DNAC_A_WalkerListener) EnterJsonInt(ctx dnaca.*dnaca.JsonIntContext) {}
+//func (s *DNAC_A_WalkerListener) ExitJsonInt(ctx dnaca.*dnaca.JsonIntContext) {}
+
+//func (s *DNAC_A_WalkerListener) EnterJsonFloat(ctx dnaca.*dnaca.JsonFloatContext) {}
+//func (s *DNAC_A_WalkerListener) ExitJsonFloat(ctx dnaca.*dnaca.JsonFloatContext) {}
+
+//func (s *DNAC_A_WalkerListener) EnterJsonArray(ctx dnaca.*dnaca.JsonArrayContext) {}
+//func (s *DNAC_A_WalkerListener) ExitJsonArray(ctx dnaca.*dnaca.JsonArrayContext) {}
+
+//func (s *DNAC_A_WalkerListener) EnterJsonObj(ctx dnaca.*dnaca.JsonObjContext) {}
+//func (s *DNAC_A_WalkerListener) ExitJsonObj(ctx dnaca.*dnaca.JsonObjContext) {}

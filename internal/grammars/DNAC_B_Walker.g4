@@ -2,11 +2,16 @@ parser grammar DNAC_B_Walker;
 options {  tokenVocab = DNAC_A_Walker; }
 
 dnac
-    : DOWN DNAC DOWN tld UP UP EOF
+    : DOWN DNAC DOWN name UP UP EOF
+;
+name
+    : Name       (DOWN Annotation*                               tld* UP)?    #NameNode
 ;
 tld
-    : Name  (DOWN Annotation* TypeParam? tld* UP)?                  #NameNode
-    | Type  (DOWN Annotation* TypeParam? TypeExpr? Default? UP)?    #TypeNode
-    | Field (DOWN Annotation* TypeExpr? Default? UP)?               #NameBodyNode
-    | Exnotation                                                    #ExnotationNode
+    : Name       (DOWN Annotation* TypeParam?                    tld* UP)?    #NameRule
+    | Type       (DOWN Annotation* TypeParam  TypeExpr?               UP)?    #TypeNode
+    | Type       (DOWN Annotation*                      Default?      UP)?    #TypeNode
+    | Field      (DOWN Annotation*            TypeExpr                UP)?    #NameBodyNode
+    | Field      (DOWN Annotation*                      Default?      UP)?    #NameBodyNode
+    | Exnotation (DOWN                                                UP)?    #ExnotationNode
 ;

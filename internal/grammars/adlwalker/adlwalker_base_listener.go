@@ -1,147 +1,212 @@
-// Code generated from ADLWalker.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from ADLWalker.g4 by ANTLR 4.7.
 
 package walker // ADLWalker
-import "github.com/wxio/goantlr"
+//import "github.com/wxio/goantlr"
+//import "generated code if in another package"
 
-// BaseADLWalkerListener is a complete listener for a parse tree produced by ADLWalker.
-type BaseADLWalkerListener struct{}
+//// Commented out basic implementation for your convenience.
 
-var _ ADLWalkerListener = &BaseADLWalkerListener{}
+//func Example(s string) {
+//  // Setup
+//  input := antlr.NewInputStream(s)
+//  lexer := walker.NewADLWalkerLexer(input)
+//  stream := antlr.NewCommonTokenStream(lexer, 0)
+//  p := walker.NewADLWalkerParser(stream)
 
-// VisitTerminal is called when a terminal node is visited.
-func (s *BaseADLWalkerListener) VisitTerminal(node antlr.TerminalNode) {}
+//  // Antlr error listener - turns reports (ambiguity etc) into syntax errors
+//  p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 
-// VisitErrorNode is called when an error node is visited.
-func (s *BaseADLWalkerListener) VisitErrorNode(node antlr.ErrorNode) {}
+//  // Custom error listener, register before the parse
+//  el := &ADLWalkerErrorListener{}
+//  p.AddErrorListener(el)
 
-// EnterEveryRule is called when any rule is entered.
-func (s *BaseADLWalkerListener) EnterEveryRule(ctx antlr.ParserRuleContext) {}
+//  // Parse - start rule
+//  tree := p.Start()
 
-// ExitEveryRule is called when any rule is exited.
-func (s *BaseADLWalkerListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
+//  // Antlr provided parse tree representation
+//  sexpr := antlr.TreesStringTree(tree, nil, p)
+//  fmt.Printf("%s\n", sexpr)
 
-// EnterAdl is called when production adl is entered.
-func (s *BaseADLWalkerListener) EnterAdl(ctx *AdlContext) {}
+//  // Custom listener
+//  l := &ADLWalkerListener{}
+//  antlr.ParseTreeWalkerDefault.Walk(l, tree)
 
-// ExitAdl is called when production adl is exited.
-func (s *BaseADLWalkerListener) ExitAdl(ctx *AdlContext) {}
+//  // Custom visitor
+//  v := &ADLWalkerVisitor{}
+//  tree.Accept(v)
+// }
 
-// EnterModule is called when production module is entered.
-func (s *BaseADLWalkerListener) EnterModule(ctx *ModuleContext) {}
+//// implemented all listeners methods
+//var _ walker.ADLWalkerListener = &ADLWalkerListener{}
+//// implemented specific
+//var _ walker.AdlEntryListener = &ADLWalkerListener{}
+//var _ walker.AdlExitListener = &ADLWalkerListener{}
 
-// ExitModule is called when production module is exited.
-func (s *BaseADLWalkerListener) ExitModule(ctx *ModuleContext) {}
+//var _ walker.ModuleEntryListener = &ADLWalkerListener{}
+//var _ walker.ModuleExitListener = &ADLWalkerListener{}
 
-// EnterStruct is called when production Struct is entered.
-func (s *BaseADLWalkerListener) EnterStruct(ctx *StructContext) {}
+//var _ walker.StructEntryListener = &ADLWalkerListener{}
+//var _ walker.StructExitListener = &ADLWalkerListener{}
 
-// ExitStruct is called when production Struct is exited.
-func (s *BaseADLWalkerListener) ExitStruct(ctx *StructContext) {}
+//var _ walker.UnionEntryListener = &ADLWalkerListener{}
+//var _ walker.UnionExitListener = &ADLWalkerListener{}
 
-// EnterUnion is called when production Union is entered.
-func (s *BaseADLWalkerListener) EnterUnion(ctx *UnionContext) {}
+//var _ walker.TypeEntryListener = &ADLWalkerListener{}
+//var _ walker.TypeExitListener = &ADLWalkerListener{}
 
-// ExitUnion is called when production Union is exited.
-func (s *BaseADLWalkerListener) ExitUnion(ctx *UnionContext) {}
+//var _ walker.NewtypeEntryListener = &ADLWalkerListener{}
+//var _ walker.NewtypeExitListener = &ADLWalkerListener{}
 
-// EnterType is called when production Type is entered.
-func (s *BaseADLWalkerListener) EnterType(ctx *TypeContext) {}
+//var _ walker.ModAnnoEntryListener = &ADLWalkerListener{}
+//var _ walker.ModAnnoExitListener = &ADLWalkerListener{}
 
-// ExitType is called when production Type is exited.
-func (s *BaseADLWalkerListener) ExitType(ctx *TypeContext) {}
+//var _ walker.DeclAnnoEntryListener = &ADLWalkerListener{}
+//var _ walker.DeclAnnoExitListener = &ADLWalkerListener{}
 
-// EnterNewtype is called when production Newtype is entered.
-func (s *BaseADLWalkerListener) EnterNewtype(ctx *NewtypeContext) {}
+//var _ walker.FieldAnnoEntryListener = &ADLWalkerListener{}
+//var _ walker.FieldAnnoExitListener = &ADLWalkerListener{}
 
-// ExitNewtype is called when production Newtype is exited.
-func (s *BaseADLWalkerListener) ExitNewtype(ctx *NewtypeContext) {}
+//var _ walker.TypeParamErrorEntryListener = &ADLWalkerListener{}
+//var _ walker.TypeParamErrorExitListener = &ADLWalkerListener{}
 
-// EnterModAnno is called when production ModAnno is entered.
-func (s *BaseADLWalkerListener) EnterModAnno(ctx *ModAnnoContext) {}
+//var _ walker.FieldEntryListener = &ADLWalkerListener{}
+//var _ walker.FieldExitListener = &ADLWalkerListener{}
 
-// ExitModAnno is called when production ModAnno is exited.
-func (s *BaseADLWalkerListener) ExitModAnno(ctx *ModAnnoContext) {}
+//var _ walker.AnnotationEntryListener = &ADLWalkerListener{}
+//var _ walker.AnnotationExitListener = &ADLWalkerListener{}
 
-// EnterDeclAnno is called when production DeclAnno is entered.
-func (s *BaseADLWalkerListener) EnterDeclAnno(ctx *DeclAnnoContext) {}
+//var _ walker.TypeExpr_EntryListener = &ADLWalkerListener{}
+//var _ walker.TypeExpr_ExitListener = &ADLWalkerListener{}
 
-// ExitDeclAnno is called when production DeclAnno is exited.
-func (s *BaseADLWalkerListener) ExitDeclAnno(ctx *DeclAnnoContext) {}
+//var _ walker.TypeParamsEntryListener = &ADLWalkerListener{}
+//var _ walker.TypeParamsExitListener = &ADLWalkerListener{}
 
-// EnterFieldAnno is called when production FieldAnno is entered.
-func (s *BaseADLWalkerListener) EnterFieldAnno(ctx *FieldAnnoContext) {}
+//var _ walker.JsonStrEntryListener = &ADLWalkerListener{}
+//var _ walker.JsonStrExitListener = &ADLWalkerListener{}
 
-// ExitFieldAnno is called when production FieldAnno is exited.
-func (s *BaseADLWalkerListener) ExitFieldAnno(ctx *FieldAnnoContext) {}
+//var _ walker.JsonBoolEntryListener = &ADLWalkerListener{}
+//var _ walker.JsonBoolExitListener = &ADLWalkerListener{}
 
-// EnterTypeParamError is called when production TypeParamError is entered.
-func (s *BaseADLWalkerListener) EnterTypeParamError(ctx *TypeParamErrorContext) {}
+//var _ walker.JsonNullEntryListener = &ADLWalkerListener{}
+//var _ walker.JsonNullExitListener = &ADLWalkerListener{}
 
-// ExitTypeParamError is called when production TypeParamError is exited.
-func (s *BaseADLWalkerListener) ExitTypeParamError(ctx *TypeParamErrorContext) {}
+//var _ walker.JsonIntEntryListener = &ADLWalkerListener{}
+//var _ walker.JsonIntExitListener = &ADLWalkerListener{}
 
-// EnterField is called when production Field is entered.
-func (s *BaseADLWalkerListener) EnterField(ctx *FieldContext) {}
+//var _ walker.JsonFloatEntryListener = &ADLWalkerListener{}
+//var _ walker.JsonFloatExitListener = &ADLWalkerListener{}
 
-// ExitField is called when production Field is exited.
-func (s *BaseADLWalkerListener) ExitField(ctx *FieldContext) {}
+//var _ walker.JsonArrayEntryListener = &ADLWalkerListener{}
+//var _ walker.JsonArrayExitListener = &ADLWalkerListener{}
 
-// EnterAnnotation is called when production annotation is entered.
-func (s *BaseADLWalkerListener) EnterAnnotation(ctx *AnnotationContext) {}
+//var _ walker.JsonObjEntryListener = &ADLWalkerListener{}
+//var _ walker.JsonObjExitListener = &ADLWalkerListener{}
 
-// ExitAnnotation is called when production annotation is exited.
-func (s *BaseADLWalkerListener) ExitAnnotation(ctx *AnnotationContext) {}
+//type ADLWalkerListener struct {
+//}
 
-// EnterTypeExpr_ is called when production typeExpr_ is entered.
-func (s *BaseADLWalkerListener) EnterTypeExpr_(ctx *TypeExpr_Context) {}
+//type ADLWalkerErrorListener struct {
+//    Warning string
+//    Err     error
+//    Debug   bool
+//}
 
-// ExitTypeExpr_ is called when production typeExpr_ is exited.
-func (s *BaseADLWalkerListener) ExitTypeExpr_(ctx *TypeExpr_Context) {}
+// func (cb *ADLWalkerErrorListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+//  if cb.Debug {
+//      fmt.Printf("SyntaxError %d:%d <%s>\n", line, column, msg)
+//  }
+//  if strings.HasPrefix(msg, "report") { // TODO remove NewDiagnosticErrorListener and move warning to ReportAmbiguity etc. when getDecisionDescription is make public
+//      cb.Warning = fmt.Sprintf("At %d:%d <%s>", line, column, msg)
+//  } else {
+//      cb.Err = fmt.Errorf("SyntaxError %d:%d <%s>", line, column, msg)
+//  }
+// }
+// func (cb *ADLWalkerErrorListener) ReportAmbiguity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int,
+//  exact bool, ambigAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportAmbiguity rec:%v dfs:%v start:%d stop:%d, exact:%v, ambigAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs)
+//  }
+// }
+// func (cb *ADLWalkerErrorListener) ReportAttemptingFullContext(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int, conflictingAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportAttemptingFullContext rec:%v dfs:%v start:%d stop:%d, conflictingAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs)
+//  }
+// }
+// func (cb *ADLWalkerErrorListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex, prediction int, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportContextSensitivity rec:%v dfs:%v start:%d stop:%d, prediction:%v configs:%v\n", recognizer, dfa, startIndex, stopIndex, prediction, configs)
+//  }
+// }
 
-// EnterTypeParams is called when production TypeParams is entered.
-func (s *BaseADLWalkerListener) EnterTypeParams(ctx *TypeParamsContext) {}
+//// antlr.ParseTreeListener implementation.
+//// All required.
 
-// ExitTypeParams is called when production TypeParams is exited.
-func (s *BaseADLWalkerListener) ExitTypeParams(ctx *TypeParamsContext) {}
+//func (s *ADLWalkerListener ) VisitTerminal(node  antlr.TerminalNode) {   }
+//func (s *ADLWalkerListener ) VisitErrorNode(node antlr.ErrorNode)    {   }
+//func (s *ADLWalkerListener ) EnterEveryRule(ctx antlr.ParserRuleContext) {  }
+//func (s *ADLWalkerListener ) ExitEveryRule(ctx antlr.ParserRuleContext) {  }
 
-// EnterJsonStr is called when production JsonStr is entered.
-func (s *BaseADLWalkerListener) EnterJsonStr(ctx *JsonStrContext) {}
+//// Only implemented as needed.
 
-// ExitJsonStr is called when production JsonStr is exited.
-func (s *BaseADLWalkerListener) ExitJsonStr(ctx *JsonStrContext) {}
+//func (s *ADLWalkerListener) EnterAdl(ctx walker.*walker.AdlContext) {}
+//func (s *ADLWalkerListener) ExitAdl(ctx walker.*walker.AdlContext) {}
 
-// EnterJsonBool is called when production JsonBool is entered.
-func (s *BaseADLWalkerListener) EnterJsonBool(ctx *JsonBoolContext) {}
+//func (s *ADLWalkerListener) EnterModule(ctx walker.*walker.ModuleContext) {}
+//func (s *ADLWalkerListener) ExitModule(ctx walker.*walker.ModuleContext) {}
 
-// ExitJsonBool is called when production JsonBool is exited.
-func (s *BaseADLWalkerListener) ExitJsonBool(ctx *JsonBoolContext) {}
+//func (s *ADLWalkerListener) EnterStruct(ctx walker.*walker.StructContext) {}
+//func (s *ADLWalkerListener) ExitStruct(ctx walker.*walker.StructContext) {}
 
-// EnterJsonNull is called when production JsonNull is entered.
-func (s *BaseADLWalkerListener) EnterJsonNull(ctx *JsonNullContext) {}
+//func (s *ADLWalkerListener) EnterUnion(ctx walker.*walker.UnionContext) {}
+//func (s *ADLWalkerListener) ExitUnion(ctx walker.*walker.UnionContext) {}
 
-// ExitJsonNull is called when production JsonNull is exited.
-func (s *BaseADLWalkerListener) ExitJsonNull(ctx *JsonNullContext) {}
+//func (s *ADLWalkerListener) EnterType(ctx walker.*walker.TypeContext) {}
+//func (s *ADLWalkerListener) ExitType(ctx walker.*walker.TypeContext) {}
 
-// EnterJsonInt is called when production JsonInt is entered.
-func (s *BaseADLWalkerListener) EnterJsonInt(ctx *JsonIntContext) {}
+//func (s *ADLWalkerListener) EnterNewtype(ctx walker.*walker.NewtypeContext) {}
+//func (s *ADLWalkerListener) ExitNewtype(ctx walker.*walker.NewtypeContext) {}
 
-// ExitJsonInt is called when production JsonInt is exited.
-func (s *BaseADLWalkerListener) ExitJsonInt(ctx *JsonIntContext) {}
+//func (s *ADLWalkerListener) EnterModAnno(ctx walker.*walker.ModAnnoContext) {}
+//func (s *ADLWalkerListener) ExitModAnno(ctx walker.*walker.ModAnnoContext) {}
 
-// EnterJsonFloat is called when production JsonFloat is entered.
-func (s *BaseADLWalkerListener) EnterJsonFloat(ctx *JsonFloatContext) {}
+//func (s *ADLWalkerListener) EnterDeclAnno(ctx walker.*walker.DeclAnnoContext) {}
+//func (s *ADLWalkerListener) ExitDeclAnno(ctx walker.*walker.DeclAnnoContext) {}
 
-// ExitJsonFloat is called when production JsonFloat is exited.
-func (s *BaseADLWalkerListener) ExitJsonFloat(ctx *JsonFloatContext) {}
+//func (s *ADLWalkerListener) EnterFieldAnno(ctx walker.*walker.FieldAnnoContext) {}
+//func (s *ADLWalkerListener) ExitFieldAnno(ctx walker.*walker.FieldAnnoContext) {}
 
-// EnterJsonArray is called when production JsonArray is entered.
-func (s *BaseADLWalkerListener) EnterJsonArray(ctx *JsonArrayContext) {}
+//func (s *ADLWalkerListener) EnterTypeParamError(ctx walker.*walker.TypeParamErrorContext) {}
+//func (s *ADLWalkerListener) ExitTypeParamError(ctx walker.*walker.TypeParamErrorContext) {}
 
-// ExitJsonArray is called when production JsonArray is exited.
-func (s *BaseADLWalkerListener) ExitJsonArray(ctx *JsonArrayContext) {}
+//func (s *ADLWalkerListener) EnterField(ctx walker.*walker.FieldContext) {}
+//func (s *ADLWalkerListener) ExitField(ctx walker.*walker.FieldContext) {}
 
-// EnterJsonObj is called when production JsonObj is entered.
-func (s *BaseADLWalkerListener) EnterJsonObj(ctx *JsonObjContext) {}
+//func (s *ADLWalkerListener) EnterAnnotation(ctx walker.*walker.AnnotationContext) {}
+//func (s *ADLWalkerListener) ExitAnnotation(ctx walker.*walker.AnnotationContext) {}
 
-// ExitJsonObj is called when production JsonObj is exited.
-func (s *BaseADLWalkerListener) ExitJsonObj(ctx *JsonObjContext) {}
+//func (s *ADLWalkerListener) EnterTypeExpr_(ctx walker.*walker.TypeExpr_Context) {}
+//func (s *ADLWalkerListener) ExitTypeExpr_(ctx walker.*walker.TypeExpr_Context) {}
+
+//func (s *ADLWalkerListener) EnterTypeParams(ctx walker.*walker.TypeParamsContext) {}
+//func (s *ADLWalkerListener) ExitTypeParams(ctx walker.*walker.TypeParamsContext) {}
+
+//func (s *ADLWalkerListener) EnterJsonStr(ctx walker.*walker.JsonStrContext) {}
+//func (s *ADLWalkerListener) ExitJsonStr(ctx walker.*walker.JsonStrContext) {}
+
+//func (s *ADLWalkerListener) EnterJsonBool(ctx walker.*walker.JsonBoolContext) {}
+//func (s *ADLWalkerListener) ExitJsonBool(ctx walker.*walker.JsonBoolContext) {}
+
+//func (s *ADLWalkerListener) EnterJsonNull(ctx walker.*walker.JsonNullContext) {}
+//func (s *ADLWalkerListener) ExitJsonNull(ctx walker.*walker.JsonNullContext) {}
+
+//func (s *ADLWalkerListener) EnterJsonInt(ctx walker.*walker.JsonIntContext) {}
+//func (s *ADLWalkerListener) ExitJsonInt(ctx walker.*walker.JsonIntContext) {}
+
+//func (s *ADLWalkerListener) EnterJsonFloat(ctx walker.*walker.JsonFloatContext) {}
+//func (s *ADLWalkerListener) ExitJsonFloat(ctx walker.*walker.JsonFloatContext) {}
+
+//func (s *ADLWalkerListener) EnterJsonArray(ctx walker.*walker.JsonArrayContext) {}
+//func (s *ADLWalkerListener) ExitJsonArray(ctx walker.*walker.JsonArrayContext) {}
+
+//func (s *ADLWalkerListener) EnterJsonObj(ctx walker.*walker.JsonObjContext) {}
+//func (s *ADLWalkerListener) ExitJsonObj(ctx walker.*walker.JsonObjContext) {}

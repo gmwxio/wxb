@@ -1,4 +1,4 @@
-// Code generated from ADLWalker.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from ADLWalker.g4 by ANTLR 4.7.
 
 package walker // ADLWalker
 import "github.com/wxio/goantlr"
@@ -7,129 +7,237 @@ import "github.com/wxio/goantlr"
 type ADLWalkerListener interface {
 	antlr.ParseTreeListener
 
-	// EnterAdl is called when entering the adl production.
+	AdlEntryListener
+	AdlExitListener
+
+	ModuleEntryListener
+	ModuleExitListener
+
+	AnnotationEntryListener
+	AnnotationExitListener
+
+	TypeExpr_EntryListener
+	TypeExpr_ExitListener
+
+	StructEntryListener
+	StructExitListener
+
+	UnionEntryListener
+	UnionExitListener
+
+	TypeEntryListener
+	TypeExitListener
+
+	NewtypeEntryListener
+	NewtypeExitListener
+
+	ModAnnoEntryListener
+	ModAnnoExitListener
+
+	DeclAnnoEntryListener
+	DeclAnnoExitListener
+
+	FieldAnnoEntryListener
+	FieldAnnoExitListener
+
+	TypeParamErrorEntryListener
+	TypeParamErrorExitListener
+
+	FieldEntryListener
+	FieldExitListener
+
+	TypeParamsEntryListener
+	TypeParamsExitListener
+
+	JsonStrEntryListener
+	JsonStrExitListener
+
+	JsonBoolEntryListener
+	JsonBoolExitListener
+
+	JsonNullEntryListener
+	JsonNullExitListener
+
+	JsonIntEntryListener
+	JsonIntExitListener
+
+	JsonFloatEntryListener
+	JsonFloatExitListener
+
+	JsonArrayEntryListener
+	JsonArrayExitListener
+
+	JsonObjEntryListener
+	JsonObjExitListener
+}
+
+//
+// Rules with unnamed alternatives
+//
+type AdlEntryListener interface {
 	EnterAdl(c *AdlContext)
-
-	// EnterModule is called when entering the module production.
-	EnterModule(c *ModuleContext)
-
-	// EnterStruct is called when entering the Struct production.
-	EnterStruct(c *StructContext)
-
-	// EnterUnion is called when entering the Union production.
-	EnterUnion(c *UnionContext)
-
-	// EnterType is called when entering the Type production.
-	EnterType(c *TypeContext)
-
-	// EnterNewtype is called when entering the Newtype production.
-	EnterNewtype(c *NewtypeContext)
-
-	// EnterModAnno is called when entering the ModAnno production.
-	EnterModAnno(c *ModAnnoContext)
-
-	// EnterDeclAnno is called when entering the DeclAnno production.
-	EnterDeclAnno(c *DeclAnnoContext)
-
-	// EnterFieldAnno is called when entering the FieldAnno production.
-	EnterFieldAnno(c *FieldAnnoContext)
-
-	// EnterTypeParamError is called when entering the TypeParamError production.
-	EnterTypeParamError(c *TypeParamErrorContext)
-
-	// EnterField is called when entering the Field production.
-	EnterField(c *FieldContext)
-
-	// EnterAnnotation is called when entering the annotation production.
-	EnterAnnotation(c *AnnotationContext)
-
-	// EnterTypeExpr_ is called when entering the typeExpr_ production.
-	EnterTypeExpr_(c *TypeExpr_Context)
-
-	// EnterTypeParams is called when entering the TypeParams production.
-	EnterTypeParams(c *TypeParamsContext)
-
-	// EnterJsonStr is called when entering the JsonStr production.
-	EnterJsonStr(c *JsonStrContext)
-
-	// EnterJsonBool is called when entering the JsonBool production.
-	EnterJsonBool(c *JsonBoolContext)
-
-	// EnterJsonNull is called when entering the JsonNull production.
-	EnterJsonNull(c *JsonNullContext)
-
-	// EnterJsonInt is called when entering the JsonInt production.
-	EnterJsonInt(c *JsonIntContext)
-
-	// EnterJsonFloat is called when entering the JsonFloat production.
-	EnterJsonFloat(c *JsonFloatContext)
-
-	// EnterJsonArray is called when entering the JsonArray production.
-	EnterJsonArray(c *JsonArrayContext)
-
-	// EnterJsonObj is called when entering the JsonObj production.
-	EnterJsonObj(c *JsonObjContext)
-
-	// ExitAdl is called when exiting the adl production.
+}
+type AdlExitListener interface {
 	ExitAdl(c *AdlContext)
+}
 
-	// ExitModule is called when exiting the module production.
+type ModuleEntryListener interface {
+	EnterModule(c *ModuleContext)
+}
+type ModuleExitListener interface {
 	ExitModule(c *ModuleContext)
+}
 
-	// ExitStruct is called when exiting the Struct production.
-	ExitStruct(c *StructContext)
-
-	// ExitUnion is called when exiting the Union production.
-	ExitUnion(c *UnionContext)
-
-	// ExitType is called when exiting the Type production.
-	ExitType(c *TypeContext)
-
-	// ExitNewtype is called when exiting the Newtype production.
-	ExitNewtype(c *NewtypeContext)
-
-	// ExitModAnno is called when exiting the ModAnno production.
-	ExitModAnno(c *ModAnnoContext)
-
-	// ExitDeclAnno is called when exiting the DeclAnno production.
-	ExitDeclAnno(c *DeclAnnoContext)
-
-	// ExitFieldAnno is called when exiting the FieldAnno production.
-	ExitFieldAnno(c *FieldAnnoContext)
-
-	// ExitTypeParamError is called when exiting the TypeParamError production.
-	ExitTypeParamError(c *TypeParamErrorContext)
-
-	// ExitField is called when exiting the Field production.
-	ExitField(c *FieldContext)
-
-	// ExitAnnotation is called when exiting the annotation production.
+type AnnotationEntryListener interface {
+	EnterAnnotation(c *AnnotationContext)
+}
+type AnnotationExitListener interface {
 	ExitAnnotation(c *AnnotationContext)
+}
 
-	// ExitTypeExpr_ is called when exiting the typeExpr_ production.
+type TypeExpr_EntryListener interface {
+	EnterTypeExpr_(c *TypeExpr_Context)
+}
+type TypeExpr_ExitListener interface {
 	ExitTypeExpr_(c *TypeExpr_Context)
+}
 
-	// ExitTypeParams is called when exiting the TypeParams production.
+//
+// Named alternatives
+//
+//
+// From Rule 'tld'
+type StructEntryListener interface {
+	EnterStruct(c *StructContext)
+}
+type StructExitListener interface {
+	ExitStruct(c *StructContext)
+}
+
+// From Rule 'tld'
+type UnionEntryListener interface {
+	EnterUnion(c *UnionContext)
+}
+type UnionExitListener interface {
+	ExitUnion(c *UnionContext)
+}
+
+// From Rule 'tld'
+type TypeEntryListener interface {
+	EnterType(c *TypeContext)
+}
+type TypeExitListener interface {
+	ExitType(c *TypeContext)
+}
+
+// From Rule 'tld'
+type NewtypeEntryListener interface {
+	EnterNewtype(c *NewtypeContext)
+}
+type NewtypeExitListener interface {
+	ExitNewtype(c *NewtypeContext)
+}
+
+// From Rule 'tld'
+type ModAnnoEntryListener interface {
+	EnterModAnno(c *ModAnnoContext)
+}
+type ModAnnoExitListener interface {
+	ExitModAnno(c *ModAnnoContext)
+}
+
+// From Rule 'tld'
+type DeclAnnoEntryListener interface {
+	EnterDeclAnno(c *DeclAnnoContext)
+}
+type DeclAnnoExitListener interface {
+	ExitDeclAnno(c *DeclAnnoContext)
+}
+
+// From Rule 'tld'
+type FieldAnnoEntryListener interface {
+	EnterFieldAnno(c *FieldAnnoContext)
+}
+type FieldAnnoExitListener interface {
+	ExitFieldAnno(c *FieldAnnoContext)
+}
+
+// From Rule 'tld'
+type TypeParamErrorEntryListener interface {
+	EnterTypeParamError(c *TypeParamErrorContext)
+}
+type TypeParamErrorExitListener interface {
+	ExitTypeParamError(c *TypeParamErrorContext)
+}
+
+// From Rule 'nameBody'
+type FieldEntryListener interface {
+	EnterField(c *FieldContext)
+}
+type FieldExitListener interface {
+	ExitField(c *FieldContext)
+}
+
+// From Rule 'typeExprElem_'
+type TypeParamsEntryListener interface {
+	EnterTypeParams(c *TypeParamsContext)
+}
+type TypeParamsExitListener interface {
 	ExitTypeParams(c *TypeParamsContext)
+}
 
-	// ExitJsonStr is called when exiting the JsonStr production.
+// From Rule 'jsonVal'
+type JsonStrEntryListener interface {
+	EnterJsonStr(c *JsonStrContext)
+}
+type JsonStrExitListener interface {
 	ExitJsonStr(c *JsonStrContext)
+}
 
-	// ExitJsonBool is called when exiting the JsonBool production.
+// From Rule 'jsonVal'
+type JsonBoolEntryListener interface {
+	EnterJsonBool(c *JsonBoolContext)
+}
+type JsonBoolExitListener interface {
 	ExitJsonBool(c *JsonBoolContext)
+}
 
-	// ExitJsonNull is called when exiting the JsonNull production.
+// From Rule 'jsonVal'
+type JsonNullEntryListener interface {
+	EnterJsonNull(c *JsonNullContext)
+}
+type JsonNullExitListener interface {
 	ExitJsonNull(c *JsonNullContext)
+}
 
-	// ExitJsonInt is called when exiting the JsonInt production.
+// From Rule 'jsonVal'
+type JsonIntEntryListener interface {
+	EnterJsonInt(c *JsonIntContext)
+}
+type JsonIntExitListener interface {
 	ExitJsonInt(c *JsonIntContext)
+}
 
-	// ExitJsonFloat is called when exiting the JsonFloat production.
+// From Rule 'jsonVal'
+type JsonFloatEntryListener interface {
+	EnterJsonFloat(c *JsonFloatContext)
+}
+type JsonFloatExitListener interface {
 	ExitJsonFloat(c *JsonFloatContext)
+}
 
-	// ExitJsonArray is called when exiting the JsonArray production.
+// From Rule 'jsonVal'
+type JsonArrayEntryListener interface {
+	EnterJsonArray(c *JsonArrayContext)
+}
+type JsonArrayExitListener interface {
 	ExitJsonArray(c *JsonArrayContext)
+}
 
-	// ExitJsonObj is called when exiting the JsonObj production.
+// From Rule 'jsonVal'
+type JsonObjEntryListener interface {
+	EnterJsonObj(c *JsonObjContext)
+}
+type JsonObjExitListener interface {
 	ExitJsonObj(c *JsonObjContext)
 }

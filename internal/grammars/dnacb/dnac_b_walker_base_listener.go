@@ -1,51 +1,122 @@
-// Code generated from DNAC_B_Walker.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from DNAC_B_Walker.g4 by ANTLR 4.7.
 
 package dnacb // DNAC_B_Walker
-import "github.com/wxio/goantlr"
+//import "github.com/wxio/goantlr"
+//import "generated code if in another package"
 
-// BaseDNAC_B_WalkerListener is a complete listener for a parse tree produced by DNAC_B_Walker.
-type BaseDNAC_B_WalkerListener struct{}
+//// Commented out basic implementation for your convenience.
 
-var _ DNAC_B_WalkerListener = &BaseDNAC_B_WalkerListener{}
+//func Example(s string) {
+//  // Setup
+//  input := antlr.NewInputStream(s)
+//  lexer := dnacb.NewDNAC_B_WalkerLexer(input)
+//  stream := antlr.NewCommonTokenStream(lexer, 0)
+//  p := dnacb.NewDNAC_B_WalkerParser(stream)
 
-// VisitTerminal is called when a terminal node is visited.
-func (s *BaseDNAC_B_WalkerListener) VisitTerminal(node antlr.TerminalNode) {}
+//  // Antlr error listener - turns reports (ambiguity etc) into syntax errors
+//  p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 
-// VisitErrorNode is called when an error node is visited.
-func (s *BaseDNAC_B_WalkerListener) VisitErrorNode(node antlr.ErrorNode) {}
+//  // Custom error listener, register before the parse
+//  el := &DNAC_B_WalkerErrorListener{}
+//  p.AddErrorListener(el)
 
-// EnterEveryRule is called when any rule is entered.
-func (s *BaseDNAC_B_WalkerListener) EnterEveryRule(ctx antlr.ParserRuleContext) {}
+//  // Parse - start rule
+//  tree := p.Start()
 
-// ExitEveryRule is called when any rule is exited.
-func (s *BaseDNAC_B_WalkerListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
+//  // Antlr provided parse tree representation
+//  sexpr := antlr.TreesStringTree(tree, nil, p)
+//  fmt.Printf("%s\n", sexpr)
 
-// EnterDnac is called when production dnac is entered.
-func (s *BaseDNAC_B_WalkerListener) EnterDnac(ctx *DnacContext) {}
+//  // Custom listener
+//  l := &DNAC_B_WalkerListener{}
+//  antlr.ParseTreeWalkerDefault.Walk(l, tree)
 
-// ExitDnac is called when production dnac is exited.
-func (s *BaseDNAC_B_WalkerListener) ExitDnac(ctx *DnacContext) {}
+//  // Custom visitor
+//  v := &DNAC_B_WalkerVisitor{}
+//  tree.Accept(v)
+// }
 
-// EnterNameNode is called when production NameNode is entered.
-func (s *BaseDNAC_B_WalkerListener) EnterNameNode(ctx *NameNodeContext) {}
+//// implemented all listeners methods
+//var _ dnacb.DNAC_B_WalkerListener = &DNAC_B_WalkerListener{}
+//// implemented specific
+//var _ dnacb.DnacEntryListener = &DNAC_B_WalkerListener{}
+//var _ dnacb.DnacExitListener = &DNAC_B_WalkerListener{}
 
-// ExitNameNode is called when production NameNode is exited.
-func (s *BaseDNAC_B_WalkerListener) ExitNameNode(ctx *NameNodeContext) {}
+//var _ dnacb.NameNodeEntryListener = &DNAC_B_WalkerListener{}
+//var _ dnacb.NameNodeExitListener = &DNAC_B_WalkerListener{}
 
-// EnterTypeNode is called when production TypeNode is entered.
-func (s *BaseDNAC_B_WalkerListener) EnterTypeNode(ctx *TypeNodeContext) {}
+//var _ dnacb.NameRuleEntryListener = &DNAC_B_WalkerListener{}
+//var _ dnacb.NameRuleExitListener = &DNAC_B_WalkerListener{}
 
-// ExitTypeNode is called when production TypeNode is exited.
-func (s *BaseDNAC_B_WalkerListener) ExitTypeNode(ctx *TypeNodeContext) {}
+//var _ dnacb.TypeNodeEntryListener = &DNAC_B_WalkerListener{}
+//var _ dnacb.TypeNodeExitListener = &DNAC_B_WalkerListener{}
 
-// EnterNameBodyNode is called when production NameBodyNode is entered.
-func (s *BaseDNAC_B_WalkerListener) EnterNameBodyNode(ctx *NameBodyNodeContext) {}
+//var _ dnacb.NameBodyNodeEntryListener = &DNAC_B_WalkerListener{}
+//var _ dnacb.NameBodyNodeExitListener = &DNAC_B_WalkerListener{}
 
-// ExitNameBodyNode is called when production NameBodyNode is exited.
-func (s *BaseDNAC_B_WalkerListener) ExitNameBodyNode(ctx *NameBodyNodeContext) {}
+//var _ dnacb.ExnotationNodeEntryListener = &DNAC_B_WalkerListener{}
+//var _ dnacb.ExnotationNodeExitListener = &DNAC_B_WalkerListener{}
 
-// EnterExnotationNode is called when production ExnotationNode is entered.
-func (s *BaseDNAC_B_WalkerListener) EnterExnotationNode(ctx *ExnotationNodeContext) {}
+//type DNAC_B_WalkerListener struct {
+//}
 
-// ExitExnotationNode is called when production ExnotationNode is exited.
-func (s *BaseDNAC_B_WalkerListener) ExitExnotationNode(ctx *ExnotationNodeContext) {}
+//type DNAC_B_WalkerErrorListener struct {
+//    Warning string
+//    Err     error
+//    Debug   bool
+//}
+
+// func (cb *DNAC_B_WalkerErrorListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+//  if cb.Debug {
+//      fmt.Printf("SyntaxError %d:%d <%s>\n", line, column, msg)
+//  }
+//  if strings.HasPrefix(msg, "report") { // TODO remove NewDiagnosticErrorListener and move warning to ReportAmbiguity etc. when getDecisionDescription is make public
+//      cb.Warning = fmt.Sprintf("At %d:%d <%s>", line, column, msg)
+//  } else {
+//      cb.Err = fmt.Errorf("SyntaxError %d:%d <%s>", line, column, msg)
+//  }
+// }
+// func (cb *DNAC_B_WalkerErrorListener) ReportAmbiguity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int,
+//  exact bool, ambigAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportAmbiguity rec:%v dfs:%v start:%d stop:%d, exact:%v, ambigAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs)
+//  }
+// }
+// func (cb *DNAC_B_WalkerErrorListener) ReportAttemptingFullContext(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int, conflictingAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportAttemptingFullContext rec:%v dfs:%v start:%d stop:%d, conflictingAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs)
+//  }
+// }
+// func (cb *DNAC_B_WalkerErrorListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex, prediction int, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportContextSensitivity rec:%v dfs:%v start:%d stop:%d, prediction:%v configs:%v\n", recognizer, dfa, startIndex, stopIndex, prediction, configs)
+//  }
+// }
+
+//// antlr.ParseTreeListener implementation.
+//// All required.
+
+//func (s *DNAC_B_WalkerListener ) VisitTerminal(node  antlr.TerminalNode) {   }
+//func (s *DNAC_B_WalkerListener ) VisitErrorNode(node antlr.ErrorNode)    {   }
+//func (s *DNAC_B_WalkerListener ) EnterEveryRule(ctx antlr.ParserRuleContext) {  }
+//func (s *DNAC_B_WalkerListener ) ExitEveryRule(ctx antlr.ParserRuleContext) {  }
+
+//// Only implemented as needed.
+
+//func (s *DNAC_B_WalkerListener) EnterDnac(ctx dnacb.*dnacb.DnacContext) {}
+//func (s *DNAC_B_WalkerListener) ExitDnac(ctx dnacb.*dnacb.DnacContext) {}
+
+//func (s *DNAC_B_WalkerListener) EnterNameNode(ctx dnacb.*dnacb.NameNodeContext) {}
+//func (s *DNAC_B_WalkerListener) ExitNameNode(ctx dnacb.*dnacb.NameNodeContext) {}
+
+//func (s *DNAC_B_WalkerListener) EnterNameRule(ctx dnacb.*dnacb.NameRuleContext) {}
+//func (s *DNAC_B_WalkerListener) ExitNameRule(ctx dnacb.*dnacb.NameRuleContext) {}
+
+//func (s *DNAC_B_WalkerListener) EnterTypeNode(ctx dnacb.*dnacb.TypeNodeContext) {}
+//func (s *DNAC_B_WalkerListener) ExitTypeNode(ctx dnacb.*dnacb.TypeNodeContext) {}
+
+//func (s *DNAC_B_WalkerListener) EnterNameBodyNode(ctx dnacb.*dnacb.NameBodyNodeContext) {}
+//func (s *DNAC_B_WalkerListener) ExitNameBodyNode(ctx dnacb.*dnacb.NameBodyNodeContext) {}
+
+//func (s *DNAC_B_WalkerListener) EnterExnotationNode(ctx dnacb.*dnacb.ExnotationNodeContext) {}
+//func (s *DNAC_B_WalkerListener) ExitExnotationNode(ctx dnacb.*dnacb.ExnotationNodeContext) {}

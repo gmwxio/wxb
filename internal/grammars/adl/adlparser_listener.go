@@ -1,4 +1,4 @@
-// Code generated from ADLParser.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from ADLParser.g4 by ANTLR 4.7.
 
 package parser // ADLParser
 
@@ -8,135 +8,250 @@ import "github.com/wxio/goantlr"
 type ADLParserListener interface {
 	antlr.ParseTreeListener
 
-	// EnterAdl is called when entering the adl production.
+	AdlEntryListener
+	AdlExitListener
+
+	TypeParamErrorEntryListener
+	TypeParamErrorExitListener
+
+	ModuleStatementEntryListener
+	ModuleStatementExitListener
+
+	ImportStatementEntryListener
+	ImportStatementExitListener
+
+	LocalAnnoEntryListener
+	LocalAnnoExitListener
+
+	DocAnnoEntryListener
+	DocAnnoExitListener
+
+	StructOrUnionEntryListener
+	StructOrUnionExitListener
+
+	TypeOrNewtypeEntryListener
+	TypeOrNewtypeExitListener
+
+	ModuleAnnotationEntryListener
+	ModuleAnnotationExitListener
+
+	DeclAnnotationEntryListener
+	DeclAnnotationExitListener
+
+	FieldAnnotationEntryListener
+	FieldAnnotationExitListener
+
+	TypeParameterEntryListener
+	TypeParameterExitListener
+
+	ErrorTypeParamEntryListener
+	ErrorTypeParamExitListener
+
+	TypeExpressionEntryListener
+	TypeExpressionExitListener
+
+	TypeExpressionElemEntryListener
+	TypeExpressionElemExitListener
+
+	FieldStatementEntryListener
+	FieldStatementExitListener
+
+	StringStatementEntryListener
+	StringStatementExitListener
+
+	TrueFalseNullEntryListener
+	TrueFalseNullExitListener
+
+	NumberStatementEntryListener
+	NumberStatementExitListener
+
+	FloatStatementEntryListener
+	FloatStatementExitListener
+
+	ArrayStatementEntryListener
+	ArrayStatementExitListener
+
+	ObjStatementEntryListener
+	ObjStatementExitListener
+}
+
+//
+// Rules with unnamed alternatives
+//
+type AdlEntryListener interface {
 	EnterAdl(c *AdlContext)
-
-	// EnterModuleStatement is called when entering the ModuleStatement production.
-	EnterModuleStatement(c *ModuleStatementContext)
-
-	// EnterImportStatement is called when entering the ImportStatement production.
-	EnterImportStatement(c *ImportStatementContext)
-
-	// EnterLocalAnno is called when entering the LocalAnno production.
-	EnterLocalAnno(c *LocalAnnoContext)
-
-	// EnterDocAnno is called when entering the DocAnno production.
-	EnterDocAnno(c *DocAnnoContext)
-
-	// EnterStructOrUnion is called when entering the StructOrUnion production.
-	EnterStructOrUnion(c *StructOrUnionContext)
-
-	// EnterTypeOrNewtype is called when entering the TypeOrNewtype production.
-	EnterTypeOrNewtype(c *TypeOrNewtypeContext)
-
-	// EnterModuleAnnotation is called when entering the ModuleAnnotation production.
-	EnterModuleAnnotation(c *ModuleAnnotationContext)
-
-	// EnterDeclAnnotation is called when entering the DeclAnnotation production.
-	EnterDeclAnnotation(c *DeclAnnotationContext)
-
-	// EnterFieldAnnotation is called when entering the FieldAnnotation production.
-	EnterFieldAnnotation(c *FieldAnnotationContext)
-
-	// EnterTypeParameter is called when entering the TypeParameter production.
-	EnterTypeParameter(c *TypeParameterContext)
-
-	// EnterErrorTypeParam is called when entering the ErrorTypeParam production.
-	EnterErrorTypeParam(c *ErrorTypeParamContext)
-
-	// EnterTypeParamError is called when entering the typeParamError production.
-	EnterTypeParamError(c *TypeParamErrorContext)
-
-	// EnterTypeExpression is called when entering the TypeExpression production.
-	EnterTypeExpression(c *TypeExpressionContext)
-
-	// EnterTypeExpressionElem is called when entering the TypeExpressionElem production.
-	EnterTypeExpressionElem(c *TypeExpressionElemContext)
-
-	// EnterFieldStatement is called when entering the FieldStatement production.
-	EnterFieldStatement(c *FieldStatementContext)
-
-	// EnterStringStatement is called when entering the StringStatement production.
-	EnterStringStatement(c *StringStatementContext)
-
-	// EnterTrueFalseNull is called when entering the TrueFalseNull production.
-	EnterTrueFalseNull(c *TrueFalseNullContext)
-
-	// EnterNumberStatement is called when entering the NumberStatement production.
-	EnterNumberStatement(c *NumberStatementContext)
-
-	// EnterFloatStatement is called when entering the FloatStatement production.
-	EnterFloatStatement(c *FloatStatementContext)
-
-	// EnterArrayStatement is called when entering the ArrayStatement production.
-	EnterArrayStatement(c *ArrayStatementContext)
-
-	// EnterObjStatement is called when entering the ObjStatement production.
-	EnterObjStatement(c *ObjStatementContext)
-
-	// ExitAdl is called when exiting the adl production.
+}
+type AdlExitListener interface {
 	ExitAdl(c *AdlContext)
+}
 
-	// ExitModuleStatement is called when exiting the ModuleStatement production.
-	ExitModuleStatement(c *ModuleStatementContext)
-
-	// ExitImportStatement is called when exiting the ImportStatement production.
-	ExitImportStatement(c *ImportStatementContext)
-
-	// ExitLocalAnno is called when exiting the LocalAnno production.
-	ExitLocalAnno(c *LocalAnnoContext)
-
-	// ExitDocAnno is called when exiting the DocAnno production.
-	ExitDocAnno(c *DocAnnoContext)
-
-	// ExitStructOrUnion is called when exiting the StructOrUnion production.
-	ExitStructOrUnion(c *StructOrUnionContext)
-
-	// ExitTypeOrNewtype is called when exiting the TypeOrNewtype production.
-	ExitTypeOrNewtype(c *TypeOrNewtypeContext)
-
-	// ExitModuleAnnotation is called when exiting the ModuleAnnotation production.
-	ExitModuleAnnotation(c *ModuleAnnotationContext)
-
-	// ExitDeclAnnotation is called when exiting the DeclAnnotation production.
-	ExitDeclAnnotation(c *DeclAnnotationContext)
-
-	// ExitFieldAnnotation is called when exiting the FieldAnnotation production.
-	ExitFieldAnnotation(c *FieldAnnotationContext)
-
-	// ExitTypeParameter is called when exiting the TypeParameter production.
-	ExitTypeParameter(c *TypeParameterContext)
-
-	// ExitErrorTypeParam is called when exiting the ErrorTypeParam production.
-	ExitErrorTypeParam(c *ErrorTypeParamContext)
-
-	// ExitTypeParamError is called when exiting the typeParamError production.
+type TypeParamErrorEntryListener interface {
+	EnterTypeParamError(c *TypeParamErrorContext)
+}
+type TypeParamErrorExitListener interface {
 	ExitTypeParamError(c *TypeParamErrorContext)
+}
 
-	// ExitTypeExpression is called when exiting the TypeExpression production.
+//
+// Named alternatives
+//
+//
+// From Rule 'module'
+type ModuleStatementEntryListener interface {
+	EnterModuleStatement(c *ModuleStatementContext)
+}
+type ModuleStatementExitListener interface {
+	ExitModuleStatement(c *ModuleStatementContext)
+}
+
+// From Rule 'imports'
+type ImportStatementEntryListener interface {
+	EnterImportStatement(c *ImportStatementContext)
+}
+type ImportStatementExitListener interface {
+	ExitImportStatement(c *ImportStatementContext)
+}
+
+// From Rule 'annon'
+type LocalAnnoEntryListener interface {
+	EnterLocalAnno(c *LocalAnnoContext)
+}
+type LocalAnnoExitListener interface {
+	ExitLocalAnno(c *LocalAnnoContext)
+}
+
+// From Rule 'annon'
+type DocAnnoEntryListener interface {
+	EnterDocAnno(c *DocAnnoContext)
+}
+type DocAnnoExitListener interface {
+	ExitDocAnno(c *DocAnnoContext)
+}
+
+// From Rule 'top_level_statement'
+type StructOrUnionEntryListener interface {
+	EnterStructOrUnion(c *StructOrUnionContext)
+}
+type StructOrUnionExitListener interface {
+	ExitStructOrUnion(c *StructOrUnionContext)
+}
+
+// From Rule 'top_level_statement'
+type TypeOrNewtypeEntryListener interface {
+	EnterTypeOrNewtype(c *TypeOrNewtypeContext)
+}
+type TypeOrNewtypeExitListener interface {
+	ExitTypeOrNewtype(c *TypeOrNewtypeContext)
+}
+
+// From Rule 'top_level_statement'
+type ModuleAnnotationEntryListener interface {
+	EnterModuleAnnotation(c *ModuleAnnotationContext)
+}
+type ModuleAnnotationExitListener interface {
+	ExitModuleAnnotation(c *ModuleAnnotationContext)
+}
+
+// From Rule 'top_level_statement'
+type DeclAnnotationEntryListener interface {
+	EnterDeclAnnotation(c *DeclAnnotationContext)
+}
+type DeclAnnotationExitListener interface {
+	ExitDeclAnnotation(c *DeclAnnotationContext)
+}
+
+// From Rule 'top_level_statement'
+type FieldAnnotationEntryListener interface {
+	EnterFieldAnnotation(c *FieldAnnotationContext)
+}
+type FieldAnnotationExitListener interface {
+	ExitFieldAnnotation(c *FieldAnnotationContext)
+}
+
+// From Rule 'typeParam'
+type TypeParameterEntryListener interface {
+	EnterTypeParameter(c *TypeParameterContext)
+}
+type TypeParameterExitListener interface {
+	ExitTypeParameter(c *TypeParameterContext)
+}
+
+// From Rule 'typeParam'
+type ErrorTypeParamEntryListener interface {
+	EnterErrorTypeParam(c *ErrorTypeParamContext)
+}
+type ErrorTypeParamExitListener interface {
+	ExitErrorTypeParam(c *ErrorTypeParamContext)
+}
+
+// From Rule 'typeExpr'
+type TypeExpressionEntryListener interface {
+	EnterTypeExpression(c *TypeExpressionContext)
+}
+type TypeExpressionExitListener interface {
 	ExitTypeExpression(c *TypeExpressionContext)
+}
 
-	// ExitTypeExpressionElem is called when exiting the TypeExpressionElem production.
+// From Rule 'typeExprElem'
+type TypeExpressionElemEntryListener interface {
+	EnterTypeExpressionElem(c *TypeExpressionElemContext)
+}
+type TypeExpressionElemExitListener interface {
 	ExitTypeExpressionElem(c *TypeExpressionElemContext)
+}
 
-	// ExitFieldStatement is called when exiting the FieldStatement production.
+// From Rule 'soruBody'
+type FieldStatementEntryListener interface {
+	EnterFieldStatement(c *FieldStatementContext)
+}
+type FieldStatementExitListener interface {
 	ExitFieldStatement(c *FieldStatementContext)
+}
 
-	// ExitStringStatement is called when exiting the StringStatement production.
+// From Rule 'jsonValue'
+type StringStatementEntryListener interface {
+	EnterStringStatement(c *StringStatementContext)
+}
+type StringStatementExitListener interface {
 	ExitStringStatement(c *StringStatementContext)
+}
 
-	// ExitTrueFalseNull is called when exiting the TrueFalseNull production.
+// From Rule 'jsonValue'
+type TrueFalseNullEntryListener interface {
+	EnterTrueFalseNull(c *TrueFalseNullContext)
+}
+type TrueFalseNullExitListener interface {
 	ExitTrueFalseNull(c *TrueFalseNullContext)
+}
 
-	// ExitNumberStatement is called when exiting the NumberStatement production.
+// From Rule 'jsonValue'
+type NumberStatementEntryListener interface {
+	EnterNumberStatement(c *NumberStatementContext)
+}
+type NumberStatementExitListener interface {
 	ExitNumberStatement(c *NumberStatementContext)
+}
 
-	// ExitFloatStatement is called when exiting the FloatStatement production.
+// From Rule 'jsonValue'
+type FloatStatementEntryListener interface {
+	EnterFloatStatement(c *FloatStatementContext)
+}
+type FloatStatementExitListener interface {
 	ExitFloatStatement(c *FloatStatementContext)
+}
 
-	// ExitArrayStatement is called when exiting the ArrayStatement production.
+// From Rule 'jsonValue'
+type ArrayStatementEntryListener interface {
+	EnterArrayStatement(c *ArrayStatementContext)
+}
+type ArrayStatementExitListener interface {
 	ExitArrayStatement(c *ArrayStatementContext)
+}
 
-	// ExitObjStatement is called when exiting the ObjStatement production.
+// From Rule 'jsonValue'
+type ObjStatementEntryListener interface {
+	EnterObjStatement(c *ObjStatementContext)
+}
+type ObjStatementExitListener interface {
 	ExitObjStatement(c *ObjStatementContext)
 }

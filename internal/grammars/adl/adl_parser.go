@@ -1,4 +1,4 @@
-// Code generated from ADLParser.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from ADLParser.g4 by ANTLR 4.7.
 
 package parser // ADLParser
 
@@ -6,9 +6,8 @@ import (
 	"fmt"
 	"reflect"
 	"strconv"
-
-	"github.com/wxio/goantlr"
 )
+import "github.com/wxio/goantlr"
 
 // Suppress unused import errors
 var _ = fmt.Printf
@@ -255,15 +254,39 @@ const (
 	ADLParserRULE_jsonValue           = 10
 )
 
-// IAdlContext is an interface to support dynamic dispatch.
 type IAdlContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	Module() IModuleContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	EOF() antlr.TerminalNode
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsAdlContext differentiates from other interfaces.
-	IsAdlContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type AdlContext struct {
@@ -293,8 +316,21 @@ func NewAdlContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 
 func (s *AdlContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
 func (s *AdlContext) Module() IModuleContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IModuleContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ModuleContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -307,6 +343,7 @@ func (s *AdlContext) EOF() antlr.TerminalNode {
 	return s.GetToken(ADLParserEOF, 0)
 }
 
+//provideCopyFrom
 func (s *AdlContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -315,17 +352,20 @@ func (s *AdlContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) st
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
 func (s *AdlContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(AdlEntryListener); ok {
 		listenerT.EnterAdl(s)
 	}
 }
 
 func (s *AdlContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(AdlExitListener); ok {
 		listenerT.ExitAdl(s)
 	}
 }
+
+//extensionMembers
 
 func (p *ADLParser) Adl() (localctx IAdlContext) {
 	localctx = NewAdlContext(p, p.GetParserRuleContext(), p.GetState())
@@ -360,15 +400,37 @@ func (p *ADLParser) Adl() (localctx IAdlContext) {
 	return localctx
 }
 
-// IModuleContext is an interface to support dynamic dispatch.
 type IModuleContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsModuleContext differentiates from other interfaces.
-	IsModuleContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type ModuleContext struct {
@@ -398,6 +460,21 @@ func NewModuleContext(parser antlr.Parser, parent antlr.ParserRuleContext, invok
 
 func (s *ModuleContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *ModuleContext) CopyFrom(ctx *ModuleContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -410,10 +487,18 @@ func (s *ModuleContext) ToStringTree(ruleNames []string, recog antlr.Recognizer)
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
 type ModuleStatementContext struct {
 	*ModuleContext
-	kw   antlr.Token
-	_ID  antlr.Token
+	//TokenDecl
+	kw antlr.Token
+	//TokenDecl
+	_ID antlr.Token
+	//TokenListDecl
 	name []antlr.Token
 }
 
@@ -427,22 +512,74 @@ func NewModuleStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext)
 	return p
 }
 
-func (s *ModuleStatementContext) GetKw() antlr.Token { return s.kw }
+type IModuleStatementContext interface {
+	//Current rule
+	IModuleContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllAnnon() []IAnnonContext
+	AllImports() []IImportsContext
+	AllTop_level_statement() []ITop_level_statementContext
+	//  ruleListIndexedGetterDecl
+	Annon(i int) IAnnonContext
+	Imports(i int) IImportsContext
+	Top_level_statement(i int) ITop_level_statementContext
 
-func (s *ModuleStatementContext) Get_ID() antlr.Token { return s._ID }
+	//  tokenGetterDecl
+	LCUR() antlr.TerminalNode
+	RCUR() antlr.TerminalNode
+	SEMI() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllID() []antlr.TerminalNode
+	AllDOT() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	ID(i int) antlr.TerminalNode
+	DOT(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetKw() antlr.Token
 
+	//  tokenTypeDecls
+	//  tokenListDecls
+	GetName() []antlr.Token
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*ModuleStatementContext) IsModuleStatementContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *ModuleStatementContext) GetKw() antlr.Token  { return s.kw }
 func (s *ModuleStatementContext) SetKw(v antlr.Token) { s.kw = v }
 
+func (s *ModuleStatementContext) Get_ID() antlr.Token  { return s._ID }
 func (s *ModuleStatementContext) Set_ID(v antlr.Token) { s._ID = v }
 
-func (s *ModuleStatementContext) GetName() []antlr.Token { return s.name }
+//AltLabelStructDecl tokenTypeDecls
 
+//AltLabelStructDecl tokenListDecls
+func (s *ModuleStatementContext) GetName() []antlr.Token  { return s.name }
 func (s *ModuleStatementContext) SetName(v []antlr.Token) { s.name = v }
 
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *ModuleStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *ModuleStatementContext) LCUR() antlr.TerminalNode {
 	return s.GetToken(ADLParserLCUR, 0)
 }
@@ -464,7 +601,8 @@ func (s *ModuleStatementContext) ID(i int) antlr.TerminalNode {
 }
 
 func (s *ModuleStatementContext) AllAnnon() []IAnnonContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IAnnonContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*AnnonContext)(nil)).Elem())
 	var tst = make([]IAnnonContext, len(ts))
 
 	for i, t := range ts {
@@ -477,7 +615,7 @@ func (s *ModuleStatementContext) AllAnnon() []IAnnonContext {
 }
 
 func (s *ModuleStatementContext) Annon(i int) IAnnonContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAnnonContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*AnnonContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -495,7 +633,8 @@ func (s *ModuleStatementContext) DOT(i int) antlr.TerminalNode {
 }
 
 func (s *ModuleStatementContext) AllImports() []IImportsContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IImportsContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ImportsContext)(nil)).Elem())
 	var tst = make([]IImportsContext, len(ts))
 
 	for i, t := range ts {
@@ -508,7 +647,7 @@ func (s *ModuleStatementContext) AllImports() []IImportsContext {
 }
 
 func (s *ModuleStatementContext) Imports(i int) IImportsContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IImportsContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ImportsContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -518,7 +657,8 @@ func (s *ModuleStatementContext) Imports(i int) IImportsContext {
 }
 
 func (s *ModuleStatementContext) AllTop_level_statement() []ITop_level_statementContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITop_level_statementContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*Top_level_statementContext)(nil)).Elem())
 	var tst = make([]ITop_level_statementContext, len(ts))
 
 	for i, t := range ts {
@@ -531,7 +671,7 @@ func (s *ModuleStatementContext) AllTop_level_statement() []ITop_level_statement
 }
 
 func (s *ModuleStatementContext) Top_level_statement(i int) ITop_level_statementContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITop_level_statementContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*Top_level_statementContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -541,21 +681,24 @@ func (s *ModuleStatementContext) Top_level_statement(i int) ITop_level_statement
 }
 
 func (s *ModuleStatementContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ModuleStatementEntryListener); ok {
 		listenerT.EnterModuleStatement(s)
 	}
 }
 
 func (s *ModuleStatementContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ModuleStatementExitListener); ok {
 		listenerT.ExitModuleStatement(s)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *ADLParser) Module() (localctx IModuleContext) {
 	localctx = NewModuleContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 2, ADLParserRULE_module)
-	var _la int
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -593,17 +736,15 @@ func (p *ADLParser) Module() (localctx IModuleContext) {
 	}
 	{
 		p.SetState(31)
-
 		var _m = p.Match(ADLParserID)
-
 		localctx.(*ModuleStatementContext).kw = _m
+
 	}
 	{
 		p.SetState(32)
-
 		var _m = p.Match(ADLParserID)
-
 		localctx.(*ModuleStatementContext)._ID = _m
+
 	}
 	localctx.(*ModuleStatementContext).name = append(localctx.(*ModuleStatementContext).name, localctx.(*ModuleStatementContext)._ID)
 	p.SetState(37)
@@ -617,10 +758,9 @@ func (p *ADLParser) Module() (localctx IModuleContext) {
 		}
 		{
 			p.SetState(34)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*ModuleStatementContext)._ID = _m
+
 		}
 		localctx.(*ModuleStatementContext).name = append(localctx.(*ModuleStatementContext).name, localctx.(*ModuleStatementContext)._ID)
 
@@ -674,15 +814,37 @@ func (p *ADLParser) Module() (localctx IModuleContext) {
 	return localctx
 }
 
-// IImportsContext is an interface to support dynamic dispatch.
 type IImportsContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsImportsContext differentiates from other interfaces.
-	IsImportsContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type ImportsContext struct {
@@ -712,6 +874,21 @@ func NewImportsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 
 func (s *ImportsContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *ImportsContext) CopyFrom(ctx *ImportsContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -724,12 +901,21 @@ func (s *ImportsContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
 type ImportStatementContext struct {
 	*ImportsContext
-	kw  antlr.Token
+	//TokenDecl
+	kw antlr.Token
+	//TokenDecl
 	_ID antlr.Token
-	a   []antlr.Token
-	s   antlr.Token
+	//TokenListDecl
+	a []antlr.Token
+	//TokenDecl
+	s antlr.Token
 }
 
 func NewImportStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ImportStatementContext {
@@ -742,26 +928,71 @@ func NewImportStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext)
 	return p
 }
 
-func (s *ImportStatementContext) GetKw() antlr.Token { return s.kw }
+type IImportStatementContext interface {
+	//Current rule
+	IImportsContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
-func (s *ImportStatementContext) Get_ID() antlr.Token { return s._ID }
+	//  tokenGetterDecl
+	SEMI() antlr.TerminalNode
+	STAR() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllID() []antlr.TerminalNode
+	AllDOT() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	ID(i int) antlr.TerminalNode
+	DOT(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetKw() antlr.Token
+	GetS() antlr.Token
 
-func (s *ImportStatementContext) GetS() antlr.Token { return s.s }
+	//  tokenTypeDecls
+	//  tokenListDecls
+	GetA() []antlr.Token
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
 
+	// TODO dispatchMethods (needed?)
+}
+
+func (*ImportStatementContext) IsImportStatementContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *ImportStatementContext) GetKw() antlr.Token  { return s.kw }
 func (s *ImportStatementContext) SetKw(v antlr.Token) { s.kw = v }
 
+func (s *ImportStatementContext) Get_ID() antlr.Token  { return s._ID }
 func (s *ImportStatementContext) Set_ID(v antlr.Token) { s._ID = v }
 
+func (s *ImportStatementContext) GetS() antlr.Token  { return s.s }
 func (s *ImportStatementContext) SetS(v antlr.Token) { s.s = v }
 
-func (s *ImportStatementContext) GetA() []antlr.Token { return s.a }
+//AltLabelStructDecl tokenTypeDecls
 
+//AltLabelStructDecl tokenListDecls
+func (s *ImportStatementContext) GetA() []antlr.Token  { return s.a }
 func (s *ImportStatementContext) SetA(v []antlr.Token) { s.a = v }
 
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *ImportStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *ImportStatementContext) SEMI() antlr.TerminalNode {
 	return s.GetToken(ADLParserSEMI, 0)
 }
@@ -787,21 +1018,24 @@ func (s *ImportStatementContext) STAR() antlr.TerminalNode {
 }
 
 func (s *ImportStatementContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ImportStatementEntryListener); ok {
 		listenerT.EnterImportStatement(s)
 	}
 }
 
 func (s *ImportStatementContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ImportStatementExitListener); ok {
 		listenerT.ExitImportStatement(s)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *ADLParser) Imports() (localctx IImportsContext) {
 	localctx = NewImportsContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 4, ADLParserRULE_imports)
-	var _la int
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -825,17 +1059,15 @@ func (p *ADLParser) Imports() (localctx IImportsContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(56)
-
 		var _m = p.Match(ADLParserID)
-
 		localctx.(*ImportStatementContext).kw = _m
+
 	}
 	{
 		p.SetState(57)
-
 		var _m = p.Match(ADLParserID)
-
 		localctx.(*ImportStatementContext)._ID = _m
+
 	}
 	localctx.(*ImportStatementContext).a = append(localctx.(*ImportStatementContext).a, localctx.(*ImportStatementContext)._ID)
 	p.SetState(62)
@@ -850,10 +1082,9 @@ func (p *ADLParser) Imports() (localctx IImportsContext) {
 			}
 			{
 				p.SetState(59)
-
 				var _m = p.Match(ADLParserID)
-
 				localctx.(*ImportStatementContext)._ID = _m
+
 			}
 			localctx.(*ImportStatementContext).a = append(localctx.(*ImportStatementContext).a, localctx.(*ImportStatementContext)._ID)
 
@@ -873,10 +1104,9 @@ func (p *ADLParser) Imports() (localctx IImportsContext) {
 		}
 		{
 			p.SetState(66)
-
 			var _m = p.Match(ADLParserSTAR)
-
 			localctx.(*ImportStatementContext).s = _m
+
 		}
 
 	}
@@ -888,15 +1118,37 @@ func (p *ADLParser) Imports() (localctx IImportsContext) {
 	return localctx
 }
 
-// IAnnonContext is an interface to support dynamic dispatch.
 type IAnnonContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsAnnonContext differentiates from other interfaces.
-	IsAnnonContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type AnnonContext struct {
@@ -926,6 +1178,21 @@ func NewAnnonContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 
 func (s *AnnonContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *AnnonContext) CopyFrom(ctx *AnnonContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -938,8 +1205,14 @@ func (s *AnnonContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) 
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
 type DocAnnoContext struct {
 	*AnnonContext
+	//TokenDecl
 	a antlr.Token
 }
 
@@ -953,32 +1226,79 @@ func NewDocAnnoContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DocAnn
 	return p
 }
 
-func (s *DocAnnoContext) GetA() antlr.Token { return s.a }
+type IDocAnnoContext interface {
+	//Current rule
+	IAnnonContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
+	//  tokenGetterDecl
+	LINE_DOC() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetA() antlr.Token
+
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*DocAnnoContext) IsDocAnnoContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *DocAnnoContext) GetA() antlr.Token  { return s.a }
 func (s *DocAnnoContext) SetA(v antlr.Token) { s.a = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *DocAnnoContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *DocAnnoContext) LINE_DOC() antlr.TerminalNode {
 	return s.GetToken(ADLParserLINE_DOC, 0)
 }
 
 func (s *DocAnnoContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(DocAnnoEntryListener); ok {
 		listenerT.EnterDocAnno(s)
 	}
 }
 
 func (s *DocAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(DocAnnoExitListener); ok {
 		listenerT.ExitDocAnno(s)
 	}
 }
 
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
+
 type LocalAnnoContext struct {
 	*AnnonContext
+	//TokenDecl
 	a antlr.Token
 }
 
@@ -992,20 +1312,64 @@ func NewLocalAnnoContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Loca
 	return p
 }
 
-func (s *LocalAnnoContext) GetA() antlr.Token { return s.a }
+type ILocalAnnoContext interface {
+	//Current rule
+	IAnnonContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	JsonValue() IJsonValueContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
+	//  tokenGetterDecl
+	AT() antlr.TerminalNode
+	ID() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetA() antlr.Token
+
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*LocalAnnoContext) IsLocalAnnoContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *LocalAnnoContext) GetA() antlr.Token  { return s.a }
 func (s *LocalAnnoContext) SetA(v antlr.Token) { s.a = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *LocalAnnoContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *LocalAnnoContext) AT() antlr.TerminalNode {
 	return s.GetToken(ADLParserAT, 0)
 }
 
 func (s *LocalAnnoContext) JsonValue() IJsonValueContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValueContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValueContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -1019,16 +1383,18 @@ func (s *LocalAnnoContext) ID() antlr.TerminalNode {
 }
 
 func (s *LocalAnnoContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(LocalAnnoEntryListener); ok {
 		listenerT.EnterLocalAnno(s)
 	}
 }
 
 func (s *LocalAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(LocalAnnoExitListener); ok {
 		listenerT.ExitLocalAnno(s)
 	}
 }
+
+//END AltLabelStructDecl
 
 func (p *ADLParser) Annon() (localctx IAnnonContext) {
 	localctx = NewAnnonContext(p, p.GetParserRuleContext(), p.GetState())
@@ -1063,10 +1429,9 @@ func (p *ADLParser) Annon() (localctx IAnnonContext) {
 		}
 		{
 			p.SetState(72)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*LocalAnnoContext).a = _m
+
 		}
 		{
 			p.SetState(73)
@@ -1078,10 +1443,9 @@ func (p *ADLParser) Annon() (localctx IAnnonContext) {
 		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(74)
-
 			var _m = p.Match(ADLParserLINE_DOC)
-
 			localctx.(*DocAnnoContext).a = _m
+
 		}
 
 	default:
@@ -1091,15 +1455,37 @@ func (p *ADLParser) Annon() (localctx IAnnonContext) {
 	return localctx
 }
 
-// ITop_level_statementContext is an interface to support dynamic dispatch.
 type ITop_level_statementContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsTop_level_statementContext differentiates from other interfaces.
-	IsTop_level_statementContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type Top_level_statementContext struct {
@@ -1129,6 +1515,21 @@ func NewTop_level_statementContext(parser antlr.Parser, parent antlr.ParserRuleC
 
 func (s *Top_level_statementContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *Top_level_statementContext) CopyFrom(ctx *Top_level_statementContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -1141,10 +1542,17 @@ func (s *Top_level_statementContext) ToStringTree(ruleNames []string, recog antl
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
 type StructOrUnionContext struct {
 	*Top_level_statementContext
+	//TokenDecl
 	kw antlr.Token
-	a  antlr.Token
+	//TokenDecl
+	a antlr.Token
 }
 
 func NewStructOrUnionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *StructOrUnionContext {
@@ -1157,18 +1565,69 @@ func NewStructOrUnionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *
 	return p
 }
 
-func (s *StructOrUnionContext) GetKw() antlr.Token { return s.kw }
+type IStructOrUnionContext interface {
+	//Current rule
+	ITop_level_statementContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	TypeParam() ITypeParamContext
+	//  ruleListGetterDecl
+	AllAnnon() []IAnnonContext
+	AllSoruBody() []ISoruBodyContext
+	//  ruleListIndexedGetterDecl
+	Annon(i int) IAnnonContext
+	SoruBody(i int) ISoruBodyContext
 
-func (s *StructOrUnionContext) GetA() antlr.Token { return s.a }
+	//  tokenGetterDecl
+	LCUR() antlr.TerminalNode
+	RCUR() antlr.TerminalNode
+	SEMI() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllID() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	ID(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetKw() antlr.Token
+	GetA() antlr.Token
 
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*StructOrUnionContext) IsStructOrUnionContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *StructOrUnionContext) GetKw() antlr.Token  { return s.kw }
 func (s *StructOrUnionContext) SetKw(v antlr.Token) { s.kw = v }
 
+func (s *StructOrUnionContext) GetA() antlr.Token  { return s.a }
 func (s *StructOrUnionContext) SetA(v antlr.Token) { s.a = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *StructOrUnionContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *StructOrUnionContext) LCUR() antlr.TerminalNode {
 	return s.GetToken(ADLParserLCUR, 0)
 }
@@ -1190,7 +1649,8 @@ func (s *StructOrUnionContext) ID(i int) antlr.TerminalNode {
 }
 
 func (s *StructOrUnionContext) AllAnnon() []IAnnonContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IAnnonContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*AnnonContext)(nil)).Elem())
 	var tst = make([]IAnnonContext, len(ts))
 
 	for i, t := range ts {
@@ -1203,7 +1663,7 @@ func (s *StructOrUnionContext) AllAnnon() []IAnnonContext {
 }
 
 func (s *StructOrUnionContext) Annon(i int) IAnnonContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAnnonContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*AnnonContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -1213,7 +1673,7 @@ func (s *StructOrUnionContext) Annon(i int) IAnnonContext {
 }
 
 func (s *StructOrUnionContext) TypeParam() ITypeParamContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeParamContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeParamContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -1223,7 +1683,8 @@ func (s *StructOrUnionContext) TypeParam() ITypeParamContext {
 }
 
 func (s *StructOrUnionContext) AllSoruBody() []ISoruBodyContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ISoruBodyContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*SoruBodyContext)(nil)).Elem())
 	var tst = make([]ISoruBodyContext, len(ts))
 
 	for i, t := range ts {
@@ -1236,7 +1697,7 @@ func (s *StructOrUnionContext) AllSoruBody() []ISoruBodyContext {
 }
 
 func (s *StructOrUnionContext) SoruBody(i int) ISoruBodyContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ISoruBodyContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*SoruBodyContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -1246,22 +1707,29 @@ func (s *StructOrUnionContext) SoruBody(i int) ISoruBodyContext {
 }
 
 func (s *StructOrUnionContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(StructOrUnionEntryListener); ok {
 		listenerT.EnterStructOrUnion(s)
 	}
 }
 
 func (s *StructOrUnionContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(StructOrUnionExitListener); ok {
 		listenerT.ExitStructOrUnion(s)
 	}
 }
 
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
+
 type DeclAnnotationContext struct {
 	*Top_level_statementContext
+	//TokenDecl
 	kw antlr.Token
-	a  antlr.Token
-	b  antlr.Token
+	//TokenDecl
+	a antlr.Token
+	//TokenDecl
+	b antlr.Token
 }
 
 func NewDeclAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DeclAnnotationContext {
@@ -1274,24 +1742,69 @@ func NewDeclAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 	return p
 }
 
-func (s *DeclAnnotationContext) GetKw() antlr.Token { return s.kw }
+type IDeclAnnotationContext interface {
+	//Current rule
+	ITop_level_statementContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	JsonValue() IJsonValueContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
-func (s *DeclAnnotationContext) GetA() antlr.Token { return s.a }
+	//  tokenGetterDecl
+	SEMI() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllID() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	ID(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetKw() antlr.Token
+	GetA() antlr.Token
+	GetB() antlr.Token
 
-func (s *DeclAnnotationContext) GetB() antlr.Token { return s.b }
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
 
+	// TODO dispatchMethods (needed?)
+}
+
+func (*DeclAnnotationContext) IsDeclAnnotationContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *DeclAnnotationContext) GetKw() antlr.Token  { return s.kw }
 func (s *DeclAnnotationContext) SetKw(v antlr.Token) { s.kw = v }
 
+func (s *DeclAnnotationContext) GetA() antlr.Token  { return s.a }
 func (s *DeclAnnotationContext) SetA(v antlr.Token) { s.a = v }
 
+func (s *DeclAnnotationContext) GetB() antlr.Token  { return s.b }
 func (s *DeclAnnotationContext) SetB(v antlr.Token) { s.b = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *DeclAnnotationContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *DeclAnnotationContext) JsonValue() IJsonValueContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValueContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValueContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -1313,23 +1826,31 @@ func (s *DeclAnnotationContext) ID(i int) antlr.TerminalNode {
 }
 
 func (s *DeclAnnotationContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(DeclAnnotationEntryListener); ok {
 		listenerT.EnterDeclAnnotation(s)
 	}
 }
 
 func (s *DeclAnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(DeclAnnotationExitListener); ok {
 		listenerT.ExitDeclAnnotation(s)
 	}
 }
 
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
+
 type FieldAnnotationContext struct {
 	*Top_level_statementContext
+	//TokenDecl
 	kw antlr.Token
-	a  antlr.Token
-	b  antlr.Token
-	c  antlr.Token
+	//TokenDecl
+	a antlr.Token
+	//TokenDecl
+	b antlr.Token
+	//TokenDecl
+	c antlr.Token
 }
 
 func NewFieldAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FieldAnnotationContext {
@@ -1342,32 +1863,78 @@ func NewFieldAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext)
 	return p
 }
 
-func (s *FieldAnnotationContext) GetKw() antlr.Token { return s.kw }
+type IFieldAnnotationContext interface {
+	//Current rule
+	ITop_level_statementContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	JsonValue() IJsonValueContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
-func (s *FieldAnnotationContext) GetA() antlr.Token { return s.a }
+	//  tokenGetterDecl
+	DCOLON() antlr.TerminalNode
+	SEMI() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllID() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	ID(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetKw() antlr.Token
+	GetA() antlr.Token
+	GetB() antlr.Token
+	GetC() antlr.Token
 
-func (s *FieldAnnotationContext) GetB() antlr.Token { return s.b }
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
 
-func (s *FieldAnnotationContext) GetC() antlr.Token { return s.c }
+	// TODO dispatchMethods (needed?)
+}
 
+func (*FieldAnnotationContext) IsFieldAnnotationContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *FieldAnnotationContext) GetKw() antlr.Token  { return s.kw }
 func (s *FieldAnnotationContext) SetKw(v antlr.Token) { s.kw = v }
 
+func (s *FieldAnnotationContext) GetA() antlr.Token  { return s.a }
 func (s *FieldAnnotationContext) SetA(v antlr.Token) { s.a = v }
 
+func (s *FieldAnnotationContext) GetB() antlr.Token  { return s.b }
 func (s *FieldAnnotationContext) SetB(v antlr.Token) { s.b = v }
 
+func (s *FieldAnnotationContext) GetC() antlr.Token  { return s.c }
 func (s *FieldAnnotationContext) SetC(v antlr.Token) { s.c = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *FieldAnnotationContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *FieldAnnotationContext) DCOLON() antlr.TerminalNode {
 	return s.GetToken(ADLParserDCOLON, 0)
 }
 
 func (s *FieldAnnotationContext) JsonValue() IJsonValueContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValueContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValueContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -1389,22 +1956,29 @@ func (s *FieldAnnotationContext) ID(i int) antlr.TerminalNode {
 }
 
 func (s *FieldAnnotationContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(FieldAnnotationEntryListener); ok {
 		listenerT.EnterFieldAnnotation(s)
 	}
 }
 
 func (s *FieldAnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(FieldAnnotationExitListener); ok {
 		listenerT.ExitFieldAnnotation(s)
 	}
 }
 
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
+
 type TypeOrNewtypeContext struct {
 	*Top_level_statementContext
+	//TokenDecl
 	kw antlr.Token
-	a  antlr.Token
-	b  antlr.Token
+	//TokenDecl
+	a antlr.Token
+	//TokenDecl
+	b antlr.Token
 }
 
 func NewTypeOrNewtypeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *TypeOrNewtypeContext {
@@ -1417,22 +1991,73 @@ func NewTypeOrNewtypeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *
 	return p
 }
 
-func (s *TypeOrNewtypeContext) GetKw() antlr.Token { return s.kw }
+type ITypeOrNewtypeContext interface {
+	//Current rule
+	ITop_level_statementContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	TypeParam() ITypeParamContext
+	TypeExpr() ITypeExprContext
+	JsonValue() IJsonValueContext
+	//  ruleListGetterDecl
+	AllAnnon() []IAnnonContext
+	//  ruleListIndexedGetterDecl
+	Annon(i int) IAnnonContext
 
-func (s *TypeOrNewtypeContext) GetA() antlr.Token { return s.a }
+	//  tokenGetterDecl
+	SEMI() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllEQ() []antlr.TerminalNode
+	AllID() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	EQ(i int) antlr.TerminalNode
+	ID(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetKw() antlr.Token
+	GetA() antlr.Token
+	GetB() antlr.Token
 
-func (s *TypeOrNewtypeContext) GetB() antlr.Token { return s.b }
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
 
+	// TODO dispatchMethods (needed?)
+}
+
+func (*TypeOrNewtypeContext) IsTypeOrNewtypeContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *TypeOrNewtypeContext) GetKw() antlr.Token  { return s.kw }
 func (s *TypeOrNewtypeContext) SetKw(v antlr.Token) { s.kw = v }
 
+func (s *TypeOrNewtypeContext) GetA() antlr.Token  { return s.a }
 func (s *TypeOrNewtypeContext) SetA(v antlr.Token) { s.a = v }
 
+func (s *TypeOrNewtypeContext) GetB() antlr.Token  { return s.b }
 func (s *TypeOrNewtypeContext) SetB(v antlr.Token) { s.b = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *TypeOrNewtypeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *TypeOrNewtypeContext) AllEQ() []antlr.TerminalNode {
 	return s.GetTokens(ADLParserEQ)
 }
@@ -1454,7 +2079,8 @@ func (s *TypeOrNewtypeContext) ID(i int) antlr.TerminalNode {
 }
 
 func (s *TypeOrNewtypeContext) AllAnnon() []IAnnonContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IAnnonContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*AnnonContext)(nil)).Elem())
 	var tst = make([]IAnnonContext, len(ts))
 
 	for i, t := range ts {
@@ -1467,7 +2093,7 @@ func (s *TypeOrNewtypeContext) AllAnnon() []IAnnonContext {
 }
 
 func (s *TypeOrNewtypeContext) Annon(i int) IAnnonContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAnnonContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*AnnonContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -1477,7 +2103,7 @@ func (s *TypeOrNewtypeContext) Annon(i int) IAnnonContext {
 }
 
 func (s *TypeOrNewtypeContext) TypeParam() ITypeParamContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeParamContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeParamContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -1487,7 +2113,7 @@ func (s *TypeOrNewtypeContext) TypeParam() ITypeParamContext {
 }
 
 func (s *TypeOrNewtypeContext) TypeExpr() ITypeExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeExprContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeExprContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -1497,7 +2123,7 @@ func (s *TypeOrNewtypeContext) TypeExpr() ITypeExprContext {
 }
 
 func (s *TypeOrNewtypeContext) JsonValue() IJsonValueContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValueContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValueContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -1507,21 +2133,27 @@ func (s *TypeOrNewtypeContext) JsonValue() IJsonValueContext {
 }
 
 func (s *TypeOrNewtypeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeOrNewtypeEntryListener); ok {
 		listenerT.EnterTypeOrNewtype(s)
 	}
 }
 
 func (s *TypeOrNewtypeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeOrNewtypeExitListener); ok {
 		listenerT.ExitTypeOrNewtype(s)
 	}
 }
 
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
+
 type ModuleAnnotationContext struct {
 	*Top_level_statementContext
+	//TokenDecl
 	kw antlr.Token
-	a  antlr.Token
+	//TokenDecl
+	a antlr.Token
 }
 
 func NewModuleAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ModuleAnnotationContext {
@@ -1534,20 +2166,65 @@ func NewModuleAnnotationContext(parser antlr.Parser, ctx antlr.ParserRuleContext
 	return p
 }
 
-func (s *ModuleAnnotationContext) GetKw() antlr.Token { return s.kw }
+type IModuleAnnotationContext interface {
+	//Current rule
+	ITop_level_statementContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	JsonValue() IJsonValueContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
-func (s *ModuleAnnotationContext) GetA() antlr.Token { return s.a }
+	//  tokenGetterDecl
+	SEMI() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllID() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	ID(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetKw() antlr.Token
+	GetA() antlr.Token
 
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*ModuleAnnotationContext) IsModuleAnnotationContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *ModuleAnnotationContext) GetKw() antlr.Token  { return s.kw }
 func (s *ModuleAnnotationContext) SetKw(v antlr.Token) { s.kw = v }
 
+func (s *ModuleAnnotationContext) GetA() antlr.Token  { return s.a }
 func (s *ModuleAnnotationContext) SetA(v antlr.Token) { s.a = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *ModuleAnnotationContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *ModuleAnnotationContext) JsonValue() IJsonValueContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValueContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValueContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -1569,21 +2246,24 @@ func (s *ModuleAnnotationContext) ID(i int) antlr.TerminalNode {
 }
 
 func (s *ModuleAnnotationContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ModuleAnnotationEntryListener); ok {
 		listenerT.EnterModuleAnnotation(s)
 	}
 }
 
 func (s *ModuleAnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ModuleAnnotationExitListener); ok {
 		listenerT.ExitModuleAnnotation(s)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext) {
 	localctx = NewTop_level_statementContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 8, ADLParserRULE_top_level_statement)
-	var _la int
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -1623,17 +2303,15 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 		}
 		{
 			p.SetState(83)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*StructOrUnionContext).kw = _m
+
 		}
 		{
 			p.SetState(84)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*StructOrUnionContext).a = _m
+
 		}
 		p.SetState(86)
 		p.GetErrorHandler().Sync(p)
@@ -1692,17 +2370,15 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 		}
 		{
 			p.SetState(103)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*TypeOrNewtypeContext).kw = _m
+
 		}
 		{
 			p.SetState(104)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*TypeOrNewtypeContext).a = _m
+
 		}
 		p.SetState(106)
 		p.GetErrorHandler().Sync(p)
@@ -1721,10 +2397,9 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 		}
 		{
 			p.SetState(109)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*TypeOrNewtypeContext).b = _m
+
 		}
 		p.SetState(111)
 		p.GetErrorHandler().Sync(p)
@@ -1762,17 +2437,15 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(118)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*ModuleAnnotationContext).kw = _m
+
 		}
 		{
 			p.SetState(119)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*ModuleAnnotationContext).a = _m
+
 		}
 		{
 			p.SetState(120)
@@ -1788,24 +2461,21 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 		p.EnterOuterAlt(localctx, 4)
 		{
 			p.SetState(123)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*DeclAnnotationContext).kw = _m
+
 		}
 		{
 			p.SetState(124)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*DeclAnnotationContext).a = _m
+
 		}
 		{
 			p.SetState(125)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*DeclAnnotationContext).b = _m
+
 		}
 		{
 			p.SetState(126)
@@ -1821,17 +2491,15 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 		p.EnterOuterAlt(localctx, 5)
 		{
 			p.SetState(129)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*FieldAnnotationContext).kw = _m
+
 		}
 		{
 			p.SetState(130)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*FieldAnnotationContext).a = _m
+
 		}
 		{
 			p.SetState(131)
@@ -1839,17 +2507,15 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 		}
 		{
 			p.SetState(132)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*FieldAnnotationContext).b = _m
+
 		}
 		{
 			p.SetState(133)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*FieldAnnotationContext).c = _m
+
 		}
 		{
 			p.SetState(134)
@@ -1865,15 +2531,37 @@ func (p *ADLParser) Top_level_statement() (localctx ITop_level_statementContext)
 	return localctx
 }
 
-// ITypeParamContext is an interface to support dynamic dispatch.
 type ITypeParamContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsTypeParamContext differentiates from other interfaces.
-	IsTypeParamContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type TypeParamContext struct {
@@ -1903,6 +2591,21 @@ func NewTypeParamContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 
 func (s *TypeParamContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *TypeParamContext) CopyFrom(ctx *TypeParamContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -1915,9 +2618,16 @@ func (s *TypeParamContext) ToStringTree(ruleNames []string, recog antlr.Recogniz
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
 type TypeParameterContext struct {
 	*TypeParamContext
-	_ID   antlr.Token
+	//TokenDecl
+	_ID antlr.Token
+	//TokenListDecl
 	typep []antlr.Token
 }
 
@@ -1931,18 +2641,63 @@ func NewTypeParameterContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *
 	return p
 }
 
-func (s *TypeParameterContext) Get_ID() antlr.Token { return s._ID }
+type ITypeParameterContext interface {
+	//Current rule
+	ITypeParamContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
+	//  tokenGetterDecl
+	LCHEVR() antlr.TerminalNode
+	RCHEVR() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllID() []antlr.TerminalNode
+	AllCOMMA() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	ID(i int) antlr.TerminalNode
+	COMMA(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+
+	//  tokenTypeDecls
+	//  tokenListDecls
+	GetTypep() []antlr.Token
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*TypeParameterContext) IsTypeParameterContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *TypeParameterContext) Get_ID() antlr.Token  { return s._ID }
 func (s *TypeParameterContext) Set_ID(v antlr.Token) { s._ID = v }
 
-func (s *TypeParameterContext) GetTypep() []antlr.Token { return s.typep }
+//AltLabelStructDecl tokenTypeDecls
 
+//AltLabelStructDecl tokenListDecls
+func (s *TypeParameterContext) GetTypep() []antlr.Token  { return s.typep }
 func (s *TypeParameterContext) SetTypep(v []antlr.Token) { s.typep = v }
 
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *TypeParameterContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *TypeParameterContext) LCHEVR() antlr.TerminalNode {
 	return s.GetToken(ADLParserLCHEVR, 0)
 }
@@ -1968,16 +2723,20 @@ func (s *TypeParameterContext) COMMA(i int) antlr.TerminalNode {
 }
 
 func (s *TypeParameterContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeParameterEntryListener); ok {
 		listenerT.EnterTypeParameter(s)
 	}
 }
 
 func (s *TypeParameterContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeParameterExitListener); ok {
 		listenerT.ExitTypeParameter(s)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type ErrorTypeParamContext struct {
 	*TypeParamContext
@@ -1993,16 +2752,66 @@ func NewErrorTypeParamContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 	return p
 }
 
+type IErrorTypeParamContext interface {
+	//Current rule
+	ITypeParamContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllTypeParamError() []ITypeParamErrorContext
+	//  ruleListIndexedGetterDecl
+	TypeParamError(i int) ITypeParamErrorContext
+
+	//  tokenGetterDecl
+	LCHEVR() antlr.TerminalNode
+	RCHEVR() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllCOMMA() []antlr.TerminalNode
+	AllID() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	COMMA(i int) antlr.TerminalNode
+	ID(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*ErrorTypeParamContext) IsErrorTypeParamContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *ErrorTypeParamContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *ErrorTypeParamContext) LCHEVR() antlr.TerminalNode {
 	return s.GetToken(ADLParserLCHEVR, 0)
 }
 
 func (s *ErrorTypeParamContext) AllTypeParamError() []ITypeParamErrorContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITypeParamErrorContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*TypeParamErrorContext)(nil)).Elem())
 	var tst = make([]ITypeParamErrorContext, len(ts))
 
 	for i, t := range ts {
@@ -2015,7 +2824,7 @@ func (s *ErrorTypeParamContext) AllTypeParamError() []ITypeParamErrorContext {
 }
 
 func (s *ErrorTypeParamContext) TypeParamError(i int) ITypeParamErrorContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeParamErrorContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeParamErrorContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -2045,21 +2854,24 @@ func (s *ErrorTypeParamContext) ID(i int) antlr.TerminalNode {
 }
 
 func (s *ErrorTypeParamContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ErrorTypeParamEntryListener); ok {
 		listenerT.EnterErrorTypeParam(s)
 	}
 }
 
 func (s *ErrorTypeParamContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ErrorTypeParamExitListener); ok {
 		listenerT.ExitErrorTypeParam(s)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *ADLParser) TypeParam() (localctx ITypeParamContext) {
 	localctx = NewTypeParamContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 10, ADLParserRULE_typeParam)
-	var _la int
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -2089,10 +2901,9 @@ func (p *ADLParser) TypeParam() (localctx ITypeParamContext) {
 		}
 		{
 			p.SetState(140)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*TypeParameterContext)._ID = _m
+
 		}
 		localctx.(*TypeParameterContext).typep = append(localctx.(*TypeParameterContext).typep, localctx.(*TypeParameterContext)._ID)
 		p.SetState(145)
@@ -2106,10 +2917,9 @@ func (p *ADLParser) TypeParam() (localctx ITypeParamContext) {
 			}
 			{
 				p.SetState(142)
-
 				var _m = p.Match(ADLParserID)
-
 				localctx.(*TypeParameterContext)._ID = _m
+
 			}
 			localctx.(*TypeParameterContext).typep = append(localctx.(*TypeParameterContext).typep, localctx.(*TypeParameterContext)._ID)
 
@@ -2195,15 +3005,45 @@ func (p *ADLParser) TypeParam() (localctx ITypeParamContext) {
 	return localctx
 }
 
-// ITypeParamErrorContext is an interface to support dynamic dispatch.
 type ITypeParamErrorContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllTypeParamError() []ITypeParamErrorContext
+	//  ruleListIndexedGetterDecl
+	TypeParamError(i int) ITypeParamErrorContext
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	LCHEVR() antlr.TerminalNode
+	RCHEVR() antlr.TerminalNode
+	//tokenListGetterDecl
+	AllID() []antlr.TerminalNode
+	AllCOMMA() []antlr.TerminalNode
+	//tokenListIndexedGetterDecl
+	ID(i int) antlr.TerminalNode
+	COMMA(i int) antlr.TerminalNode
+
 	// IsTypeParamErrorContext differentiates from other interfaces.
-	IsTypeParamErrorContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type TypeParamErrorContext struct {
@@ -2233,6 +3073,19 @@ func NewTypeParamErrorContext(parser antlr.Parser, parent antlr.ParserRuleContex
 
 func (s *TypeParamErrorContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
 func (s *TypeParamErrorContext) AllID() []antlr.TerminalNode {
 	return s.GetTokens(ADLParserID)
 }
@@ -2250,7 +3103,8 @@ func (s *TypeParamErrorContext) RCHEVR() antlr.TerminalNode {
 }
 
 func (s *TypeParamErrorContext) AllTypeParamError() []ITypeParamErrorContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITypeParamErrorContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*TypeParamErrorContext)(nil)).Elem())
 	var tst = make([]ITypeParamErrorContext, len(ts))
 
 	for i, t := range ts {
@@ -2263,7 +3117,7 @@ func (s *TypeParamErrorContext) AllTypeParamError() []ITypeParamErrorContext {
 }
 
 func (s *TypeParamErrorContext) TypeParamError(i int) ITypeParamErrorContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeParamErrorContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeParamErrorContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -2280,6 +3134,7 @@ func (s *TypeParamErrorContext) COMMA(i int) antlr.TerminalNode {
 	return s.GetToken(ADLParserCOMMA, i)
 }
 
+//provideCopyFrom
 func (s *TypeParamErrorContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -2288,22 +3143,26 @@ func (s *TypeParamErrorContext) ToStringTree(ruleNames []string, recog antlr.Rec
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
 func (s *TypeParamErrorContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeParamErrorEntryListener); ok {
 		listenerT.EnterTypeParamError(s)
 	}
 }
 
 func (s *TypeParamErrorContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeParamErrorExitListener); ok {
 		listenerT.ExitTypeParamError(s)
 	}
 }
 
+//extensionMembers
+
 func (p *ADLParser) TypeParamError() (localctx ITypeParamErrorContext) {
 	localctx = NewTypeParamErrorContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 12, ADLParserRULE_typeParamError)
-	var _la int
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -2384,15 +3243,37 @@ func (p *ADLParser) TypeParamError() (localctx ITypeParamErrorContext) {
 	return localctx
 }
 
-// ITypeExprContext is an interface to support dynamic dispatch.
 type ITypeExprContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsTypeExprContext differentiates from other interfaces.
-	IsTypeExprContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type TypeExprContext struct {
@@ -2422,6 +3303,21 @@ func NewTypeExprContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 
 func (s *TypeExprContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *TypeExprContext) CopyFrom(ctx *TypeExprContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -2434,10 +3330,17 @@ func (s *TypeExprContext) ToStringTree(ruleNames []string, recog antlr.Recognize
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
 type TypeExpressionContext struct {
 	*TypeExprContext
+	//RuleContextDecl
 	_typeExprElem ITypeExprElemContext
-	typep         []ITypeExprElemContext
+	//RuleContextListDecl
+	typep []ITypeExprElemContext
 }
 
 func NewTypeExpressionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *TypeExpressionContext {
@@ -2450,18 +3353,64 @@ func NewTypeExpressionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 	return p
 }
 
-func (s *TypeExpressionContext) Get_typeExprElem() ITypeExprElemContext { return s._typeExprElem }
+type ITypeExpressionContext interface {
+	//Current rule
+	ITypeExprContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllTypeExprElem() []ITypeExprElemContext
+	//  ruleListIndexedGetterDecl
+	TypeExprElem(i int) ITypeExprElemContext
 
+	//  tokenGetterDecl
+	LCHEVR() antlr.TerminalNode
+	RCHEVR() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllCOMMA() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	COMMA(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+
+	//  ruleContextListDecls
+	GetTypep() []ITypeExprElemContext
+
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*TypeExpressionContext) IsTypeExpressionContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+func (s *TypeExpressionContext) Get_typeExprElem() ITypeExprElemContext  { return s._typeExprElem }
 func (s *TypeExpressionContext) Set_typeExprElem(v ITypeExprElemContext) { s._typeExprElem = v }
 
-func (s *TypeExpressionContext) GetTypep() []ITypeExprElemContext { return s.typep }
-
+//AltLabelStructDecl ruleContextListDecls
+func (s *TypeExpressionContext) GetTypep() []ITypeExprElemContext  { return s.typep }
 func (s *TypeExpressionContext) SetTypep(v []ITypeExprElemContext) { s.typep = v }
 
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *TypeExpressionContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *TypeExpressionContext) LCHEVR() antlr.TerminalNode {
 	return s.GetToken(ADLParserLCHEVR, 0)
 }
@@ -2471,7 +3420,8 @@ func (s *TypeExpressionContext) RCHEVR() antlr.TerminalNode {
 }
 
 func (s *TypeExpressionContext) AllTypeExprElem() []ITypeExprElemContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITypeExprElemContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*TypeExprElemContext)(nil)).Elem())
 	var tst = make([]ITypeExprElemContext, len(ts))
 
 	for i, t := range ts {
@@ -2484,7 +3434,7 @@ func (s *TypeExpressionContext) AllTypeExprElem() []ITypeExprElemContext {
 }
 
 func (s *TypeExpressionContext) TypeExprElem(i int) ITypeExprElemContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeExprElemContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeExprElemContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -2502,21 +3452,24 @@ func (s *TypeExpressionContext) COMMA(i int) antlr.TerminalNode {
 }
 
 func (s *TypeExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeExpressionEntryListener); ok {
 		listenerT.EnterTypeExpression(s)
 	}
 }
 
 func (s *TypeExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeExpressionExitListener); ok {
 		listenerT.ExitTypeExpression(s)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *ADLParser) TypeExpr() (localctx ITypeExprContext) {
 	localctx = NewTypeExprContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 14, ADLParserRULE_typeExpr)
-	var _la int
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -2546,6 +3499,7 @@ func (p *ADLParser) TypeExpr() (localctx ITypeExprContext) {
 		var _x = p.TypeExprElem()
 
 		localctx.(*TypeExpressionContext)._typeExprElem = _x
+
 	}
 	localctx.(*TypeExpressionContext).typep = append(localctx.(*TypeExpressionContext).typep, localctx.(*TypeExpressionContext)._typeExprElem)
 	p.SetState(196)
@@ -2563,6 +3517,7 @@ func (p *ADLParser) TypeExpr() (localctx ITypeExprContext) {
 			var _x = p.TypeExprElem()
 
 			localctx.(*TypeExpressionContext)._typeExprElem = _x
+
 		}
 		localctx.(*TypeExpressionContext).typep = append(localctx.(*TypeExpressionContext).typep, localctx.(*TypeExpressionContext)._typeExprElem)
 
@@ -2578,15 +3533,37 @@ func (p *ADLParser) TypeExpr() (localctx ITypeExprContext) {
 	return localctx
 }
 
-// ITypeExprElemContext is an interface to support dynamic dispatch.
 type ITypeExprElemContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsTypeExprElemContext differentiates from other interfaces.
-	IsTypeExprElemContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type TypeExprElemContext struct {
@@ -2616,6 +3593,21 @@ func NewTypeExprElemContext(parser antlr.Parser, parent antlr.ParserRuleContext,
 
 func (s *TypeExprElemContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *TypeExprElemContext) CopyFrom(ctx *TypeExprElemContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -2628,11 +3620,19 @@ func (s *TypeExprElemContext) ToStringTree(ruleNames []string, recog antlr.Recog
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
 type TypeExpressionElemContext struct {
 	*TypeExprElemContext
-	a             antlr.Token
+	//TokenDecl
+	a antlr.Token
+	//RuleContextDecl
 	_typeExprElem ITypeExprElemContext
-	typep         []ITypeExprElemContext
+	//RuleContextListDecl
+	typep []ITypeExprElemContext
 }
 
 func NewTypeExpressionElemContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *TypeExpressionElemContext {
@@ -2645,22 +3645,69 @@ func NewTypeExpressionElemContext(parser antlr.Parser, ctx antlr.ParserRuleConte
 	return p
 }
 
-func (s *TypeExpressionElemContext) GetA() antlr.Token { return s.a }
+type ITypeExpressionElemContext interface {
+	//Current rule
+	ITypeExprElemContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllTypeExprElem() []ITypeExprElemContext
+	//  ruleListIndexedGetterDecl
+	TypeExprElem(i int) ITypeExprElemContext
 
+	//  tokenGetterDecl
+	ID() antlr.TerminalNode
+	LCHEVR() antlr.TerminalNode
+	RCHEVR() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllCOMMA() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	COMMA(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetA() antlr.Token
+
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+
+	//  ruleContextListDecls
+	GetTypep() []ITypeExprElemContext
+
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*TypeExpressionElemContext) IsTypeExpressionElemContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *TypeExpressionElemContext) GetA() antlr.Token  { return s.a }
 func (s *TypeExpressionElemContext) SetA(v antlr.Token) { s.a = v }
 
-func (s *TypeExpressionElemContext) Get_typeExprElem() ITypeExprElemContext { return s._typeExprElem }
+//AltLabelStructDecl tokenTypeDecls
 
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+func (s *TypeExpressionElemContext) Get_typeExprElem() ITypeExprElemContext  { return s._typeExprElem }
 func (s *TypeExpressionElemContext) Set_typeExprElem(v ITypeExprElemContext) { s._typeExprElem = v }
 
-func (s *TypeExpressionElemContext) GetTypep() []ITypeExprElemContext { return s.typep }
-
+//AltLabelStructDecl ruleContextListDecls
+func (s *TypeExpressionElemContext) GetTypep() []ITypeExprElemContext  { return s.typep }
 func (s *TypeExpressionElemContext) SetTypep(v []ITypeExprElemContext) { s.typep = v }
 
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *TypeExpressionElemContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *TypeExpressionElemContext) ID() antlr.TerminalNode {
 	return s.GetToken(ADLParserID, 0)
 }
@@ -2674,7 +3721,8 @@ func (s *TypeExpressionElemContext) RCHEVR() antlr.TerminalNode {
 }
 
 func (s *TypeExpressionElemContext) AllTypeExprElem() []ITypeExprElemContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITypeExprElemContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*TypeExprElemContext)(nil)).Elem())
 	var tst = make([]ITypeExprElemContext, len(ts))
 
 	for i, t := range ts {
@@ -2687,7 +3735,7 @@ func (s *TypeExpressionElemContext) AllTypeExprElem() []ITypeExprElemContext {
 }
 
 func (s *TypeExpressionElemContext) TypeExprElem(i int) ITypeExprElemContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeExprElemContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeExprElemContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -2705,21 +3753,24 @@ func (s *TypeExpressionElemContext) COMMA(i int) antlr.TerminalNode {
 }
 
 func (s *TypeExpressionElemContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeExpressionElemEntryListener); ok {
 		listenerT.EnterTypeExpressionElem(s)
 	}
 }
 
 func (s *TypeExpressionElemContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TypeExpressionElemExitListener); ok {
 		listenerT.ExitTypeExpressionElem(s)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *ADLParser) TypeExprElem() (localctx ITypeExprElemContext) {
 	localctx = NewTypeExprElemContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 16, ADLParserRULE_typeExprElem)
-	var _la int
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -2741,10 +3792,9 @@ func (p *ADLParser) TypeExprElem() (localctx ITypeExprElemContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(201)
-
 		var _m = p.Match(ADLParserID)
-
 		localctx.(*TypeExpressionElemContext).a = _m
+
 	}
 	p.SetState(213)
 	p.GetErrorHandler().Sync(p)
@@ -2761,6 +3811,7 @@ func (p *ADLParser) TypeExprElem() (localctx ITypeExprElemContext) {
 			var _x = p.TypeExprElem()
 
 			localctx.(*TypeExpressionElemContext)._typeExprElem = _x
+
 		}
 		localctx.(*TypeExpressionElemContext).typep = append(localctx.(*TypeExpressionElemContext).typep, localctx.(*TypeExpressionElemContext)._typeExprElem)
 		p.SetState(208)
@@ -2778,6 +3829,7 @@ func (p *ADLParser) TypeExprElem() (localctx ITypeExprElemContext) {
 				var _x = p.TypeExprElem()
 
 				localctx.(*TypeExpressionElemContext)._typeExprElem = _x
+
 			}
 			localctx.(*TypeExpressionElemContext).typep = append(localctx.(*TypeExpressionElemContext).typep, localctx.(*TypeExpressionElemContext)._typeExprElem)
 
@@ -2795,15 +3847,37 @@ func (p *ADLParser) TypeExprElem() (localctx ITypeExprElemContext) {
 	return localctx
 }
 
-// ISoruBodyContext is an interface to support dynamic dispatch.
 type ISoruBodyContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsSoruBodyContext differentiates from other interfaces.
-	IsSoruBodyContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type SoruBodyContext struct {
@@ -2833,6 +3907,21 @@ func NewSoruBodyContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 
 func (s *SoruBodyContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *SoruBodyContext) CopyFrom(ctx *SoruBodyContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -2845,9 +3934,16 @@ func (s *SoruBodyContext) ToStringTree(ruleNames []string, recog antlr.Recognize
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
 type FieldStatementContext struct {
 	*SoruBodyContext
+	//TokenDecl
 	a antlr.Token
+	//TokenDecl
 	b antlr.Token
 }
 
@@ -2861,18 +3957,67 @@ func NewFieldStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 	return p
 }
 
-func (s *FieldStatementContext) GetA() antlr.Token { return s.a }
+type IFieldStatementContext interface {
+	//Current rule
+	ISoruBodyContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	TypeExpr() ITypeExprContext
+	JsonValue() IJsonValueContext
+	//  ruleListGetterDecl
+	AllAnnon() []IAnnonContext
+	//  ruleListIndexedGetterDecl
+	Annon(i int) IAnnonContext
 
-func (s *FieldStatementContext) GetB() antlr.Token { return s.b }
+	//  tokenGetterDecl
+	SEMI() antlr.TerminalNode
+	EQ() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllID() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	ID(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetA() antlr.Token
+	GetB() antlr.Token
 
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*FieldStatementContext) IsFieldStatementContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *FieldStatementContext) GetA() antlr.Token  { return s.a }
 func (s *FieldStatementContext) SetA(v antlr.Token) { s.a = v }
 
+func (s *FieldStatementContext) GetB() antlr.Token  { return s.b }
 func (s *FieldStatementContext) SetB(v antlr.Token) { s.b = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *FieldStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *FieldStatementContext) SEMI() antlr.TerminalNode {
 	return s.GetToken(ADLParserSEMI, 0)
 }
@@ -2886,7 +4031,8 @@ func (s *FieldStatementContext) ID(i int) antlr.TerminalNode {
 }
 
 func (s *FieldStatementContext) AllAnnon() []IAnnonContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IAnnonContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*AnnonContext)(nil)).Elem())
 	var tst = make([]IAnnonContext, len(ts))
 
 	for i, t := range ts {
@@ -2899,7 +4045,7 @@ func (s *FieldStatementContext) AllAnnon() []IAnnonContext {
 }
 
 func (s *FieldStatementContext) Annon(i int) IAnnonContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAnnonContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*AnnonContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -2909,7 +4055,7 @@ func (s *FieldStatementContext) Annon(i int) IAnnonContext {
 }
 
 func (s *FieldStatementContext) TypeExpr() ITypeExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeExprContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeExprContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -2923,7 +4069,7 @@ func (s *FieldStatementContext) EQ() antlr.TerminalNode {
 }
 
 func (s *FieldStatementContext) JsonValue() IJsonValueContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValueContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValueContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -2933,21 +4079,24 @@ func (s *FieldStatementContext) JsonValue() IJsonValueContext {
 }
 
 func (s *FieldStatementContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(FieldStatementEntryListener); ok {
 		listenerT.EnterFieldStatement(s)
 	}
 }
 
 func (s *FieldStatementContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(FieldStatementExitListener); ok {
 		listenerT.ExitFieldStatement(s)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *ADLParser) SoruBody() (localctx ISoruBodyContext) {
 	localctx = NewSoruBodyContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 18, ADLParserRULE_soruBody)
-	var _la int
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -2983,10 +4132,9 @@ func (p *ADLParser) SoruBody() (localctx ISoruBodyContext) {
 	}
 	{
 		p.SetState(221)
-
 		var _m = p.Match(ADLParserID)
-
 		localctx.(*FieldStatementContext).a = _m
+
 	}
 	p.SetState(223)
 	p.GetErrorHandler().Sync(p)
@@ -3001,10 +4149,9 @@ func (p *ADLParser) SoruBody() (localctx ISoruBodyContext) {
 	}
 	{
 		p.SetState(225)
-
 		var _m = p.Match(ADLParserID)
-
 		localctx.(*FieldStatementContext).b = _m
+
 	}
 	p.SetState(228)
 	p.GetErrorHandler().Sync(p)
@@ -3029,15 +4176,37 @@ func (p *ADLParser) SoruBody() (localctx ISoruBodyContext) {
 	return localctx
 }
 
-// IJsonValueContext is an interface to support dynamic dispatch.
 type IJsonValueContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsJsonValueContext differentiates from other interfaces.
-	IsJsonValueContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type JsonValueContext struct {
@@ -3067,6 +4236,21 @@ func NewJsonValueContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 
 func (s *JsonValueContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *JsonValueContext) CopyFrom(ctx *JsonValueContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -3079,8 +4263,14 @@ func (s *JsonValueContext) ToStringTree(ruleNames []string, recog antlr.Recogniz
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
 type TrueFalseNullContext struct {
 	*JsonValueContext
+	//TokenDecl
 	kw antlr.Token
 }
 
@@ -3094,29 +4284,75 @@ func NewTrueFalseNullContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *
 	return p
 }
 
-func (s *TrueFalseNullContext) GetKw() antlr.Token { return s.kw }
+type ITrueFalseNullContext interface {
+	//Current rule
+	IJsonValueContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
+	//  tokenGetterDecl
+	ID() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetKw() antlr.Token
+
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*TrueFalseNullContext) IsTrueFalseNullContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *TrueFalseNullContext) GetKw() antlr.Token  { return s.kw }
 func (s *TrueFalseNullContext) SetKw(v antlr.Token) { s.kw = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *TrueFalseNullContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *TrueFalseNullContext) ID() antlr.TerminalNode {
 	return s.GetToken(ADLParserID, 0)
 }
 
 func (s *TrueFalseNullContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TrueFalseNullEntryListener); ok {
 		listenerT.EnterTrueFalseNull(s)
 	}
 }
 
 func (s *TrueFalseNullContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(TrueFalseNullExitListener); ok {
 		listenerT.ExitTrueFalseNull(s)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type ObjStatementContext struct {
 	*JsonValueContext
@@ -3132,10 +4368,61 @@ func NewObjStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *O
 	return p
 }
 
+type IObjStatementContext interface {
+	//Current rule
+	IJsonValueContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllJsonValue() []IJsonValueContext
+	//  ruleListIndexedGetterDecl
+	JsonValue(i int) IJsonValueContext
+
+	//  tokenGetterDecl
+	LCUR() antlr.TerminalNode
+	RCUR() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllSTR() []antlr.TerminalNode
+	AllCOLON() []antlr.TerminalNode
+	AllCOMMA() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	STR(i int) antlr.TerminalNode
+	COLON(i int) antlr.TerminalNode
+	COMMA(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*ObjStatementContext) IsObjStatementContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *ObjStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *ObjStatementContext) LCUR() antlr.TerminalNode {
 	return s.GetToken(ADLParserLCUR, 0)
 }
@@ -3161,7 +4448,8 @@ func (s *ObjStatementContext) COLON(i int) antlr.TerminalNode {
 }
 
 func (s *ObjStatementContext) AllJsonValue() []IJsonValueContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IJsonValueContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*JsonValueContext)(nil)).Elem())
 	var tst = make([]IJsonValueContext, len(ts))
 
 	for i, t := range ts {
@@ -3174,7 +4462,7 @@ func (s *ObjStatementContext) AllJsonValue() []IJsonValueContext {
 }
 
 func (s *ObjStatementContext) JsonValue(i int) IJsonValueContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValueContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValueContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -3192,19 +4480,24 @@ func (s *ObjStatementContext) COMMA(i int) antlr.TerminalNode {
 }
 
 func (s *ObjStatementContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ObjStatementEntryListener); ok {
 		listenerT.EnterObjStatement(s)
 	}
 }
 
 func (s *ObjStatementContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ObjStatementExitListener); ok {
 		listenerT.ExitObjStatement(s)
 	}
 }
 
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
+
 type FloatStatementContext struct {
 	*JsonValueContext
+	//TokenDecl
 	f antlr.Token
 }
 
@@ -3218,29 +4511,75 @@ func NewFloatStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 	return p
 }
 
-func (s *FloatStatementContext) GetF() antlr.Token { return s.f }
+type IFloatStatementContext interface {
+	//Current rule
+	IJsonValueContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
+	//  tokenGetterDecl
+	FLT() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetF() antlr.Token
+
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*FloatStatementContext) IsFloatStatementContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *FloatStatementContext) GetF() antlr.Token  { return s.f }
 func (s *FloatStatementContext) SetF(v antlr.Token) { s.f = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *FloatStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *FloatStatementContext) FLT() antlr.TerminalNode {
 	return s.GetToken(ADLParserFLT, 0)
 }
 
 func (s *FloatStatementContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(FloatStatementEntryListener); ok {
 		listenerT.EnterFloatStatement(s)
 	}
 }
 
 func (s *FloatStatementContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(FloatStatementExitListener); ok {
 		listenerT.ExitFloatStatement(s)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type ArrayStatementContext struct {
 	*JsonValueContext
@@ -3256,10 +4595,57 @@ func NewArrayStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 	return p
 }
 
+type IArrayStatementContext interface {
+	//Current rule
+	IJsonValueContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllJsonValue() []IJsonValueContext
+	//  ruleListIndexedGetterDecl
+	JsonValue(i int) IJsonValueContext
+
+	//  tokenGetterDecl
+	LSQ() antlr.TerminalNode
+	RSQ() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllCOMMA() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	COMMA(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*ArrayStatementContext) IsArrayStatementContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *ArrayStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *ArrayStatementContext) LSQ() antlr.TerminalNode {
 	return s.GetToken(ADLParserLSQ, 0)
 }
@@ -3269,7 +4655,8 @@ func (s *ArrayStatementContext) RSQ() antlr.TerminalNode {
 }
 
 func (s *ArrayStatementContext) AllJsonValue() []IJsonValueContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IJsonValueContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*JsonValueContext)(nil)).Elem())
 	var tst = make([]IJsonValueContext, len(ts))
 
 	for i, t := range ts {
@@ -3282,7 +4669,7 @@ func (s *ArrayStatementContext) AllJsonValue() []IJsonValueContext {
 }
 
 func (s *ArrayStatementContext) JsonValue(i int) IJsonValueContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValueContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValueContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -3300,19 +4687,24 @@ func (s *ArrayStatementContext) COMMA(i int) antlr.TerminalNode {
 }
 
 func (s *ArrayStatementContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ArrayStatementEntryListener); ok {
 		listenerT.EnterArrayStatement(s)
 	}
 }
 
 func (s *ArrayStatementContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(ArrayStatementExitListener); ok {
 		listenerT.ExitArrayStatement(s)
 	}
 }
 
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
+
 type NumberStatementContext struct {
 	*JsonValueContext
+	//TokenDecl
 	n antlr.Token
 }
 
@@ -3326,32 +4718,79 @@ func NewNumberStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext)
 	return p
 }
 
-func (s *NumberStatementContext) GetN() antlr.Token { return s.n }
+type INumberStatementContext interface {
+	//Current rule
+	IJsonValueContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
+	//  tokenGetterDecl
+	INT() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetN() antlr.Token
+
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*NumberStatementContext) IsNumberStatementContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *NumberStatementContext) GetN() antlr.Token  { return s.n }
 func (s *NumberStatementContext) SetN(v antlr.Token) { s.n = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *NumberStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *NumberStatementContext) INT() antlr.TerminalNode {
 	return s.GetToken(ADLParserINT, 0)
 }
 
 func (s *NumberStatementContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(NumberStatementEntryListener); ok {
 		listenerT.EnterNumberStatement(s)
 	}
 }
 
 func (s *NumberStatementContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(NumberStatementExitListener); ok {
 		listenerT.ExitNumberStatement(s)
 	}
 }
 
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
+
 type StringStatementContext struct {
 	*JsonValueContext
+	//TokenDecl
 	s antlr.Token
 }
 
@@ -3365,34 +4804,79 @@ func NewStringStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext)
 	return p
 }
 
-func (s *StringStatementContext) GetS() antlr.Token { return s.s }
+type IStringStatementContext interface {
+	//Current rule
+	IJsonValueContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
 
+	//  tokenGetterDecl
+	STR() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	GetS() antlr.Token
+
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*StringStatementContext) IsStringStatementContext() {}
+
+//AltLabelStructDecl tokenDecls
+func (s *StringStatementContext) GetS() antlr.Token  { return s.s }
 func (s *StringStatementContext) SetS(v antlr.Token) { s.s = v }
 
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *StringStatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *StringStatementContext) STR() antlr.TerminalNode {
 	return s.GetToken(ADLParserSTR, 0)
 }
 
 func (s *StringStatementContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(StringStatementEntryListener); ok {
 		listenerT.EnterStringStatement(s)
 	}
 }
 
 func (s *StringStatementContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ADLParserListener); ok {
+	if listenerT, ok := listener.(StringStatementExitListener); ok {
 		listenerT.ExitStringStatement(s)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 	localctx = NewJsonValueContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 20, ADLParserRULE_jsonValue)
-	var _la int
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -3419,10 +4903,9 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(232)
-
 			var _m = p.Match(ADLParserSTR)
-
 			localctx.(*StringStatementContext).s = _m
+
 		}
 
 	case ADLParserID:
@@ -3430,10 +4913,9 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(233)
-
 			var _m = p.Match(ADLParserID)
-
 			localctx.(*TrueFalseNullContext).kw = _m
+
 		}
 
 	case ADLParserINT:
@@ -3441,10 +4923,9 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(234)
-
 			var _m = p.Match(ADLParserINT)
-
 			localctx.(*NumberStatementContext).n = _m
+
 		}
 
 	case ADLParserFLT:
@@ -3452,10 +4933,9 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 		p.EnterOuterAlt(localctx, 4)
 		{
 			p.SetState(235)
-
 			var _m = p.Match(ADLParserFLT)
-
 			localctx.(*FloatStatementContext).f = _m
+
 		}
 
 	case ADLParserLSQ:

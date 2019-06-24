@@ -93,7 +93,7 @@ func (et *exerciseTron) Run() error {
 }
 
 type adl_listener struct {
-	*parser.BaseADLParserListener
+	parser.ADLParserListener
 	//
 	baseR  *antlr.BaseRecognizer
 	indent string
@@ -148,7 +148,9 @@ func BuildAdlAST(str string) (ctree.Tree, *antlr.BaseLexer, antlr.TokenStream, e
 }
 
 type ADLBuildListener struct {
-	*parser.BaseADLParserListener
+	// *parser.ADLParser
+	// parser.ADLParserListener
+	*antlr.BaseParseTreeListener
 	Builder ctree.WalkableBuilder
 	baseR   *antlr.BaseRecognizer
 	indent  string

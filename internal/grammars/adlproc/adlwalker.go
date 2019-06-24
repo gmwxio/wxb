@@ -84,11 +84,17 @@ func (et *walkADL) Run() error {
 	fmt.Printf("-----\n")
 	// fmt.Printf("ret %#+v\n", tbl)
 	antlr.ParseTreeWalkerDefault.Walk(tbl, ret)
+	fmt.Printf("*****\n")
+	// Custom visitor
+	v := &ADLWalkerVisitor{}
+	v.VisitAdl(ret, v)
+
 	return tbl.err
 }
 
 type WalkListener struct {
-	*walker.BaseADLWalkerListener
+	// walker.ADLWalkerListener
+	*antlr.BaseParseTreeListener
 	//
 	ruleCount int
 	protoDS   *descriptor.FileDescriptorSet

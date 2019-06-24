@@ -5,10 +5,13 @@ tokens {
 options {  tokenVocab = ADLWalker; }
 
 adl
-    : DOWN ADL DOWN tld UP UP EOF
+    : DOWN ADL DOWN name UP UP EOF
+;
+name
+    : Name  (DOWN annotation* TypeParam? tld* UP)?                  #NameNode
 ;
 tld
-    : Name  (DOWN annotation* TypeParam? tld* UP)?                  #NameNode
+    : name                                                          #NameRule
     | Type  (DOWN annotation* TypeParam? typeExpr_? jsonVal* UP)?   #TypeNode
     | Exnotation DOWN jsonVal UP                                    #ExnotationNode
     | Field (DOWN annotation* typeExpr_? jsonVal? UP)?              #NameBodyNode

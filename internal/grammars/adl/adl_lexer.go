@@ -1,13 +1,13 @@
-// Code generated from adlLexer.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from adlLexer.g4 by ANTLR 4.7.
 
 package parser
 
 import (
 	"fmt"
 	"unicode"
-
-	"github.com/wxio/goantlr"
 )
+
+import "github.com/wxio/goantlr"
 
 // Suppress unused import error
 var _ = fmt.Printf

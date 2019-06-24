@@ -1,13 +1,12 @@
-// Code generated from DNAC_B_Walker.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from DNAC_B_Walker.g4 by ANTLR 4.7.
 
 package dnacb // DNAC_B_Walker
 import (
 	"fmt"
 	"reflect"
 	"strconv"
-
-	"github.com/wxio/goantlr"
 )
+import "github.com/wxio/goantlr"
 
 // Suppress unused import errors
 var _ = fmt.Printf
@@ -15,40 +14,59 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 56, 75, 4,
-	2, 9, 2, 4, 3, 9, 3, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3,
-	3, 3, 3, 3, 3, 7, 3, 18, 10, 3, 12, 3, 14, 3, 21, 11, 3, 3, 3, 5, 3, 24,
-	10, 3, 3, 3, 7, 3, 27, 10, 3, 12, 3, 14, 3, 30, 11, 3, 3, 3, 5, 3, 33,
-	10, 3, 3, 3, 3, 3, 3, 3, 7, 3, 38, 10, 3, 12, 3, 14, 3, 41, 11, 3, 3, 3,
-	5, 3, 44, 10, 3, 3, 3, 5, 3, 47, 10, 3, 3, 3, 5, 3, 50, 10, 3, 3, 3, 5,
-	3, 53, 10, 3, 3, 3, 3, 3, 3, 3, 7, 3, 58, 10, 3, 12, 3, 14, 3, 61, 11,
-	3, 3, 3, 5, 3, 64, 10, 3, 3, 3, 5, 3, 67, 10, 3, 3, 3, 5, 3, 70, 10, 3,
-	3, 3, 5, 3, 73, 10, 3, 3, 3, 2, 2, 4, 2, 4, 2, 2, 2, 88, 2, 6, 3, 2, 2,
-	2, 4, 72, 3, 2, 2, 2, 6, 7, 7, 26, 2, 2, 7, 8, 7, 53, 2, 2, 8, 9, 7, 26,
-	2, 2, 9, 10, 5, 4, 3, 2, 10, 11, 7, 27, 2, 2, 11, 12, 7, 27, 2, 2, 12,
-	13, 7, 2, 2, 3, 13, 3, 3, 2, 2, 2, 14, 32, 7, 54, 2, 2, 15, 19, 7, 26,
-	2, 2, 16, 18, 7, 33, 2, 2, 17, 16, 3, 2, 2, 2, 18, 21, 3, 2, 2, 2, 19,
-	17, 3, 2, 2, 2, 19, 20, 3, 2, 2, 2, 20, 23, 3, 2, 2, 2, 21, 19, 3, 2, 2,
-	2, 22, 24, 7, 38, 2, 2, 23, 22, 3, 2, 2, 2, 23, 24, 3, 2, 2, 2, 24, 28,
-	3, 2, 2, 2, 25, 27, 5, 4, 3, 2, 26, 25, 3, 2, 2, 2, 27, 30, 3, 2, 2, 2,
-	28, 26, 3, 2, 2, 2, 28, 29, 3, 2, 2, 2, 29, 31, 3, 2, 2, 2, 30, 28, 3,
-	2, 2, 2, 31, 33, 7, 27, 2, 2, 32, 15, 3, 2, 2, 2, 32, 33, 3, 2, 2, 2, 33,
-	73, 3, 2, 2, 2, 34, 52, 7, 37, 2, 2, 35, 39, 7, 26, 2, 2, 36, 38, 7, 33,
-	2, 2, 37, 36, 3, 2, 2, 2, 38, 41, 3, 2, 2, 2, 39, 37, 3, 2, 2, 2, 39, 40,
-	3, 2, 2, 2, 40, 43, 3, 2, 2, 2, 41, 39, 3, 2, 2, 2, 42, 44, 7, 38, 2, 2,
-	43, 42, 3, 2, 2, 2, 43, 44, 3, 2, 2, 2, 44, 46, 3, 2, 2, 2, 45, 47, 7,
-	39, 2, 2, 46, 45, 3, 2, 2, 2, 46, 47, 3, 2, 2, 2, 47, 49, 3, 2, 2, 2, 48,
-	50, 7, 56, 2, 2, 49, 48, 3, 2, 2, 2, 49, 50, 3, 2, 2, 2, 50, 51, 3, 2,
-	2, 2, 51, 53, 7, 27, 2, 2, 52, 35, 3, 2, 2, 2, 52, 53, 3, 2, 2, 2, 53,
-	73, 3, 2, 2, 2, 54, 69, 7, 41, 2, 2, 55, 59, 7, 26, 2, 2, 56, 58, 7, 33,
-	2, 2, 57, 56, 3, 2, 2, 2, 58, 61, 3, 2, 2, 2, 59, 57, 3, 2, 2, 2, 59, 60,
-	3, 2, 2, 2, 60, 63, 3, 2, 2, 2, 61, 59, 3, 2, 2, 2, 62, 64, 7, 39, 2, 2,
-	63, 62, 3, 2, 2, 2, 63, 64, 3, 2, 2, 2, 64, 66, 3, 2, 2, 2, 65, 67, 7,
-	56, 2, 2, 66, 65, 3, 2, 2, 2, 66, 67, 3, 2, 2, 2, 67, 68, 3, 2, 2, 2, 68,
-	70, 7, 27, 2, 2, 69, 55, 3, 2, 2, 2, 69, 70, 3, 2, 2, 2, 70, 73, 3, 2,
-	2, 2, 71, 73, 7, 55, 2, 2, 72, 14, 3, 2, 2, 2, 72, 34, 3, 2, 2, 2, 72,
-	54, 3, 2, 2, 2, 72, 71, 3, 2, 2, 2, 73, 5, 3, 2, 2, 2, 16, 19, 23, 28,
-	32, 39, 43, 46, 49, 52, 59, 63, 66, 69, 72,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 56, 116,
+	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
+	3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 7, 3, 20, 10, 3, 12, 3, 14, 3, 23, 11, 3,
+	3, 3, 7, 3, 26, 10, 3, 12, 3, 14, 3, 29, 11, 3, 3, 3, 5, 3, 32, 10, 3,
+	3, 4, 3, 4, 3, 4, 7, 4, 37, 10, 4, 12, 4, 14, 4, 40, 11, 4, 3, 4, 5, 4,
+	43, 10, 4, 3, 4, 7, 4, 46, 10, 4, 12, 4, 14, 4, 49, 11, 4, 3, 4, 5, 4,
+	52, 10, 4, 3, 4, 3, 4, 3, 4, 7, 4, 57, 10, 4, 12, 4, 14, 4, 60, 11, 4,
+	3, 4, 3, 4, 5, 4, 64, 10, 4, 3, 4, 5, 4, 67, 10, 4, 3, 4, 3, 4, 3, 4, 7,
+	4, 72, 10, 4, 12, 4, 14, 4, 75, 11, 4, 3, 4, 5, 4, 78, 10, 4, 3, 4, 5,
+	4, 81, 10, 4, 3, 4, 3, 4, 3, 4, 7, 4, 86, 10, 4, 12, 4, 14, 4, 89, 11,
+	4, 3, 4, 3, 4, 5, 4, 93, 10, 4, 3, 4, 3, 4, 3, 4, 7, 4, 98, 10, 4, 12,
+	4, 14, 4, 101, 11, 4, 3, 4, 5, 4, 104, 10, 4, 3, 4, 5, 4, 107, 10, 4, 3,
+	4, 3, 4, 3, 4, 5, 4, 112, 10, 4, 5, 4, 114, 10, 4, 3, 4, 2, 2, 5, 2, 4,
+	6, 2, 2, 2, 136, 2, 8, 3, 2, 2, 2, 4, 16, 3, 2, 2, 2, 6, 113, 3, 2, 2,
+	2, 8, 9, 7, 26, 2, 2, 9, 10, 7, 53, 2, 2, 10, 11, 7, 26, 2, 2, 11, 12,
+	5, 4, 3, 2, 12, 13, 7, 27, 2, 2, 13, 14, 7, 27, 2, 2, 14, 15, 7, 2, 2,
+	3, 15, 3, 3, 2, 2, 2, 16, 31, 7, 54, 2, 2, 17, 21, 7, 26, 2, 2, 18, 20,
+	7, 33, 2, 2, 19, 18, 3, 2, 2, 2, 20, 23, 3, 2, 2, 2, 21, 19, 3, 2, 2, 2,
+	21, 22, 3, 2, 2, 2, 22, 27, 3, 2, 2, 2, 23, 21, 3, 2, 2, 2, 24, 26, 5,
+	6, 4, 2, 25, 24, 3, 2, 2, 2, 26, 29, 3, 2, 2, 2, 27, 25, 3, 2, 2, 2, 27,
+	28, 3, 2, 2, 2, 28, 30, 3, 2, 2, 2, 29, 27, 3, 2, 2, 2, 30, 32, 7, 27,
+	2, 2, 31, 17, 3, 2, 2, 2, 31, 32, 3, 2, 2, 2, 32, 5, 3, 2, 2, 2, 33, 51,
+	7, 54, 2, 2, 34, 38, 7, 26, 2, 2, 35, 37, 7, 33, 2, 2, 36, 35, 3, 2, 2,
+	2, 37, 40, 3, 2, 2, 2, 38, 36, 3, 2, 2, 2, 38, 39, 3, 2, 2, 2, 39, 42,
+	3, 2, 2, 2, 40, 38, 3, 2, 2, 2, 41, 43, 7, 38, 2, 2, 42, 41, 3, 2, 2, 2,
+	42, 43, 3, 2, 2, 2, 43, 47, 3, 2, 2, 2, 44, 46, 5, 6, 4, 2, 45, 44, 3,
+	2, 2, 2, 46, 49, 3, 2, 2, 2, 47, 45, 3, 2, 2, 2, 47, 48, 3, 2, 2, 2, 48,
+	50, 3, 2, 2, 2, 49, 47, 3, 2, 2, 2, 50, 52, 7, 27, 2, 2, 51, 34, 3, 2,
+	2, 2, 51, 52, 3, 2, 2, 2, 52, 114, 3, 2, 2, 2, 53, 66, 7, 37, 2, 2, 54,
+	58, 7, 26, 2, 2, 55, 57, 7, 33, 2, 2, 56, 55, 3, 2, 2, 2, 57, 60, 3, 2,
+	2, 2, 58, 56, 3, 2, 2, 2, 58, 59, 3, 2, 2, 2, 59, 61, 3, 2, 2, 2, 60, 58,
+	3, 2, 2, 2, 61, 63, 7, 38, 2, 2, 62, 64, 7, 39, 2, 2, 63, 62, 3, 2, 2,
+	2, 63, 64, 3, 2, 2, 2, 64, 65, 3, 2, 2, 2, 65, 67, 7, 27, 2, 2, 66, 54,
+	3, 2, 2, 2, 66, 67, 3, 2, 2, 2, 67, 114, 3, 2, 2, 2, 68, 80, 7, 37, 2,
+	2, 69, 73, 7, 26, 2, 2, 70, 72, 7, 33, 2, 2, 71, 70, 3, 2, 2, 2, 72, 75,
+	3, 2, 2, 2, 73, 71, 3, 2, 2, 2, 73, 74, 3, 2, 2, 2, 74, 77, 3, 2, 2, 2,
+	75, 73, 3, 2, 2, 2, 76, 78, 7, 56, 2, 2, 77, 76, 3, 2, 2, 2, 77, 78, 3,
+	2, 2, 2, 78, 79, 3, 2, 2, 2, 79, 81, 7, 27, 2, 2, 80, 69, 3, 2, 2, 2, 80,
+	81, 3, 2, 2, 2, 81, 114, 3, 2, 2, 2, 82, 92, 7, 41, 2, 2, 83, 87, 7, 26,
+	2, 2, 84, 86, 7, 33, 2, 2, 85, 84, 3, 2, 2, 2, 86, 89, 3, 2, 2, 2, 87,
+	85, 3, 2, 2, 2, 87, 88, 3, 2, 2, 2, 88, 90, 3, 2, 2, 2, 89, 87, 3, 2, 2,
+	2, 90, 91, 7, 39, 2, 2, 91, 93, 7, 27, 2, 2, 92, 83, 3, 2, 2, 2, 92, 93,
+	3, 2, 2, 2, 93, 114, 3, 2, 2, 2, 94, 106, 7, 41, 2, 2, 95, 99, 7, 26, 2,
+	2, 96, 98, 7, 33, 2, 2, 97, 96, 3, 2, 2, 2, 98, 101, 3, 2, 2, 2, 99, 97,
+	3, 2, 2, 2, 99, 100, 3, 2, 2, 2, 100, 103, 3, 2, 2, 2, 101, 99, 3, 2, 2,
+	2, 102, 104, 7, 56, 2, 2, 103, 102, 3, 2, 2, 2, 103, 104, 3, 2, 2, 2, 104,
+	105, 3, 2, 2, 2, 105, 107, 7, 27, 2, 2, 106, 95, 3, 2, 2, 2, 106, 107,
+	3, 2, 2, 2, 107, 114, 3, 2, 2, 2, 108, 111, 7, 55, 2, 2, 109, 110, 7, 26,
+	2, 2, 110, 112, 7, 27, 2, 2, 111, 109, 3, 2, 2, 2, 111, 112, 3, 2, 2, 2,
+	112, 114, 3, 2, 2, 2, 113, 33, 3, 2, 2, 2, 113, 53, 3, 2, 2, 2, 113, 68,
+	3, 2, 2, 2, 113, 82, 3, 2, 2, 2, 113, 94, 3, 2, 2, 2, 113, 108, 3, 2, 2,
+	2, 114, 7, 3, 2, 2, 2, 22, 21, 27, 31, 38, 42, 47, 51, 58, 63, 66, 73,
+	77, 80, 87, 92, 99, 103, 106, 111, 113,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -68,7 +86,7 @@ var symbolicNames = []string{
 }
 
 var ruleNames = []string{
-	"dnac", "tld",
+	"dnac", "name", "tld",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -158,18 +176,48 @@ const (
 // DNAC_B_Walker rules.
 const (
 	DNAC_B_WalkerRULE_dnac = 0
-	DNAC_B_WalkerRULE_tld  = 1
+	DNAC_B_WalkerRULE_name = 1
+	DNAC_B_WalkerRULE_tld  = 2
 )
 
-// IDnacContext is an interface to support dynamic dispatch.
 type IDnacContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	Name() INameContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	DNAC() antlr.TerminalNode
+	EOF() antlr.TerminalNode
+	//tokenListGetterDecl
+	AllDOWN() []antlr.TerminalNode
+	AllUP() []antlr.TerminalNode
+	//tokenListIndexedGetterDecl
+	DOWN(i int) antlr.TerminalNode
+	UP(i int) antlr.TerminalNode
+
 	// IsDnacContext differentiates from other interfaces.
-	IsDnacContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type DnacContext struct {
@@ -199,6 +247,19 @@ func NewDnacContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 
 func (s *DnacContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
 func (s *DnacContext) AllDOWN() []antlr.TerminalNode {
 	return s.GetTokens(DNAC_B_WalkerDOWN)
 }
@@ -211,14 +272,14 @@ func (s *DnacContext) DNAC() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerDNAC, 0)
 }
 
-func (s *DnacContext) Tld() ITldContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITldContext)(nil)).Elem(), 0)
+func (s *DnacContext) Name() INameContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*NameContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(ITldContext)
+	return t.(INameContext)
 }
 
 func (s *DnacContext) AllUP() []antlr.TerminalNode {
@@ -233,6 +294,7 @@ func (s *DnacContext) EOF() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerEOF, 0)
 }
 
+//provideCopyFrom
 func (s *DnacContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -241,27 +303,45 @@ func (s *DnacContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) s
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
 func (s *DnacContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
+	if listenerT, ok := listener.(DnacEntryListener); ok {
 		listenerT.EnterDnac(s)
 	}
 }
 
 func (s *DnacContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
+	if listenerT, ok := listener.(DnacExitListener); ok {
 		listenerT.ExitDnac(s)
 	}
 }
 
-func (s *DnacContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_B_WalkerVisitor:
-		return t.VisitDnac(s)
+func (s *DnacContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_B_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.Dnac != nil {
+		h.Dnac(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *DnacContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case DnacContextVisitor:
+		return t.VisitDnac(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//extensionMembers
 
 func (p *DNAC_B_Walker) Dnac() (localctx IDnacContext) {
 	localctx = NewDnacContext(p, p.GetParserRuleContext(), p.GetState())
@@ -285,46 +365,384 @@ func (p *DNAC_B_Walker) Dnac() (localctx IDnacContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(4)
-		p.Match(DNAC_B_WalkerDOWN)
-	}
-	{
-		p.SetState(5)
-		p.Match(DNAC_B_WalkerDNAC)
-	}
-	{
 		p.SetState(6)
 		p.Match(DNAC_B_WalkerDOWN)
 	}
 	{
 		p.SetState(7)
-		p.Tld()
+		p.Match(DNAC_B_WalkerDNAC)
 	}
 	{
 		p.SetState(8)
-		p.Match(DNAC_B_WalkerUP)
+		p.Match(DNAC_B_WalkerDOWN)
 	}
 	{
 		p.SetState(9)
-		p.Match(DNAC_B_WalkerUP)
+		p.Name()
 	}
 	{
 		p.SetState(10)
+		p.Match(DNAC_B_WalkerUP)
+	}
+	{
+		p.SetState(11)
+		p.Match(DNAC_B_WalkerUP)
+	}
+	{
+		p.SetState(12)
 		p.Match(DNAC_B_WalkerEOF)
 	}
 
 	return localctx
 }
 
-// ITldContext is an interface to support dynamic dispatch.
-type ITldContext interface {
+type INameContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
+	// IsNameContext differentiates from other interfaces.
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
+}
+
+type NameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyNameContext() *NameContext {
+	var p = new(NameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = DNAC_B_WalkerRULE_name
+	return p
+}
+
+func (*NameContext) IsNameContext() {}
+
+func NewNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *NameContext {
+	var p = new(NameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = DNAC_B_WalkerRULE_name
+
+	return p
+}
+
+func (s *NameContext) GetParser() antlr.Parser { return s.parser }
+
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
+func (s *NameContext) CopyFrom(ctx *NameContext) {
+	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
+}
+
+func (s *NameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
+type NameNodeContext struct {
+	*NameContext
+}
+
+func NewNameNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NameNodeContext {
+	var p = new(NameNodeContext)
+
+	p.NameContext = NewEmptyNameContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*NameContext))
+
+	return p
+}
+
+type INameNodeContext interface {
+	//Current rule
+	INameContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllTld() []ITldContext
+	//  ruleListIndexedGetterDecl
+	Tld(i int) ITldContext
+
+	//  tokenGetterDecl
+	Name() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllAnnotation() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	Annotation(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*NameNodeContext) IsNameNodeContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
+func (s *NameNodeContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+//getters
+func (s *NameNodeContext) Name() antlr.TerminalNode {
+	return s.GetToken(DNAC_B_WalkerName, 0)
+}
+
+func (s *NameNodeContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(DNAC_B_WalkerDOWN, 0)
+}
+
+func (s *NameNodeContext) UP() antlr.TerminalNode {
+	return s.GetToken(DNAC_B_WalkerUP, 0)
+}
+
+func (s *NameNodeContext) AllAnnotation() []antlr.TerminalNode {
+	return s.GetTokens(DNAC_B_WalkerAnnotation)
+}
+
+func (s *NameNodeContext) Annotation(i int) antlr.TerminalNode {
+	return s.GetToken(DNAC_B_WalkerAnnotation, i)
+}
+
+func (s *NameNodeContext) AllTld() []ITldContext {
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*TldContext)(nil)).Elem())
+	var tst = make([]ITldContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(ITldContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *NameNodeContext) Tld(i int) ITldContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TldContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ITldContext)
+}
+
+func (s *NameNodeContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(NameNodeEntryListener); ok {
+		listenerT.EnterNameNode(s)
+	}
+}
+
+func (s *NameNodeContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(NameNodeExitListener); ok {
+		listenerT.ExitNameNode(s)
+	}
+}
+
+func (s *NameNodeContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_B_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.NameNode != nil {
+		h.NameNode(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *NameNodeContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case NameNodeContextVisitor:
+		return t.VisitNameNode(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
+//END AltLabelStructDecl
+
+func (p *DNAC_B_Walker) Name() (localctx INameContext) {
+	localctx = NewNameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 2, DNAC_B_WalkerRULE_name)
+	var //TokenTypeDecl
+	_la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	localctx = NewNameNodeContext(p, localctx)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(14)
+		p.Match(DNAC_B_WalkerName)
+	}
+	p.SetState(29)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == DNAC_B_WalkerDOWN {
+		{
+			p.SetState(15)
+			p.Match(DNAC_B_WalkerDOWN)
+		}
+		p.SetState(19)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for _la == DNAC_B_WalkerAnnotation {
+			{
+				p.SetState(16)
+				p.Match(DNAC_B_WalkerAnnotation)
+			}
+
+			p.SetState(21)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		p.SetState(25)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for ((_la-35)&-(0x1f+1)) == 0 && ((1<<uint((_la-35)))&((1<<(DNAC_B_WalkerType-35))|(1<<(DNAC_B_WalkerField-35))|(1<<(DNAC_B_WalkerName-35))|(1<<(DNAC_B_WalkerExnotation-35)))) != 0 {
+			{
+				p.SetState(22)
+				p.Tld()
+			}
+
+			p.SetState(27)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(28)
+			p.Match(DNAC_B_WalkerUP)
+		}
+
+	}
+
+	return localctx
+}
+
+type ITldContext interface {
+	antlr.ParserRuleContext
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsTldContext differentiates from other interfaces.
-	IsTldContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type TldContext struct {
@@ -354,6 +772,21 @@ func NewTldContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 
 func (s *TldContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *TldContext) CopyFrom(ctx *TldContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -366,12 +799,17 @@ func (s *TldContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) st
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-type NameNodeContext struct {
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
+type NameRuleContext struct {
 	*TldContext
 }
 
-func NewNameNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NameNodeContext {
-	var p = new(NameNodeContext)
+func NewNameRuleContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NameRuleContext {
+	var p = new(NameRuleContext)
 
 	p.TldContext = NewEmptyTldContext()
 	p.parser = parser
@@ -380,36 +818,86 @@ func NewNameNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NameN
 	return p
 }
 
-func (s *NameNodeContext) GetRuleContext() antlr.RuleContext {
+type INameRuleContext interface {
+	//Current rule
+	ITldContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllTld() []ITldContext
+	//  ruleListIndexedGetterDecl
+	Tld(i int) ITldContext
+
+	//  tokenGetterDecl
+	Name() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	TypeParam() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllAnnotation() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	Annotation(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*NameRuleContext) IsNameRuleContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
+func (s *NameRuleContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *NameNodeContext) Name() antlr.TerminalNode {
+//getters
+func (s *NameRuleContext) Name() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerName, 0)
 }
 
-func (s *NameNodeContext) DOWN() antlr.TerminalNode {
+func (s *NameRuleContext) DOWN() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerDOWN, 0)
 }
 
-func (s *NameNodeContext) UP() antlr.TerminalNode {
+func (s *NameRuleContext) UP() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerUP, 0)
 }
 
-func (s *NameNodeContext) AllAnnotation() []antlr.TerminalNode {
+func (s *NameRuleContext) AllAnnotation() []antlr.TerminalNode {
 	return s.GetTokens(DNAC_B_WalkerAnnotation)
 }
 
-func (s *NameNodeContext) Annotation(i int) antlr.TerminalNode {
+func (s *NameRuleContext) Annotation(i int) antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerAnnotation, i)
 }
 
-func (s *NameNodeContext) TypeParam() antlr.TerminalNode {
+func (s *NameRuleContext) TypeParam() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerTypeParam, 0)
 }
 
-func (s *NameNodeContext) AllTld() []ITldContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITldContext)(nil)).Elem())
+func (s *NameRuleContext) AllTld() []ITldContext {
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*TldContext)(nil)).Elem())
 	var tst = make([]ITldContext, len(ts))
 
 	for i, t := range ts {
@@ -421,8 +909,8 @@ func (s *NameNodeContext) AllTld() []ITldContext {
 	return tst
 }
 
-func (s *NameNodeContext) Tld(i int) ITldContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITldContext)(nil)).Elem(), i)
+func (s *NameRuleContext) Tld(i int) ITldContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TldContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -431,27 +919,46 @@ func (s *NameNodeContext) Tld(i int) ITldContext {
 	return t.(ITldContext)
 }
 
-func (s *NameNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
-		listenerT.EnterNameNode(s)
+func (s *NameRuleContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(NameRuleEntryListener); ok {
+		listenerT.EnterNameRule(s)
 	}
 }
 
-func (s *NameNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
-		listenerT.ExitNameNode(s)
+func (s *NameRuleContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(NameRuleExitListener); ok {
+		listenerT.ExitNameRule(s)
 	}
 }
 
-func (s *NameNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_B_WalkerVisitor:
-		return t.VisitNameNode(s)
+func (s *NameRuleContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_B_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.NameRule != nil {
+		h.NameRule(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *NameRuleContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case NameRuleContextVisitor:
+		return t.VisitNameRule(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type TypeNodeContext struct {
 	*TldContext
@@ -467,16 +974,69 @@ func NewTypeNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *TypeN
 	return p
 }
 
+type ITypeNodeContext interface {
+	//Current rule
+	ITldContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	Type() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	TypeParam() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	TypeExpr() antlr.TerminalNode
+	Default() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllAnnotation() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	Annotation(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*TypeNodeContext) IsTypeNodeContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *TypeNodeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *TypeNodeContext) Type() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerType, 0)
 }
 
 func (s *TypeNodeContext) DOWN() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerDOWN, 0)
+}
+
+func (s *TypeNodeContext) TypeParam() antlr.TerminalNode {
+	return s.GetToken(DNAC_B_WalkerTypeParam, 0)
 }
 
 func (s *TypeNodeContext) UP() antlr.TerminalNode {
@@ -491,10 +1051,6 @@ func (s *TypeNodeContext) Annotation(i int) antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerAnnotation, i)
 }
 
-func (s *TypeNodeContext) TypeParam() antlr.TerminalNode {
-	return s.GetToken(DNAC_B_WalkerTypeParam, 0)
-}
-
 func (s *TypeNodeContext) TypeExpr() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerTypeExpr, 0)
 }
@@ -504,26 +1060,45 @@ func (s *TypeNodeContext) Default() antlr.TerminalNode {
 }
 
 func (s *TypeNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
+	if listenerT, ok := listener.(TypeNodeEntryListener); ok {
 		listenerT.EnterTypeNode(s)
 	}
 }
 
 func (s *TypeNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
+	if listenerT, ok := listener.(TypeNodeExitListener); ok {
 		listenerT.ExitTypeNode(s)
 	}
 }
 
-func (s *TypeNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_B_WalkerVisitor:
-		return t.VisitTypeNode(s)
+func (s *TypeNodeContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_B_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TypeNode != nil {
+		h.TypeNode(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *TypeNodeContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TypeNodeContextVisitor:
+		return t.VisitTypeNode(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type ExnotationNodeContext struct {
 	*TldContext
@@ -539,35 +1114,106 @@ func NewExnotationNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 	return p
 }
 
+type IExnotationNodeContext interface {
+	//Current rule
+	ITldContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	Exnotation() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*ExnotationNodeContext) IsExnotationNodeContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *ExnotationNodeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *ExnotationNodeContext) Exnotation() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerExnotation, 0)
 }
 
+func (s *ExnotationNodeContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(DNAC_B_WalkerDOWN, 0)
+}
+
+func (s *ExnotationNodeContext) UP() antlr.TerminalNode {
+	return s.GetToken(DNAC_B_WalkerUP, 0)
+}
+
 func (s *ExnotationNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
+	if listenerT, ok := listener.(ExnotationNodeEntryListener); ok {
 		listenerT.EnterExnotationNode(s)
 	}
 }
 
 func (s *ExnotationNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
+	if listenerT, ok := listener.(ExnotationNodeExitListener); ok {
 		listenerT.ExitExnotationNode(s)
 	}
 }
 
-func (s *ExnotationNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_B_WalkerVisitor:
-		return t.VisitExnotationNode(s)
+func (s *ExnotationNodeContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_B_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.ExnotationNode != nil {
+		h.ExnotationNode(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *ExnotationNodeContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case ExnotationNodeContextVisitor:
+		return t.VisitExnotationNode(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type NameBodyNodeContext struct {
 	*TldContext
@@ -583,16 +1229,68 @@ func NewNameBodyNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *N
 	return p
 }
 
+type INameBodyNodeContext interface {
+	//Current rule
+	ITldContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	Field() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	TypeExpr() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	Default() antlr.TerminalNode
+	//  tokenListGetterDecl
+	AllAnnotation() []antlr.TerminalNode
+	//  tokenListIndexedGetterDecl
+	Annotation(i int) antlr.TerminalNode
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*NameBodyNodeContext) IsNameBodyNodeContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *NameBodyNodeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *NameBodyNodeContext) Field() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerField, 0)
 }
 
 func (s *NameBodyNodeContext) DOWN() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerDOWN, 0)
+}
+
+func (s *NameBodyNodeContext) TypeExpr() antlr.TerminalNode {
+	return s.GetToken(DNAC_B_WalkerTypeExpr, 0)
 }
 
 func (s *NameBodyNodeContext) UP() antlr.TerminalNode {
@@ -607,40 +1305,54 @@ func (s *NameBodyNodeContext) Annotation(i int) antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerAnnotation, i)
 }
 
-func (s *NameBodyNodeContext) TypeExpr() antlr.TerminalNode {
-	return s.GetToken(DNAC_B_WalkerTypeExpr, 0)
-}
-
 func (s *NameBodyNodeContext) Default() antlr.TerminalNode {
 	return s.GetToken(DNAC_B_WalkerDefault, 0)
 }
 
 func (s *NameBodyNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
+	if listenerT, ok := listener.(NameBodyNodeEntryListener); ok {
 		listenerT.EnterNameBodyNode(s)
 	}
 }
 
 func (s *NameBodyNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_B_WalkerListener); ok {
+	if listenerT, ok := listener.(NameBodyNodeExitListener); ok {
 		listenerT.ExitNameBodyNode(s)
 	}
 }
 
-func (s *NameBodyNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_B_WalkerVisitor:
-		return t.VisitNameBodyNode(s)
+func (s *NameBodyNodeContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_B_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.NameBodyNode != nil {
+		h.NameBodyNode(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *NameBodyNodeContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case NameBodyNodeContextVisitor:
+		return t.VisitNameBodyNode(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *DNAC_B_Walker) Tld() (localctx ITldContext) {
 	localctx = NewTldContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, DNAC_B_WalkerRULE_tld)
-	var _la int
+	p.EnterRule(localctx, 4, DNAC_B_WalkerRULE_tld)
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -658,171 +1370,104 @@ func (p *DNAC_B_Walker) Tld() (localctx ITldContext) {
 		}
 	}()
 
-	p.SetState(70)
+	p.SetState(111)
 	p.GetErrorHandler().Sync(p)
-
-	switch p.GetTokenStream().LA(1) {
-	case DNAC_B_WalkerName:
-		localctx = NewNameNodeContext(p, localctx)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 19, p.GetParserRuleContext()) {
+	case 1:
+		localctx = NewNameRuleContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(12)
+			p.SetState(31)
 			p.Match(DNAC_B_WalkerName)
 		}
-		p.SetState(30)
+		p.SetState(49)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == DNAC_B_WalkerDOWN {
 			{
-				p.SetState(13)
+				p.SetState(32)
 				p.Match(DNAC_B_WalkerDOWN)
 			}
-			p.SetState(17)
+			p.SetState(36)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == DNAC_B_WalkerAnnotation {
 				{
-					p.SetState(14)
+					p.SetState(33)
 					p.Match(DNAC_B_WalkerAnnotation)
 				}
 
-				p.SetState(19)
+				p.SetState(38)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
-			p.SetState(21)
+			p.SetState(40)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			if _la == DNAC_B_WalkerTypeParam {
 				{
-					p.SetState(20)
+					p.SetState(39)
 					p.Match(DNAC_B_WalkerTypeParam)
 				}
 
 			}
-			p.SetState(26)
+			p.SetState(45)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for ((_la-35)&-(0x1f+1)) == 0 && ((1<<uint((_la-35)))&((1<<(DNAC_B_WalkerType-35))|(1<<(DNAC_B_WalkerField-35))|(1<<(DNAC_B_WalkerName-35))|(1<<(DNAC_B_WalkerExnotation-35)))) != 0 {
 				{
-					p.SetState(23)
+					p.SetState(42)
 					p.Tld()
 				}
 
-				p.SetState(28)
+				p.SetState(47)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(29)
+				p.SetState(48)
 				p.Match(DNAC_B_WalkerUP)
 			}
 
 		}
 
-	case DNAC_B_WalkerType:
+	case 2:
 		localctx = NewTypeNodeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(32)
+			p.SetState(51)
 			p.Match(DNAC_B_WalkerType)
 		}
-		p.SetState(50)
+		p.SetState(64)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == DNAC_B_WalkerDOWN {
 			{
-				p.SetState(33)
+				p.SetState(52)
 				p.Match(DNAC_B_WalkerDOWN)
 			}
-			p.SetState(37)
+			p.SetState(56)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == DNAC_B_WalkerAnnotation {
 				{
-					p.SetState(34)
+					p.SetState(53)
 					p.Match(DNAC_B_WalkerAnnotation)
 				}
 
-				p.SetState(39)
+				p.SetState(58)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
-			p.SetState(41)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == DNAC_B_WalkerTypeParam {
-				{
-					p.SetState(40)
-					p.Match(DNAC_B_WalkerTypeParam)
-				}
-
-			}
-			p.SetState(44)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == DNAC_B_WalkerTypeExpr {
-				{
-					p.SetState(43)
-					p.Match(DNAC_B_WalkerTypeExpr)
-				}
-
-			}
-			p.SetState(47)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == DNAC_B_WalkerDefault {
-				{
-					p.SetState(46)
-					p.Match(DNAC_B_WalkerDefault)
-				}
-
-			}
 			{
-				p.SetState(49)
-				p.Match(DNAC_B_WalkerUP)
-			}
-
-		}
-
-	case DNAC_B_WalkerField:
-		localctx = NewNameBodyNodeContext(p, localctx)
-		p.EnterOuterAlt(localctx, 3)
-		{
-			p.SetState(52)
-			p.Match(DNAC_B_WalkerField)
-		}
-		p.SetState(67)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		if _la == DNAC_B_WalkerDOWN {
-			{
-				p.SetState(53)
-				p.Match(DNAC_B_WalkerDOWN)
-			}
-			p.SetState(57)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			for _la == DNAC_B_WalkerAnnotation {
-				{
-					p.SetState(54)
-					p.Match(DNAC_B_WalkerAnnotation)
-				}
-
 				p.SetState(59)
-				p.GetErrorHandler().Sync(p)
-				_la = p.GetTokenStream().LA(1)
+				p.Match(DNAC_B_WalkerTypeParam)
 			}
 			p.SetState(61)
 			p.GetErrorHandler().Sync(p)
@@ -835,34 +1480,173 @@ func (p *DNAC_B_Walker) Tld() (localctx ITldContext) {
 				}
 
 			}
-			p.SetState(64)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == DNAC_B_WalkerDefault {
-				{
-					p.SetState(63)
-					p.Match(DNAC_B_WalkerDefault)
-				}
-
-			}
 			{
-				p.SetState(66)
+				p.SetState(63)
 				p.Match(DNAC_B_WalkerUP)
 			}
 
 		}
 
-	case DNAC_B_WalkerExnotation:
-		localctx = NewExnotationNodeContext(p, localctx)
-		p.EnterOuterAlt(localctx, 4)
+	case 3:
+		localctx = NewTypeNodeContext(p, localctx)
+		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(69)
-			p.Match(DNAC_B_WalkerExnotation)
+			p.SetState(66)
+			p.Match(DNAC_B_WalkerType)
+		}
+		p.SetState(78)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == DNAC_B_WalkerDOWN {
+			{
+				p.SetState(67)
+				p.Match(DNAC_B_WalkerDOWN)
+			}
+			p.SetState(71)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			for _la == DNAC_B_WalkerAnnotation {
+				{
+					p.SetState(68)
+					p.Match(DNAC_B_WalkerAnnotation)
+				}
+
+				p.SetState(73)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			p.SetState(75)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			if _la == DNAC_B_WalkerDefault {
+				{
+					p.SetState(74)
+					p.Match(DNAC_B_WalkerDefault)
+				}
+
+			}
+			{
+				p.SetState(77)
+				p.Match(DNAC_B_WalkerUP)
+			}
+
 		}
 
-	default:
-		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
+	case 4:
+		localctx = NewNameBodyNodeContext(p, localctx)
+		p.EnterOuterAlt(localctx, 4)
+		{
+			p.SetState(80)
+			p.Match(DNAC_B_WalkerField)
+		}
+		p.SetState(90)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == DNAC_B_WalkerDOWN {
+			{
+				p.SetState(81)
+				p.Match(DNAC_B_WalkerDOWN)
+			}
+			p.SetState(85)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			for _la == DNAC_B_WalkerAnnotation {
+				{
+					p.SetState(82)
+					p.Match(DNAC_B_WalkerAnnotation)
+				}
+
+				p.SetState(87)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			{
+				p.SetState(88)
+				p.Match(DNAC_B_WalkerTypeExpr)
+			}
+			{
+				p.SetState(89)
+				p.Match(DNAC_B_WalkerUP)
+			}
+
+		}
+
+	case 5:
+		localctx = NewNameBodyNodeContext(p, localctx)
+		p.EnterOuterAlt(localctx, 5)
+		{
+			p.SetState(92)
+			p.Match(DNAC_B_WalkerField)
+		}
+		p.SetState(104)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == DNAC_B_WalkerDOWN {
+			{
+				p.SetState(93)
+				p.Match(DNAC_B_WalkerDOWN)
+			}
+			p.SetState(97)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			for _la == DNAC_B_WalkerAnnotation {
+				{
+					p.SetState(94)
+					p.Match(DNAC_B_WalkerAnnotation)
+				}
+
+				p.SetState(99)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			p.SetState(101)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			if _la == DNAC_B_WalkerDefault {
+				{
+					p.SetState(100)
+					p.Match(DNAC_B_WalkerDefault)
+				}
+
+			}
+			{
+				p.SetState(103)
+				p.Match(DNAC_B_WalkerUP)
+			}
+
+		}
+
+	case 6:
+		localctx = NewExnotationNodeContext(p, localctx)
+		p.EnterOuterAlt(localctx, 6)
+		{
+			p.SetState(106)
+			p.Match(DNAC_B_WalkerExnotation)
+		}
+		p.SetState(109)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == DNAC_B_WalkerDOWN {
+			{
+				p.SetState(107)
+				p.Match(DNAC_B_WalkerDOWN)
+			}
+			{
+				p.SetState(108)
+				p.Match(DNAC_B_WalkerUP)
+			}
+
+		}
+
 	}
 
 	return localctx

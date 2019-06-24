@@ -1,13 +1,12 @@
-// Code generated from DNAC_A_Walker.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from DNAC_A_Walker.g4 by ANTLR 4.7.
 
 package dnaca // DNAC_A_Walker
 import (
 	"fmt"
 	"reflect"
 	"strconv"
-
-	"github.com/wxio/goantlr"
 )
+import "github.com/wxio/goantlr"
 
 // Suppress unused import errors
 var _ = fmt.Printf
@@ -15,74 +14,75 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 56, 148,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 56, 151,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
-	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 7, 3,
-	26, 10, 3, 12, 3, 14, 3, 29, 11, 3, 3, 3, 5, 3, 32, 10, 3, 3, 3, 7, 3,
-	35, 10, 3, 12, 3, 14, 3, 38, 11, 3, 3, 3, 5, 3, 41, 10, 3, 3, 3, 3, 3,
-	3, 3, 7, 3, 46, 10, 3, 12, 3, 14, 3, 49, 11, 3, 3, 3, 5, 3, 52, 10, 3,
-	3, 3, 5, 3, 55, 10, 3, 3, 3, 7, 3, 58, 10, 3, 12, 3, 14, 3, 61, 11, 3,
-	3, 3, 5, 3, 64, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	7, 3, 74, 10, 3, 12, 3, 14, 3, 77, 11, 3, 3, 3, 5, 3, 80, 10, 3, 3, 3,
-	5, 3, 83, 10, 3, 3, 3, 5, 3, 86, 10, 3, 5, 3, 88, 10, 3, 3, 4, 3, 4, 3,
-	4, 3, 4, 3, 4, 5, 4, 95, 10, 4, 3, 5, 3, 5, 3, 5, 6, 5, 100, 10, 5, 13,
-	5, 14, 5, 101, 3, 5, 3, 5, 5, 5, 106, 10, 5, 3, 6, 3, 6, 3, 6, 6, 6, 111,
-	10, 6, 13, 6, 14, 6, 112, 3, 6, 3, 6, 5, 6, 117, 10, 6, 3, 7, 3, 7, 3,
-	7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 6, 7, 127, 10, 7, 13, 7, 14, 7, 128, 3,
-	7, 3, 7, 5, 7, 133, 10, 7, 3, 7, 3, 7, 3, 7, 6, 7, 138, 10, 7, 13, 7, 14,
-	7, 139, 3, 7, 3, 7, 5, 7, 144, 10, 7, 5, 7, 146, 10, 7, 3, 7, 2, 2, 8,
-	2, 4, 6, 8, 10, 12, 2, 2, 2, 172, 2, 14, 3, 2, 2, 2, 4, 87, 3, 2, 2, 2,
-	6, 89, 3, 2, 2, 2, 8, 96, 3, 2, 2, 2, 10, 107, 3, 2, 2, 2, 12, 145, 3,
-	2, 2, 2, 14, 15, 7, 26, 2, 2, 15, 16, 7, 30, 2, 2, 16, 17, 7, 26, 2, 2,
-	17, 18, 5, 4, 3, 2, 18, 19, 7, 27, 2, 2, 19, 20, 7, 27, 2, 2, 20, 21, 7,
-	2, 2, 3, 21, 3, 3, 2, 2, 2, 22, 40, 7, 54, 2, 2, 23, 27, 7, 26, 2, 2, 24,
-	26, 5, 6, 4, 2, 25, 24, 3, 2, 2, 2, 26, 29, 3, 2, 2, 2, 27, 25, 3, 2, 2,
-	2, 27, 28, 3, 2, 2, 2, 28, 31, 3, 2, 2, 2, 29, 27, 3, 2, 2, 2, 30, 32,
-	7, 38, 2, 2, 31, 30, 3, 2, 2, 2, 31, 32, 3, 2, 2, 2, 32, 36, 3, 2, 2, 2,
-	33, 35, 5, 4, 3, 2, 34, 33, 3, 2, 2, 2, 35, 38, 3, 2, 2, 2, 36, 34, 3,
-	2, 2, 2, 36, 37, 3, 2, 2, 2, 37, 39, 3, 2, 2, 2, 38, 36, 3, 2, 2, 2, 39,
-	41, 7, 27, 2, 2, 40, 23, 3, 2, 2, 2, 40, 41, 3, 2, 2, 2, 41, 88, 3, 2,
-	2, 2, 42, 63, 7, 37, 2, 2, 43, 47, 7, 26, 2, 2, 44, 46, 5, 6, 4, 2, 45,
-	44, 3, 2, 2, 2, 46, 49, 3, 2, 2, 2, 47, 45, 3, 2, 2, 2, 47, 48, 3, 2, 2,
-	2, 48, 51, 3, 2, 2, 2, 49, 47, 3, 2, 2, 2, 50, 52, 7, 38, 2, 2, 51, 50,
-	3, 2, 2, 2, 51, 52, 3, 2, 2, 2, 52, 54, 3, 2, 2, 2, 53, 55, 5, 8, 5, 2,
-	54, 53, 3, 2, 2, 2, 54, 55, 3, 2, 2, 2, 55, 59, 3, 2, 2, 2, 56, 58, 5,
-	12, 7, 2, 57, 56, 3, 2, 2, 2, 58, 61, 3, 2, 2, 2, 59, 57, 3, 2, 2, 2, 59,
-	60, 3, 2, 2, 2, 60, 62, 3, 2, 2, 2, 61, 59, 3, 2, 2, 2, 62, 64, 7, 27,
-	2, 2, 63, 43, 3, 2, 2, 2, 63, 64, 3, 2, 2, 2, 64, 88, 3, 2, 2, 2, 65, 66,
-	7, 55, 2, 2, 66, 67, 7, 26, 2, 2, 67, 68, 5, 12, 7, 2, 68, 69, 7, 27, 2,
-	2, 69, 88, 3, 2, 2, 2, 70, 85, 7, 41, 2, 2, 71, 75, 7, 26, 2, 2, 72, 74,
-	5, 6, 4, 2, 73, 72, 3, 2, 2, 2, 74, 77, 3, 2, 2, 2, 75, 73, 3, 2, 2, 2,
-	75, 76, 3, 2, 2, 2, 76, 79, 3, 2, 2, 2, 77, 75, 3, 2, 2, 2, 78, 80, 5,
-	8, 5, 2, 79, 78, 3, 2, 2, 2, 79, 80, 3, 2, 2, 2, 80, 82, 3, 2, 2, 2, 81,
-	83, 5, 12, 7, 2, 82, 81, 3, 2, 2, 2, 82, 83, 3, 2, 2, 2, 83, 84, 3, 2,
-	2, 2, 84, 86, 7, 27, 2, 2, 85, 71, 3, 2, 2, 2, 85, 86, 3, 2, 2, 2, 86,
-	88, 3, 2, 2, 2, 87, 22, 3, 2, 2, 2, 87, 42, 3, 2, 2, 2, 87, 65, 3, 2, 2,
-	2, 87, 70, 3, 2, 2, 2, 88, 5, 3, 2, 2, 2, 89, 94, 7, 33, 2, 2, 90, 91,
-	7, 26, 2, 2, 91, 92, 5, 12, 7, 2, 92, 93, 7, 27, 2, 2, 93, 95, 3, 2, 2,
-	2, 94, 90, 3, 2, 2, 2, 94, 95, 3, 2, 2, 2, 95, 7, 3, 2, 2, 2, 96, 105,
-	7, 39, 2, 2, 97, 99, 7, 26, 2, 2, 98, 100, 5, 10, 6, 2, 99, 98, 3, 2, 2,
-	2, 100, 101, 3, 2, 2, 2, 101, 99, 3, 2, 2, 2, 101, 102, 3, 2, 2, 2, 102,
-	103, 3, 2, 2, 2, 103, 104, 7, 27, 2, 2, 104, 106, 3, 2, 2, 2, 105, 97,
-	3, 2, 2, 2, 105, 106, 3, 2, 2, 2, 106, 9, 3, 2, 2, 2, 107, 116, 7, 40,
-	2, 2, 108, 110, 7, 26, 2, 2, 109, 111, 5, 10, 6, 2, 110, 109, 3, 2, 2,
-	2, 111, 112, 3, 2, 2, 2, 112, 110, 3, 2, 2, 2, 112, 113, 3, 2, 2, 2, 113,
-	114, 3, 2, 2, 2, 114, 115, 7, 27, 2, 2, 115, 117, 3, 2, 2, 2, 116, 108,
-	3, 2, 2, 2, 116, 117, 3, 2, 2, 2, 117, 11, 3, 2, 2, 2, 118, 146, 7, 43,
-	2, 2, 119, 146, 7, 44, 2, 2, 120, 146, 7, 45, 2, 2, 121, 146, 7, 46, 2,
-	2, 122, 146, 7, 47, 2, 2, 123, 132, 7, 48, 2, 2, 124, 126, 7, 26, 2, 2,
-	125, 127, 5, 12, 7, 2, 126, 125, 3, 2, 2, 2, 127, 128, 3, 2, 2, 2, 128,
-	126, 3, 2, 2, 2, 128, 129, 3, 2, 2, 2, 129, 130, 3, 2, 2, 2, 130, 131,
-	7, 27, 2, 2, 131, 133, 3, 2, 2, 2, 132, 124, 3, 2, 2, 2, 132, 133, 3, 2,
-	2, 2, 133, 146, 3, 2, 2, 2, 134, 143, 7, 49, 2, 2, 135, 137, 7, 26, 2,
-	2, 136, 138, 5, 12, 7, 2, 137, 136, 3, 2, 2, 2, 138, 139, 3, 2, 2, 2, 139,
-	137, 3, 2, 2, 2, 139, 140, 3, 2, 2, 2, 140, 141, 3, 2, 2, 2, 141, 142,
-	7, 27, 2, 2, 142, 144, 3, 2, 2, 2, 143, 135, 3, 2, 2, 2, 143, 144, 3, 2,
-	2, 2, 144, 146, 3, 2, 2, 2, 145, 118, 3, 2, 2, 2, 145, 119, 3, 2, 2, 2,
-	145, 120, 3, 2, 2, 2, 145, 121, 3, 2, 2, 2, 145, 122, 3, 2, 2, 2, 145,
-	123, 3, 2, 2, 2, 145, 134, 3, 2, 2, 2, 146, 13, 3, 2, 2, 2, 26, 27, 31,
-	36, 40, 47, 51, 54, 59, 63, 75, 79, 82, 85, 87, 94, 101, 105, 112, 116,
-	128, 132, 139, 143, 145,
+	4, 8, 9, 8, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 3, 3, 3,
+	3, 3, 7, 3, 28, 10, 3, 12, 3, 14, 3, 31, 11, 3, 3, 3, 5, 3, 34, 10, 3,
+	3, 3, 7, 3, 37, 10, 3, 12, 3, 14, 3, 40, 11, 3, 3, 3, 5, 3, 43, 10, 3,
+	3, 4, 3, 4, 3, 4, 3, 4, 7, 4, 49, 10, 4, 12, 4, 14, 4, 52, 11, 4, 3, 4,
+	5, 4, 55, 10, 4, 3, 4, 5, 4, 58, 10, 4, 3, 4, 7, 4, 61, 10, 4, 12, 4, 14,
+	4, 64, 11, 4, 3, 4, 5, 4, 67, 10, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4,
+	3, 4, 3, 4, 7, 4, 77, 10, 4, 12, 4, 14, 4, 80, 11, 4, 3, 4, 5, 4, 83, 10,
+	4, 3, 4, 5, 4, 86, 10, 4, 3, 4, 5, 4, 89, 10, 4, 5, 4, 91, 10, 4, 3, 5,
+	3, 5, 3, 5, 3, 5, 3, 5, 5, 5, 98, 10, 5, 3, 6, 3, 6, 3, 6, 6, 6, 103, 10,
+	6, 13, 6, 14, 6, 104, 3, 6, 3, 6, 5, 6, 109, 10, 6, 3, 7, 3, 7, 3, 7, 6,
+	7, 114, 10, 7, 13, 7, 14, 7, 115, 3, 7, 3, 7, 5, 7, 120, 10, 7, 3, 8, 3,
+	8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 6, 8, 130, 10, 8, 13, 8, 14, 8,
+	131, 3, 8, 3, 8, 5, 8, 136, 10, 8, 3, 8, 3, 8, 3, 8, 6, 8, 141, 10, 8,
+	13, 8, 14, 8, 142, 3, 8, 3, 8, 5, 8, 147, 10, 8, 5, 8, 149, 10, 8, 3, 8,
+	2, 2, 9, 2, 4, 6, 8, 10, 12, 14, 2, 2, 2, 174, 2, 16, 3, 2, 2, 2, 4, 24,
+	3, 2, 2, 2, 6, 90, 3, 2, 2, 2, 8, 92, 3, 2, 2, 2, 10, 99, 3, 2, 2, 2, 12,
+	110, 3, 2, 2, 2, 14, 148, 3, 2, 2, 2, 16, 17, 7, 26, 2, 2, 17, 18, 7, 30,
+	2, 2, 18, 19, 7, 26, 2, 2, 19, 20, 5, 4, 3, 2, 20, 21, 7, 27, 2, 2, 21,
+	22, 7, 27, 2, 2, 22, 23, 7, 2, 2, 3, 23, 3, 3, 2, 2, 2, 24, 42, 7, 54,
+	2, 2, 25, 29, 7, 26, 2, 2, 26, 28, 5, 8, 5, 2, 27, 26, 3, 2, 2, 2, 28,
+	31, 3, 2, 2, 2, 29, 27, 3, 2, 2, 2, 29, 30, 3, 2, 2, 2, 30, 33, 3, 2, 2,
+	2, 31, 29, 3, 2, 2, 2, 32, 34, 7, 38, 2, 2, 33, 32, 3, 2, 2, 2, 33, 34,
+	3, 2, 2, 2, 34, 38, 3, 2, 2, 2, 35, 37, 5, 6, 4, 2, 36, 35, 3, 2, 2, 2,
+	37, 40, 3, 2, 2, 2, 38, 36, 3, 2, 2, 2, 38, 39, 3, 2, 2, 2, 39, 41, 3,
+	2, 2, 2, 40, 38, 3, 2, 2, 2, 41, 43, 7, 27, 2, 2, 42, 25, 3, 2, 2, 2, 42,
+	43, 3, 2, 2, 2, 43, 5, 3, 2, 2, 2, 44, 91, 5, 4, 3, 2, 45, 66, 7, 37, 2,
+	2, 46, 50, 7, 26, 2, 2, 47, 49, 5, 8, 5, 2, 48, 47, 3, 2, 2, 2, 49, 52,
+	3, 2, 2, 2, 50, 48, 3, 2, 2, 2, 50, 51, 3, 2, 2, 2, 51, 54, 3, 2, 2, 2,
+	52, 50, 3, 2, 2, 2, 53, 55, 7, 38, 2, 2, 54, 53, 3, 2, 2, 2, 54, 55, 3,
+	2, 2, 2, 55, 57, 3, 2, 2, 2, 56, 58, 5, 10, 6, 2, 57, 56, 3, 2, 2, 2, 57,
+	58, 3, 2, 2, 2, 58, 62, 3, 2, 2, 2, 59, 61, 5, 14, 8, 2, 60, 59, 3, 2,
+	2, 2, 61, 64, 3, 2, 2, 2, 62, 60, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2, 63, 65,
+	3, 2, 2, 2, 64, 62, 3, 2, 2, 2, 65, 67, 7, 27, 2, 2, 66, 46, 3, 2, 2, 2,
+	66, 67, 3, 2, 2, 2, 67, 91, 3, 2, 2, 2, 68, 69, 7, 55, 2, 2, 69, 70, 7,
+	26, 2, 2, 70, 71, 5, 14, 8, 2, 71, 72, 7, 27, 2, 2, 72, 91, 3, 2, 2, 2,
+	73, 88, 7, 41, 2, 2, 74, 78, 7, 26, 2, 2, 75, 77, 5, 8, 5, 2, 76, 75, 3,
+	2, 2, 2, 77, 80, 3, 2, 2, 2, 78, 76, 3, 2, 2, 2, 78, 79, 3, 2, 2, 2, 79,
+	82, 3, 2, 2, 2, 80, 78, 3, 2, 2, 2, 81, 83, 5, 10, 6, 2, 82, 81, 3, 2,
+	2, 2, 82, 83, 3, 2, 2, 2, 83, 85, 3, 2, 2, 2, 84, 86, 5, 14, 8, 2, 85,
+	84, 3, 2, 2, 2, 85, 86, 3, 2, 2, 2, 86, 87, 3, 2, 2, 2, 87, 89, 7, 27,
+	2, 2, 88, 74, 3, 2, 2, 2, 88, 89, 3, 2, 2, 2, 89, 91, 3, 2, 2, 2, 90, 44,
+	3, 2, 2, 2, 90, 45, 3, 2, 2, 2, 90, 68, 3, 2, 2, 2, 90, 73, 3, 2, 2, 2,
+	91, 7, 3, 2, 2, 2, 92, 97, 7, 33, 2, 2, 93, 94, 7, 26, 2, 2, 94, 95, 5,
+	14, 8, 2, 95, 96, 7, 27, 2, 2, 96, 98, 3, 2, 2, 2, 97, 93, 3, 2, 2, 2,
+	97, 98, 3, 2, 2, 2, 98, 9, 3, 2, 2, 2, 99, 108, 7, 39, 2, 2, 100, 102,
+	7, 26, 2, 2, 101, 103, 5, 12, 7, 2, 102, 101, 3, 2, 2, 2, 103, 104, 3,
+	2, 2, 2, 104, 102, 3, 2, 2, 2, 104, 105, 3, 2, 2, 2, 105, 106, 3, 2, 2,
+	2, 106, 107, 7, 27, 2, 2, 107, 109, 3, 2, 2, 2, 108, 100, 3, 2, 2, 2, 108,
+	109, 3, 2, 2, 2, 109, 11, 3, 2, 2, 2, 110, 119, 7, 40, 2, 2, 111, 113,
+	7, 26, 2, 2, 112, 114, 5, 12, 7, 2, 113, 112, 3, 2, 2, 2, 114, 115, 3,
+	2, 2, 2, 115, 113, 3, 2, 2, 2, 115, 116, 3, 2, 2, 2, 116, 117, 3, 2, 2,
+	2, 117, 118, 7, 27, 2, 2, 118, 120, 3, 2, 2, 2, 119, 111, 3, 2, 2, 2, 119,
+	120, 3, 2, 2, 2, 120, 13, 3, 2, 2, 2, 121, 149, 7, 43, 2, 2, 122, 149,
+	7, 44, 2, 2, 123, 149, 7, 45, 2, 2, 124, 149, 7, 46, 2, 2, 125, 149, 7,
+	47, 2, 2, 126, 135, 7, 48, 2, 2, 127, 129, 7, 26, 2, 2, 128, 130, 5, 14,
+	8, 2, 129, 128, 3, 2, 2, 2, 130, 131, 3, 2, 2, 2, 131, 129, 3, 2, 2, 2,
+	131, 132, 3, 2, 2, 2, 132, 133, 3, 2, 2, 2, 133, 134, 7, 27, 2, 2, 134,
+	136, 3, 2, 2, 2, 135, 127, 3, 2, 2, 2, 135, 136, 3, 2, 2, 2, 136, 149,
+	3, 2, 2, 2, 137, 146, 7, 49, 2, 2, 138, 140, 7, 26, 2, 2, 139, 141, 5,
+	14, 8, 2, 140, 139, 3, 2, 2, 2, 141, 142, 3, 2, 2, 2, 142, 140, 3, 2, 2,
+	2, 142, 143, 3, 2, 2, 2, 143, 144, 3, 2, 2, 2, 144, 145, 7, 27, 2, 2, 145,
+	147, 3, 2, 2, 2, 146, 138, 3, 2, 2, 2, 146, 147, 3, 2, 2, 2, 147, 149,
+	3, 2, 2, 2, 148, 121, 3, 2, 2, 2, 148, 122, 3, 2, 2, 2, 148, 123, 3, 2,
+	2, 2, 148, 124, 3, 2, 2, 2, 148, 125, 3, 2, 2, 2, 148, 126, 3, 2, 2, 2,
+	148, 137, 3, 2, 2, 2, 149, 15, 3, 2, 2, 2, 26, 29, 33, 38, 42, 50, 54,
+	57, 62, 66, 78, 82, 85, 88, 90, 97, 104, 108, 115, 119, 131, 135, 142,
+	146, 148,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -102,7 +102,7 @@ var symbolicNames = []string{
 }
 
 var ruleNames = []string{
-	"adl", "tld", "annotation", "typeExpr_", "typeExprElem_", "jsonVal",
+	"adl", "name", "tld", "annotation", "typeExpr_", "typeExprElem_", "jsonVal",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -192,22 +192,52 @@ const (
 // DNAC_A_Walker rules.
 const (
 	DNAC_A_WalkerRULE_adl           = 0
-	DNAC_A_WalkerRULE_tld           = 1
-	DNAC_A_WalkerRULE_annotation    = 2
-	DNAC_A_WalkerRULE_typeExpr_     = 3
-	DNAC_A_WalkerRULE_typeExprElem_ = 4
-	DNAC_A_WalkerRULE_jsonVal       = 5
+	DNAC_A_WalkerRULE_name          = 1
+	DNAC_A_WalkerRULE_tld           = 2
+	DNAC_A_WalkerRULE_annotation    = 3
+	DNAC_A_WalkerRULE_typeExpr_     = 4
+	DNAC_A_WalkerRULE_typeExprElem_ = 5
+	DNAC_A_WalkerRULE_jsonVal       = 6
 )
 
-// IAdlContext is an interface to support dynamic dispatch.
 type IAdlContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	Name() INameContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	ADL() antlr.TerminalNode
+	EOF() antlr.TerminalNode
+	//tokenListGetterDecl
+	AllDOWN() []antlr.TerminalNode
+	AllUP() []antlr.TerminalNode
+	//tokenListIndexedGetterDecl
+	DOWN(i int) antlr.TerminalNode
+	UP(i int) antlr.TerminalNode
+
 	// IsAdlContext differentiates from other interfaces.
-	IsAdlContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type AdlContext struct {
@@ -237,6 +267,19 @@ func NewAdlContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 
 func (s *AdlContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
 func (s *AdlContext) AllDOWN() []antlr.TerminalNode {
 	return s.GetTokens(DNAC_A_WalkerDOWN)
 }
@@ -249,14 +292,14 @@ func (s *AdlContext) ADL() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerADL, 0)
 }
 
-func (s *AdlContext) Tld() ITldContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITldContext)(nil)).Elem(), 0)
+func (s *AdlContext) Name() INameContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*NameContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(ITldContext)
+	return t.(INameContext)
 }
 
 func (s *AdlContext) AllUP() []antlr.TerminalNode {
@@ -271,6 +314,7 @@ func (s *AdlContext) EOF() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerEOF, 0)
 }
 
+//provideCopyFrom
 func (s *AdlContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -279,27 +323,45 @@ func (s *AdlContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) st
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
 func (s *AdlContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(AdlEntryListener); ok {
 		listenerT.EnterAdl(s)
 	}
 }
 
 func (s *AdlContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(AdlExitListener); ok {
 		listenerT.ExitAdl(s)
 	}
 }
 
-func (s *AdlContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitAdl(s)
+func (s *AdlContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.Adl != nil {
+		h.Adl(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *AdlContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case AdlContextVisitor:
+		return t.VisitAdl(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//extensionMembers
 
 func (p *DNAC_A_Walker) Adl() (localctx IAdlContext) {
 	localctx = NewAdlContext(p, p.GetParserRuleContext(), p.GetState())
@@ -323,46 +385,416 @@ func (p *DNAC_A_Walker) Adl() (localctx IAdlContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(12)
-		p.Match(DNAC_A_WalkerDOWN)
-	}
-	{
-		p.SetState(13)
-		p.Match(DNAC_A_WalkerADL)
-	}
-	{
 		p.SetState(14)
 		p.Match(DNAC_A_WalkerDOWN)
 	}
 	{
 		p.SetState(15)
-		p.Tld()
+		p.Match(DNAC_A_WalkerADL)
 	}
 	{
 		p.SetState(16)
-		p.Match(DNAC_A_WalkerUP)
+		p.Match(DNAC_A_WalkerDOWN)
 	}
 	{
 		p.SetState(17)
-		p.Match(DNAC_A_WalkerUP)
+		p.Name()
 	}
 	{
 		p.SetState(18)
+		p.Match(DNAC_A_WalkerUP)
+	}
+	{
+		p.SetState(19)
+		p.Match(DNAC_A_WalkerUP)
+	}
+	{
+		p.SetState(20)
 		p.Match(DNAC_A_WalkerEOF)
 	}
 
 	return localctx
 }
 
-// ITldContext is an interface to support dynamic dispatch.
-type ITldContext interface {
+type INameContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
+	// IsNameContext differentiates from other interfaces.
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
+}
+
+type NameContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyNameContext() *NameContext {
+	var p = new(NameContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = DNAC_A_WalkerRULE_name
+	return p
+}
+
+func (*NameContext) IsNameContext() {}
+
+func NewNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *NameContext {
+	var p = new(NameContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = DNAC_A_WalkerRULE_name
+
+	return p
+}
+
+func (s *NameContext) GetParser() antlr.Parser { return s.parser }
+
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
+func (s *NameContext) CopyFrom(ctx *NameContext) {
+	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
+}
+
+func (s *NameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
+type NameNodeContext struct {
+	*NameContext
+}
+
+func NewNameNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NameNodeContext {
+	var p = new(NameNodeContext)
+
+	p.NameContext = NewEmptyNameContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*NameContext))
+
+	return p
+}
+
+type INameNodeContext interface {
+	//Current rule
+	INameContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllAnnotation() []IAnnotationContext
+	AllTld() []ITldContext
+	//  ruleListIndexedGetterDecl
+	Annotation(i int) IAnnotationContext
+	Tld(i int) ITldContext
+
+	//  tokenGetterDecl
+	Name() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	TypeParam() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*NameNodeContext) IsNameNodeContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
+func (s *NameNodeContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+//getters
+func (s *NameNodeContext) Name() antlr.TerminalNode {
+	return s.GetToken(DNAC_A_WalkerName, 0)
+}
+
+func (s *NameNodeContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(DNAC_A_WalkerDOWN, 0)
+}
+
+func (s *NameNodeContext) UP() antlr.TerminalNode {
+	return s.GetToken(DNAC_A_WalkerUP, 0)
+}
+
+func (s *NameNodeContext) AllAnnotation() []IAnnotationContext {
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*AnnotationContext)(nil)).Elem())
+	var tst = make([]IAnnotationContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IAnnotationContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *NameNodeContext) Annotation(i int) IAnnotationContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*AnnotationContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAnnotationContext)
+}
+
+func (s *NameNodeContext) TypeParam() antlr.TerminalNode {
+	return s.GetToken(DNAC_A_WalkerTypeParam, 0)
+}
+
+func (s *NameNodeContext) AllTld() []ITldContext {
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*TldContext)(nil)).Elem())
+	var tst = make([]ITldContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(ITldContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *NameNodeContext) Tld(i int) ITldContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TldContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ITldContext)
+}
+
+func (s *NameNodeContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(NameNodeEntryListener); ok {
+		listenerT.EnterNameNode(s)
+	}
+}
+
+func (s *NameNodeContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(NameNodeExitListener); ok {
+		listenerT.ExitNameNode(s)
+	}
+}
+
+func (s *NameNodeContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.NameNode != nil {
+		h.NameNode(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *NameNodeContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case NameNodeContextVisitor:
+		return t.VisitNameNode(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
+//END AltLabelStructDecl
+
+func (p *DNAC_A_Walker) Name() (localctx INameContext) {
+	localctx = NewNameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 2, DNAC_A_WalkerRULE_name)
+	var //TokenTypeDecl
+	_la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	localctx = NewNameNodeContext(p, localctx)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(22)
+		p.Match(DNAC_A_WalkerName)
+	}
+	p.SetState(40)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == DNAC_A_WalkerDOWN {
+		{
+			p.SetState(23)
+			p.Match(DNAC_A_WalkerDOWN)
+		}
+		p.SetState(27)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for _la == DNAC_A_WalkerAnnotation {
+			{
+				p.SetState(24)
+				p.Annotation()
+			}
+
+			p.SetState(29)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		p.SetState(31)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == DNAC_A_WalkerTypeParam {
+			{
+				p.SetState(30)
+				p.Match(DNAC_A_WalkerTypeParam)
+			}
+
+		}
+		p.SetState(36)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for ((_la-35)&-(0x1f+1)) == 0 && ((1<<uint((_la-35)))&((1<<(DNAC_A_WalkerType-35))|(1<<(DNAC_A_WalkerField-35))|(1<<(DNAC_A_WalkerName-35))|(1<<(DNAC_A_WalkerExnotation-35)))) != 0 {
+			{
+				p.SetState(33)
+				p.Tld()
+			}
+
+			p.SetState(38)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(39)
+			p.Match(DNAC_A_WalkerUP)
+		}
+
+	}
+
+	return localctx
+}
+
+type ITldContext interface {
+	antlr.ParserRuleContext
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsTldContext differentiates from other interfaces.
-	IsTldContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type TldContext struct {
@@ -392,6 +824,21 @@ func NewTldContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 
 func (s *TldContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *TldContext) CopyFrom(ctx *TldContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -404,12 +851,17 @@ func (s *TldContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) st
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-type NameNodeContext struct {
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
+
+type NameRuleContext struct {
 	*TldContext
 }
 
-func NewNameNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NameNodeContext {
-	var p = new(NameNodeContext)
+func NewNameRuleContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NameRuleContext {
+	var p = new(NameRuleContext)
 
 	p.TldContext = NewEmptyTldContext()
 	p.parser = parser
@@ -418,93 +870,102 @@ func NewNameNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NameN
 	return p
 }
 
-func (s *NameNodeContext) GetRuleContext() antlr.RuleContext {
+type INameRuleContext interface {
+	//Current rule
+	ITldContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	Name() INameContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*NameRuleContext) IsNameRuleContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
+func (s *NameRuleContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *NameNodeContext) Name() antlr.TerminalNode {
-	return s.GetToken(DNAC_A_WalkerName, 0)
-}
-
-func (s *NameNodeContext) DOWN() antlr.TerminalNode {
-	return s.GetToken(DNAC_A_WalkerDOWN, 0)
-}
-
-func (s *NameNodeContext) UP() antlr.TerminalNode {
-	return s.GetToken(DNAC_A_WalkerUP, 0)
-}
-
-func (s *NameNodeContext) AllAnnotation() []IAnnotationContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IAnnotationContext)(nil)).Elem())
-	var tst = make([]IAnnotationContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IAnnotationContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *NameNodeContext) Annotation(i int) IAnnotationContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAnnotationContext)(nil)).Elem(), i)
+//getters
+func (s *NameRuleContext) Name() INameContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*NameContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IAnnotationContext)
+	return t.(INameContext)
 }
 
-func (s *NameNodeContext) TypeParam() antlr.TerminalNode {
-	return s.GetToken(DNAC_A_WalkerTypeParam, 0)
-}
-
-func (s *NameNodeContext) AllTld() []ITldContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITldContext)(nil)).Elem())
-	var tst = make([]ITldContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(ITldContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *NameNodeContext) Tld(i int) ITldContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITldContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(ITldContext)
-}
-
-func (s *NameNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
-		listenerT.EnterNameNode(s)
+func (s *NameRuleContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(NameRuleEntryListener); ok {
+		listenerT.EnterNameRule(s)
 	}
 }
 
-func (s *NameNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
-		listenerT.ExitNameNode(s)
+func (s *NameRuleContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(NameRuleExitListener); ok {
+		listenerT.ExitNameRule(s)
 	}
 }
 
-func (s *NameNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitNameNode(s)
+func (s *NameRuleContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.NameRule != nil {
+		h.NameRule(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *NameRuleContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case NameRuleContextVisitor:
+		return t.VisitNameRule(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type TypeNodeContext struct {
 	*TldContext
@@ -520,10 +981,60 @@ func NewTypeNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *TypeN
 	return p
 }
 
+type ITypeNodeContext interface {
+	//Current rule
+	ITldContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	TypeExpr_() ITypeExpr_Context
+	//  ruleListGetterDecl
+	AllAnnotation() []IAnnotationContext
+	AllJsonVal() []IJsonValContext
+	//  ruleListIndexedGetterDecl
+	Annotation(i int) IAnnotationContext
+	JsonVal(i int) IJsonValContext
+
+	//  tokenGetterDecl
+	Type() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	TypeParam() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*TypeNodeContext) IsTypeNodeContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *TypeNodeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *TypeNodeContext) Type() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerType, 0)
 }
@@ -537,7 +1048,8 @@ func (s *TypeNodeContext) UP() antlr.TerminalNode {
 }
 
 func (s *TypeNodeContext) AllAnnotation() []IAnnotationContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IAnnotationContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*AnnotationContext)(nil)).Elem())
 	var tst = make([]IAnnotationContext, len(ts))
 
 	for i, t := range ts {
@@ -550,7 +1062,7 @@ func (s *TypeNodeContext) AllAnnotation() []IAnnotationContext {
 }
 
 func (s *TypeNodeContext) Annotation(i int) IAnnotationContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAnnotationContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*AnnotationContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -564,7 +1076,7 @@ func (s *TypeNodeContext) TypeParam() antlr.TerminalNode {
 }
 
 func (s *TypeNodeContext) TypeExpr_() ITypeExpr_Context {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeExpr_Context)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeExpr_Context)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -574,7 +1086,8 @@ func (s *TypeNodeContext) TypeExpr_() ITypeExpr_Context {
 }
 
 func (s *TypeNodeContext) AllJsonVal() []IJsonValContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IJsonValContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*JsonValContext)(nil)).Elem())
 	var tst = make([]IJsonValContext, len(ts))
 
 	for i, t := range ts {
@@ -587,7 +1100,7 @@ func (s *TypeNodeContext) AllJsonVal() []IJsonValContext {
 }
 
 func (s *TypeNodeContext) JsonVal(i int) IJsonValContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -597,26 +1110,45 @@ func (s *TypeNodeContext) JsonVal(i int) IJsonValContext {
 }
 
 func (s *TypeNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(TypeNodeEntryListener); ok {
 		listenerT.EnterTypeNode(s)
 	}
 }
 
 func (s *TypeNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(TypeNodeExitListener); ok {
 		listenerT.ExitTypeNode(s)
 	}
 }
 
-func (s *TypeNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitTypeNode(s)
+func (s *TypeNodeContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TypeNode != nil {
+		h.TypeNode(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *TypeNodeContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TypeNodeContextVisitor:
+		return t.VisitTypeNode(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type ExnotationNodeContext struct {
 	*TldContext
@@ -632,10 +1164,55 @@ func NewExnotationNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) 
 	return p
 }
 
+type IExnotationNodeContext interface {
+	//Current rule
+	ITldContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	JsonVal() IJsonValContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	Exnotation() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*ExnotationNodeContext) IsExnotationNodeContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *ExnotationNodeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *ExnotationNodeContext) Exnotation() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerExnotation, 0)
 }
@@ -645,7 +1222,7 @@ func (s *ExnotationNodeContext) DOWN() antlr.TerminalNode {
 }
 
 func (s *ExnotationNodeContext) JsonVal() IJsonValContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -659,26 +1236,45 @@ func (s *ExnotationNodeContext) UP() antlr.TerminalNode {
 }
 
 func (s *ExnotationNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(ExnotationNodeEntryListener); ok {
 		listenerT.EnterExnotationNode(s)
 	}
 }
 
 func (s *ExnotationNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(ExnotationNodeExitListener); ok {
 		listenerT.ExitExnotationNode(s)
 	}
 }
 
-func (s *ExnotationNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitExnotationNode(s)
+func (s *ExnotationNodeContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.ExnotationNode != nil {
+		h.ExnotationNode(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *ExnotationNodeContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case ExnotationNodeContextVisitor:
+		return t.VisitExnotationNode(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type NameBodyNodeContext struct {
 	*TldContext
@@ -694,10 +1290,58 @@ func NewNameBodyNodeContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *N
 	return p
 }
 
+type INameBodyNodeContext interface {
+	//Current rule
+	ITldContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	TypeExpr_() ITypeExpr_Context
+	JsonVal() IJsonValContext
+	//  ruleListGetterDecl
+	AllAnnotation() []IAnnotationContext
+	//  ruleListIndexedGetterDecl
+	Annotation(i int) IAnnotationContext
+
+	//  tokenGetterDecl
+	Field() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*NameBodyNodeContext) IsNameBodyNodeContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *NameBodyNodeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *NameBodyNodeContext) Field() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerField, 0)
 }
@@ -711,7 +1355,8 @@ func (s *NameBodyNodeContext) UP() antlr.TerminalNode {
 }
 
 func (s *NameBodyNodeContext) AllAnnotation() []IAnnotationContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IAnnotationContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*AnnotationContext)(nil)).Elem())
 	var tst = make([]IAnnotationContext, len(ts))
 
 	for i, t := range ts {
@@ -724,7 +1369,7 @@ func (s *NameBodyNodeContext) AllAnnotation() []IAnnotationContext {
 }
 
 func (s *NameBodyNodeContext) Annotation(i int) IAnnotationContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAnnotationContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*AnnotationContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -734,7 +1379,7 @@ func (s *NameBodyNodeContext) Annotation(i int) IAnnotationContext {
 }
 
 func (s *NameBodyNodeContext) TypeExpr_() ITypeExpr_Context {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeExpr_Context)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeExpr_Context)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -744,7 +1389,7 @@ func (s *NameBodyNodeContext) TypeExpr_() ITypeExpr_Context {
 }
 
 func (s *NameBodyNodeContext) JsonVal() IJsonValContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -754,31 +1399,49 @@ func (s *NameBodyNodeContext) JsonVal() IJsonValContext {
 }
 
 func (s *NameBodyNodeContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(NameBodyNodeEntryListener); ok {
 		listenerT.EnterNameBodyNode(s)
 	}
 }
 
 func (s *NameBodyNodeContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(NameBodyNodeExitListener); ok {
 		listenerT.ExitNameBodyNode(s)
 	}
 }
 
-func (s *NameBodyNodeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitNameBodyNode(s)
+func (s *NameBodyNodeContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.NameBodyNode != nil {
+		h.NameBodyNode(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *NameBodyNodeContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case NameBodyNodeContextVisitor:
+		return t.VisitNameBodyNode(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *DNAC_A_Walker) Tld() (localctx ITldContext) {
 	localctx = NewTldContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, DNAC_A_WalkerRULE_tld)
-	var _la int
+	p.EnterRule(localctx, 4, DNAC_A_WalkerRULE_tld)
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -796,140 +1459,86 @@ func (p *DNAC_A_Walker) Tld() (localctx ITldContext) {
 		}
 	}()
 
-	p.SetState(85)
+	p.SetState(88)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case DNAC_A_WalkerName:
-		localctx = NewNameNodeContext(p, localctx)
+		localctx = NewNameRuleContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(20)
-			p.Match(DNAC_A_WalkerName)
-		}
-		p.SetState(38)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		if _la == DNAC_A_WalkerDOWN {
-			{
-				p.SetState(21)
-				p.Match(DNAC_A_WalkerDOWN)
-			}
-			p.SetState(25)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			for _la == DNAC_A_WalkerAnnotation {
-				{
-					p.SetState(22)
-					p.Annotation()
-				}
-
-				p.SetState(27)
-				p.GetErrorHandler().Sync(p)
-				_la = p.GetTokenStream().LA(1)
-			}
-			p.SetState(29)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == DNAC_A_WalkerTypeParam {
-				{
-					p.SetState(28)
-					p.Match(DNAC_A_WalkerTypeParam)
-				}
-
-			}
-			p.SetState(34)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			for ((_la-35)&-(0x1f+1)) == 0 && ((1<<uint((_la-35)))&((1<<(DNAC_A_WalkerType-35))|(1<<(DNAC_A_WalkerField-35))|(1<<(DNAC_A_WalkerName-35))|(1<<(DNAC_A_WalkerExnotation-35)))) != 0 {
-				{
-					p.SetState(31)
-					p.Tld()
-				}
-
-				p.SetState(36)
-				p.GetErrorHandler().Sync(p)
-				_la = p.GetTokenStream().LA(1)
-			}
-			{
-				p.SetState(37)
-				p.Match(DNAC_A_WalkerUP)
-			}
-
+			p.SetState(42)
+			p.Name()
 		}
 
 	case DNAC_A_WalkerType:
 		localctx = NewTypeNodeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(40)
+			p.SetState(43)
 			p.Match(DNAC_A_WalkerType)
 		}
-		p.SetState(61)
+		p.SetState(64)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == DNAC_A_WalkerDOWN {
 			{
-				p.SetState(41)
+				p.SetState(44)
 				p.Match(DNAC_A_WalkerDOWN)
 			}
-			p.SetState(45)
+			p.SetState(48)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == DNAC_A_WalkerAnnotation {
 				{
-					p.SetState(42)
+					p.SetState(45)
 					p.Annotation()
 				}
 
-				p.SetState(47)
+				p.SetState(50)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
-			}
-			p.SetState(49)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == DNAC_A_WalkerTypeParam {
-				{
-					p.SetState(48)
-					p.Match(DNAC_A_WalkerTypeParam)
-				}
-
 			}
 			p.SetState(52)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if _la == DNAC_A_WalkerTypeExpr {
+			if _la == DNAC_A_WalkerTypeParam {
 				{
 					p.SetState(51)
+					p.Match(DNAC_A_WalkerTypeParam)
+				}
+
+			}
+			p.SetState(55)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			if _la == DNAC_A_WalkerTypeExpr {
+				{
+					p.SetState(54)
 					p.TypeExpr_()
 				}
 
 			}
-			p.SetState(57)
+			p.SetState(60)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_A_WalkerJsonStr-41))|(1<<(DNAC_A_WalkerJsonBool-41))|(1<<(DNAC_A_WalkerJsonNull-41))|(1<<(DNAC_A_WalkerJsonInt-41))|(1<<(DNAC_A_WalkerJsonFloat-41))|(1<<(DNAC_A_WalkerJsonArray-41))|(1<<(DNAC_A_WalkerJsonObj-41)))) != 0 {
 				{
-					p.SetState(54)
+					p.SetState(57)
 					p.JsonVal()
 				}
 
-				p.SetState(59)
+				p.SetState(62)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(60)
+				p.SetState(63)
 				p.Match(DNAC_A_WalkerUP)
 			}
 
@@ -939,19 +1548,19 @@ func (p *DNAC_A_Walker) Tld() (localctx ITldContext) {
 		localctx = NewExnotationNodeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(63)
+			p.SetState(66)
 			p.Match(DNAC_A_WalkerExnotation)
 		}
 		{
-			p.SetState(64)
+			p.SetState(67)
 			p.Match(DNAC_A_WalkerDOWN)
 		}
 		{
-			p.SetState(65)
+			p.SetState(68)
 			p.JsonVal()
 		}
 		{
-			p.SetState(66)
+			p.SetState(69)
 			p.Match(DNAC_A_WalkerUP)
 		}
 
@@ -959,56 +1568,56 @@ func (p *DNAC_A_Walker) Tld() (localctx ITldContext) {
 		localctx = NewNameBodyNodeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(68)
+			p.SetState(71)
 			p.Match(DNAC_A_WalkerField)
 		}
-		p.SetState(83)
+		p.SetState(86)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == DNAC_A_WalkerDOWN {
 			{
-				p.SetState(69)
+				p.SetState(72)
 				p.Match(DNAC_A_WalkerDOWN)
 			}
-			p.SetState(73)
+			p.SetState(76)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == DNAC_A_WalkerAnnotation {
 				{
-					p.SetState(70)
+					p.SetState(73)
 					p.Annotation()
 				}
 
-				p.SetState(75)
+				p.SetState(78)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
-			}
-			p.SetState(77)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == DNAC_A_WalkerTypeExpr {
-				{
-					p.SetState(76)
-					p.TypeExpr_()
-				}
-
 			}
 			p.SetState(80)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_A_WalkerJsonStr-41))|(1<<(DNAC_A_WalkerJsonBool-41))|(1<<(DNAC_A_WalkerJsonNull-41))|(1<<(DNAC_A_WalkerJsonInt-41))|(1<<(DNAC_A_WalkerJsonFloat-41))|(1<<(DNAC_A_WalkerJsonArray-41))|(1<<(DNAC_A_WalkerJsonObj-41)))) != 0 {
+			if _la == DNAC_A_WalkerTypeExpr {
 				{
 					p.SetState(79)
+					p.TypeExpr_()
+				}
+
+			}
+			p.SetState(83)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			if ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_A_WalkerJsonStr-41))|(1<<(DNAC_A_WalkerJsonBool-41))|(1<<(DNAC_A_WalkerJsonNull-41))|(1<<(DNAC_A_WalkerJsonInt-41))|(1<<(DNAC_A_WalkerJsonFloat-41))|(1<<(DNAC_A_WalkerJsonArray-41))|(1<<(DNAC_A_WalkerJsonObj-41)))) != 0 {
+				{
+					p.SetState(82)
 					p.JsonVal()
 				}
 
 			}
 			{
-				p.SetState(82)
+				p.SetState(85)
 				p.Match(DNAC_A_WalkerUP)
 			}
 
@@ -1021,15 +1630,41 @@ func (p *DNAC_A_Walker) Tld() (localctx ITldContext) {
 	return localctx
 }
 
-// IAnnotationContext is an interface to support dynamic dispatch.
 type IAnnotationContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	JsonVal() IJsonValContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	Annotation() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsAnnotationContext differentiates from other interfaces.
-	IsAnnotationContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type AnnotationContext struct {
@@ -1059,6 +1694,19 @@ func NewAnnotationContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 
 func (s *AnnotationContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
 func (s *AnnotationContext) Annotation() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerAnnotation, 0)
 }
@@ -1068,7 +1716,7 @@ func (s *AnnotationContext) DOWN() antlr.TerminalNode {
 }
 
 func (s *AnnotationContext) JsonVal() IJsonValContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), 0)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
@@ -1081,6 +1729,7 @@ func (s *AnnotationContext) UP() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerUP, 0)
 }
 
+//provideCopyFrom
 func (s *AnnotationContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -1089,32 +1738,51 @@ func (s *AnnotationContext) ToStringTree(ruleNames []string, recog antlr.Recogni
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
 func (s *AnnotationContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(AnnotationEntryListener); ok {
 		listenerT.EnterAnnotation(s)
 	}
 }
 
 func (s *AnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(AnnotationExitListener); ok {
 		listenerT.ExitAnnotation(s)
 	}
 }
 
-func (s *AnnotationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitAnnotation(s)
+func (s *AnnotationContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.Annotation != nil {
+		h.Annotation(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *AnnotationContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case AnnotationContextVisitor:
+		return t.VisitAnnotation(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
+//extensionMembers
+
 func (p *DNAC_A_Walker) Annotation() (localctx IAnnotationContext) {
 	localctx = NewAnnotationContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, DNAC_A_WalkerRULE_annotation)
-	var _la int
+	p.EnterRule(localctx, 6, DNAC_A_WalkerRULE_annotation)
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -1134,24 +1802,24 @@ func (p *DNAC_A_Walker) Annotation() (localctx IAnnotationContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(87)
+		p.SetState(90)
 		p.Match(DNAC_A_WalkerAnnotation)
 	}
-	p.SetState(92)
+	p.SetState(95)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == DNAC_A_WalkerDOWN {
 		{
-			p.SetState(88)
+			p.SetState(91)
 			p.Match(DNAC_A_WalkerDOWN)
 		}
 		{
-			p.SetState(89)
+			p.SetState(92)
 			p.JsonVal()
 		}
 		{
-			p.SetState(90)
+			p.SetState(93)
 			p.Match(DNAC_A_WalkerUP)
 		}
 
@@ -1160,15 +1828,42 @@ func (p *DNAC_A_Walker) Annotation() (localctx IAnnotationContext) {
 	return localctx
 }
 
-// ITypeExpr_Context is an interface to support dynamic dispatch.
 type ITypeExpr_Context interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllTypeExprElem_() []ITypeExprElem_Context
+	//  ruleListIndexedGetterDecl
+	TypeExprElem_(i int) ITypeExprElem_Context
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	TypeExpr() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsTypeExpr_Context differentiates from other interfaces.
-	IsTypeExpr_Context()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type TypeExpr_Context struct {
@@ -1198,6 +1893,19 @@ func NewTypeExpr_Context(parser antlr.Parser, parent antlr.ParserRuleContext, in
 
 func (s *TypeExpr_Context) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
 func (s *TypeExpr_Context) TypeExpr() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerTypeExpr, 0)
 }
@@ -1211,7 +1919,8 @@ func (s *TypeExpr_Context) UP() antlr.TerminalNode {
 }
 
 func (s *TypeExpr_Context) AllTypeExprElem_() []ITypeExprElem_Context {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITypeExprElem_Context)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*TypeExprElem_Context)(nil)).Elem())
 	var tst = make([]ITypeExprElem_Context, len(ts))
 
 	for i, t := range ts {
@@ -1224,7 +1933,7 @@ func (s *TypeExpr_Context) AllTypeExprElem_() []ITypeExprElem_Context {
 }
 
 func (s *TypeExpr_Context) TypeExprElem_(i int) ITypeExprElem_Context {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeExprElem_Context)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeExprElem_Context)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -1233,6 +1942,7 @@ func (s *TypeExpr_Context) TypeExprElem_(i int) ITypeExprElem_Context {
 	return t.(ITypeExprElem_Context)
 }
 
+//provideCopyFrom
 func (s *TypeExpr_Context) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -1241,32 +1951,51 @@ func (s *TypeExpr_Context) ToStringTree(ruleNames []string, recog antlr.Recogniz
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
+//dispatchMethods
 func (s *TypeExpr_Context) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(TypeExpr_EntryListener); ok {
 		listenerT.EnterTypeExpr_(s)
 	}
 }
 
 func (s *TypeExpr_Context) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(TypeExpr_ExitListener); ok {
 		listenerT.ExitTypeExpr_(s)
 	}
 }
 
-func (s *TypeExpr_Context) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitTypeExpr_(s)
+func (s *TypeExpr_Context) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TypeExpr_ != nil {
+		h.TypeExpr_(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *TypeExpr_Context) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TypeExpr_ContextVisitor:
+		return t.VisitTypeExpr_(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
+//extensionMembers
+
 func (p *DNAC_A_Walker) TypeExpr_() (localctx ITypeExpr_Context) {
 	localctx = NewTypeExpr_Context(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 6, DNAC_A_WalkerRULE_typeExpr_)
-	var _la int
+	p.EnterRule(localctx, 8, DNAC_A_WalkerRULE_typeExpr_)
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -1286,34 +2015,34 @@ func (p *DNAC_A_Walker) TypeExpr_() (localctx ITypeExpr_Context) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(94)
+		p.SetState(97)
 		p.Match(DNAC_A_WalkerTypeExpr)
 	}
-	p.SetState(103)
+	p.SetState(106)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == DNAC_A_WalkerDOWN {
 		{
-			p.SetState(95)
+			p.SetState(98)
 			p.Match(DNAC_A_WalkerDOWN)
 		}
-		p.SetState(97)
+		p.SetState(100)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ok := true; ok; ok = _la == DNAC_A_WalkerTypeExprElem {
 			{
-				p.SetState(96)
+				p.SetState(99)
 				p.TypeExprElem_()
 			}
 
-			p.SetState(99)
+			p.SetState(102)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(101)
+			p.SetState(104)
 			p.Match(DNAC_A_WalkerUP)
 		}
 
@@ -1322,15 +2051,37 @@ func (p *DNAC_A_Walker) TypeExpr_() (localctx ITypeExpr_Context) {
 	return localctx
 }
 
-// ITypeExprElem_Context is an interface to support dynamic dispatch.
 type ITypeExprElem_Context interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsTypeExprElem_Context differentiates from other interfaces.
-	IsTypeExprElem_Context()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type TypeExprElem_Context struct {
@@ -1360,6 +2111,21 @@ func NewTypeExprElem_Context(parser antlr.Parser, parent antlr.ParserRuleContext
 
 func (s *TypeExprElem_Context) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *TypeExprElem_Context) CopyFrom(ctx *TypeExprElem_Context) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -1371,6 +2137,11 @@ func (s *TypeExprElem_Context) GetRuleContext() antlr.RuleContext {
 func (s *TypeExprElem_Context) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
+
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
 
 type TypeParamsContext struct {
 	*TypeExprElem_Context
@@ -1386,10 +2157,56 @@ func NewTypeParamsContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Typ
 	return p
 }
 
+type ITypeParamsContext interface {
+	//Current rule
+	ITypeExprElem_Context
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllTypeExprElem_() []ITypeExprElem_Context
+	//  ruleListIndexedGetterDecl
+	TypeExprElem_(i int) ITypeExprElem_Context
+
+	//  tokenGetterDecl
+	TypeExprElem() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*TypeParamsContext) IsTypeParamsContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *TypeParamsContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *TypeParamsContext) TypeExprElem() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerTypeExprElem, 0)
 }
@@ -1403,7 +2220,8 @@ func (s *TypeParamsContext) UP() antlr.TerminalNode {
 }
 
 func (s *TypeParamsContext) AllTypeExprElem_() []ITypeExprElem_Context {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITypeExprElem_Context)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*TypeExprElem_Context)(nil)).Elem())
 	var tst = make([]ITypeExprElem_Context, len(ts))
 
 	for i, t := range ts {
@@ -1416,7 +2234,7 @@ func (s *TypeParamsContext) AllTypeExprElem_() []ITypeExprElem_Context {
 }
 
 func (s *TypeParamsContext) TypeExprElem_(i int) ITypeExprElem_Context {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITypeExprElem_Context)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*TypeExprElem_Context)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -1426,31 +2244,49 @@ func (s *TypeParamsContext) TypeExprElem_(i int) ITypeExprElem_Context {
 }
 
 func (s *TypeParamsContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(TypeParamsEntryListener); ok {
 		listenerT.EnterTypeParams(s)
 	}
 }
 
 func (s *TypeParamsContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(TypeParamsExitListener); ok {
 		listenerT.ExitTypeParams(s)
 	}
 }
 
-func (s *TypeParamsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitTypeParams(s)
+func (s *TypeParamsContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TypeParams != nil {
+		h.TypeParams(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *TypeParamsContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TypeParamsContextVisitor:
+		return t.VisitTypeParams(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *DNAC_A_Walker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 	localctx = NewTypeExprElem_Context(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, DNAC_A_WalkerRULE_typeExprElem_)
-	var _la int
+	p.EnterRule(localctx, 10, DNAC_A_WalkerRULE_typeExprElem_)
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -1471,34 +2307,34 @@ func (p *DNAC_A_Walker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 	localctx = NewTypeParamsContext(p, localctx)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(105)
+		p.SetState(108)
 		p.Match(DNAC_A_WalkerTypeExprElem)
 	}
-	p.SetState(114)
+	p.SetState(117)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == DNAC_A_WalkerDOWN {
 		{
-			p.SetState(106)
+			p.SetState(109)
 			p.Match(DNAC_A_WalkerDOWN)
 		}
-		p.SetState(108)
+		p.SetState(111)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ok := true; ok; ok = _la == DNAC_A_WalkerTypeExprElem {
 			{
-				p.SetState(107)
+				p.SetState(110)
 				p.TypeExprElem_()
 			}
 
-			p.SetState(110)
+			p.SetState(113)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(112)
+			p.SetState(115)
 			p.Match(DNAC_A_WalkerUP)
 		}
 
@@ -1507,15 +2343,37 @@ func (p *DNAC_A_Walker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 	return localctx
 }
 
-// IJsonValContext is an interface to support dynamic dispatch.
 type IJsonValContext interface {
 	antlr.ParserRuleContext
-
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// start internal
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
 	// IsJsonValContext differentiates from other interfaces.
-	IsJsonValContext()
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
 }
 
 type JsonValContext struct {
@@ -1545,6 +2403,21 @@ func NewJsonValContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 
 func (s *JsonValContext) GetParser() antlr.Parser { return s.parser }
 
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+
+//provideCopyFrom
 func (s *JsonValContext) CopyFrom(ctx *JsonValContext) {
 	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
@@ -1556,6 +2429,11 @@ func (s *JsonValContext) GetRuleContext() antlr.RuleContext {
 func (s *JsonValContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
+
+//dispatchMethods
+//extensionMembers
+
+//Begin AltLabelStructDecl
 
 type JsonStrContext struct {
 	*JsonValContext
@@ -1571,35 +2449,96 @@ func NewJsonStrContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonSt
 	return p
 }
 
+type IJsonStrContext interface {
+	//Current rule
+	IJsonValContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	JsonStr() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*JsonStrContext) IsJsonStrContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *JsonStrContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *JsonStrContext) JsonStr() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerJsonStr, 0)
 }
 
 func (s *JsonStrContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonStrEntryListener); ok {
 		listenerT.EnterJsonStr(s)
 	}
 }
 
 func (s *JsonStrContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonStrExitListener); ok {
 		listenerT.ExitJsonStr(s)
 	}
 }
 
-func (s *JsonStrContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitJsonStr(s)
+func (s *JsonStrContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.JsonStr != nil {
+		h.JsonStr(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *JsonStrContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case JsonStrContextVisitor:
+		return t.VisitJsonStr(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type JsonArrayContext struct {
 	*JsonValContext
@@ -1615,10 +2554,56 @@ func NewJsonArrayContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Json
 	return p
 }
 
+type IJsonArrayContext interface {
+	//Current rule
+	IJsonValContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllJsonVal() []IJsonValContext
+	//  ruleListIndexedGetterDecl
+	JsonVal(i int) IJsonValContext
+
+	//  tokenGetterDecl
+	JsonArray() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*JsonArrayContext) IsJsonArrayContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *JsonArrayContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *JsonArrayContext) JsonArray() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerJsonArray, 0)
 }
@@ -1632,7 +2617,8 @@ func (s *JsonArrayContext) UP() antlr.TerminalNode {
 }
 
 func (s *JsonArrayContext) AllJsonVal() []IJsonValContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IJsonValContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*JsonValContext)(nil)).Elem())
 	var tst = make([]IJsonValContext, len(ts))
 
 	for i, t := range ts {
@@ -1645,7 +2631,7 @@ func (s *JsonArrayContext) AllJsonVal() []IJsonValContext {
 }
 
 func (s *JsonArrayContext) JsonVal(i int) IJsonValContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -1655,26 +2641,45 @@ func (s *JsonArrayContext) JsonVal(i int) IJsonValContext {
 }
 
 func (s *JsonArrayContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonArrayEntryListener); ok {
 		listenerT.EnterJsonArray(s)
 	}
 }
 
 func (s *JsonArrayContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonArrayExitListener); ok {
 		listenerT.ExitJsonArray(s)
 	}
 }
 
-func (s *JsonArrayContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitJsonArray(s)
+func (s *JsonArrayContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.JsonArray != nil {
+		h.JsonArray(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *JsonArrayContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case JsonArrayContextVisitor:
+		return t.VisitJsonArray(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type JsonFloatContext struct {
 	*JsonValContext
@@ -1690,35 +2695,96 @@ func NewJsonFloatContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Json
 	return p
 }
 
+type IJsonFloatContext interface {
+	//Current rule
+	IJsonValContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	JsonFloat() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*JsonFloatContext) IsJsonFloatContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *JsonFloatContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *JsonFloatContext) JsonFloat() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerJsonFloat, 0)
 }
 
 func (s *JsonFloatContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonFloatEntryListener); ok {
 		listenerT.EnterJsonFloat(s)
 	}
 }
 
 func (s *JsonFloatContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonFloatExitListener); ok {
 		listenerT.ExitJsonFloat(s)
 	}
 }
 
-func (s *JsonFloatContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitJsonFloat(s)
+func (s *JsonFloatContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.JsonFloat != nil {
+		h.JsonFloat(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *JsonFloatContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case JsonFloatContextVisitor:
+		return t.VisitJsonFloat(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type JsonObjContext struct {
 	*JsonValContext
@@ -1734,10 +2800,56 @@ func NewJsonObjContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonOb
 	return p
 }
 
+type IJsonObjContext interface {
+	//Current rule
+	IJsonValContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	AllJsonVal() []IJsonValContext
+	//  ruleListIndexedGetterDecl
+	JsonVal(i int) IJsonValContext
+
+	//  tokenGetterDecl
+	JsonObj() antlr.TerminalNode
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*JsonObjContext) IsJsonObjContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *JsonObjContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *JsonObjContext) JsonObj() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerJsonObj, 0)
 }
@@ -1751,7 +2863,8 @@ func (s *JsonObjContext) UP() antlr.TerminalNode {
 }
 
 func (s *JsonObjContext) AllJsonVal() []IJsonValContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IJsonValContext)(nil)).Elem())
+	//ContextRuleListGetterDecl
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*JsonValContext)(nil)).Elem())
 	var tst = make([]IJsonValContext, len(ts))
 
 	for i, t := range ts {
@@ -1764,7 +2877,7 @@ func (s *JsonObjContext) AllJsonVal() []IJsonValContext {
 }
 
 func (s *JsonObjContext) JsonVal(i int) IJsonValContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IJsonValContext)(nil)).Elem(), i)
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
@@ -1774,26 +2887,45 @@ func (s *JsonObjContext) JsonVal(i int) IJsonValContext {
 }
 
 func (s *JsonObjContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonObjEntryListener); ok {
 		listenerT.EnterJsonObj(s)
 	}
 }
 
 func (s *JsonObjContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonObjExitListener); ok {
 		listenerT.ExitJsonObj(s)
 	}
 }
 
-func (s *JsonObjContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitJsonObj(s)
+func (s *JsonObjContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.JsonObj != nil {
+		h.JsonObj(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *JsonObjContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case JsonObjContextVisitor:
+		return t.VisitJsonObj(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type JsonBoolContext struct {
 	*JsonValContext
@@ -1809,35 +2941,96 @@ func NewJsonBoolContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonB
 	return p
 }
 
+type IJsonBoolContext interface {
+	//Current rule
+	IJsonValContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	JsonBool() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*JsonBoolContext) IsJsonBoolContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *JsonBoolContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *JsonBoolContext) JsonBool() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerJsonBool, 0)
 }
 
 func (s *JsonBoolContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonBoolEntryListener); ok {
 		listenerT.EnterJsonBool(s)
 	}
 }
 
 func (s *JsonBoolContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonBoolExitListener); ok {
 		listenerT.ExitJsonBool(s)
 	}
 }
 
-func (s *JsonBoolContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitJsonBool(s)
+func (s *JsonBoolContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.JsonBool != nil {
+		h.JsonBool(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *JsonBoolContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case JsonBoolContextVisitor:
+		return t.VisitJsonBool(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type JsonIntContext struct {
 	*JsonValContext
@@ -1853,35 +3046,96 @@ func NewJsonIntContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonIn
 	return p
 }
 
+type IJsonIntContext interface {
+	//Current rule
+	IJsonValContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	JsonInt() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*JsonIntContext) IsJsonIntContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *JsonIntContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *JsonIntContext) JsonInt() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerJsonInt, 0)
 }
 
 func (s *JsonIntContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonIntEntryListener); ok {
 		listenerT.EnterJsonInt(s)
 	}
 }
 
 func (s *JsonIntContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonIntExitListener); ok {
 		listenerT.ExitJsonInt(s)
 	}
 }
 
-func (s *JsonIntContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitJsonInt(s)
+func (s *JsonIntContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.JsonInt != nil {
+		h.JsonInt(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *JsonIntContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case JsonIntContextVisitor:
+		return t.VisitJsonInt(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
+
+//END AltLabelStructDecl
+
+//Begin AltLabelStructDecl
 
 type JsonNullContext struct {
 	*JsonValContext
@@ -1897,40 +3151,100 @@ func NewJsonNullContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *JsonN
 	return p
 }
 
+type IJsonNullContext interface {
+	//Current rule
+	IJsonValContext
+	// start internal
+	//Gets for raw elements
+	//  ruleGetterDecl
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+
+	//  tokenGetterDecl
+	JsonNull() antlr.TerminalNode
+	//  tokenListGetterDecl
+	//  tokenListIndexedGetterDecl
+	// end internal
+	//
+	//Gets for labeled elements
+	//  tokenDecls
+	//  tokenTypeDecls
+	//  tokenListDecls
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	//  attributeDecls
+
+	// TODO dispatchMethods (needed?)
+}
+
+func (*JsonNullContext) IsJsonNullContext() {}
+
+//AltLabelStructDecl tokenDecls
+
+//AltLabelStructDecl tokenTypeDecls
+
+//AltLabelStructDecl tokenListDecls
+
+//AltLabelStructDecl ruleContextDecls
+
+//AltLabelStructDecl ruleContextListDecls
+
+//AltLabelStructDecl attributeDecls
+
+//getRuleContext
 func (s *JsonNullContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
+//getters
 func (s *JsonNullContext) JsonNull() antlr.TerminalNode {
 	return s.GetToken(DNAC_A_WalkerJsonNull, 0)
 }
 
 func (s *JsonNullContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonNullEntryListener); ok {
 		listenerT.EnterJsonNull(s)
 	}
 }
 
 func (s *JsonNullContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(DNAC_A_WalkerListener); ok {
+	if listenerT, ok := listener.(JsonNullExitListener); ok {
 		listenerT.ExitJsonNull(s)
 	}
 }
 
-func (s *JsonNullContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case DNAC_A_WalkerVisitor:
-		return t.VisitJsonNull(s)
+func (s *JsonNullContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*DNAC_A_WalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.JsonNull != nil {
+		h.JsonNull(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
 
+func (s *JsonNullContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case JsonNullContextVisitor:
+		return t.VisitJsonNull(s, delegate, args...)
 	default:
-		return t.VisitChildren(s)
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
+//END AltLabelStructDecl
+
 func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 	localctx = NewJsonValContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, DNAC_A_WalkerRULE_jsonVal)
-	var _la int
+	p.EnterRule(localctx, 12, DNAC_A_WalkerRULE_jsonVal)
+	var //TokenTypeDecl
+	_la int
 
 	defer func() {
 		p.ExitRule()
@@ -1948,7 +3262,7 @@ func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 		}
 	}()
 
-	p.SetState(143)
+	p.SetState(146)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
@@ -1956,7 +3270,7 @@ func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonStrContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(116)
+			p.SetState(119)
 			p.Match(DNAC_A_WalkerJsonStr)
 		}
 
@@ -1964,7 +3278,7 @@ func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonBoolContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(117)
+			p.SetState(120)
 			p.Match(DNAC_A_WalkerJsonBool)
 		}
 
@@ -1972,7 +3286,7 @@ func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonNullContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(118)
+			p.SetState(121)
 			p.Match(DNAC_A_WalkerJsonNull)
 		}
 
@@ -1980,7 +3294,7 @@ func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonIntContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(119)
+			p.SetState(122)
 			p.Match(DNAC_A_WalkerJsonInt)
 		}
 
@@ -1988,7 +3302,7 @@ func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonFloatContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(120)
+			p.SetState(123)
 			p.Match(DNAC_A_WalkerJsonFloat)
 		}
 
@@ -1996,34 +3310,34 @@ func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonArrayContext(p, localctx)
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(121)
+			p.SetState(124)
 			p.Match(DNAC_A_WalkerJsonArray)
 		}
-		p.SetState(130)
+		p.SetState(133)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == DNAC_A_WalkerDOWN {
 			{
-				p.SetState(122)
+				p.SetState(125)
 				p.Match(DNAC_A_WalkerDOWN)
 			}
-			p.SetState(124)
+			p.SetState(127)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for ok := true; ok; ok = (((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_A_WalkerJsonStr-41))|(1<<(DNAC_A_WalkerJsonBool-41))|(1<<(DNAC_A_WalkerJsonNull-41))|(1<<(DNAC_A_WalkerJsonInt-41))|(1<<(DNAC_A_WalkerJsonFloat-41))|(1<<(DNAC_A_WalkerJsonArray-41))|(1<<(DNAC_A_WalkerJsonObj-41)))) != 0) {
 				{
-					p.SetState(123)
+					p.SetState(126)
 					p.JsonVal()
 				}
 
-				p.SetState(126)
+				p.SetState(129)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(128)
+				p.SetState(131)
 				p.Match(DNAC_A_WalkerUP)
 			}
 
@@ -2033,34 +3347,34 @@ func (p *DNAC_A_Walker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonObjContext(p, localctx)
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(132)
+			p.SetState(135)
 			p.Match(DNAC_A_WalkerJsonObj)
 		}
-		p.SetState(141)
+		p.SetState(144)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == DNAC_A_WalkerDOWN {
 			{
-				p.SetState(133)
+				p.SetState(136)
 				p.Match(DNAC_A_WalkerDOWN)
 			}
-			p.SetState(135)
+			p.SetState(138)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for ok := true; ok; ok = (((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(DNAC_A_WalkerJsonStr-41))|(1<<(DNAC_A_WalkerJsonBool-41))|(1<<(DNAC_A_WalkerJsonNull-41))|(1<<(DNAC_A_WalkerJsonInt-41))|(1<<(DNAC_A_WalkerJsonFloat-41))|(1<<(DNAC_A_WalkerJsonArray-41))|(1<<(DNAC_A_WalkerJsonObj-41)))) != 0) {
 				{
-					p.SetState(134)
+					p.SetState(137)
 					p.JsonVal()
 				}
 
-				p.SetState(137)
+				p.SetState(140)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(139)
+				p.SetState(142)
 				p.Match(DNAC_A_WalkerUP)
 			}
 

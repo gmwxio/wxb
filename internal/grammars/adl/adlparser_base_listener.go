@@ -1,154 +1,219 @@
-// Code generated from ADLParser.g4 by ANTLR 4.7.1. DO NOT EDIT.
+// Generated from ADLParser.g4 by ANTLR 4.7.
 
 package parser // ADLParser
 
-import "github.com/wxio/goantlr"
+//import "github.com/wxio/goantlr"
+//import "generated code if in another package"
 
-// BaseADLParserListener is a complete listener for a parse tree produced by ADLParser.
-type BaseADLParserListener struct{}
+//// Commented out basic implementation for your convenience.
 
-var _ ADLParserListener = &BaseADLParserListener{}
+//func Example(s string) {
+//  // Setup
+//  input := antlr.NewInputStream(s)
+//  lexer := NewADLParserLexer(input)
+//  stream := antlr.NewCommonTokenStream(lexer, 0)
+//  p := NewADLParserParser(stream)
 
-// VisitTerminal is called when a terminal node is visited.
-func (s *BaseADLParserListener) VisitTerminal(node antlr.TerminalNode) {}
+//  // Antlr error listener - turns reports (ambiguity etc) into syntax errors
+//  p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 
-// VisitErrorNode is called when an error node is visited.
-func (s *BaseADLParserListener) VisitErrorNode(node antlr.ErrorNode) {}
+//  // Custom error listener, register before the parse
+//  el := &ADLParserErrorListener{}
+//  p.AddErrorListener(el)
 
-// EnterEveryRule is called when any rule is entered.
-func (s *BaseADLParserListener) EnterEveryRule(ctx antlr.ParserRuleContext) {}
+//  // Parse - start rule
+//  tree := p.Start()
 
-// ExitEveryRule is called when any rule is exited.
-func (s *BaseADLParserListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
+//  // Antlr provided parse tree representation
+//  sexpr := antlr.TreesStringTree(tree, nil, p)
+//  fmt.Printf("%s\n", sexpr)
 
-// EnterAdl is called when production adl is entered.
-func (s *BaseADLParserListener) EnterAdl(ctx *AdlContext) {}
+//  // Custom listener
+//  l := &ADLParserListener{}
+//  antlr.ParseTreeWalkerDefault.Walk(l, tree)
 
-// ExitAdl is called when production adl is exited.
-func (s *BaseADLParserListener) ExitAdl(ctx *AdlContext) {}
+//  // Custom visitor
+//  v := &ADLParserVisitor{}
+//  tree.Accept(v)
+// }
 
-// EnterModuleStatement is called when production ModuleStatement is entered.
-func (s *BaseADLParserListener) EnterModuleStatement(ctx *ModuleStatementContext) {}
+//// implemented all listeners methods
+//var _ ADLParserListener = &ADLParserListener{}
+//// implemented specific
+//var _ AdlEntryListener = &ADLParserListener{}
+//var _ AdlExitListener = &ADLParserListener{}
 
-// ExitModuleStatement is called when production ModuleStatement is exited.
-func (s *BaseADLParserListener) ExitModuleStatement(ctx *ModuleStatementContext) {}
+//var _ ModuleStatementEntryListener = &ADLParserListener{}
+//var _ ModuleStatementExitListener = &ADLParserListener{}
 
-// EnterImportStatement is called when production ImportStatement is entered.
-func (s *BaseADLParserListener) EnterImportStatement(ctx *ImportStatementContext) {}
+//var _ ImportStatementEntryListener = &ADLParserListener{}
+//var _ ImportStatementExitListener = &ADLParserListener{}
 
-// ExitImportStatement is called when production ImportStatement is exited.
-func (s *BaseADLParserListener) ExitImportStatement(ctx *ImportStatementContext) {}
+//var _ LocalAnnoEntryListener = &ADLParserListener{}
+//var _ LocalAnnoExitListener = &ADLParserListener{}
 
-// EnterLocalAnno is called when production LocalAnno is entered.
-func (s *BaseADLParserListener) EnterLocalAnno(ctx *LocalAnnoContext) {}
+//var _ DocAnnoEntryListener = &ADLParserListener{}
+//var _ DocAnnoExitListener = &ADLParserListener{}
 
-// ExitLocalAnno is called when production LocalAnno is exited.
-func (s *BaseADLParserListener) ExitLocalAnno(ctx *LocalAnnoContext) {}
+//var _ StructOrUnionEntryListener = &ADLParserListener{}
+//var _ StructOrUnionExitListener = &ADLParserListener{}
 
-// EnterDocAnno is called when production DocAnno is entered.
-func (s *BaseADLParserListener) EnterDocAnno(ctx *DocAnnoContext) {}
+//var _ TypeOrNewtypeEntryListener = &ADLParserListener{}
+//var _ TypeOrNewtypeExitListener = &ADLParserListener{}
 
-// ExitDocAnno is called when production DocAnno is exited.
-func (s *BaseADLParserListener) ExitDocAnno(ctx *DocAnnoContext) {}
+//var _ ModuleAnnotationEntryListener = &ADLParserListener{}
+//var _ ModuleAnnotationExitListener = &ADLParserListener{}
 
-// EnterStructOrUnion is called when production StructOrUnion is entered.
-func (s *BaseADLParserListener) EnterStructOrUnion(ctx *StructOrUnionContext) {}
+//var _ DeclAnnotationEntryListener = &ADLParserListener{}
+//var _ DeclAnnotationExitListener = &ADLParserListener{}
 
-// ExitStructOrUnion is called when production StructOrUnion is exited.
-func (s *BaseADLParserListener) ExitStructOrUnion(ctx *StructOrUnionContext) {}
+//var _ FieldAnnotationEntryListener = &ADLParserListener{}
+//var _ FieldAnnotationExitListener = &ADLParserListener{}
 
-// EnterTypeOrNewtype is called when production TypeOrNewtype is entered.
-func (s *BaseADLParserListener) EnterTypeOrNewtype(ctx *TypeOrNewtypeContext) {}
+//var _ TypeParameterEntryListener = &ADLParserListener{}
+//var _ TypeParameterExitListener = &ADLParserListener{}
 
-// ExitTypeOrNewtype is called when production TypeOrNewtype is exited.
-func (s *BaseADLParserListener) ExitTypeOrNewtype(ctx *TypeOrNewtypeContext) {}
+//var _ ErrorTypeParamEntryListener = &ADLParserListener{}
+//var _ ErrorTypeParamExitListener = &ADLParserListener{}
 
-// EnterModuleAnnotation is called when production ModuleAnnotation is entered.
-func (s *BaseADLParserListener) EnterModuleAnnotation(ctx *ModuleAnnotationContext) {}
+//var _ TypeParamErrorEntryListener = &ADLParserListener{}
+//var _ TypeParamErrorExitListener = &ADLParserListener{}
 
-// ExitModuleAnnotation is called when production ModuleAnnotation is exited.
-func (s *BaseADLParserListener) ExitModuleAnnotation(ctx *ModuleAnnotationContext) {}
+//var _ TypeExpressionEntryListener = &ADLParserListener{}
+//var _ TypeExpressionExitListener = &ADLParserListener{}
 
-// EnterDeclAnnotation is called when production DeclAnnotation is entered.
-func (s *BaseADLParserListener) EnterDeclAnnotation(ctx *DeclAnnotationContext) {}
+//var _ TypeExpressionElemEntryListener = &ADLParserListener{}
+//var _ TypeExpressionElemExitListener = &ADLParserListener{}
 
-// ExitDeclAnnotation is called when production DeclAnnotation is exited.
-func (s *BaseADLParserListener) ExitDeclAnnotation(ctx *DeclAnnotationContext) {}
+//var _ FieldStatementEntryListener = &ADLParserListener{}
+//var _ FieldStatementExitListener = &ADLParserListener{}
 
-// EnterFieldAnnotation is called when production FieldAnnotation is entered.
-func (s *BaseADLParserListener) EnterFieldAnnotation(ctx *FieldAnnotationContext) {}
+//var _ StringStatementEntryListener = &ADLParserListener{}
+//var _ StringStatementExitListener = &ADLParserListener{}
 
-// ExitFieldAnnotation is called when production FieldAnnotation is exited.
-func (s *BaseADLParserListener) ExitFieldAnnotation(ctx *FieldAnnotationContext) {}
+//var _ TrueFalseNullEntryListener = &ADLParserListener{}
+//var _ TrueFalseNullExitListener = &ADLParserListener{}
 
-// EnterTypeParameter is called when production TypeParameter is entered.
-func (s *BaseADLParserListener) EnterTypeParameter(ctx *TypeParameterContext) {}
+//var _ NumberStatementEntryListener = &ADLParserListener{}
+//var _ NumberStatementExitListener = &ADLParserListener{}
 
-// ExitTypeParameter is called when production TypeParameter is exited.
-func (s *BaseADLParserListener) ExitTypeParameter(ctx *TypeParameterContext) {}
+//var _ FloatStatementEntryListener = &ADLParserListener{}
+//var _ FloatStatementExitListener = &ADLParserListener{}
 
-// EnterErrorTypeParam is called when production ErrorTypeParam is entered.
-func (s *BaseADLParserListener) EnterErrorTypeParam(ctx *ErrorTypeParamContext) {}
+//var _ ArrayStatementEntryListener = &ADLParserListener{}
+//var _ ArrayStatementExitListener = &ADLParserListener{}
 
-// ExitErrorTypeParam is called when production ErrorTypeParam is exited.
-func (s *BaseADLParserListener) ExitErrorTypeParam(ctx *ErrorTypeParamContext) {}
+//var _ ObjStatementEntryListener = &ADLParserListener{}
+//var _ ObjStatementExitListener = &ADLParserListener{}
 
-// EnterTypeParamError is called when production typeParamError is entered.
-func (s *BaseADLParserListener) EnterTypeParamError(ctx *TypeParamErrorContext) {}
+//type ADLParserListener struct {
+//}
 
-// ExitTypeParamError is called when production typeParamError is exited.
-func (s *BaseADLParserListener) ExitTypeParamError(ctx *TypeParamErrorContext) {}
+//type ADLParserErrorListener struct {
+//    Warning string
+//    Err     error
+//    Debug   bool
+//}
 
-// EnterTypeExpression is called when production TypeExpression is entered.
-func (s *BaseADLParserListener) EnterTypeExpression(ctx *TypeExpressionContext) {}
+// func (cb *ADLParserErrorListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+//  if cb.Debug {
+//      fmt.Printf("SyntaxError %d:%d <%s>\n", line, column, msg)
+//  }
+//  if strings.HasPrefix(msg, "report") { // TODO remove NewDiagnosticErrorListener and move warning to ReportAmbiguity etc. when getDecisionDescription is make public
+//      cb.Warning = fmt.Sprintf("At %d:%d <%s>", line, column, msg)
+//  } else {
+//      cb.Err = fmt.Errorf("SyntaxError %d:%d <%s>", line, column, msg)
+//  }
+// }
+// func (cb *ADLParserErrorListener) ReportAmbiguity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int,
+//  exact bool, ambigAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportAmbiguity rec:%v dfs:%v start:%d stop:%d, exact:%v, ambigAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs)
+//  }
+// }
+// func (cb *ADLParserErrorListener) ReportAttemptingFullContext(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int, conflictingAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportAttemptingFullContext rec:%v dfs:%v start:%d stop:%d, conflictingAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs)
+//  }
+// }
+// func (cb *ADLParserErrorListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex, prediction int, configs antlr.ATNConfigSet) {
+//  if cb.Debug {
+//      fmt.Printf("ReportContextSensitivity rec:%v dfs:%v start:%d stop:%d, prediction:%v configs:%v\n", recognizer, dfa, startIndex, stopIndex, prediction, configs)
+//  }
+// }
 
-// ExitTypeExpression is called when production TypeExpression is exited.
-func (s *BaseADLParserListener) ExitTypeExpression(ctx *TypeExpressionContext) {}
+//// antlr.ParseTreeListener implementation.
+//// All required.
 
-// EnterTypeExpressionElem is called when production TypeExpressionElem is entered.
-func (s *BaseADLParserListener) EnterTypeExpressionElem(ctx *TypeExpressionElemContext) {}
+//func (s *ADLParserListener ) VisitTerminal(node  antlr.TerminalNode) {   }
+//func (s *ADLParserListener ) VisitErrorNode(node antlr.ErrorNode)    {   }
+//func (s *ADLParserListener ) EnterEveryRule(ctx antlr.ParserRuleContext) {  }
+//func (s *ADLParserListener ) ExitEveryRule(ctx antlr.ParserRuleContext) {  }
 
-// ExitTypeExpressionElem is called when production TypeExpressionElem is exited.
-func (s *BaseADLParserListener) ExitTypeExpressionElem(ctx *TypeExpressionElemContext) {}
+//// Only implemented as needed.
 
-// EnterFieldStatement is called when production FieldStatement is entered.
-func (s *BaseADLParserListener) EnterFieldStatement(ctx *FieldStatementContext) {}
+//func (s *ADLParserListener) EnterAdl(ctx *AdlContext) {}
+//func (s *ADLParserListener) ExitAdl(ctx *AdlContext) {}
 
-// ExitFieldStatement is called when production FieldStatement is exited.
-func (s *BaseADLParserListener) ExitFieldStatement(ctx *FieldStatementContext) {}
+//func (s *ADLParserListener) EnterModuleStatement(ctx *ModuleStatementContext) {}
+//func (s *ADLParserListener) ExitModuleStatement(ctx *ModuleStatementContext) {}
 
-// EnterStringStatement is called when production StringStatement is entered.
-func (s *BaseADLParserListener) EnterStringStatement(ctx *StringStatementContext) {}
+//func (s *ADLParserListener) EnterImportStatement(ctx *ImportStatementContext) {}
+//func (s *ADLParserListener) ExitImportStatement(ctx *ImportStatementContext) {}
 
-// ExitStringStatement is called when production StringStatement is exited.
-func (s *BaseADLParserListener) ExitStringStatement(ctx *StringStatementContext) {}
+//func (s *ADLParserListener) EnterLocalAnno(ctx *LocalAnnoContext) {}
+//func (s *ADLParserListener) ExitLocalAnno(ctx *LocalAnnoContext) {}
 
-// EnterTrueFalseNull is called when production TrueFalseNull is entered.
-func (s *BaseADLParserListener) EnterTrueFalseNull(ctx *TrueFalseNullContext) {}
+//func (s *ADLParserListener) EnterDocAnno(ctx *DocAnnoContext) {}
+//func (s *ADLParserListener) ExitDocAnno(ctx *DocAnnoContext) {}
 
-// ExitTrueFalseNull is called when production TrueFalseNull is exited.
-func (s *BaseADLParserListener) ExitTrueFalseNull(ctx *TrueFalseNullContext) {}
+//func (s *ADLParserListener) EnterStructOrUnion(ctx *StructOrUnionContext) {}
+//func (s *ADLParserListener) ExitStructOrUnion(ctx *StructOrUnionContext) {}
 
-// EnterNumberStatement is called when production NumberStatement is entered.
-func (s *BaseADLParserListener) EnterNumberStatement(ctx *NumberStatementContext) {}
+//func (s *ADLParserListener) EnterTypeOrNewtype(ctx *TypeOrNewtypeContext) {}
+//func (s *ADLParserListener) ExitTypeOrNewtype(ctx *TypeOrNewtypeContext) {}
 
-// ExitNumberStatement is called when production NumberStatement is exited.
-func (s *BaseADLParserListener) ExitNumberStatement(ctx *NumberStatementContext) {}
+//func (s *ADLParserListener) EnterModuleAnnotation(ctx *ModuleAnnotationContext) {}
+//func (s *ADLParserListener) ExitModuleAnnotation(ctx *ModuleAnnotationContext) {}
 
-// EnterFloatStatement is called when production FloatStatement is entered.
-func (s *BaseADLParserListener) EnterFloatStatement(ctx *FloatStatementContext) {}
+//func (s *ADLParserListener) EnterDeclAnnotation(ctx *DeclAnnotationContext) {}
+//func (s *ADLParserListener) ExitDeclAnnotation(ctx *DeclAnnotationContext) {}
 
-// ExitFloatStatement is called when production FloatStatement is exited.
-func (s *BaseADLParserListener) ExitFloatStatement(ctx *FloatStatementContext) {}
+//func (s *ADLParserListener) EnterFieldAnnotation(ctx *FieldAnnotationContext) {}
+//func (s *ADLParserListener) ExitFieldAnnotation(ctx *FieldAnnotationContext) {}
 
-// EnterArrayStatement is called when production ArrayStatement is entered.
-func (s *BaseADLParserListener) EnterArrayStatement(ctx *ArrayStatementContext) {}
+//func (s *ADLParserListener) EnterTypeParameter(ctx *TypeParameterContext) {}
+//func (s *ADLParserListener) ExitTypeParameter(ctx *TypeParameterContext) {}
 
-// ExitArrayStatement is called when production ArrayStatement is exited.
-func (s *BaseADLParserListener) ExitArrayStatement(ctx *ArrayStatementContext) {}
+//func (s *ADLParserListener) EnterErrorTypeParam(ctx *ErrorTypeParamContext) {}
+//func (s *ADLParserListener) ExitErrorTypeParam(ctx *ErrorTypeParamContext) {}
 
-// EnterObjStatement is called when production ObjStatement is entered.
-func (s *BaseADLParserListener) EnterObjStatement(ctx *ObjStatementContext) {}
+//func (s *ADLParserListener) EnterTypeParamError(ctx *TypeParamErrorContext) {}
+//func (s *ADLParserListener) ExitTypeParamError(ctx *TypeParamErrorContext) {}
 
-// ExitObjStatement is called when production ObjStatement is exited.
-func (s *BaseADLParserListener) ExitObjStatement(ctx *ObjStatementContext) {}
+//func (s *ADLParserListener) EnterTypeExpression(ctx *TypeExpressionContext) {}
+//func (s *ADLParserListener) ExitTypeExpression(ctx *TypeExpressionContext) {}
+
+//func (s *ADLParserListener) EnterTypeExpressionElem(ctx *TypeExpressionElemContext) {}
+//func (s *ADLParserListener) ExitTypeExpressionElem(ctx *TypeExpressionElemContext) {}
+
+//func (s *ADLParserListener) EnterFieldStatement(ctx *FieldStatementContext) {}
+//func (s *ADLParserListener) ExitFieldStatement(ctx *FieldStatementContext) {}
+
+//func (s *ADLParserListener) EnterStringStatement(ctx *StringStatementContext) {}
+//func (s *ADLParserListener) ExitStringStatement(ctx *StringStatementContext) {}
+
+//func (s *ADLParserListener) EnterTrueFalseNull(ctx *TrueFalseNullContext) {}
+//func (s *ADLParserListener) ExitTrueFalseNull(ctx *TrueFalseNullContext) {}
+
+//func (s *ADLParserListener) EnterNumberStatement(ctx *NumberStatementContext) {}
+//func (s *ADLParserListener) ExitNumberStatement(ctx *NumberStatementContext) {}
+
+//func (s *ADLParserListener) EnterFloatStatement(ctx *FloatStatementContext) {}
+//func (s *ADLParserListener) ExitFloatStatement(ctx *FloatStatementContext) {}
+
+//func (s *ADLParserListener) EnterArrayStatement(ctx *ArrayStatementContext) {}
+//func (s *ADLParserListener) ExitArrayStatement(ctx *ArrayStatementContext) {}
+
+//func (s *ADLParserListener) EnterObjStatement(ctx *ObjStatementContext) {}
+//func (s *ADLParserListener) ExitObjStatement(ctx *ObjStatementContext) {}
