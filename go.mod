@@ -10,5 +10,5 @@ require (
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.3.0
 	github.com/jpillora/opts v1.0.6-0.20190605124758-00ce6796b18f
-	github.com/wxio/goantlr v0.0.0-20190305104207-374a84528c8e
+	github.com/wxio/goantlr v0.0.0-20190624051626-116617327c90
 )
