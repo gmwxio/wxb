@@ -1,158 +1,83 @@
 package adlproc
 
-import (
-	"strings"
-
-	antlr "github.com/wxio/goantlr"
-)
-
-type MyToken struct {
-	antlr.Token
-	TType int
+type Annotations []struct {
+	Key ScopedName  `json:"v1"`
+	Val interface{} `json:"v2"`
 }
 
-func (t *MyToken) GetTokenType() int { return t.TType }
-
-type ADLNode struct {
-	MyToken
+type ScopedName struct {
+	ModuleName string `json:"moduleName"`
+	Name       string `json:"name"`
 }
 
-func (ADLNode) String() string { return "" }
-
-type ModuleNode struct {
-	MyToken
-	Name []string
+type TypeRef struct {
+	Primitive *string     `json:"primitive,omitempty"`
+	TypeParam *string     `json:"typeParam,omitempty"`
+	Reference *ScopedName `json:"reference,omitempty"`
 }
 
-func (mn ModuleNode) String() string { return strings.Join(mn.Name, ".") }
-
-type ErrorNode struct {
-	MyToken
-	Expected string
-	Received string
+type TypeExpr struct {
+	TypeRef    TypeRef    `json:"typeRef"`
+	Parameters []TypeExpr `json:"parameters"`
 }
 
-func (node ErrorNode) String() string {
-	return "error - expected:" + node.Expected + " received:" + node.Received
+type Field struct {
+	Name           string      `json:"name"`
+	SerializedName string      `json:"serializedName"`
+	TypeExpr       TypeExpr    `json:"typeExpr"`
+	Default        interface{} `json:"default,omitempty"`
+	Annotations    Annotations `json:"annotations"`
 }
 
-type ImportNode struct {
-	MyToken
-	Path []string
-	Star bool
+// Struct & Union
+type Name struct {
+	TypeParams []string `json:"typeParams"`
+	Field      []Field  `json:"fields"`
 }
 
-func (node ImportNode) String() string {
-	if node.Star {
-		return strings.Join(node.Path, ".") + ".*"
-	}
-	return strings.Join(node.Path, ".")
+type TypeDef struct {
+	TypeParams []string `json:"typeParams"`
+	TypeExpr   TypeExpr `json:"typeExpr"`
 }
 
-type AnnoNode struct {
-	MyToken
-	Name string
-	Doc  bool
-}
-type StructNode struct {
-	MyToken
-	Name string
+type NewType struct {
+	TypeParams []string    `json:"typeParams"`
+	TypeExpr   TypeExpr    `json:"typeExpr"`
+	Default    interface{} `json:"default,omitempty"`
 }
 
-func (node StructNode) String() string {
-	return "struct " + node.Name
+type DeclType struct {
+	Struct_  *Name    `json:"struct_,omitempty"`
+	Union_   *Name    `json:"union_,omitempty"`
+	Type_    *TypeDef `json:"type_,omitempty"`
+	Newtype_ *NewType `json:"newtype_,omitempty"`
 }
 
-type UnionNode struct {
-	MyToken
-	Name string
+type Decl struct {
+	MyToken     `json:"-"`
+	Name        string      `json:"name"`
+	Version     *string     `json:"version,omitempty"`
+	Type_       DeclType    `json:"type_"`
+	Annotations Annotations `json:"annotations"`
 }
 
-func (node UnionNode) String() string {
-	return "union " + node.Name
+// struct ScopedDecl
+// {
+//     ModuleName moduleName;
+//     Decl decl;
+// };
+
+// type DeclVersions = Vector<Decl>;
+
+type Import struct {
+	ModuleName *string     `json:"moduleName,omitempty"`
+	ScopedName *ScopedName `json:"scopedName,omitempty"`
 }
 
-type TypeNode struct {
-	MyToken
-	Name    string
-	TypeRef string
-}
-
-func (node TypeNode) String() string {
-	return "type " + node.Name + " = " + node.TypeRef
-}
-
-type NewTypeNode struct {
-	MyToken
-	Name    string
-	TypeRef string
-}
-
-func (node NewTypeNode) String() string {
-	return "type " + node.Name + " = " + node.TypeRef
-}
-
-type ModuleAnnoNode struct {
-	MyToken
-	TypeRef string
-}
-type DeclAnnoNode struct {
-	MyToken
-	DeclRef string
-	TypeRef string
-}
-type FieldAnnoNode struct {
-	MyToken
-	DeclRef  string
-	FieldRef string
-	TypeRef  string
-}
-type TypeParamNode struct {
-	MyToken
-	Params []string
-}
-
-func (node TypeParamNode) String() string {
-	return "<" + strings.Join(node.Params, ",") + ">"
-}
-
-type TypeExprNode struct {
-	MyToken
-}
-type TypeExprElemNode struct {
-	MyToken
-	Name string
-}
-type FieldNode struct {
-	MyToken
-	TypeRef string
-	Name    string
-}
-type JsonNode struct {
-	MyToken
-}
-type JsonStrNode struct {
-	MyToken
-	Value string
-}
-type JsonBoolNode struct {
-	MyToken
-	Value bool
-}
-type JsonNullNode struct {
-	MyToken
-}
-type JsonIntNode struct {
-	MyToken
-	Value int64
-}
-type JsonFloatNode struct {
-	MyToken
-	Value float64
-}
-type JsonArrayNode struct {
-	MyToken
-}
-type JsonObjNode struct {
-	MyToken
+type Module struct {
+	MyToken     `json:"-"`
+	Name        string          `json:"name"`
+	Imports     *[]Import       `json:"imports"`
+	Decls       map[string]Decl `json:"decls"`
+	Annotations Annotations     `json:"annotations"`
 }

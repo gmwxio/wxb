@@ -365,6 +365,31 @@ func (s *AdlContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *AdlContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.Adl != nil {
+		h.Adl(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *AdlContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case AdlContextVisitor:
+		return t.VisitAdl(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //extensionMembers
 
 func (p *ADLParser) Adl() (localctx IAdlContext) {
@@ -689,6 +714,31 @@ func (s *ModuleStatementContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ModuleStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ModuleStatementExitListener); ok {
 		listenerT.ExitModuleStatement(s)
+	}
+}
+
+func (s *ModuleStatementContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.ModuleStatement != nil {
+		h.ModuleStatement(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *ModuleStatementContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case ModuleStatementContextVisitor:
+		return t.VisitModuleStatement(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -1029,6 +1079,31 @@ func (s *ImportStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *ImportStatementContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.ImportStatement != nil {
+		h.ImportStatement(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *ImportStatementContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case ImportStatementContextVisitor:
+		return t.VisitImportStatement(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 func (p *ADLParser) Imports() (localctx IImportsContext) {
@@ -1292,6 +1367,31 @@ func (s *DocAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *DocAnnoContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.DocAnno != nil {
+		h.DocAnno(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *DocAnnoContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case DocAnnoContextVisitor:
+		return t.VisitDocAnno(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 //Begin AltLabelStructDecl
@@ -1391,6 +1491,31 @@ func (s *LocalAnnoContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *LocalAnnoContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(LocalAnnoExitListener); ok {
 		listenerT.ExitLocalAnno(s)
+	}
+}
+
+func (s *LocalAnnoContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.LocalAnno != nil {
+		h.LocalAnno(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *LocalAnnoContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case LocalAnnoContextVisitor:
+		return t.VisitLocalAnno(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -1718,6 +1843,31 @@ func (s *StructOrUnionContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *StructOrUnionContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.StructOrUnion != nil {
+		h.StructOrUnion(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *StructOrUnionContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case StructOrUnionContextVisitor:
+		return t.VisitStructOrUnion(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 //Begin AltLabelStructDecl
@@ -1834,6 +1984,31 @@ func (s *DeclAnnotationContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *DeclAnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(DeclAnnotationExitListener); ok {
 		listenerT.ExitDeclAnnotation(s)
+	}
+}
+
+func (s *DeclAnnotationContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.DeclAnnotation != nil {
+		h.DeclAnnotation(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *DeclAnnotationContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case DeclAnnotationContextVisitor:
+		return t.VisitDeclAnnotation(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -1964,6 +2139,31 @@ func (s *FieldAnnotationContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *FieldAnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(FieldAnnotationExitListener); ok {
 		listenerT.ExitFieldAnnotation(s)
+	}
+}
+
+func (s *FieldAnnotationContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.FieldAnnotation != nil {
+		h.FieldAnnotation(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *FieldAnnotationContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case FieldAnnotationContextVisitor:
+		return t.VisitFieldAnnotation(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -2144,6 +2344,31 @@ func (s *TypeOrNewtypeContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *TypeOrNewtypeContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TypeOrNewtype != nil {
+		h.TypeOrNewtype(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *TypeOrNewtypeContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TypeOrNewtypeContextVisitor:
+		return t.VisitTypeOrNewtype(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 //Begin AltLabelStructDecl
@@ -2254,6 +2479,31 @@ func (s *ModuleAnnotationContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ModuleAnnotationContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ModuleAnnotationExitListener); ok {
 		listenerT.ExitModuleAnnotation(s)
+	}
+}
+
+func (s *ModuleAnnotationContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.ModuleAnnotation != nil {
+		h.ModuleAnnotation(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *ModuleAnnotationContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case ModuleAnnotationContextVisitor:
+		return t.VisitModuleAnnotation(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -2734,6 +2984,31 @@ func (s *TypeParameterContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *TypeParameterContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TypeParameter != nil {
+		h.TypeParameter(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *TypeParameterContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TypeParameterContextVisitor:
+		return t.VisitTypeParameter(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 //Begin AltLabelStructDecl
@@ -2862,6 +3137,31 @@ func (s *ErrorTypeParamContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ErrorTypeParamContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ErrorTypeParamExitListener); ok {
 		listenerT.ExitErrorTypeParam(s)
+	}
+}
+
+func (s *ErrorTypeParamContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.ErrorTypeParam != nil {
+		h.ErrorTypeParam(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *ErrorTypeParamContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case ErrorTypeParamContextVisitor:
+		return t.VisitErrorTypeParam(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -3153,6 +3453,31 @@ func (s *TypeParamErrorContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *TypeParamErrorContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(TypeParamErrorExitListener); ok {
 		listenerT.ExitTypeParamError(s)
+	}
+}
+
+func (s *TypeParamErrorContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TypeParamError != nil {
+		h.TypeParamError(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *TypeParamErrorContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TypeParamErrorContextVisitor:
+		return t.VisitTypeParamError(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -3463,6 +3788,31 @@ func (s *TypeExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *TypeExpressionContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TypeExpression != nil {
+		h.TypeExpression(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *TypeExpressionContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TypeExpressionContextVisitor:
+		return t.VisitTypeExpression(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 func (p *ADLParser) TypeExpr() (localctx ITypeExprContext) {
@@ -3761,6 +4111,31 @@ func (s *TypeExpressionElemContext) EnterRule(listener antlr.ParseTreeListener) 
 func (s *TypeExpressionElemContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(TypeExpressionElemExitListener); ok {
 		listenerT.ExitTypeExpressionElem(s)
+	}
+}
+
+func (s *TypeExpressionElemContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TypeExpressionElem != nil {
+		h.TypeExpressionElem(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *TypeExpressionElemContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TypeExpressionElemContextVisitor:
+		return t.VisitTypeExpressionElem(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -4090,6 +4465,31 @@ func (s *FieldStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *FieldStatementContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.FieldStatement != nil {
+		h.FieldStatement(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *FieldStatementContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case FieldStatementContextVisitor:
+		return t.VisitFieldStatement(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 func (p *ADLParser) SoruBody() (localctx ISoruBodyContext) {
@@ -4350,12 +4750,45 @@ func (s *TrueFalseNullContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *TrueFalseNullContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.TrueFalseNull != nil {
+		h.TrueFalseNull(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *TrueFalseNullContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case TrueFalseNullContextVisitor:
+		return t.VisitTrueFalseNull(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 //Begin AltLabelStructDecl
 
 type ObjStatementContext struct {
 	*JsonValueContext
+	//TokenDecl
+	_STR antlr.Token
+	//TokenListDecl
+	k []antlr.Token
+	//RuleContextDecl
+	_jsonValue IJsonValueContext
+	//RuleContextListDecl
+	v []IJsonValueContext
 }
 
 func NewObjStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ObjStatementContext {
@@ -4383,21 +4816,26 @@ type IObjStatementContext interface {
 	LCUR() antlr.TerminalNode
 	RCUR() antlr.TerminalNode
 	//  tokenListGetterDecl
-	AllSTR() []antlr.TerminalNode
 	AllCOLON() []antlr.TerminalNode
+	AllSTR() []antlr.TerminalNode
 	AllCOMMA() []antlr.TerminalNode
 	//  tokenListIndexedGetterDecl
-	STR(i int) antlr.TerminalNode
 	COLON(i int) antlr.TerminalNode
+	STR(i int) antlr.TerminalNode
 	COMMA(i int) antlr.TerminalNode
 	// end internal
 	//
 	//Gets for labeled elements
 	//  tokenDecls
+
 	//  tokenTypeDecls
 	//  tokenListDecls
+	GetK() []antlr.Token
 	//  ruleContextDecls
+
 	//  ruleContextListDecls
+	GetV() []IJsonValueContext
+
 	//  attributeDecls
 
 	// TODO dispatchMethods (needed?)
@@ -4406,14 +4844,22 @@ type IObjStatementContext interface {
 func (*ObjStatementContext) IsObjStatementContext() {}
 
 //AltLabelStructDecl tokenDecls
+func (s *ObjStatementContext) Get_STR() antlr.Token  { return s._STR }
+func (s *ObjStatementContext) Set_STR(v antlr.Token) { s._STR = v }
 
 //AltLabelStructDecl tokenTypeDecls
 
 //AltLabelStructDecl tokenListDecls
+func (s *ObjStatementContext) GetK() []antlr.Token  { return s.k }
+func (s *ObjStatementContext) SetK(v []antlr.Token) { s.k = v }
 
 //AltLabelStructDecl ruleContextDecls
+func (s *ObjStatementContext) Get_jsonValue() IJsonValueContext  { return s._jsonValue }
+func (s *ObjStatementContext) Set_jsonValue(v IJsonValueContext) { s._jsonValue = v }
 
 //AltLabelStructDecl ruleContextListDecls
+func (s *ObjStatementContext) GetV() []IJsonValueContext  { return s.v }
+func (s *ObjStatementContext) SetV(v []IJsonValueContext) { s.v = v }
 
 //AltLabelStructDecl attributeDecls
 
@@ -4431,20 +4877,20 @@ func (s *ObjStatementContext) RCUR() antlr.TerminalNode {
 	return s.GetToken(ADLParserRCUR, 0)
 }
 
-func (s *ObjStatementContext) AllSTR() []antlr.TerminalNode {
-	return s.GetTokens(ADLParserSTR)
-}
-
-func (s *ObjStatementContext) STR(i int) antlr.TerminalNode {
-	return s.GetToken(ADLParserSTR, i)
-}
-
 func (s *ObjStatementContext) AllCOLON() []antlr.TerminalNode {
 	return s.GetTokens(ADLParserCOLON)
 }
 
 func (s *ObjStatementContext) COLON(i int) antlr.TerminalNode {
 	return s.GetToken(ADLParserCOLON, i)
+}
+
+func (s *ObjStatementContext) AllSTR() []antlr.TerminalNode {
+	return s.GetTokens(ADLParserSTR)
+}
+
+func (s *ObjStatementContext) STR(i int) antlr.TerminalNode {
+	return s.GetToken(ADLParserSTR, i)
 }
 
 func (s *ObjStatementContext) AllJsonValue() []IJsonValueContext {
@@ -4488,6 +4934,31 @@ func (s *ObjStatementContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ObjStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ObjStatementExitListener); ok {
 		listenerT.ExitObjStatement(s)
+	}
+}
+
+func (s *ObjStatementContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.ObjStatement != nil {
+		h.ObjStatement(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *ObjStatementContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case ObjStatementContextVisitor:
+		return t.VisitObjStatement(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -4577,12 +5048,41 @@ func (s *FloatStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *FloatStatementContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.FloatStatement != nil {
+		h.FloatStatement(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *FloatStatementContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case FloatStatementContextVisitor:
+		return t.VisitFloatStatement(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 //Begin AltLabelStructDecl
 
 type ArrayStatementContext struct {
 	*JsonValueContext
+	//RuleContextDecl
+	_jsonValue IJsonValueContext
+	//RuleContextListDecl
+	jv []IJsonValueContext
 }
 
 func NewArrayStatementContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ArrayStatementContext {
@@ -4620,7 +5120,10 @@ type IArrayStatementContext interface {
 	//  tokenTypeDecls
 	//  tokenListDecls
 	//  ruleContextDecls
+
 	//  ruleContextListDecls
+	GetJv() []IJsonValueContext
+
 	//  attributeDecls
 
 	// TODO dispatchMethods (needed?)
@@ -4635,8 +5138,12 @@ func (*ArrayStatementContext) IsArrayStatementContext() {}
 //AltLabelStructDecl tokenListDecls
 
 //AltLabelStructDecl ruleContextDecls
+func (s *ArrayStatementContext) Get_jsonValue() IJsonValueContext  { return s._jsonValue }
+func (s *ArrayStatementContext) Set_jsonValue(v IJsonValueContext) { s._jsonValue = v }
 
 //AltLabelStructDecl ruleContextListDecls
+func (s *ArrayStatementContext) GetJv() []IJsonValueContext  { return s.jv }
+func (s *ArrayStatementContext) SetJv(v []IJsonValueContext) { s.jv = v }
 
 //AltLabelStructDecl attributeDecls
 
@@ -4695,6 +5202,31 @@ func (s *ArrayStatementContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ArrayStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(ArrayStatementExitListener); ok {
 		listenerT.ExitArrayStatement(s)
+	}
+}
+
+func (s *ArrayStatementContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.ArrayStatement != nil {
+		h.ArrayStatement(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *ArrayStatementContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case ArrayStatementContextVisitor:
+		return t.VisitArrayStatement(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
 	}
 }
 
@@ -4784,6 +5316,31 @@ func (s *NumberStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *NumberStatementContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.NumberStatement != nil {
+		h.NumberStatement(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *NumberStatementContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case NumberStatementContextVisitor:
+		return t.VisitNumberStatement(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 //Begin AltLabelStructDecl
@@ -4870,6 +5427,31 @@ func (s *StringStatementContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *StringStatementContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLParserHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.StringStatement != nil {
+		h.StringStatement(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *StringStatementContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case StringStatementContextVisitor:
+		return t.VisitStringStatement(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
 //END AltLabelStructDecl
 
 func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
@@ -4952,8 +5534,13 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 		if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<ADLParserLCUR)|(1<<ADLParserLSQ)|(1<<ADLParserSTR)|(1<<ADLParserID)|(1<<ADLParserINT)|(1<<ADLParserFLT))) != 0 {
 			{
 				p.SetState(237)
-				p.JsonValue()
+
+				var _x = p.JsonValue()
+
+				localctx.(*ArrayStatementContext)._jsonValue = _x
+
 			}
+			localctx.(*ArrayStatementContext).jv = append(localctx.(*ArrayStatementContext).jv, localctx.(*ArrayStatementContext)._jsonValue)
 			p.SetState(242)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
@@ -4965,8 +5552,13 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 				}
 				{
 					p.SetState(239)
-					p.JsonValue()
+
+					var _x = p.JsonValue()
+
+					localctx.(*ArrayStatementContext)._jsonValue = _x
+
 				}
+				localctx.(*ArrayStatementContext).jv = append(localctx.(*ArrayStatementContext).jv, localctx.(*ArrayStatementContext)._jsonValue)
 
 				p.SetState(244)
 				p.GetErrorHandler().Sync(p)
@@ -4993,16 +5585,24 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 		if _la == ADLParserSTR {
 			{
 				p.SetState(249)
-				p.Match(ADLParserSTR)
+				var _m = p.Match(ADLParserSTR)
+				localctx.(*ObjStatementContext)._STR = _m
+
 			}
+			localctx.(*ObjStatementContext).k = append(localctx.(*ObjStatementContext).k, localctx.(*ObjStatementContext)._STR)
 			{
 				p.SetState(250)
 				p.Match(ADLParserCOLON)
 			}
 			{
 				p.SetState(251)
-				p.JsonValue()
+
+				var _x = p.JsonValue()
+
+				localctx.(*ObjStatementContext)._jsonValue = _x
+
 			}
+			localctx.(*ObjStatementContext).v = append(localctx.(*ObjStatementContext).v, localctx.(*ObjStatementContext)._jsonValue)
 			p.SetState(258)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
@@ -5014,16 +5614,24 @@ func (p *ADLParser) JsonValue() (localctx IJsonValueContext) {
 				}
 				{
 					p.SetState(253)
-					p.Match(ADLParserSTR)
+					var _m = p.Match(ADLParserSTR)
+					localctx.(*ObjStatementContext)._STR = _m
+
 				}
+				localctx.(*ObjStatementContext).k = append(localctx.(*ObjStatementContext).k, localctx.(*ObjStatementContext)._STR)
 				{
 					p.SetState(254)
 					p.Match(ADLParserCOLON)
 				}
 				{
 					p.SetState(255)
-					p.JsonValue()
+
+					var _x = p.JsonValue()
+
+					localctx.(*ObjStatementContext)._jsonValue = _x
+
 				}
+				localctx.(*ObjStatementContext).v = append(localctx.(*ObjStatementContext).v, localctx.(*ObjStatementContext)._jsonValue)
 
 				p.SetState(260)
 				p.GetErrorHandler().Sync(p)

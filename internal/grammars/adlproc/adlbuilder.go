@@ -27,10 +27,14 @@ func Register(parent opts.Opts) opts.Opts {
 	rt := rootTron{}
 	et := exerciseTron{}
 	wt := walkADL{}
+	ra := readast{}
+	ro := jsonObj{}
 	rto := parent.
 		AddCommand(opts.New(&rt).Name("adl").
 			AddCommand(opts.New(&et).Name("exec")).
-			AddCommand(opts.New(&wt).Name("walk")),
+			AddCommand(opts.New(&wt).Name("walk")).
+			AddCommand(opts.New(&ra).Name("read_ast")).
+			AddCommand(opts.New(&ro).Name("json")),
 		)
 	return rto
 }
@@ -185,7 +189,7 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 		} else {
 			n := &ModuleNode{
 				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserModule},
-				Name:    tokens2strings(ctx.GetName()),
+				Name:    strings.Join(tokens2strings(ctx.GetName()), "."),
 			}
 			tr.Builder.Add(n)
 		}

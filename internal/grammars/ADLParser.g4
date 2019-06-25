@@ -53,6 +53,6 @@ jsonValue
     | kw=ID                                                             #TrueFalseNull
     | n=INT                                                               #NumberStatement
     | f=FLT                                                               #FloatStatement
-    | LSQ (jsonValue (COMMA jsonValue)*)? RSQ                           #ArrayStatement
-    | LCUR (STR COLON jsonValue (COMMA STR COLON jsonValue)*)? RCUR     #ObjStatement
+    | LSQ (jv+=jsonValue (COMMA jv+=jsonValue)*)? RSQ                           #ArrayStatement
+    | LCUR (k+=STR COLON v+=jsonValue (COMMA k+=STR COLON v+=jsonValue)*)? RCUR     #ObjStatement
 ;

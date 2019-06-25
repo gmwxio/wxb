@@ -3,9 +3,9 @@ ANTLR=../../.wxb/antlr4-4.7.1-SNAPSHOT-complete.jar
 # ANTLR=../../.wxb/antlr-4.7.2-complete.jar 
 
 adlantlr:
-	java -jar $(ANTLR) -Dlanguage=Go -o adl adlLexer.g4 ADLParser.g4
+	java -jar $(ANTLR) -Dlanguage=Go -visitor -o adl adlLexer.g4 ADLParser.g4
 	sed -ie 's!github.com/antlr/antlr4/runtime/Go/antlr!github.com/wxio/goantlr!' adl/*.go
-	java -jar $(ANTLR) -Dlanguage=Go -visitor -o adlwalker -lib ./adl ADLWalker.g4 -o adlwalker -package walker
+	java -jar $(ANTLR) -Dlanguage=Go -visitor -o adlwalker -lib ./adl ADLWalker.g4 -package walker
 	sed -ie 's!github.com/antlr/antlr4/runtime/Go/antlr!github.com/wxio/goantlr!' adlwalker/*.go
 	java -jar $(ANTLR) -Dlanguage=Go -visitor -o dnaca -lib ./adlwalker DNAC_A_Walker.g4 -package dnaca
 	sed -ie 's!github.com/antlr/antlr4/runtime/Go/antlr!github.com/wxio/goantlr!' dnaca/*.go
