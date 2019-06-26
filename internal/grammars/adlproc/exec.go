@@ -53,7 +53,7 @@ func (et *jsonObj) Run() error {
 		"b",
 		 1, 
 		 
-		 2, "3", true] }`
+		 2, "3", true], "c" : 2 }`
 	tr, js, err := UnmarshalJSON([]byte(jstr))
 	fmt.Printf("js:%v\ntr:%v\n", js, tr)
 	// err = json.Unmarshal(by, &m)

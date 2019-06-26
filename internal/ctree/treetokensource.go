@@ -27,7 +27,7 @@ type TreeNode struct {
 }
 
 func (t *TreeNode) GetTokenType() int { return t.TType }
-func (tn TreeNode) String() string    { return fmt.Sprintf("%s", tn.Val) }
+func (tn TreeNode) String() string    { return fmt.Sprintf("%v", tn.Val) }
 
 func NewWalkableBuild(name string, root antlr.Token) WalkableBuilder {
 	t := NewTree(name, root)

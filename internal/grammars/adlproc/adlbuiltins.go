@@ -1,7 +1,6 @@
 package adlproc
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"strconv"
@@ -15,7 +14,8 @@ import (
 
 type Json interface {
 }
-type JsonElems []Json
+
+///type JsonElems []Json
 type JsonObjs map[string]Json
 type JsonStr struct {
 	// MyToken `json:"-"`
@@ -55,35 +55,37 @@ func (a JsonBool) String() string {
 func (a JsonNull) String() string  { return "null" }
 func (a JsonInt) String() string   { return strconv.FormatInt(a.int64, 10) }
 func (a JsonFloat) String() string { return fmt.Sprintf("%v", a.float64) }
-func (a JsonArray) String() string {
-	b := bytes.Buffer{}
-	b.WriteString("[")
-	for i, v := range a.JsonElems {
-		if i != 0 {
-			b.WriteString(",")
-		}
-		b.WriteString(fmt.Sprintf("%v", v))
-	}
-	b.WriteString("]")
-	return b.String()
-}
-func (a JsonObj) String() string {
-	b := bytes.Buffer{}
-	b.WriteString("{")
-	f := true
-	for k, v := range a.JsonObjs {
-		if f {
-			f = false
-		} else {
-			b.WriteString(",")
-		}
-		b.WriteString(k)
-		b.WriteString(":")
-		b.WriteString(fmt.Sprintf("%v", v))
-	}
-	b.WriteString("}")
-	return b.String()
-}
+func (a JsonArray) String() string { return fmt.Sprintf("%v", a.JsonElems) }
+
+// func (a JsonArray) String() string {
+// 	b := bytes.Buffer{}
+// 	b.WriteString("[")
+// 	for i, v := range a.JsonElems {
+// 		if i != 0 {
+// 			b.WriteString(",")
+// 		}
+// 		b.WriteString(fmt.Sprintf("%v", v))
+// 	}
+// 	b.WriteString("]")
+// 	return b.String()
+// }
+// func (a JsonObj) String() string {
+// 	b := bytes.Buffer{}
+// 	b.WriteString("{")
+// 	f := true
+// 	for k, v := range a.JsonObjs {
+// 		if f {
+// 			f = false
+// 		} else {
+// 			b.WriteString(",")
+// 		}
+// 		b.WriteString(k)
+// 		b.WriteString(":")
+// 		b.WriteString(fmt.Sprintf("%v", v))
+// 	}
+// 	b.WriteString("}")
+// 	return b.String()
+// }
 
 func (a JsonStr) MarshalJSON() ([]byte, error)   { return []byte(`"` + a.string + `"`), nil }
 func (a JsonBool) MarshalJSON() ([]byte, error)  { return json.Marshal(a.bool) }
@@ -175,33 +177,21 @@ type jsonVisitor struct {
 var _ parser.ObjStatementContextVisitor = &jsonVisitor{}
 
 func (v *jsonVisitor) VisitStringStatement(ctx parser.IStringStatementContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
-	fmt.Printf("ctv %T %s\n", ctx, ctx.GetS().GetText())
 	s := ctx.GetS().GetText()
-	result = JsonStr{
-		// MyToken: MyToken{Token: ctx.GetS(), TType: parser.ADLParserJsonStr},
-		string: s[1 : len(s)-1]}
+	result = s[1 : len(s)-1]
 	v.bldr.AddNode(ctx.GetStart(), parser.ADLParserJsonStr, result)
 	return
 }
 func (v *jsonVisitor) VisitTrueFalseNull(ctx parser.ITrueFalseNullContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
-	fmt.Printf("ctv %T\n", ctx)
 	switch strings.ToLower(ctx.GetKw().GetText()) {
 	case "true":
-		result = &JsonBool{
-			// MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserJsonBool},
-			bool: true,
-		}
+		result = true
 		v.bldr.AddNode(ctx.GetStart(), parser.ADLParserJsonBool, result)
 	case "false":
-		result = &JsonBool{
-			// MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserJsonBool},
-			bool: false,
-		}
+		result = false
 		v.bldr.AddNode(ctx.GetStart(), parser.ADLParserJsonBool, result)
 	case "null":
-		result = &JsonNull{
-			// MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserJsonNull},
-		}
+		result = JsonNull{}
 		v.bldr.AddNode(ctx.GetStart(), parser.ADLParserJsonNull, result)
 	default:
 		v.err = fmt.Errorf("Expected: \"true|false|null\", Received: %s", ctx.GetKw().GetText())
@@ -209,38 +199,27 @@ func (v *jsonVisitor) VisitTrueFalseNull(ctx parser.ITrueFalseNullContext, deleg
 	return
 }
 func (v *jsonVisitor) VisitNumberStatement(ctx parser.INumberStatementContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
-	fmt.Printf("ctv %T\n", ctx)
 	i, err := strconv.ParseInt(ctx.GetN().GetText(), 10, 64)
 	if err != nil {
 		v.err = fmt.Errorf("Expected: <number>, Received: %s", ctx.GetN().GetText())
 	} else {
-		result = &JsonInt{
-			// MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserJsonInt},
-			int64: i,
-		}
+		result = i
 		v.bldr.AddNode(ctx.GetStart(), parser.ADLParserJsonInt, result)
 	}
 	return
 }
 func (v *jsonVisitor) VisitFloatStatement(ctx parser.IFloatStatementContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
-	fmt.Printf("ctv %T\n", ctx)
 	i, err := strconv.ParseFloat(ctx.GetF().GetText(), 64)
 	if err != nil {
 		v.err = fmt.Errorf("Expected: <float>, Received: %s", ctx.GetF().GetText())
 	} else {
-		result = &JsonFloat{
-			// MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserJsonFloat},
-			float64: i,
-		}
+		result = i
 		v.bldr.AddNode(ctx.GetStart(), parser.ADLParserJsonFloat, result)
 	}
 	return
 }
 func (v *jsonVisitor) VisitArrayStatement(ctx parser.IArrayStatementContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
-	fmt.Printf("ctv %T\n", ctx)
-	ja := &JsonArray{
-		// MyToken: MyToken{Token: ctx.GetStart(), TType: parser.ADLParserJsonArray}
-	}
+	ja := JsonArray{}
 	v.bldr.AddNode(ctx.GetStart(), parser.ADLParserJsonArray, ja).Down()
 	defer v.bldr.Up()
 	for _, child := range ctx.GetChildren() {
@@ -263,9 +242,7 @@ func (v *jsonVisitor) VisitArrayStatement(ctx parser.IArrayStatementContext, del
 	return
 }
 func (v *jsonVisitor) VisitObjStatement(ctx parser.IObjStatementContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
-	fmt.Printf("ctv %T\n", ctx)
-	jo := &JsonObj{
-		// MyToken:  MyToken{Token: ctx.GetStart(), TType: parser.ADLParserJsonObj},
+	jo := JsonObj{
 		JsonObjs: make(map[string]Json),
 	}
 	if v.bldr == nil {
@@ -277,7 +254,10 @@ func (v *jsonVisitor) VisitObjStatement(ctx parser.IObjStatementContext, delegat
 	vs := ctx.GetV()
 	for i, child := range ctx.GetK() {
 		k := child.GetText()
-		jo.JsonObjs[k[1:len(k)-1]] = vs[i].Visit(delegate, args...).(Json)
+		val := vs[i].Visit(delegate, args...).(Json)
+		if val != nil {
+			jo.JsonObjs[k[1:len(k)-1]] = val
+		}
 	}
 	result = jo
 	return
@@ -298,29 +278,3 @@ func (d *jsonErrListener) ReportAttemptingFullContext(recognizer antlr.Parser, d
 func (d *jsonErrListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex, prediction int, configs antlr.ATNConfigSet) {
 	d.err = fmt.Errorf("ReportContextSensitivity rec:%v dfs:%v start:%d stop:%d, config:%v\n", recognizer, dfa, startIndex, stopIndex, configs)
 }
-
-// func (tbl *jsonBuildListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
-// 	// t, ok := offendingSymbol.(antlr.Token)
-// 	// if !ok && e != nil {
-// 	// 	t = e.GetOffendingToken()
-// 	// }
-// 	tbl.err = fmt.Errorf("Expected %v Received %v", msg, offendingSymbol)
-// }
-
-// func (tbl *jsonBuildListener) ReportAmbiguity(
-// 	recognizer antlr.Parser,
-// 	dfa *antlr.DFA,
-// 	startIndex, stopIndex int,
-// 	exact bool,
-// 	ambigAlts *antlr.BitSet,
-// 	configs antlr.ATNConfigSet) {
-// 	tbl.err = fmt.Errorf("ReportAmbiguity rec:%v dfs:%v start:%d stop:%d, exact:%v, ambigAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs)
-// }
-
-// func (tbl *jsonBuildListener) ReportAttemptingFullContext(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int, conflictingAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
-// 	tbl.err = fmt.Errorf("ReportAttemptingFullContext rec:%v dfs:%v start:%d stop:%d, conflictingAlts:%v config:%v\n", recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs)
-// }
-
-// func (tbl *jsonBuildListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex, prediction int, configs antlr.ATNConfigSet) {
-// 	tbl.err = fmt.Errorf("ReportContextSensitivity rec:%v dfs:%v start:%d stop:%d, config:%v\n", recognizer, dfa, startIndex, stopIndex, configs)
-// }
