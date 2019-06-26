@@ -42,6 +42,9 @@ package walker // ADLWalker
 //var _ walker.AdlEntryListener = &ADLWalkerListener{}
 //var _ walker.AdlExitListener = &ADLWalkerListener{}
 
+//var _ walker.JsonEntryListener = &ADLWalkerListener{}
+//var _ walker.JsonExitListener = &ADLWalkerListener{}
+
 //var _ walker.ModuleEntryListener = &ADLWalkerListener{}
 //var _ walker.ModuleExitListener = &ADLWalkerListener{}
 
@@ -150,6 +153,9 @@ package walker // ADLWalker
 
 //func (s *ADLWalkerListener) EnterAdl(ctx walker.*walker.AdlContext) {}
 //func (s *ADLWalkerListener) ExitAdl(ctx walker.*walker.AdlContext) {}
+
+//func (s *ADLWalkerListener) EnterJson(ctx walker.*walker.JsonContext) {}
+//func (s *ADLWalkerListener) ExitJson(ctx walker.*walker.JsonContext) {}
 
 //func (s *ADLWalkerListener) EnterModule(ctx walker.*walker.ModuleContext) {}
 //func (s *ADLWalkerListener) ExitModule(ctx walker.*walker.ModuleContext) {}

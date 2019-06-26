@@ -10,6 +10,9 @@ type ADLWalkerListener interface {
 	AdlEntryListener
 	AdlExitListener
 
+	JsonEntryListener
+	JsonExitListener
+
 	ModuleEntryListener
 	ModuleExitListener
 
@@ -79,6 +82,13 @@ type AdlEntryListener interface {
 }
 type AdlExitListener interface {
 	ExitAdl(c *AdlContext)
+}
+
+type JsonEntryListener interface {
+	EnterJson(c *JsonContext)
+}
+type JsonExitListener interface {
+	ExitJson(c *JsonContext)
 }
 
 type ModuleEntryListener interface {

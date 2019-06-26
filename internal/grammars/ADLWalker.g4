@@ -7,6 +7,9 @@ options {  tokenVocab = ADLParser; }
 adl
     : DOWN tok=ADL DOWN module UP UP EOF
 ;
+json
+    : DOWN jsonVal UP EOF
+;
 module
     : tok=Module (DOWN annotation* Import* tld* UP)?
 ;

@@ -60,12 +60,12 @@ package dnacb // DNAC_B_Walker
 
 //}
 
-//func (v *DNAC_B_WalkerVisitor) VisitDnac(ctx *dnacb.DnacContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_B_WalkerVisitor) VisitNameNode(ctx *dnacb.NameNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_B_WalkerVisitor) VisitNameRule(ctx *dnacb.NameRuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_B_WalkerVisitor) VisitTypeNode(ctx *dnacb.TypeNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_B_WalkerVisitor) VisitNameBodyNode(ctx *dnacb.NameBodyNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_B_WalkerVisitor) VisitExnotationNode(ctx *dnacb.ExnotationNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_B_WalkerVisitor) VisitDnac(ctx dnacb.IDnacContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_B_WalkerVisitor) VisitNameNode(ctx dnacb.INameNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_B_WalkerVisitor) VisitNameRule(ctx dnacb.INameRuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_B_WalkerVisitor) VisitTypeNode(ctx dnacb.ITypeNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_B_WalkerVisitor) VisitNameBodyNode(ctx dnacb.INameBodyNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_B_WalkerVisitor) VisitExnotationNode(ctx dnacb.IExnotationNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
 
 //  TODO list rules here
 //  Visit rules manually

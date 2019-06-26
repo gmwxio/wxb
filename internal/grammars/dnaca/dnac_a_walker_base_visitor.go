@@ -80,22 +80,22 @@ package dnaca // DNAC_A_Walker
 
 //}
 
-//func (v *DNAC_A_WalkerVisitor) VisitAdl(ctx *dnaca.AdlContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitNameNode(ctx *dnaca.NameNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitNameRule(ctx *dnaca.NameRuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitTypeNode(ctx *dnaca.TypeNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitExnotationNode(ctx *dnaca.ExnotationNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitNameBodyNode(ctx *dnaca.NameBodyNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitAnnotation(ctx *dnaca.AnnotationContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitTypeExpr_(ctx *dnaca.TypeExpr_Context, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitTypeParams(ctx *dnaca.TypeParamsContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitJsonStr(ctx *dnaca.JsonStrContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitJsonBool(ctx *dnaca.JsonBoolContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitJsonNull(ctx *dnaca.JsonNullContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitJsonInt(ctx *dnaca.JsonIntContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitJsonFloat(ctx *dnaca.JsonFloatContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitJsonArray(ctx *dnaca.JsonArrayContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *DNAC_A_WalkerVisitor) VisitJsonObj(ctx *dnaca.JsonObjContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitAdl(ctx dnaca.IAdlContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitNameNode(ctx dnaca.INameNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitNameRule(ctx dnaca.INameRuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitTypeNode(ctx dnaca.ITypeNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitExnotationNode(ctx dnaca.IExnotationNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitNameBodyNode(ctx dnaca.INameBodyNodeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitAnnotation(ctx dnaca.IAnnotationContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitTypeExpr_(ctx dnaca.ITypeExpr_Context, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitTypeParams(ctx dnaca.ITypeParamsContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitJsonStr(ctx dnaca.IJsonStrContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitJsonBool(ctx dnaca.IJsonBoolContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitJsonNull(ctx dnaca.IJsonNullContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitJsonInt(ctx dnaca.IJsonIntContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitJsonFloat(ctx dnaca.IJsonFloatContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitJsonArray(ctx dnaca.IJsonArrayContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *DNAC_A_WalkerVisitor) VisitJsonObj(ctx dnaca.IJsonObjContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
 
 //  TODO list rules here
 //  Visit rules manually

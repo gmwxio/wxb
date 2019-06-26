@@ -4,6 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+
+	antlr "github.com/wxio/goantlr"
+	walker "github.com/wxio/wxb/internal/grammars/adlwalker"
 )
 
 type readast struct {
@@ -45,8 +48,14 @@ func (et *jsonObj) Run() error {
 	}
 	fmt.Printf("%v\n", string(b2))
 
-	js, err := UnmarshalJSON([]byte(`{"a" : ["b", 1, 2, 3, truez] }`))
-	fmt.Printf("%v\n", js)
+	jstr := `{"a" : [
+		
+		"b",
+		 1, 
+		 
+		 2, "3", true] }`
+	tr, js, err := UnmarshalJSON([]byte(jstr))
+	fmt.Printf("js:%v\ntr:%v\n", js, tr)
 	// err = json.Unmarshal(by, &m)
 	if err != nil {
 		return err
@@ -56,7 +65,47 @@ func (et *jsonObj) Run() error {
 		return err
 	}
 	fmt.Printf("js - %v\n", string(b2))
-
+	// err = WalkJSON(tr, &walkListener{})
+	// if err != nil {
+	// 	return err
+	// }
+	obj, err := VisitJSON(tr, &treeVisitor{})
+	if err != nil {
+		return err
+	}
+	fmt.Printf("obj - %v\n", obj)
 	return nil
 
+}
+
+type walkListener struct {
+	// walker.ADLWalkerListener
+	*antlr.BaseParseTreeListener
+	ruleCount int
+	indent    string
+}
+
+func (tr *walkListener) VisitTerminal(node antlr.TerminalNode) {
+	tr.ruleCount++
+	fmt.Printf("%s  '%T'\n", tr.indent, node.GetPayload())
+}
+func (tr *walkListener) VisitErrorNode(node antlr.ErrorNode) {
+	tr.ruleCount++
+	tid := node.GetSymbol().GetTokenType()
+	sym := node.GetSymbol()
+	fmt.Printf("2.ERROR #%d %d:%d  len:%d start_stop:%d:%d  tok_type:%d %v %+v\n", tr.ruleCount, sym.GetLine(), sym.GetColumn(), len(sym.GetText()), sym.GetStart(), sym.GetStop(), tid, sym, node)
+}
+func (tr *walkListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
+	// tr.ruleCount++
+	fmt.Printf("%s>>%T\n", tr.indent, ctx)
+	tr.indent += "  "
+}
+
+type treeVisitor struct {
+	*antlr.BaseParseTreeVisitor
+}
+
+func (v *treeVisitor) VisitJsonStr(ctx walker.IJsonStrContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	fmt.Printf("i'm a string '%s'\n", ctx.GetTok())
+	return
 }

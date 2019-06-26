@@ -1,5 +1,5 @@
-ANTLR=../../.wxb/antlr4-4.7.1-SNAPSHOT-complete.jar
-#ANTLR=/home/garym/devel/wxio/antlr4/tool/target/antlr4-4.7.1-SNAPSHOT-complete.jar
+# ANTLR=../../.wxb/antlr4-4.7.1-SNAPSHOT-complete.jar
+ANTLR=/home/garym/devel/wxio/antlr4/tool/target/antlr4-4.7.1-SNAPSHOT-complete.jar
 # ANTLR=../../.wxb/antlr-4.7.2-complete.jar 
 
 adlantlr:

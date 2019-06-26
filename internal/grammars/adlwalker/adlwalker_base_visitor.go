@@ -20,6 +20,7 @@ package walker // ADLWalker
 //var _ antlr.ExitEveryRuleVisitor = &ADLWalkerVisitor{}
 
 //var _ walker.AdlContextVisitor = &ADLWalkerVisitor{}
+//var _ walker.JsonContextVisitor = &ADLWalkerVisitor{}
 //var _ walker.ModuleContextVisitor = &ADLWalkerVisitor{}
 //var _ walker.StructContextVisitor = &ADLWalkerVisitor{}
 //var _ walker.UnionContextVisitor = &ADLWalkerVisitor{}
@@ -67,6 +68,7 @@ package walker // ADLWalker
 //EnterEveryRule: func(ctx antlr.RuleNode){indent += "\t"},
 //ExitEveryRule:  func(ctx antlr.RuleNode){indent = indent[1:]},
 //Adl: func(ctx *walker.AdlContext, this *walker.ADLWalkerHandlers, args ...interface{}) (result interface{}) {fmt.Printf("%s%T\n", indent, ctx);ctx.VisitChildrenFunc(this, args...);return},
+//Json: func(ctx *walker.JsonContext, this *walker.ADLWalkerHandlers, args ...interface{}) (result interface{}) {fmt.Printf("%s%T\n", indent, ctx);ctx.VisitChildrenFunc(this, args...);return},
 //Module: func(ctx *walker.ModuleContext, this *walker.ADLWalkerHandlers, args ...interface{}) (result interface{}) {fmt.Printf("%s%T\n", indent, ctx);ctx.VisitChildrenFunc(this, args...);return},
 //Struct: func(ctx *walker.StructContext, this *walker.ADLWalkerHandlers, args ...interface{}) (result interface{}) {fmt.Printf("%s%T\n", indent, ctx);ctx.VisitChildrenFunc(this, args...);return},
 //Union: func(ctx *walker.UnionContext, this *walker.ADLWalkerHandlers, args ...interface{}) (result interface{}) {fmt.Printf("%s%T\n", indent, ctx);ctx.VisitChildrenFunc(this, args...);return},
@@ -90,27 +92,28 @@ package walker // ADLWalker
 
 //}
 
-//func (v *ADLWalkerVisitor) VisitAdl(ctx *walker.AdlContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitModule(ctx *walker.ModuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitStruct(ctx *walker.StructContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitUnion(ctx *walker.UnionContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitType(ctx *walker.TypeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitNewtype(ctx *walker.NewtypeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitModAnno(ctx *walker.ModAnnoContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitDeclAnno(ctx *walker.DeclAnnoContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitFieldAnno(ctx *walker.FieldAnnoContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitTypeParamError(ctx *walker.TypeParamErrorContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitField(ctx *walker.FieldContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitAnnotation(ctx *walker.AnnotationContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitTypeExpr_(ctx *walker.TypeExpr_Context, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitTypeParams(ctx *walker.TypeParamsContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitJsonStr(ctx *walker.JsonStrContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitJsonBool(ctx *walker.JsonBoolContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitJsonNull(ctx *walker.JsonNullContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitJsonInt(ctx *walker.JsonIntContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitJsonFloat(ctx *walker.JsonFloatContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitJsonArray(ctx *walker.JsonArrayContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
-//func (v *ADLWalkerVisitor) VisitJsonObj(ctx *walker.JsonObjContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitAdl(ctx walker.IAdlContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitJson(ctx walker.IJsonContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitModule(ctx walker.IModuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitStruct(ctx walker.IStructContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitUnion(ctx walker.IUnionContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitType(ctx walker.ITypeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitNewtype(ctx walker.INewtypeContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitModAnno(ctx walker.IModAnnoContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitDeclAnno(ctx walker.IDeclAnnoContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitFieldAnno(ctx walker.IFieldAnnoContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitTypeParamError(ctx walker.ITypeParamErrorContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitField(ctx walker.IFieldContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitAnnotation(ctx walker.IAnnotationContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitTypeExpr_(ctx walker.ITypeExpr_Context, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitTypeParams(ctx walker.ITypeParamsContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitJsonStr(ctx walker.IJsonStrContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitJsonBool(ctx walker.IJsonBoolContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitJsonNull(ctx walker.IJsonNullContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitJsonInt(ctx walker.IJsonIntContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitJsonFloat(ctx walker.IJsonFloatContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitJsonArray(ctx walker.IJsonArrayContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
+//func (v *ADLWalkerVisitor) VisitJsonObj(ctx walker.IJsonObjContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}){    result = v.VisitChildren(ctx, delegate, args...);return}
 
 //  TODO list rules here
 //  Visit rules manually

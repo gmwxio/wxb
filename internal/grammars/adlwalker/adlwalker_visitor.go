@@ -9,6 +9,7 @@ type ADLWalkerHandlers struct {
 	ExitEveryRule  func(ctx antlr.RuleNode)
 
 	Adl            func(ctx IAdlContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Json           func(ctx IJsonContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
 	Module         func(ctx IModuleContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
 	Struct         func(ctx IStructContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
 	Union          func(ctx IUnionContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
@@ -35,6 +36,7 @@ type ADLWalkerHandlers struct {
 type ADLWalkerVisitor interface {
 	antlr.ParseTreeVisitor
 	AdlContextVisitor
+	JsonContextVisitor
 	ModuleContextVisitor
 	StructContextVisitor
 	UnionContextVisitor
@@ -59,6 +61,9 @@ type ADLWalkerVisitor interface {
 
 type AdlContextVisitor interface {
 	VisitAdl(ctx IAdlContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
+}
+type JsonContextVisitor interface {
+	VisitJson(ctx IJsonContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
 }
 type ModuleContextVisitor interface {
 	VisitModule(ctx IModuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})

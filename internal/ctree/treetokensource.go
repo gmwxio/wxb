@@ -8,6 +8,7 @@ import (
 
 type WalkableBuilder interface {
 	Add(n antlr.Token) WalkableBuilder
+	AddNode(n antlr.Token, ttype int, val interface{}) WalkableBuilder
 	Down() WalkableBuilder
 	Up() WalkableBuilder
 	Build() Tree
@@ -18,6 +19,15 @@ type walkerbuilder struct {
 	curr antlr.Token
 	last antlr.Token
 }
+
+type TreeNode struct {
+	antlr.Token
+	TType int
+	Val   interface{}
+}
+
+func (t *TreeNode) GetTokenType() int { return t.TType }
+func (tn TreeNode) String() string    { return fmt.Sprintf("%s", tn.Val) }
 
 func NewWalkableBuild(name string, root antlr.Token) WalkableBuilder {
 	t := NewTree(name, root)
@@ -30,6 +40,25 @@ func (b *walkerbuilder) Add(n antlr.Token) WalkableBuilder {
 		panic("Can't replace in a walkerbuilder")
 	}
 	b.last = n
+	return b
+}
+
+func NewBuild(tree_name string, n antlr.Token, ttype int, val interface{}) WalkableBuilder {
+	if _, ok := val.(antlr.Token); ok {
+		panic("trying to add a token as a node - this is just to confusing to be allowed")
+	}
+	tn := &TreeNode{Token: n, TType: ttype, Val: val}
+	t := NewTree(tree_name, tn)
+	b := &walkerbuilder{t, tn, nil}
+	return b
+}
+func (b *walkerbuilder) AddNode(an antlr.Token, ttype int, val interface{}) WalkableBuilder {
+	if _, ok := val.(antlr.Token); ok {
+		panic("trying to add a token as a node - this is just to confusing to be allowed")
+	}
+	tn := &TreeNode{Token: an, TType: ttype, Val: val}
+	b.tree.Add(b.curr, tn)
+	b.last = tn
 	return b
 }
 func (b *walkerbuilder) Current() antlr.Token {

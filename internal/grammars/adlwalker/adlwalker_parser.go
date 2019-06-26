@@ -14,134 +14,137 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 55, 271,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 55, 278,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
-	4, 8, 9, 8, 4, 9, 9, 9, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 3, 3, 3, 3, 3, 7, 3, 30, 10, 3, 12, 3, 14, 3, 33, 11, 3, 3, 3, 7, 3,
-	36, 10, 3, 12, 3, 14, 3, 39, 11, 3, 3, 3, 7, 3, 42, 10, 3, 12, 3, 14, 3,
-	45, 11, 3, 3, 3, 5, 3, 48, 10, 3, 3, 4, 3, 4, 3, 4, 7, 4, 53, 10, 4, 12,
-	4, 14, 4, 56, 11, 4, 3, 4, 5, 4, 59, 10, 4, 3, 4, 7, 4, 62, 10, 4, 12,
-	4, 14, 4, 65, 11, 4, 3, 4, 5, 4, 68, 10, 4, 3, 4, 3, 4, 3, 4, 7, 4, 73,
-	10, 4, 12, 4, 14, 4, 76, 11, 4, 3, 4, 5, 4, 79, 10, 4, 3, 4, 7, 4, 82,
-	10, 4, 12, 4, 14, 4, 85, 11, 4, 3, 4, 5, 4, 88, 10, 4, 3, 4, 3, 4, 3, 4,
-	7, 4, 93, 10, 4, 12, 4, 14, 4, 96, 11, 4, 3, 4, 5, 4, 99, 10, 4, 3, 4,
-	5, 4, 102, 10, 4, 3, 4, 7, 4, 105, 10, 4, 12, 4, 14, 4, 108, 11, 4, 3,
-	4, 5, 4, 111, 10, 4, 3, 4, 3, 4, 3, 4, 7, 4, 116, 10, 4, 12, 4, 14, 4,
-	119, 11, 4, 3, 4, 5, 4, 122, 10, 4, 3, 4, 5, 4, 125, 10, 4, 3, 4, 7, 4,
-	128, 10, 4, 12, 4, 14, 4, 131, 11, 4, 3, 4, 5, 4, 134, 10, 4, 3, 4, 3,
-	4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3,
-	4, 3, 4, 3, 4, 3, 4, 5, 4, 153, 10, 4, 3, 4, 3, 4, 7, 4, 157, 10, 4, 12,
-	4, 14, 4, 160, 11, 4, 3, 4, 3, 4, 7, 4, 164, 10, 4, 12, 4, 14, 4, 167,
-	11, 4, 3, 4, 3, 4, 3, 4, 5, 4, 172, 10, 4, 3, 4, 3, 4, 7, 4, 176, 10, 4,
-	12, 4, 14, 4, 179, 11, 4, 3, 4, 3, 4, 5, 4, 183, 10, 4, 3, 4, 7, 4, 186,
-	10, 4, 12, 4, 14, 4, 189, 11, 4, 3, 4, 5, 4, 192, 10, 4, 5, 4, 194, 10,
-	4, 3, 5, 3, 5, 3, 5, 7, 5, 199, 10, 5, 12, 5, 14, 5, 202, 11, 5, 3, 5,
-	5, 5, 205, 10, 5, 3, 5, 5, 5, 208, 10, 5, 3, 5, 5, 5, 211, 10, 5, 3, 6,
-	3, 6, 3, 6, 3, 6, 3, 6, 5, 6, 218, 10, 6, 3, 7, 3, 7, 3, 7, 6, 7, 223,
-	10, 7, 13, 7, 14, 7, 224, 3, 7, 3, 7, 5, 7, 229, 10, 7, 3, 8, 3, 8, 3,
-	8, 6, 8, 234, 10, 8, 13, 8, 14, 8, 235, 3, 8, 3, 8, 5, 8, 240, 10, 8, 3,
-	9, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 6, 9, 250, 10, 9, 13, 9, 14,
-	9, 251, 3, 9, 3, 9, 5, 9, 256, 10, 9, 3, 9, 3, 9, 3, 9, 6, 9, 261, 10,
-	9, 13, 9, 14, 9, 262, 3, 9, 3, 9, 5, 9, 267, 10, 9, 5, 9, 269, 10, 9, 3,
-	9, 2, 2, 10, 2, 4, 6, 8, 10, 12, 14, 16, 2, 2, 2, 319, 2, 18, 3, 2, 2,
-	2, 4, 26, 3, 2, 2, 2, 6, 193, 3, 2, 2, 2, 8, 195, 3, 2, 2, 2, 10, 212,
-	3, 2, 2, 2, 12, 219, 3, 2, 2, 2, 14, 230, 3, 2, 2, 2, 16, 268, 3, 2, 2,
-	2, 18, 19, 7, 26, 2, 2, 19, 20, 7, 30, 2, 2, 20, 21, 7, 26, 2, 2, 21, 22,
-	5, 4, 3, 2, 22, 23, 7, 27, 2, 2, 23, 24, 7, 27, 2, 2, 24, 25, 7, 2, 2,
-	3, 25, 3, 3, 2, 2, 2, 26, 47, 7, 31, 2, 2, 27, 31, 7, 26, 2, 2, 28, 30,
-	5, 10, 6, 2, 29, 28, 3, 2, 2, 2, 30, 33, 3, 2, 2, 2, 31, 29, 3, 2, 2, 2,
-	31, 32, 3, 2, 2, 2, 32, 37, 3, 2, 2, 2, 33, 31, 3, 2, 2, 2, 34, 36, 7,
-	32, 2, 2, 35, 34, 3, 2, 2, 2, 36, 39, 3, 2, 2, 2, 37, 35, 3, 2, 2, 2, 37,
-	38, 3, 2, 2, 2, 38, 43, 3, 2, 2, 2, 39, 37, 3, 2, 2, 2, 40, 42, 5, 6, 4,
-	2, 41, 40, 3, 2, 2, 2, 42, 45, 3, 2, 2, 2, 43, 41, 3, 2, 2, 2, 43, 44,
-	3, 2, 2, 2, 44, 46, 3, 2, 2, 2, 45, 43, 3, 2, 2, 2, 46, 48, 7, 27, 2, 2,
-	47, 27, 3, 2, 2, 2, 47, 48, 3, 2, 2, 2, 48, 5, 3, 2, 2, 2, 49, 67, 7, 34,
-	2, 2, 50, 54, 7, 26, 2, 2, 51, 53, 5, 10, 6, 2, 52, 51, 3, 2, 2, 2, 53,
-	56, 3, 2, 2, 2, 54, 52, 3, 2, 2, 2, 54, 55, 3, 2, 2, 2, 55, 58, 3, 2, 2,
-	2, 56, 54, 3, 2, 2, 2, 57, 59, 7, 38, 2, 2, 58, 57, 3, 2, 2, 2, 58, 59,
-	3, 2, 2, 2, 59, 63, 3, 2, 2, 2, 60, 62, 5, 8, 5, 2, 61, 60, 3, 2, 2, 2,
-	62, 65, 3, 2, 2, 2, 63, 61, 3, 2, 2, 2, 63, 64, 3, 2, 2, 2, 64, 66, 3,
-	2, 2, 2, 65, 63, 3, 2, 2, 2, 66, 68, 7, 27, 2, 2, 67, 50, 3, 2, 2, 2, 67,
-	68, 3, 2, 2, 2, 68, 194, 3, 2, 2, 2, 69, 87, 7, 35, 2, 2, 70, 74, 7, 26,
-	2, 2, 71, 73, 5, 10, 6, 2, 72, 71, 3, 2, 2, 2, 73, 76, 3, 2, 2, 2, 74,
-	72, 3, 2, 2, 2, 74, 75, 3, 2, 2, 2, 75, 78, 3, 2, 2, 2, 76, 74, 3, 2, 2,
-	2, 77, 79, 7, 38, 2, 2, 78, 77, 3, 2, 2, 2, 78, 79, 3, 2, 2, 2, 79, 83,
-	3, 2, 2, 2, 80, 82, 5, 8, 5, 2, 81, 80, 3, 2, 2, 2, 82, 85, 3, 2, 2, 2,
-	83, 81, 3, 2, 2, 2, 83, 84, 3, 2, 2, 2, 84, 86, 3, 2, 2, 2, 85, 83, 3,
-	2, 2, 2, 86, 88, 7, 27, 2, 2, 87, 70, 3, 2, 2, 2, 87, 88, 3, 2, 2, 2, 88,
-	194, 3, 2, 2, 2, 89, 110, 7, 37, 2, 2, 90, 94, 7, 26, 2, 2, 91, 93, 5,
-	10, 6, 2, 92, 91, 3, 2, 2, 2, 93, 96, 3, 2, 2, 2, 94, 92, 3, 2, 2, 2, 94,
-	95, 3, 2, 2, 2, 95, 98, 3, 2, 2, 2, 96, 94, 3, 2, 2, 2, 97, 99, 7, 38,
-	2, 2, 98, 97, 3, 2, 2, 2, 98, 99, 3, 2, 2, 2, 99, 101, 3, 2, 2, 2, 100,
-	102, 5, 12, 7, 2, 101, 100, 3, 2, 2, 2, 101, 102, 3, 2, 2, 2, 102, 106,
-	3, 2, 2, 2, 103, 105, 5, 16, 9, 2, 104, 103, 3, 2, 2, 2, 105, 108, 3, 2,
-	2, 2, 106, 104, 3, 2, 2, 2, 106, 107, 3, 2, 2, 2, 107, 109, 3, 2, 2, 2,
-	108, 106, 3, 2, 2, 2, 109, 111, 7, 27, 2, 2, 110, 90, 3, 2, 2, 2, 110,
-	111, 3, 2, 2, 2, 111, 194, 3, 2, 2, 2, 112, 133, 7, 36, 2, 2, 113, 117,
-	7, 26, 2, 2, 114, 116, 5, 10, 6, 2, 115, 114, 3, 2, 2, 2, 116, 119, 3,
-	2, 2, 2, 117, 115, 3, 2, 2, 2, 117, 118, 3, 2, 2, 2, 118, 121, 3, 2, 2,
-	2, 119, 117, 3, 2, 2, 2, 120, 122, 7, 38, 2, 2, 121, 120, 3, 2, 2, 2, 121,
-	122, 3, 2, 2, 2, 122, 124, 3, 2, 2, 2, 123, 125, 5, 12, 7, 2, 124, 123,
-	3, 2, 2, 2, 124, 125, 3, 2, 2, 2, 125, 129, 3, 2, 2, 2, 126, 128, 5, 16,
-	9, 2, 127, 126, 3, 2, 2, 2, 128, 131, 3, 2, 2, 2, 129, 127, 3, 2, 2, 2,
-	129, 130, 3, 2, 2, 2, 130, 132, 3, 2, 2, 2, 131, 129, 3, 2, 2, 2, 132,
-	134, 7, 27, 2, 2, 133, 113, 3, 2, 2, 2, 133, 134, 3, 2, 2, 2, 134, 194,
-	3, 2, 2, 2, 135, 136, 7, 50, 2, 2, 136, 137, 7, 26, 2, 2, 137, 138, 5,
-	16, 9, 2, 138, 139, 7, 27, 2, 2, 139, 194, 3, 2, 2, 2, 140, 141, 7, 51,
-	2, 2, 141, 142, 7, 26, 2, 2, 142, 143, 5, 16, 9, 2, 143, 144, 7, 27, 2,
-	2, 144, 194, 3, 2, 2, 2, 145, 146, 7, 52, 2, 2, 146, 147, 7, 26, 2, 2,
-	147, 148, 5, 16, 9, 2, 148, 149, 7, 27, 2, 2, 149, 194, 3, 2, 2, 2, 150,
-	153, 7, 34, 2, 2, 151, 153, 7, 35, 2, 2, 152, 150, 3, 2, 2, 2, 152, 151,
-	3, 2, 2, 2, 153, 154, 3, 2, 2, 2, 154, 158, 7, 26, 2, 2, 155, 157, 5, 10,
-	6, 2, 156, 155, 3, 2, 2, 2, 157, 160, 3, 2, 2, 2, 158, 156, 3, 2, 2, 2,
-	158, 159, 3, 2, 2, 2, 159, 161, 3, 2, 2, 2, 160, 158, 3, 2, 2, 2, 161,
-	165, 7, 29, 2, 2, 162, 164, 5, 8, 5, 2, 163, 162, 3, 2, 2, 2, 164, 167,
-	3, 2, 2, 2, 165, 163, 3, 2, 2, 2, 165, 166, 3, 2, 2, 2, 166, 168, 3, 2,
-	2, 2, 167, 165, 3, 2, 2, 2, 168, 194, 7, 27, 2, 2, 169, 172, 7, 37, 2,
-	2, 170, 172, 7, 36, 2, 2, 171, 169, 3, 2, 2, 2, 171, 170, 3, 2, 2, 2, 172,
-	173, 3, 2, 2, 2, 173, 177, 7, 26, 2, 2, 174, 176, 5, 10, 6, 2, 175, 174,
-	3, 2, 2, 2, 176, 179, 3, 2, 2, 2, 177, 175, 3, 2, 2, 2, 177, 178, 3, 2,
-	2, 2, 178, 180, 3, 2, 2, 2, 179, 177, 3, 2, 2, 2, 180, 182, 7, 29, 2, 2,
-	181, 183, 5, 12, 7, 2, 182, 181, 3, 2, 2, 2, 182, 183, 3, 2, 2, 2, 183,
-	187, 3, 2, 2, 2, 184, 186, 5, 16, 9, 2, 185, 184, 3, 2, 2, 2, 186, 189,
-	3, 2, 2, 2, 187, 185, 3, 2, 2, 2, 187, 188, 3, 2, 2, 2, 188, 191, 3, 2,
-	2, 2, 189, 187, 3, 2, 2, 2, 190, 192, 7, 27, 2, 2, 191, 190, 3, 2, 2, 2,
-	191, 192, 3, 2, 2, 2, 192, 194, 3, 2, 2, 2, 193, 49, 3, 2, 2, 2, 193, 69,
-	3, 2, 2, 2, 193, 89, 3, 2, 2, 2, 193, 112, 3, 2, 2, 2, 193, 135, 3, 2,
-	2, 2, 193, 140, 3, 2, 2, 2, 193, 145, 3, 2, 2, 2, 193, 152, 3, 2, 2, 2,
-	193, 171, 3, 2, 2, 2, 194, 7, 3, 2, 2, 2, 195, 210, 7, 41, 2, 2, 196, 200,
-	7, 26, 2, 2, 197, 199, 5, 10, 6, 2, 198, 197, 3, 2, 2, 2, 199, 202, 3,
-	2, 2, 2, 200, 198, 3, 2, 2, 2, 200, 201, 3, 2, 2, 2, 201, 204, 3, 2, 2,
-	2, 202, 200, 3, 2, 2, 2, 203, 205, 5, 12, 7, 2, 204, 203, 3, 2, 2, 2, 204,
-	205, 3, 2, 2, 2, 205, 207, 3, 2, 2, 2, 206, 208, 5, 16, 9, 2, 207, 206,
-	3, 2, 2, 2, 207, 208, 3, 2, 2, 2, 208, 209, 3, 2, 2, 2, 209, 211, 7, 27,
-	2, 2, 210, 196, 3, 2, 2, 2, 210, 211, 3, 2, 2, 2, 211, 9, 3, 2, 2, 2, 212,
-	217, 7, 33, 2, 2, 213, 214, 7, 26, 2, 2, 214, 215, 5, 16, 9, 2, 215, 216,
-	7, 27, 2, 2, 216, 218, 3, 2, 2, 2, 217, 213, 3, 2, 2, 2, 217, 218, 3, 2,
-	2, 2, 218, 11, 3, 2, 2, 2, 219, 228, 7, 39, 2, 2, 220, 222, 7, 26, 2, 2,
-	221, 223, 5, 14, 8, 2, 222, 221, 3, 2, 2, 2, 223, 224, 3, 2, 2, 2, 224,
-	222, 3, 2, 2, 2, 224, 225, 3, 2, 2, 2, 225, 226, 3, 2, 2, 2, 226, 227,
-	7, 27, 2, 2, 227, 229, 3, 2, 2, 2, 228, 220, 3, 2, 2, 2, 228, 229, 3, 2,
-	2, 2, 229, 13, 3, 2, 2, 2, 230, 239, 7, 40, 2, 2, 231, 233, 7, 26, 2, 2,
-	232, 234, 5, 14, 8, 2, 233, 232, 3, 2, 2, 2, 234, 235, 3, 2, 2, 2, 235,
-	233, 3, 2, 2, 2, 235, 236, 3, 2, 2, 2, 236, 237, 3, 2, 2, 2, 237, 238,
-	7, 27, 2, 2, 238, 240, 3, 2, 2, 2, 239, 231, 3, 2, 2, 2, 239, 240, 3, 2,
-	2, 2, 240, 15, 3, 2, 2, 2, 241, 269, 7, 43, 2, 2, 242, 269, 7, 44, 2, 2,
-	243, 269, 7, 45, 2, 2, 244, 269, 7, 46, 2, 2, 245, 269, 7, 47, 2, 2, 246,
-	255, 7, 48, 2, 2, 247, 249, 7, 26, 2, 2, 248, 250, 5, 16, 9, 2, 249, 248,
-	3, 2, 2, 2, 250, 251, 3, 2, 2, 2, 251, 249, 3, 2, 2, 2, 251, 252, 3, 2,
-	2, 2, 252, 253, 3, 2, 2, 2, 253, 254, 7, 27, 2, 2, 254, 256, 3, 2, 2, 2,
-	255, 247, 3, 2, 2, 2, 255, 256, 3, 2, 2, 2, 256, 269, 3, 2, 2, 2, 257,
-	266, 7, 49, 2, 2, 258, 260, 7, 26, 2, 2, 259, 261, 5, 16, 9, 2, 260, 259,
-	3, 2, 2, 2, 261, 262, 3, 2, 2, 2, 262, 260, 3, 2, 2, 2, 262, 263, 3, 2,
-	2, 2, 263, 264, 3, 2, 2, 2, 264, 265, 7, 27, 2, 2, 265, 267, 3, 2, 2, 2,
-	266, 258, 3, 2, 2, 2, 266, 267, 3, 2, 2, 2, 267, 269, 3, 2, 2, 2, 268,
-	241, 3, 2, 2, 2, 268, 242, 3, 2, 2, 2, 268, 243, 3, 2, 2, 2, 268, 244,
-	3, 2, 2, 2, 268, 245, 3, 2, 2, 2, 268, 246, 3, 2, 2, 2, 268, 257, 3, 2,
-	2, 2, 269, 17, 3, 2, 2, 2, 47, 31, 37, 43, 47, 54, 58, 63, 67, 74, 78,
-	83, 87, 94, 98, 101, 106, 110, 117, 121, 124, 129, 133, 152, 158, 165,
-	171, 177, 182, 187, 191, 193, 200, 204, 207, 210, 217, 224, 228, 235, 239,
-	251, 255, 262, 266, 268,
+	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3,
+	2, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 4, 7, 4, 37,
+	10, 4, 12, 4, 14, 4, 40, 11, 4, 3, 4, 7, 4, 43, 10, 4, 12, 4, 14, 4, 46,
+	11, 4, 3, 4, 7, 4, 49, 10, 4, 12, 4, 14, 4, 52, 11, 4, 3, 4, 5, 4, 55,
+	10, 4, 3, 5, 3, 5, 3, 5, 7, 5, 60, 10, 5, 12, 5, 14, 5, 63, 11, 5, 3, 5,
+	5, 5, 66, 10, 5, 3, 5, 7, 5, 69, 10, 5, 12, 5, 14, 5, 72, 11, 5, 3, 5,
+	5, 5, 75, 10, 5, 3, 5, 3, 5, 3, 5, 7, 5, 80, 10, 5, 12, 5, 14, 5, 83, 11,
+	5, 3, 5, 5, 5, 86, 10, 5, 3, 5, 7, 5, 89, 10, 5, 12, 5, 14, 5, 92, 11,
+	5, 3, 5, 5, 5, 95, 10, 5, 3, 5, 3, 5, 3, 5, 7, 5, 100, 10, 5, 12, 5, 14,
+	5, 103, 11, 5, 3, 5, 5, 5, 106, 10, 5, 3, 5, 5, 5, 109, 10, 5, 3, 5, 7,
+	5, 112, 10, 5, 12, 5, 14, 5, 115, 11, 5, 3, 5, 5, 5, 118, 10, 5, 3, 5,
+	3, 5, 3, 5, 7, 5, 123, 10, 5, 12, 5, 14, 5, 126, 11, 5, 3, 5, 5, 5, 129,
+	10, 5, 3, 5, 5, 5, 132, 10, 5, 3, 5, 7, 5, 135, 10, 5, 12, 5, 14, 5, 138,
+	11, 5, 3, 5, 5, 5, 141, 10, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5,
+	3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 5, 5, 160,
+	10, 5, 3, 5, 3, 5, 7, 5, 164, 10, 5, 12, 5, 14, 5, 167, 11, 5, 3, 5, 3,
+	5, 7, 5, 171, 10, 5, 12, 5, 14, 5, 174, 11, 5, 3, 5, 3, 5, 3, 5, 5, 5,
+	179, 10, 5, 3, 5, 3, 5, 7, 5, 183, 10, 5, 12, 5, 14, 5, 186, 11, 5, 3,
+	5, 3, 5, 5, 5, 190, 10, 5, 3, 5, 7, 5, 193, 10, 5, 12, 5, 14, 5, 196, 11,
+	5, 3, 5, 5, 5, 199, 10, 5, 5, 5, 201, 10, 5, 3, 6, 3, 6, 3, 6, 7, 6, 206,
+	10, 6, 12, 6, 14, 6, 209, 11, 6, 3, 6, 5, 6, 212, 10, 6, 3, 6, 5, 6, 215,
+	10, 6, 3, 6, 5, 6, 218, 10, 6, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 5, 7, 225,
+	10, 7, 3, 8, 3, 8, 3, 8, 6, 8, 230, 10, 8, 13, 8, 14, 8, 231, 3, 8, 3,
+	8, 5, 8, 236, 10, 8, 3, 9, 3, 9, 3, 9, 6, 9, 241, 10, 9, 13, 9, 14, 9,
+	242, 3, 9, 3, 9, 5, 9, 247, 10, 9, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3,
+	10, 3, 10, 3, 10, 6, 10, 257, 10, 10, 13, 10, 14, 10, 258, 3, 10, 3, 10,
+	5, 10, 263, 10, 10, 3, 10, 3, 10, 3, 10, 6, 10, 268, 10, 10, 13, 10, 14,
+	10, 269, 3, 10, 3, 10, 5, 10, 274, 10, 10, 5, 10, 276, 10, 10, 3, 10, 2,
+	2, 11, 2, 4, 6, 8, 10, 12, 14, 16, 18, 2, 2, 2, 325, 2, 20, 3, 2, 2, 2,
+	4, 28, 3, 2, 2, 2, 6, 33, 3, 2, 2, 2, 8, 200, 3, 2, 2, 2, 10, 202, 3, 2,
+	2, 2, 12, 219, 3, 2, 2, 2, 14, 226, 3, 2, 2, 2, 16, 237, 3, 2, 2, 2, 18,
+	275, 3, 2, 2, 2, 20, 21, 7, 26, 2, 2, 21, 22, 7, 30, 2, 2, 22, 23, 7, 26,
+	2, 2, 23, 24, 5, 6, 4, 2, 24, 25, 7, 27, 2, 2, 25, 26, 7, 27, 2, 2, 26,
+	27, 7, 2, 2, 3, 27, 3, 3, 2, 2, 2, 28, 29, 7, 26, 2, 2, 29, 30, 5, 18,
+	10, 2, 30, 31, 7, 27, 2, 2, 31, 32, 7, 2, 2, 3, 32, 5, 3, 2, 2, 2, 33,
+	54, 7, 31, 2, 2, 34, 38, 7, 26, 2, 2, 35, 37, 5, 12, 7, 2, 36, 35, 3, 2,
+	2, 2, 37, 40, 3, 2, 2, 2, 38, 36, 3, 2, 2, 2, 38, 39, 3, 2, 2, 2, 39, 44,
+	3, 2, 2, 2, 40, 38, 3, 2, 2, 2, 41, 43, 7, 32, 2, 2, 42, 41, 3, 2, 2, 2,
+	43, 46, 3, 2, 2, 2, 44, 42, 3, 2, 2, 2, 44, 45, 3, 2, 2, 2, 45, 50, 3,
+	2, 2, 2, 46, 44, 3, 2, 2, 2, 47, 49, 5, 8, 5, 2, 48, 47, 3, 2, 2, 2, 49,
+	52, 3, 2, 2, 2, 50, 48, 3, 2, 2, 2, 50, 51, 3, 2, 2, 2, 51, 53, 3, 2, 2,
+	2, 52, 50, 3, 2, 2, 2, 53, 55, 7, 27, 2, 2, 54, 34, 3, 2, 2, 2, 54, 55,
+	3, 2, 2, 2, 55, 7, 3, 2, 2, 2, 56, 74, 7, 34, 2, 2, 57, 61, 7, 26, 2, 2,
+	58, 60, 5, 12, 7, 2, 59, 58, 3, 2, 2, 2, 60, 63, 3, 2, 2, 2, 61, 59, 3,
+	2, 2, 2, 61, 62, 3, 2, 2, 2, 62, 65, 3, 2, 2, 2, 63, 61, 3, 2, 2, 2, 64,
+	66, 7, 38, 2, 2, 65, 64, 3, 2, 2, 2, 65, 66, 3, 2, 2, 2, 66, 70, 3, 2,
+	2, 2, 67, 69, 5, 10, 6, 2, 68, 67, 3, 2, 2, 2, 69, 72, 3, 2, 2, 2, 70,
+	68, 3, 2, 2, 2, 70, 71, 3, 2, 2, 2, 71, 73, 3, 2, 2, 2, 72, 70, 3, 2, 2,
+	2, 73, 75, 7, 27, 2, 2, 74, 57, 3, 2, 2, 2, 74, 75, 3, 2, 2, 2, 75, 201,
+	3, 2, 2, 2, 76, 94, 7, 35, 2, 2, 77, 81, 7, 26, 2, 2, 78, 80, 5, 12, 7,
+	2, 79, 78, 3, 2, 2, 2, 80, 83, 3, 2, 2, 2, 81, 79, 3, 2, 2, 2, 81, 82,
+	3, 2, 2, 2, 82, 85, 3, 2, 2, 2, 83, 81, 3, 2, 2, 2, 84, 86, 7, 38, 2, 2,
+	85, 84, 3, 2, 2, 2, 85, 86, 3, 2, 2, 2, 86, 90, 3, 2, 2, 2, 87, 89, 5,
+	10, 6, 2, 88, 87, 3, 2, 2, 2, 89, 92, 3, 2, 2, 2, 90, 88, 3, 2, 2, 2, 90,
+	91, 3, 2, 2, 2, 91, 93, 3, 2, 2, 2, 92, 90, 3, 2, 2, 2, 93, 95, 7, 27,
+	2, 2, 94, 77, 3, 2, 2, 2, 94, 95, 3, 2, 2, 2, 95, 201, 3, 2, 2, 2, 96,
+	117, 7, 37, 2, 2, 97, 101, 7, 26, 2, 2, 98, 100, 5, 12, 7, 2, 99, 98, 3,
+	2, 2, 2, 100, 103, 3, 2, 2, 2, 101, 99, 3, 2, 2, 2, 101, 102, 3, 2, 2,
+	2, 102, 105, 3, 2, 2, 2, 103, 101, 3, 2, 2, 2, 104, 106, 7, 38, 2, 2, 105,
+	104, 3, 2, 2, 2, 105, 106, 3, 2, 2, 2, 106, 108, 3, 2, 2, 2, 107, 109,
+	5, 14, 8, 2, 108, 107, 3, 2, 2, 2, 108, 109, 3, 2, 2, 2, 109, 113, 3, 2,
+	2, 2, 110, 112, 5, 18, 10, 2, 111, 110, 3, 2, 2, 2, 112, 115, 3, 2, 2,
+	2, 113, 111, 3, 2, 2, 2, 113, 114, 3, 2, 2, 2, 114, 116, 3, 2, 2, 2, 115,
+	113, 3, 2, 2, 2, 116, 118, 7, 27, 2, 2, 117, 97, 3, 2, 2, 2, 117, 118,
+	3, 2, 2, 2, 118, 201, 3, 2, 2, 2, 119, 140, 7, 36, 2, 2, 120, 124, 7, 26,
+	2, 2, 121, 123, 5, 12, 7, 2, 122, 121, 3, 2, 2, 2, 123, 126, 3, 2, 2, 2,
+	124, 122, 3, 2, 2, 2, 124, 125, 3, 2, 2, 2, 125, 128, 3, 2, 2, 2, 126,
+	124, 3, 2, 2, 2, 127, 129, 7, 38, 2, 2, 128, 127, 3, 2, 2, 2, 128, 129,
+	3, 2, 2, 2, 129, 131, 3, 2, 2, 2, 130, 132, 5, 14, 8, 2, 131, 130, 3, 2,
+	2, 2, 131, 132, 3, 2, 2, 2, 132, 136, 3, 2, 2, 2, 133, 135, 5, 18, 10,
+	2, 134, 133, 3, 2, 2, 2, 135, 138, 3, 2, 2, 2, 136, 134, 3, 2, 2, 2, 136,
+	137, 3, 2, 2, 2, 137, 139, 3, 2, 2, 2, 138, 136, 3, 2, 2, 2, 139, 141,
+	7, 27, 2, 2, 140, 120, 3, 2, 2, 2, 140, 141, 3, 2, 2, 2, 141, 201, 3, 2,
+	2, 2, 142, 143, 7, 50, 2, 2, 143, 144, 7, 26, 2, 2, 144, 145, 5, 18, 10,
+	2, 145, 146, 7, 27, 2, 2, 146, 201, 3, 2, 2, 2, 147, 148, 7, 51, 2, 2,
+	148, 149, 7, 26, 2, 2, 149, 150, 5, 18, 10, 2, 150, 151, 7, 27, 2, 2, 151,
+	201, 3, 2, 2, 2, 152, 153, 7, 52, 2, 2, 153, 154, 7, 26, 2, 2, 154, 155,
+	5, 18, 10, 2, 155, 156, 7, 27, 2, 2, 156, 201, 3, 2, 2, 2, 157, 160, 7,
+	34, 2, 2, 158, 160, 7, 35, 2, 2, 159, 157, 3, 2, 2, 2, 159, 158, 3, 2,
+	2, 2, 160, 161, 3, 2, 2, 2, 161, 165, 7, 26, 2, 2, 162, 164, 5, 12, 7,
+	2, 163, 162, 3, 2, 2, 2, 164, 167, 3, 2, 2, 2, 165, 163, 3, 2, 2, 2, 165,
+	166, 3, 2, 2, 2, 166, 168, 3, 2, 2, 2, 167, 165, 3, 2, 2, 2, 168, 172,
+	7, 29, 2, 2, 169, 171, 5, 10, 6, 2, 170, 169, 3, 2, 2, 2, 171, 174, 3,
+	2, 2, 2, 172, 170, 3, 2, 2, 2, 172, 173, 3, 2, 2, 2, 173, 175, 3, 2, 2,
+	2, 174, 172, 3, 2, 2, 2, 175, 201, 7, 27, 2, 2, 176, 179, 7, 37, 2, 2,
+	177, 179, 7, 36, 2, 2, 178, 176, 3, 2, 2, 2, 178, 177, 3, 2, 2, 2, 179,
+	180, 3, 2, 2, 2, 180, 184, 7, 26, 2, 2, 181, 183, 5, 12, 7, 2, 182, 181,
+	3, 2, 2, 2, 183, 186, 3, 2, 2, 2, 184, 182, 3, 2, 2, 2, 184, 185, 3, 2,
+	2, 2, 185, 187, 3, 2, 2, 2, 186, 184, 3, 2, 2, 2, 187, 189, 7, 29, 2, 2,
+	188, 190, 5, 14, 8, 2, 189, 188, 3, 2, 2, 2, 189, 190, 3, 2, 2, 2, 190,
+	194, 3, 2, 2, 2, 191, 193, 5, 18, 10, 2, 192, 191, 3, 2, 2, 2, 193, 196,
+	3, 2, 2, 2, 194, 192, 3, 2, 2, 2, 194, 195, 3, 2, 2, 2, 195, 198, 3, 2,
+	2, 2, 196, 194, 3, 2, 2, 2, 197, 199, 7, 27, 2, 2, 198, 197, 3, 2, 2, 2,
+	198, 199, 3, 2, 2, 2, 199, 201, 3, 2, 2, 2, 200, 56, 3, 2, 2, 2, 200, 76,
+	3, 2, 2, 2, 200, 96, 3, 2, 2, 2, 200, 119, 3, 2, 2, 2, 200, 142, 3, 2,
+	2, 2, 200, 147, 3, 2, 2, 2, 200, 152, 3, 2, 2, 2, 200, 159, 3, 2, 2, 2,
+	200, 178, 3, 2, 2, 2, 201, 9, 3, 2, 2, 2, 202, 217, 7, 41, 2, 2, 203, 207,
+	7, 26, 2, 2, 204, 206, 5, 12, 7, 2, 205, 204, 3, 2, 2, 2, 206, 209, 3,
+	2, 2, 2, 207, 205, 3, 2, 2, 2, 207, 208, 3, 2, 2, 2, 208, 211, 3, 2, 2,
+	2, 209, 207, 3, 2, 2, 2, 210, 212, 5, 14, 8, 2, 211, 210, 3, 2, 2, 2, 211,
+	212, 3, 2, 2, 2, 212, 214, 3, 2, 2, 2, 213, 215, 5, 18, 10, 2, 214, 213,
+	3, 2, 2, 2, 214, 215, 3, 2, 2, 2, 215, 216, 3, 2, 2, 2, 216, 218, 7, 27,
+	2, 2, 217, 203, 3, 2, 2, 2, 217, 218, 3, 2, 2, 2, 218, 11, 3, 2, 2, 2,
+	219, 224, 7, 33, 2, 2, 220, 221, 7, 26, 2, 2, 221, 222, 5, 18, 10, 2, 222,
+	223, 7, 27, 2, 2, 223, 225, 3, 2, 2, 2, 224, 220, 3, 2, 2, 2, 224, 225,
+	3, 2, 2, 2, 225, 13, 3, 2, 2, 2, 226, 235, 7, 39, 2, 2, 227, 229, 7, 26,
+	2, 2, 228, 230, 5, 16, 9, 2, 229, 228, 3, 2, 2, 2, 230, 231, 3, 2, 2, 2,
+	231, 229, 3, 2, 2, 2, 231, 232, 3, 2, 2, 2, 232, 233, 3, 2, 2, 2, 233,
+	234, 7, 27, 2, 2, 234, 236, 3, 2, 2, 2, 235, 227, 3, 2, 2, 2, 235, 236,
+	3, 2, 2, 2, 236, 15, 3, 2, 2, 2, 237, 246, 7, 40, 2, 2, 238, 240, 7, 26,
+	2, 2, 239, 241, 5, 16, 9, 2, 240, 239, 3, 2, 2, 2, 241, 242, 3, 2, 2, 2,
+	242, 240, 3, 2, 2, 2, 242, 243, 3, 2, 2, 2, 243, 244, 3, 2, 2, 2, 244,
+	245, 7, 27, 2, 2, 245, 247, 3, 2, 2, 2, 246, 238, 3, 2, 2, 2, 246, 247,
+	3, 2, 2, 2, 247, 17, 3, 2, 2, 2, 248, 276, 7, 43, 2, 2, 249, 276, 7, 44,
+	2, 2, 250, 276, 7, 45, 2, 2, 251, 276, 7, 46, 2, 2, 252, 276, 7, 47, 2,
+	2, 253, 262, 7, 48, 2, 2, 254, 256, 7, 26, 2, 2, 255, 257, 5, 18, 10, 2,
+	256, 255, 3, 2, 2, 2, 257, 258, 3, 2, 2, 2, 258, 256, 3, 2, 2, 2, 258,
+	259, 3, 2, 2, 2, 259, 260, 3, 2, 2, 2, 260, 261, 7, 27, 2, 2, 261, 263,
+	3, 2, 2, 2, 262, 254, 3, 2, 2, 2, 262, 263, 3, 2, 2, 2, 263, 276, 3, 2,
+	2, 2, 264, 273, 7, 49, 2, 2, 265, 267, 7, 26, 2, 2, 266, 268, 5, 18, 10,
+	2, 267, 266, 3, 2, 2, 2, 268, 269, 3, 2, 2, 2, 269, 267, 3, 2, 2, 2, 269,
+	270, 3, 2, 2, 2, 270, 271, 3, 2, 2, 2, 271, 272, 7, 27, 2, 2, 272, 274,
+	3, 2, 2, 2, 273, 265, 3, 2, 2, 2, 273, 274, 3, 2, 2, 2, 274, 276, 3, 2,
+	2, 2, 275, 248, 3, 2, 2, 2, 275, 249, 3, 2, 2, 2, 275, 250, 3, 2, 2, 2,
+	275, 251, 3, 2, 2, 2, 275, 252, 3, 2, 2, 2, 275, 253, 3, 2, 2, 2, 275,
+	264, 3, 2, 2, 2, 276, 19, 3, 2, 2, 2, 47, 38, 44, 50, 54, 61, 65, 70, 74,
+	81, 85, 90, 94, 101, 105, 108, 113, 117, 124, 128, 131, 136, 140, 159,
+	165, 172, 178, 184, 189, 194, 198, 200, 207, 211, 214, 217, 224, 231, 235,
+	242, 246, 258, 262, 269, 273, 275,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -161,8 +164,8 @@ var symbolicNames = []string{
 }
 
 var ruleNames = []string{
-	"adl", "module", "tld", "nameBody", "annotation", "typeExpr_", "typeExprElem_",
-	"jsonVal",
+	"adl", "json", "module", "tld", "nameBody", "annotation", "typeExpr_",
+	"typeExprElem_", "jsonVal",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -251,13 +254,14 @@ const (
 // ADLWalker rules.
 const (
 	ADLWalkerRULE_adl           = 0
-	ADLWalkerRULE_module        = 1
-	ADLWalkerRULE_tld           = 2
-	ADLWalkerRULE_nameBody      = 3
-	ADLWalkerRULE_annotation    = 4
-	ADLWalkerRULE_typeExpr_     = 5
-	ADLWalkerRULE_typeExprElem_ = 6
-	ADLWalkerRULE_jsonVal       = 7
+	ADLWalkerRULE_json          = 1
+	ADLWalkerRULE_module        = 2
+	ADLWalkerRULE_tld           = 3
+	ADLWalkerRULE_nameBody      = 4
+	ADLWalkerRULE_annotation    = 5
+	ADLWalkerRULE_typeExpr_     = 6
+	ADLWalkerRULE_typeExprElem_ = 7
+	ADLWalkerRULE_jsonVal       = 8
 )
 
 type IAdlContext interface {
@@ -451,33 +455,222 @@ func (p *ADLWalker) Adl() (localctx IAdlContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(16)
-		p.Match(ADLWalkerDOWN)
-	}
-	{
-		p.SetState(17)
-		var _m = p.Match(ADLWalkerADL)
-		localctx.(*AdlContext).tok = _m
-
-	}
-	{
 		p.SetState(18)
 		p.Match(ADLWalkerDOWN)
 	}
 	{
 		p.SetState(19)
-		p.Module()
+		var _m = p.Match(ADLWalkerADL)
+		localctx.(*AdlContext).tok = _m
+
 	}
 	{
 		p.SetState(20)
-		p.Match(ADLWalkerUP)
+		p.Match(ADLWalkerDOWN)
 	}
 	{
 		p.SetState(21)
-		p.Match(ADLWalkerUP)
+		p.Module()
 	}
 	{
 		p.SetState(22)
+		p.Match(ADLWalkerUP)
+	}
+	{
+		p.SetState(23)
+		p.Match(ADLWalkerUP)
+	}
+	{
+		p.SetState(24)
+		p.Match(ADLWalkerEOF)
+	}
+
+	return localctx
+}
+
+type IJsonContext interface {
+	antlr.ParserRuleContext
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// start internal
+	//  ruleGetterDecl
+	JsonVal() IJsonValContext
+	//  ruleListGetterDecl
+	//  ruleListIndexedGetterDecl
+	//  ruleContextDecls
+	//  ruleContextListDecls
+	// end internal
+	//Gets for labeled elements
+	//tokenDecls
+	//tokenTypeDecls
+	//tokenListDecls
+	//attributeDecls
+	//tokenGetterDecl
+	DOWN() antlr.TerminalNode
+	UP() antlr.TerminalNode
+	EOF() antlr.TerminalNode
+	//tokenListGetterDecl
+	//tokenListIndexedGetterDecl
+
+	// IsJsonContext differentiates from other interfaces.
+	//copyStruct,GetRuleContext and ToStringTree  from embedded
+
+	//<if(dispatchMethods)>
+	//<dispatchMethods; separator="\n\n">
+	//<endif>
+
+	//<if(extensionMembers)>
+	//<extensionMembers; separator="\n\n">
+	//<endif>
+}
+
+type JsonContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyJsonContext() *JsonContext {
+	var p = new(JsonContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = ADLWalkerRULE_json
+	return p
+}
+
+func (*JsonContext) IsJsonContext() {}
+
+func NewJsonContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *JsonContext {
+	var p = new(JsonContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = ADLWalkerRULE_json
+
+	return p
+}
+
+func (s *JsonContext) GetParser() antlr.Parser { return s.parser }
+
+//StructDecl tokenDecls
+
+//StructDecl tokenTypeDecls
+
+//StructDecl tokenListDecls
+
+//StructDecl ruleContextDecls
+
+//StructDecl ruleContextListDecls
+
+//StructDecl attributeDecls
+
+// Getters
+func (s *JsonContext) DOWN() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerDOWN, 0)
+}
+
+func (s *JsonContext) JsonVal() IJsonValContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*JsonValContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IJsonValContext)
+}
+
+func (s *JsonContext) UP() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerUP, 0)
+}
+
+func (s *JsonContext) EOF() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerEOF, 0)
+}
+
+//provideCopyFrom
+func (s *JsonContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *JsonContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+//dispatchMethods
+func (s *JsonContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(JsonEntryListener); ok {
+		listenerT.EnterJson(s)
+	}
+}
+
+func (s *JsonContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(JsonExitListener); ok {
+		listenerT.ExitJson(s)
+	}
+}
+
+func (s *JsonContext) VisitFunc(hdls antlr.ParserTreeVisitorHandlers, args ...interface{}) (result interface{}) {
+	h := hdls.(*ADLWalkerHandlers)
+	if h.EnterEveryRule != nil {
+		h.EnterEveryRule(s)
+	}
+	if h.Json != nil {
+		h.Json(s, h, args...)
+	} else {
+		s.VisitChildrenFunc(h, args...)
+	}
+	if h.ExitEveryRule != nil {
+		h.ExitEveryRule(s)
+	}
+	return
+}
+
+func (s *JsonContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
+	switch t := delegate.(type) {
+	case JsonContextVisitor:
+		return t.VisitJson(s, delegate, args...)
+	default:
+		return delegate.VisitChildren(s, delegate, args...)
+	}
+}
+
+//extensionMembers
+
+func (p *ADLWalker) Json() (localctx IJsonContext) {
+	localctx = NewJsonContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 2, ADLWalkerRULE_json)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(26)
+		p.Match(ADLWalkerDOWN)
+	}
+	{
+		p.SetState(27)
+		p.JsonVal()
+	}
+	{
+		p.SetState(28)
+		p.Match(ADLWalkerUP)
+	}
+	{
+		p.SetState(29)
 		p.Match(ADLWalkerEOF)
 	}
 
@@ -691,7 +884,7 @@ func (s *ModuleContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface
 
 func (p *ADLWalker) Module() (localctx IModuleContext) {
 	localctx = NewModuleContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, ADLWalkerRULE_module)
+	p.EnterRule(localctx, 4, ADLWalkerRULE_module)
 	var //TokenTypeDecl
 	_la int
 
@@ -713,64 +906,64 @@ func (p *ADLWalker) Module() (localctx IModuleContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(24)
+		p.SetState(31)
 		var _m = p.Match(ADLWalkerModule)
 		localctx.(*ModuleContext).tok = _m
 
 	}
-	p.SetState(45)
+	p.SetState(52)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ADLWalkerDOWN {
 		{
-			p.SetState(25)
+			p.SetState(32)
 			p.Match(ADLWalkerDOWN)
 		}
-		p.SetState(29)
+		p.SetState(36)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for _la == ADLWalkerAnnotation {
 			{
-				p.SetState(26)
+				p.SetState(33)
 				p.Annotation()
 			}
 
-			p.SetState(31)
+			p.SetState(38)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
-		p.SetState(35)
+		p.SetState(42)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for _la == ADLWalkerImport {
 			{
-				p.SetState(32)
+				p.SetState(39)
 				p.Match(ADLWalkerImport)
 			}
 
-			p.SetState(37)
+			p.SetState(44)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
-		p.SetState(41)
+		p.SetState(48)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerStruct-32))|(1<<(ADLWalkerUnion-32))|(1<<(ADLWalkerNewtype-32))|(1<<(ADLWalkerType-32))|(1<<(ADLWalkerModuleAnno-32))|(1<<(ADLWalkerDeclAnno-32))|(1<<(ADLWalkerFieldAnno-32)))) != 0 {
 			{
-				p.SetState(38)
+				p.SetState(45)
 				p.Tld()
 			}
 
-			p.SetState(43)
+			p.SetState(50)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(44)
+			p.SetState(51)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -2231,7 +2424,7 @@ func (s *StructContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface
 
 func (p *ADLWalker) Tld() (localctx ITldContext) {
 	localctx = NewTldContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, ADLWalkerRULE_tld)
+	p.EnterRule(localctx, 6, ADLWalkerRULE_tld)
 	var //TokenTypeDecl
 	_la int
 
@@ -2251,68 +2444,68 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		}
 	}()
 
-	p.SetState(191)
+	p.SetState(198)
 	p.GetErrorHandler().Sync(p)
 	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 30, p.GetParserRuleContext()) {
 	case 1:
 		localctx = NewStructContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(47)
+			p.SetState(54)
 			var _m = p.Match(ADLWalkerStruct)
 			localctx.(*StructContext).tok = _m
 
 		}
-		p.SetState(65)
+		p.SetState(72)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(48)
+				p.SetState(55)
 				p.Match(ADLWalkerDOWN)
 			}
-			p.SetState(52)
+			p.SetState(59)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == ADLWalkerAnnotation {
 				{
-					p.SetState(49)
+					p.SetState(56)
 					p.Annotation()
 				}
 
-				p.SetState(54)
+				p.SetState(61)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
-			p.SetState(56)
+			p.SetState(63)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			if _la == ADLWalkerTypeParam {
 				{
-					p.SetState(55)
+					p.SetState(62)
 					p.Match(ADLWalkerTypeParam)
 				}
 
 			}
-			p.SetState(61)
+			p.SetState(68)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == ADLWalkerField {
 				{
-					p.SetState(58)
+					p.SetState(65)
 					p.NameBody()
 				}
 
-				p.SetState(63)
+				p.SetState(70)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(64)
+				p.SetState(71)
 				p.Match(ADLWalkerUP)
 			}
 
@@ -2322,61 +2515,61 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		localctx = NewUnionContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(67)
+			p.SetState(74)
 			var _m = p.Match(ADLWalkerUnion)
 			localctx.(*UnionContext).tok = _m
 
 		}
-		p.SetState(85)
+		p.SetState(92)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(68)
+				p.SetState(75)
 				p.Match(ADLWalkerDOWN)
 			}
-			p.SetState(72)
+			p.SetState(79)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == ADLWalkerAnnotation {
 				{
-					p.SetState(69)
+					p.SetState(76)
 					p.Annotation()
 				}
 
-				p.SetState(74)
+				p.SetState(81)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
-			p.SetState(76)
+			p.SetState(83)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			if _la == ADLWalkerTypeParam {
 				{
-					p.SetState(75)
+					p.SetState(82)
 					p.Match(ADLWalkerTypeParam)
 				}
 
 			}
-			p.SetState(81)
+			p.SetState(88)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for _la == ADLWalkerField {
 				{
-					p.SetState(78)
+					p.SetState(85)
 					p.NameBody()
 				}
 
-				p.SetState(83)
+				p.SetState(90)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(84)
+				p.SetState(91)
 				p.Match(ADLWalkerUP)
 			}
 
@@ -2386,72 +2579,72 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		localctx = NewTypeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(87)
+			p.SetState(94)
 			var _m = p.Match(ADLWalkerType)
 			localctx.(*TypeContext).tok = _m
 
 		}
-		p.SetState(108)
+		p.SetState(115)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(88)
+				p.SetState(95)
 				p.Match(ADLWalkerDOWN)
-			}
-			p.SetState(92)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			for _la == ADLWalkerAnnotation {
-				{
-					p.SetState(89)
-					p.Annotation()
-				}
-
-				p.SetState(94)
-				p.GetErrorHandler().Sync(p)
-				_la = p.GetTokenStream().LA(1)
-			}
-			p.SetState(96)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == ADLWalkerTypeParam {
-				{
-					p.SetState(95)
-					p.Match(ADLWalkerTypeParam)
-				}
-
 			}
 			p.SetState(99)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
+			for _la == ADLWalkerAnnotation {
+				{
+					p.SetState(96)
+					p.Annotation()
+				}
+
+				p.SetState(101)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			p.SetState(103)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			if _la == ADLWalkerTypeParam {
+				{
+					p.SetState(102)
+					p.Match(ADLWalkerTypeParam)
+				}
+
+			}
+			p.SetState(106)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
 			if _la == ADLWalkerTypeExpr {
 				{
-					p.SetState(98)
+					p.SetState(105)
 					p.TypeExpr_()
 				}
 
 			}
-			p.SetState(104)
+			p.SetState(111)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(ADLWalkerJsonStr-41))|(1<<(ADLWalkerJsonBool-41))|(1<<(ADLWalkerJsonNull-41))|(1<<(ADLWalkerJsonInt-41))|(1<<(ADLWalkerJsonFloat-41))|(1<<(ADLWalkerJsonArray-41))|(1<<(ADLWalkerJsonObj-41)))) != 0 {
 				{
-					p.SetState(101)
+					p.SetState(108)
 					p.JsonVal()
 				}
 
-				p.SetState(106)
+				p.SetState(113)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(107)
+				p.SetState(114)
 				p.Match(ADLWalkerUP)
 			}
 
@@ -2461,72 +2654,72 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		localctx = NewNewtypeContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(110)
+			p.SetState(117)
 			var _m = p.Match(ADLWalkerNewtype)
 			localctx.(*NewtypeContext).tok = _m
 
 		}
-		p.SetState(131)
+		p.SetState(138)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(111)
+				p.SetState(118)
 				p.Match(ADLWalkerDOWN)
-			}
-			p.SetState(115)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			for _la == ADLWalkerAnnotation {
-				{
-					p.SetState(112)
-					p.Annotation()
-				}
-
-				p.SetState(117)
-				p.GetErrorHandler().Sync(p)
-				_la = p.GetTokenStream().LA(1)
-			}
-			p.SetState(119)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == ADLWalkerTypeParam {
-				{
-					p.SetState(118)
-					p.Match(ADLWalkerTypeParam)
-				}
-
 			}
 			p.SetState(122)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
+			for _la == ADLWalkerAnnotation {
+				{
+					p.SetState(119)
+					p.Annotation()
+				}
+
+				p.SetState(124)
+				p.GetErrorHandler().Sync(p)
+				_la = p.GetTokenStream().LA(1)
+			}
+			p.SetState(126)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
+			if _la == ADLWalkerTypeParam {
+				{
+					p.SetState(125)
+					p.Match(ADLWalkerTypeParam)
+				}
+
+			}
+			p.SetState(129)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+
 			if _la == ADLWalkerTypeExpr {
 				{
-					p.SetState(121)
+					p.SetState(128)
 					p.TypeExpr_()
 				}
 
 			}
-			p.SetState(127)
+			p.SetState(134)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(ADLWalkerJsonStr-41))|(1<<(ADLWalkerJsonBool-41))|(1<<(ADLWalkerJsonNull-41))|(1<<(ADLWalkerJsonInt-41))|(1<<(ADLWalkerJsonFloat-41))|(1<<(ADLWalkerJsonArray-41))|(1<<(ADLWalkerJsonObj-41)))) != 0 {
 				{
-					p.SetState(124)
+					p.SetState(131)
 					p.JsonVal()
 				}
 
-				p.SetState(129)
+				p.SetState(136)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(130)
+				p.SetState(137)
 				p.Match(ADLWalkerUP)
 			}
 
@@ -2536,21 +2729,21 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		localctx = NewModAnnoContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(133)
+			p.SetState(140)
 			var _m = p.Match(ADLWalkerModuleAnno)
 			localctx.(*ModAnnoContext).tok = _m
 
 		}
 		{
-			p.SetState(134)
+			p.SetState(141)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(135)
+			p.SetState(142)
 			p.JsonVal()
 		}
 		{
-			p.SetState(136)
+			p.SetState(143)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -2558,21 +2751,21 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		localctx = NewDeclAnnoContext(p, localctx)
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(138)
+			p.SetState(145)
 			var _m = p.Match(ADLWalkerDeclAnno)
 			localctx.(*DeclAnnoContext).tok = _m
 
 		}
 		{
-			p.SetState(139)
+			p.SetState(146)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(140)
+			p.SetState(147)
 			p.JsonVal()
 		}
 		{
-			p.SetState(141)
+			p.SetState(148)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -2580,34 +2773,34 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		localctx = NewFieldAnnoContext(p, localctx)
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(143)
+			p.SetState(150)
 			var _m = p.Match(ADLWalkerFieldAnno)
 			localctx.(*FieldAnnoContext).tok = _m
 
 		}
 		{
-			p.SetState(144)
+			p.SetState(151)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(145)
+			p.SetState(152)
 			p.JsonVal()
 		}
 		{
-			p.SetState(146)
+			p.SetState(153)
 			p.Match(ADLWalkerUP)
 		}
 
 	case 8:
 		localctx = NewTypeParamErrorContext(p, localctx)
 		p.EnterOuterAlt(localctx, 8)
-		p.SetState(150)
+		p.SetState(157)
 		p.GetErrorHandler().Sync(p)
 
 		switch p.GetTokenStream().LA(1) {
 		case ADLWalkerStruct:
 			{
-				p.SetState(148)
+				p.SetState(155)
 				var _m = p.Match(ADLWalkerStruct)
 				localctx.(*TypeParamErrorContext).tok = _m
 
@@ -2615,7 +2808,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 
 		case ADLWalkerUnion:
 			{
-				p.SetState(149)
+				p.SetState(156)
 				var _m = p.Match(ADLWalkerUnion)
 				localctx.(*TypeParamErrorContext).tok = _m
 
@@ -2625,35 +2818,17 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 			panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 		}
 		{
-			p.SetState(152)
-			p.Match(ADLWalkerDOWN)
-		}
-		p.SetState(156)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for _la == ADLWalkerAnnotation {
-			{
-				p.SetState(153)
-				p.Annotation()
-			}
-
-			p.SetState(158)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-		}
-		{
 			p.SetState(159)
-			p.Match(ADLWalkerERROR)
+			p.Match(ADLWalkerDOWN)
 		}
 		p.SetState(163)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for _la == ADLWalkerField {
+		for _la == ADLWalkerAnnotation {
 			{
 				p.SetState(160)
-				p.NameBody()
+				p.Annotation()
 			}
 
 			p.SetState(165)
@@ -2662,19 +2837,37 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		}
 		{
 			p.SetState(166)
+			p.Match(ADLWalkerERROR)
+		}
+		p.SetState(170)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for _la == ADLWalkerField {
+			{
+				p.SetState(167)
+				p.NameBody()
+			}
+
+			p.SetState(172)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(173)
 			p.Match(ADLWalkerUP)
 		}
 
 	case 9:
 		localctx = NewTypeParamErrorContext(p, localctx)
 		p.EnterOuterAlt(localctx, 9)
-		p.SetState(169)
+		p.SetState(176)
 		p.GetErrorHandler().Sync(p)
 
 		switch p.GetTokenStream().LA(1) {
 		case ADLWalkerType:
 			{
-				p.SetState(167)
+				p.SetState(174)
 				var _m = p.Match(ADLWalkerType)
 				localctx.(*TypeParamErrorContext).tok = _m
 
@@ -2682,7 +2875,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 
 		case ADLWalkerNewtype:
 			{
-				p.SetState(168)
+				p.SetState(175)
 				var _m = p.Match(ADLWalkerNewtype)
 				localctx.(*TypeParamErrorContext).tok = _m
 
@@ -2692,58 +2885,58 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 			panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 		}
 		{
-			p.SetState(171)
+			p.SetState(178)
 			p.Match(ADLWalkerDOWN)
 		}
-		p.SetState(175)
+		p.SetState(182)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for _la == ADLWalkerAnnotation {
 			{
-				p.SetState(172)
+				p.SetState(179)
 				p.Annotation()
 			}
 
-			p.SetState(177)
+			p.SetState(184)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(178)
+			p.SetState(185)
 			p.Match(ADLWalkerERROR)
 		}
-		p.SetState(180)
+		p.SetState(187)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerTypeExpr {
 			{
-				p.SetState(179)
+				p.SetState(186)
 				p.TypeExpr_()
 			}
 
 		}
-		p.SetState(185)
+		p.SetState(192)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(ADLWalkerJsonStr-41))|(1<<(ADLWalkerJsonBool-41))|(1<<(ADLWalkerJsonNull-41))|(1<<(ADLWalkerJsonInt-41))|(1<<(ADLWalkerJsonFloat-41))|(1<<(ADLWalkerJsonArray-41))|(1<<(ADLWalkerJsonObj-41)))) != 0 {
 			{
-				p.SetState(182)
+				p.SetState(189)
 				p.JsonVal()
 			}
 
-			p.SetState(187)
+			p.SetState(194)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
-		p.SetState(189)
+		p.SetState(196)
 		p.GetErrorHandler().Sync(p)
 
 		if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 29, p.GetParserRuleContext()) == 1 {
 			{
-				p.SetState(188)
+				p.SetState(195)
 				p.Match(ADLWalkerUP)
 			}
 
@@ -3015,7 +3208,7 @@ func (s *FieldContext) Visit(delegate antlr.ParseTreeVisitor, args ...interface{
 
 func (p *ADLWalker) NameBody() (localctx INameBodyContext) {
 	localctx = NewNameBodyContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 6, ADLWalkerRULE_nameBody)
+	p.EnterRule(localctx, 8, ADLWalkerRULE_nameBody)
 	var //TokenTypeDecl
 	_la int
 
@@ -3038,58 +3231,58 @@ func (p *ADLWalker) NameBody() (localctx INameBodyContext) {
 	localctx = NewFieldContext(p, localctx)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(193)
+		p.SetState(200)
 		var _m = p.Match(ADLWalkerField)
 		localctx.(*FieldContext).tok = _m
 
 	}
-	p.SetState(208)
+	p.SetState(215)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ADLWalkerDOWN {
 		{
-			p.SetState(194)
+			p.SetState(201)
 			p.Match(ADLWalkerDOWN)
-		}
-		p.SetState(198)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for _la == ADLWalkerAnnotation {
-			{
-				p.SetState(195)
-				p.Annotation()
-			}
-
-			p.SetState(200)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-		}
-		p.SetState(202)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		if _la == ADLWalkerTypeExpr {
-			{
-				p.SetState(201)
-				p.TypeExpr_()
-			}
-
 		}
 		p.SetState(205)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
+		for _la == ADLWalkerAnnotation {
+			{
+				p.SetState(202)
+				p.Annotation()
+			}
+
+			p.SetState(207)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		p.SetState(209)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == ADLWalkerTypeExpr {
+			{
+				p.SetState(208)
+				p.TypeExpr_()
+			}
+
+		}
+		p.SetState(212)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
 		if ((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(ADLWalkerJsonStr-41))|(1<<(ADLWalkerJsonBool-41))|(1<<(ADLWalkerJsonNull-41))|(1<<(ADLWalkerJsonInt-41))|(1<<(ADLWalkerJsonFloat-41))|(1<<(ADLWalkerJsonArray-41))|(1<<(ADLWalkerJsonObj-41)))) != 0 {
 			{
-				p.SetState(204)
+				p.SetState(211)
 				p.JsonVal()
 			}
 
 		}
 		{
-			p.SetState(207)
+			p.SetState(214)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -3254,7 +3447,7 @@ func (s *AnnotationContext) Visit(delegate antlr.ParseTreeVisitor, args ...inter
 
 func (p *ADLWalker) Annotation() (localctx IAnnotationContext) {
 	localctx = NewAnnotationContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, ADLWalkerRULE_annotation)
+	p.EnterRule(localctx, 10, ADLWalkerRULE_annotation)
 	var //TokenTypeDecl
 	_la int
 
@@ -3276,26 +3469,26 @@ func (p *ADLWalker) Annotation() (localctx IAnnotationContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(210)
+		p.SetState(217)
 		var _m = p.Match(ADLWalkerAnnotation)
 		localctx.(*AnnotationContext).tok = _m
 
 	}
-	p.SetState(215)
+	p.SetState(222)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ADLWalkerDOWN {
 		{
-			p.SetState(211)
+			p.SetState(218)
 			p.Match(ADLWalkerDOWN)
 		}
 		{
-			p.SetState(212)
+			p.SetState(219)
 			p.JsonVal()
 		}
 		{
-			p.SetState(213)
+			p.SetState(220)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -3475,7 +3668,7 @@ func (s *TypeExpr_Context) Visit(delegate antlr.ParseTreeVisitor, args ...interf
 
 func (p *ADLWalker) TypeExpr_() (localctx ITypeExpr_Context) {
 	localctx = NewTypeExpr_Context(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, ADLWalkerRULE_typeExpr_)
+	p.EnterRule(localctx, 12, ADLWalkerRULE_typeExpr_)
 	var //TokenTypeDecl
 	_la int
 
@@ -3497,36 +3690,36 @@ func (p *ADLWalker) TypeExpr_() (localctx ITypeExpr_Context) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(217)
+		p.SetState(224)
 		var _m = p.Match(ADLWalkerTypeExpr)
 		localctx.(*TypeExpr_Context).tok = _m
 
 	}
-	p.SetState(226)
+	p.SetState(233)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ADLWalkerDOWN {
 		{
-			p.SetState(218)
+			p.SetState(225)
 			p.Match(ADLWalkerDOWN)
 		}
-		p.SetState(220)
+		p.SetState(227)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ok := true; ok; ok = _la == ADLWalkerTypeExprElem {
 			{
-				p.SetState(219)
+				p.SetState(226)
 				p.TypeExprElem_()
 			}
 
-			p.SetState(222)
+			p.SetState(229)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(224)
+			p.SetState(231)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -3774,7 +3967,7 @@ func (s *TypeParamsContext) Visit(delegate antlr.ParseTreeVisitor, args ...inter
 
 func (p *ADLWalker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 	localctx = NewTypeExprElem_Context(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, ADLWalkerRULE_typeExprElem_)
+	p.EnterRule(localctx, 14, ADLWalkerRULE_typeExprElem_)
 	var //TokenTypeDecl
 	_la int
 
@@ -3797,36 +3990,36 @@ func (p *ADLWalker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 	localctx = NewTypeParamsContext(p, localctx)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(228)
+		p.SetState(235)
 		var _m = p.Match(ADLWalkerTypeExprElem)
 		localctx.(*TypeParamsContext).tok = _m
 
 	}
-	p.SetState(237)
+	p.SetState(244)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ADLWalkerDOWN {
 		{
-			p.SetState(229)
+			p.SetState(236)
 			p.Match(ADLWalkerDOWN)
 		}
-		p.SetState(231)
+		p.SetState(238)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ok := true; ok; ok = _la == ADLWalkerTypeExprElem {
 			{
-				p.SetState(230)
+				p.SetState(237)
 				p.TypeExprElem_()
 			}
 
-			p.SetState(233)
+			p.SetState(240)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(235)
+			p.SetState(242)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -4776,7 +4969,7 @@ func (s *JsonNullContext) Visit(delegate antlr.ParseTreeVisitor, args ...interfa
 
 func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 	localctx = NewJsonValContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 14, ADLWalkerRULE_jsonVal)
+	p.EnterRule(localctx, 16, ADLWalkerRULE_jsonVal)
 	var //TokenTypeDecl
 	_la int
 
@@ -4796,7 +4989,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		}
 	}()
 
-	p.SetState(266)
+	p.SetState(273)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
@@ -4804,7 +4997,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonStrContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(239)
+			p.SetState(246)
 			var _m = p.Match(ADLWalkerJsonStr)
 			localctx.(*JsonStrContext).tok = _m
 
@@ -4814,7 +5007,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonBoolContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(240)
+			p.SetState(247)
 			var _m = p.Match(ADLWalkerJsonBool)
 			localctx.(*JsonBoolContext).tok = _m
 
@@ -4824,7 +5017,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonNullContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(241)
+			p.SetState(248)
 			var _m = p.Match(ADLWalkerJsonNull)
 			localctx.(*JsonNullContext).tok = _m
 
@@ -4834,7 +5027,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonIntContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(242)
+			p.SetState(249)
 			var _m = p.Match(ADLWalkerJsonInt)
 			localctx.(*JsonIntContext).tok = _m
 
@@ -4844,7 +5037,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonFloatContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(243)
+			p.SetState(250)
 			var _m = p.Match(ADLWalkerJsonFloat)
 			localctx.(*JsonFloatContext).tok = _m
 
@@ -4854,36 +5047,36 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonArrayContext(p, localctx)
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(244)
+			p.SetState(251)
 			var _m = p.Match(ADLWalkerJsonArray)
 			localctx.(*JsonArrayContext).tok = _m
 
 		}
-		p.SetState(253)
+		p.SetState(260)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(245)
+				p.SetState(252)
 				p.Match(ADLWalkerDOWN)
 			}
-			p.SetState(247)
+			p.SetState(254)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for ok := true; ok; ok = (((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(ADLWalkerJsonStr-41))|(1<<(ADLWalkerJsonBool-41))|(1<<(ADLWalkerJsonNull-41))|(1<<(ADLWalkerJsonInt-41))|(1<<(ADLWalkerJsonFloat-41))|(1<<(ADLWalkerJsonArray-41))|(1<<(ADLWalkerJsonObj-41)))) != 0) {
 				{
-					p.SetState(246)
+					p.SetState(253)
 					p.JsonVal()
 				}
 
-				p.SetState(249)
+				p.SetState(256)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(251)
+				p.SetState(258)
 				p.Match(ADLWalkerUP)
 			}
 
@@ -4893,36 +5086,36 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonObjContext(p, localctx)
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(255)
+			p.SetState(262)
 			var _m = p.Match(ADLWalkerJsonObj)
 			localctx.(*JsonObjContext).tok = _m
 
 		}
-		p.SetState(264)
+		p.SetState(271)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(256)
+				p.SetState(263)
 				p.Match(ADLWalkerDOWN)
 			}
-			p.SetState(258)
+			p.SetState(265)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
 			for ok := true; ok; ok = (((_la-41)&-(0x1f+1)) == 0 && ((1<<uint((_la-41)))&((1<<(ADLWalkerJsonStr-41))|(1<<(ADLWalkerJsonBool-41))|(1<<(ADLWalkerJsonNull-41))|(1<<(ADLWalkerJsonInt-41))|(1<<(ADLWalkerJsonFloat-41))|(1<<(ADLWalkerJsonArray-41))|(1<<(ADLWalkerJsonObj-41)))) != 0) {
 				{
-					p.SetState(257)
+					p.SetState(264)
 					p.JsonVal()
 				}
 
-				p.SetState(260)
+				p.SetState(267)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(262)
+				p.SetState(269)
 				p.Match(ADLWalkerUP)
 			}
 
