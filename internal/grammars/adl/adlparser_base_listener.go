@@ -46,8 +46,11 @@ package parser // ADLParser
 //var _ ModuleStatementEntryListener = &ADLParserListener{}
 //var _ ModuleStatementExitListener = &ADLParserListener{}
 
-//var _ ImportStatementEntryListener = &ADLParserListener{}
-//var _ ImportStatementExitListener = &ADLParserListener{}
+//var _ ImportScopedNameEntryListener = &ADLParserListener{}
+//var _ ImportScopedNameExitListener = &ADLParserListener{}
+
+//var _ ImportModuleNameEntryListener = &ADLParserListener{}
+//var _ ImportModuleNameExitListener = &ADLParserListener{}
 
 //var _ LocalAnnoEntryListener = &ADLParserListener{}
 //var _ LocalAnnoExitListener = &ADLParserListener{}
@@ -158,8 +161,11 @@ package parser // ADLParser
 //func (s *ADLParserListener) EnterModuleStatement(ctx *ModuleStatementContext) {}
 //func (s *ADLParserListener) ExitModuleStatement(ctx *ModuleStatementContext) {}
 
-//func (s *ADLParserListener) EnterImportStatement(ctx *ImportStatementContext) {}
-//func (s *ADLParserListener) ExitImportStatement(ctx *ImportStatementContext) {}
+//func (s *ADLParserListener) EnterImportScopedName(ctx *ImportScopedNameContext) {}
+//func (s *ADLParserListener) ExitImportScopedName(ctx *ImportScopedNameContext) {}
+
+//func (s *ADLParserListener) EnterImportModuleName(ctx *ImportModuleNameContext) {}
+//func (s *ADLParserListener) ExitImportModuleName(ctx *ImportModuleNameContext) {}
 
 //func (s *ADLParserListener) EnterLocalAnno(ctx *LocalAnnoContext) {}
 //func (s *ADLParserListener) ExitLocalAnno(ctx *LocalAnnoContext) {}

@@ -3,7 +3,7 @@ module github.com/wxio/wxb
 //replace github.com/jpillora/opts => github.com/wxio/opts v0.0.0-20190206115711-6da6e02f01d5
 //replace github.com/jpillora/opts => /home/garym/devel/millergarym-opts
 
-//replace github.com/wxio/goantlr => /home/garym/devel/wxio/antlr4/runtime/Go/antlr
+replace github.com/wxio/goantlr => /home/garym/devel/wxio/antlr4/runtime/Go/antlr
 
 require (
 	github.com/gogo/protobuf v1.2.1

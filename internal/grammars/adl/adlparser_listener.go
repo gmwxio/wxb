@@ -17,8 +17,11 @@ type ADLParserListener interface {
 	ModuleStatementEntryListener
 	ModuleStatementExitListener
 
-	ImportStatementEntryListener
-	ImportStatementExitListener
+	ImportScopedNameEntryListener
+	ImportScopedNameExitListener
+
+	ImportModuleNameEntryListener
+	ImportModuleNameExitListener
 
 	LocalAnnoEntryListener
 	LocalAnnoExitListener
@@ -105,11 +108,19 @@ type ModuleStatementExitListener interface {
 }
 
 // From Rule 'imports'
-type ImportStatementEntryListener interface {
-	EnterImportStatement(c *ImportStatementContext)
+type ImportScopedNameEntryListener interface {
+	EnterImportScopedName(c *ImportScopedNameContext)
 }
-type ImportStatementExitListener interface {
-	ExitImportStatement(c *ImportStatementContext)
+type ImportScopedNameExitListener interface {
+	ExitImportScopedName(c *ImportScopedNameContext)
+}
+
+// From Rule 'imports'
+type ImportModuleNameEntryListener interface {
+	EnterImportModuleName(c *ImportModuleNameContext)
+}
+type ImportModuleNameExitListener interface {
+	ExitImportModuleName(c *ImportModuleNameContext)
 }
 
 // From Rule 'annon'

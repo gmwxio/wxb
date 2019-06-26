@@ -8,28 +8,30 @@ type ADLWalkerHandlers struct {
 	EnterEveryRule func(ctx antlr.RuleNode)
 	ExitEveryRule  func(ctx antlr.RuleNode)
 
-	Adl            func(ctx IAdlContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	Json           func(ctx IJsonContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	Module         func(ctx IModuleContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	Struct         func(ctx IStructContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	Union          func(ctx IUnionContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	Type           func(ctx ITypeContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	Newtype        func(ctx INewtypeContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	ModAnno        func(ctx IModAnnoContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	DeclAnno       func(ctx IDeclAnnoContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	FieldAnno      func(ctx IFieldAnnoContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	TypeParamError func(ctx ITypeParamErrorContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	Field          func(ctx IFieldContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	Annotation     func(ctx IAnnotationContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	TypeExpr_      func(ctx ITypeExpr_Context, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	TypeParams     func(ctx ITypeParamsContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	JsonStr        func(ctx IJsonStrContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	JsonBool       func(ctx IJsonBoolContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	JsonNull       func(ctx IJsonNullContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	JsonInt        func(ctx IJsonIntContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	JsonFloat      func(ctx IJsonFloatContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	JsonArray      func(ctx IJsonArrayContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
-	JsonObj        func(ctx IJsonObjContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Adl                func(ctx IAdlContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Json               func(ctx IJsonContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Module             func(ctx IModuleContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	ImportModule       func(ctx IImportModuleContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	ImportScopedModule func(ctx IImportScopedModuleContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Struct             func(ctx IStructContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Union              func(ctx IUnionContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Type               func(ctx ITypeContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Newtype            func(ctx INewtypeContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	ModAnno            func(ctx IModAnnoContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	DeclAnno           func(ctx IDeclAnnoContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	FieldAnno          func(ctx IFieldAnnoContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	TypeParamError     func(ctx ITypeParamErrorContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Field              func(ctx IFieldContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	Annotation         func(ctx IAnnotationContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	TypeExpr_          func(ctx ITypeExpr_Context, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	TypeParams         func(ctx ITypeParamsContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	JsonStr            func(ctx IJsonStrContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	JsonBool           func(ctx IJsonBoolContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	JsonNull           func(ctx IJsonNullContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	JsonInt            func(ctx IJsonIntContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	JsonFloat          func(ctx IJsonFloatContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	JsonArray          func(ctx IJsonArrayContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
+	JsonObj            func(ctx IJsonObjContext, this *ADLWalkerHandlers, args ...interface{}) (result interface{})
 }
 
 // A complete Visitor for a parse tree produced by ADLWalker.
@@ -38,6 +40,8 @@ type ADLWalkerVisitor interface {
 	AdlContextVisitor
 	JsonContextVisitor
 	ModuleContextVisitor
+	ImportModuleContextVisitor
+	ImportScopedModuleContextVisitor
 	StructContextVisitor
 	UnionContextVisitor
 	TypeContextVisitor
@@ -67,6 +71,12 @@ type JsonContextVisitor interface {
 }
 type ModuleContextVisitor interface {
 	VisitModule(ctx IModuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
+}
+type ImportModuleContextVisitor interface {
+	VisitImportModule(ctx IImportModuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
+}
+type ImportScopedModuleContextVisitor interface {
+	VisitImportScopedModule(ctx IImportScopedModuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
 }
 type StructContextVisitor interface {
 	VisitStruct(ctx IStructContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})

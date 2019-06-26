@@ -2,7 +2,7 @@ parser grammar ADLParser;
 
 tokens {
     DOWN, UP, ROOT, ERROR,
-    ADL, Module, Import, Annotation, Struct, Union, Newtype, Type, TypeParam, TypeExpr, TypeExprElem, Field, 
+    ADL, Module, ImportModule, ImportScopedName, Annotation, Struct, Union, Newtype, Type, TypeParam, TypeExpr, TypeExprElem, Field,
     Json, JsonStr, JsonBool, JsonNull, JsonInt, JsonFloat, JsonArray, JsonObj,
     ModuleAnno, DeclAnno, FieldAnno
 }
@@ -18,7 +18,8 @@ module
     : annon* kw=ID name+=ID (DOT name+=ID)*  LCUR imports* top_level_statement* RCUR SEMI                           #ModuleStatement
 ;
 imports
-    : kw=ID a+=ID (DOT a+=ID)* (DOT s=STAR)? SEMI                       #ImportStatement
+    : kw=ID a+=ID (DOT a+=ID)* SEMI                                     #ImportScopedName
+    | kw=ID a+=ID (DOT a+=ID)* DOT STAR SEMI                          #ImportModuleName
 ;
 annon
     : AT a=ID jsonValue                                                   #LocalAnno

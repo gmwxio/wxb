@@ -1,6 +1,7 @@
 # ANTLR=../../.wxb/antlr4-4.7.1-SNAPSHOT-complete.jar
-ANTLR=/home/garym/devel/wxio/antlr4/tool/target/antlr4-4.7.1-SNAPSHOT-complete.jar
-# ANTLR=../../.wxb/antlr-4.7.2-complete.jar 
+# ANTLR=/home/garym/devel/wxio/antlr4/tool/target/antlr4-4.7.1-SNAPSHOT-complete.jar
+ANTLR=../../.wxb/antlr4-4.7.1-SNAPSHOT-complete.jar
+
 
 adlantlr:
 	java -jar $(ANTLR) -Dlanguage=Go -visitor -o adl adlLexer.g4 ADLParser.g4

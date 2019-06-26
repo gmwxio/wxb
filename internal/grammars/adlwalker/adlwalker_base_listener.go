@@ -48,6 +48,12 @@ package walker // ADLWalker
 //var _ walker.ModuleEntryListener = &ADLWalkerListener{}
 //var _ walker.ModuleExitListener = &ADLWalkerListener{}
 
+//var _ walker.ImportModuleEntryListener = &ADLWalkerListener{}
+//var _ walker.ImportModuleExitListener = &ADLWalkerListener{}
+
+//var _ walker.ImportScopedModuleEntryListener = &ADLWalkerListener{}
+//var _ walker.ImportScopedModuleExitListener = &ADLWalkerListener{}
+
 //var _ walker.StructEntryListener = &ADLWalkerListener{}
 //var _ walker.StructExitListener = &ADLWalkerListener{}
 
@@ -159,6 +165,12 @@ package walker // ADLWalker
 
 //func (s *ADLWalkerListener) EnterModule(ctx walker.*walker.ModuleContext) {}
 //func (s *ADLWalkerListener) ExitModule(ctx walker.*walker.ModuleContext) {}
+
+//func (s *ADLWalkerListener) EnterImportModule(ctx walker.*walker.ImportModuleContext) {}
+//func (s *ADLWalkerListener) ExitImportModule(ctx walker.*walker.ImportModuleContext) {}
+
+//func (s *ADLWalkerListener) EnterImportScopedModule(ctx walker.*walker.ImportScopedModuleContext) {}
+//func (s *ADLWalkerListener) ExitImportScopedModule(ctx walker.*walker.ImportScopedModuleContext) {}
 
 //func (s *ADLWalkerListener) EnterStruct(ctx walker.*walker.StructContext) {}
 //func (s *ADLWalkerListener) ExitStruct(ctx walker.*walker.StructContext) {}

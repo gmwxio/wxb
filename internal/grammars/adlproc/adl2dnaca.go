@@ -76,18 +76,18 @@ func (v *ADLWalkerVisitor) VisitAdl(ctx walker.IAdlContext, delegate antlr.Parse
 	return
 }
 func (v *ADLWalkerVisitor) VisitModule(ctx walker.IModuleContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {
-	mod := ctx.GetTok().(*ModuleNode)
-	for _, imp := range ctx.AllImport() {
-		fmt.Printf("imp %T\n", imp.GetPayload())
-	}
-	n := &ModuleNode{
-		MyToken: MyToken{Token: mod, TType: walker.ADLWalkerName},
-		Name:    mod.Name,
-	}
-	v.Builder.Add(n)
-	v.Builder.Down()
-	result = v.VisitChildren(ctx, delegate, args...)
-	v.Builder.Up()
+	// mod := ctx.GetTok().(*ModuleNode)
+	// for _, imp := range ctx.AllImport() {
+	// 	fmt.Printf("imp %T\n", imp.GetPayload())
+	// }
+	// n := &ModuleNode{
+	// 	MyToken: MyToken{Token: mod, TType: walker.ADLWalkerName},
+	// 	Name:    mod.Name,
+	// }
+	// v.Builder.Add(n)
+	// v.Builder.Down()
+	// result = v.VisitChildren(ctx, delegate, args...)
+	// v.Builder.Up()
 	return
 }
 func (v *ADLWalkerVisitor) VisitStruct(ctx walker.IStructContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{}) {

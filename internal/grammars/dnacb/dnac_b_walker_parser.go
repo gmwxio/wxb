@@ -14,7 +14,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 56, 116,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 57, 116,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 7, 3, 20, 10, 3, 12, 3, 14, 3, 23, 11, 3,
 	3, 3, 7, 3, 26, 10, 3, 12, 3, 14, 3, 29, 11, 3, 3, 3, 5, 3, 32, 10, 3,
@@ -28,40 +28,40 @@ var parserATN = []uint16{
 	4, 14, 4, 101, 11, 4, 3, 4, 5, 4, 104, 10, 4, 3, 4, 5, 4, 107, 10, 4, 3,
 	4, 3, 4, 3, 4, 5, 4, 112, 10, 4, 5, 4, 114, 10, 4, 3, 4, 2, 2, 5, 2, 4,
 	6, 2, 2, 2, 136, 2, 8, 3, 2, 2, 2, 4, 16, 3, 2, 2, 2, 6, 113, 3, 2, 2,
-	2, 8, 9, 7, 26, 2, 2, 9, 10, 7, 53, 2, 2, 10, 11, 7, 26, 2, 2, 11, 12,
+	2, 8, 9, 7, 26, 2, 2, 9, 10, 7, 54, 2, 2, 10, 11, 7, 26, 2, 2, 11, 12,
 	5, 4, 3, 2, 12, 13, 7, 27, 2, 2, 13, 14, 7, 27, 2, 2, 14, 15, 7, 2, 2,
-	3, 15, 3, 3, 2, 2, 2, 16, 31, 7, 54, 2, 2, 17, 21, 7, 26, 2, 2, 18, 20,
-	7, 33, 2, 2, 19, 18, 3, 2, 2, 2, 20, 23, 3, 2, 2, 2, 21, 19, 3, 2, 2, 2,
+	3, 15, 3, 3, 2, 2, 2, 16, 31, 7, 55, 2, 2, 17, 21, 7, 26, 2, 2, 18, 20,
+	7, 34, 2, 2, 19, 18, 3, 2, 2, 2, 20, 23, 3, 2, 2, 2, 21, 19, 3, 2, 2, 2,
 	21, 22, 3, 2, 2, 2, 22, 27, 3, 2, 2, 2, 23, 21, 3, 2, 2, 2, 24, 26, 5,
 	6, 4, 2, 25, 24, 3, 2, 2, 2, 26, 29, 3, 2, 2, 2, 27, 25, 3, 2, 2, 2, 27,
 	28, 3, 2, 2, 2, 28, 30, 3, 2, 2, 2, 29, 27, 3, 2, 2, 2, 30, 32, 7, 27,
 	2, 2, 31, 17, 3, 2, 2, 2, 31, 32, 3, 2, 2, 2, 32, 5, 3, 2, 2, 2, 33, 51,
-	7, 54, 2, 2, 34, 38, 7, 26, 2, 2, 35, 37, 7, 33, 2, 2, 36, 35, 3, 2, 2,
+	7, 55, 2, 2, 34, 38, 7, 26, 2, 2, 35, 37, 7, 34, 2, 2, 36, 35, 3, 2, 2,
 	2, 37, 40, 3, 2, 2, 2, 38, 36, 3, 2, 2, 2, 38, 39, 3, 2, 2, 2, 39, 42,
-	3, 2, 2, 2, 40, 38, 3, 2, 2, 2, 41, 43, 7, 38, 2, 2, 42, 41, 3, 2, 2, 2,
+	3, 2, 2, 2, 40, 38, 3, 2, 2, 2, 41, 43, 7, 39, 2, 2, 42, 41, 3, 2, 2, 2,
 	42, 43, 3, 2, 2, 2, 43, 47, 3, 2, 2, 2, 44, 46, 5, 6, 4, 2, 45, 44, 3,
 	2, 2, 2, 46, 49, 3, 2, 2, 2, 47, 45, 3, 2, 2, 2, 47, 48, 3, 2, 2, 2, 48,
 	50, 3, 2, 2, 2, 49, 47, 3, 2, 2, 2, 50, 52, 7, 27, 2, 2, 51, 34, 3, 2,
-	2, 2, 51, 52, 3, 2, 2, 2, 52, 114, 3, 2, 2, 2, 53, 66, 7, 37, 2, 2, 54,
-	58, 7, 26, 2, 2, 55, 57, 7, 33, 2, 2, 56, 55, 3, 2, 2, 2, 57, 60, 3, 2,
+	2, 2, 51, 52, 3, 2, 2, 2, 52, 114, 3, 2, 2, 2, 53, 66, 7, 38, 2, 2, 54,
+	58, 7, 26, 2, 2, 55, 57, 7, 34, 2, 2, 56, 55, 3, 2, 2, 2, 57, 60, 3, 2,
 	2, 2, 58, 56, 3, 2, 2, 2, 58, 59, 3, 2, 2, 2, 59, 61, 3, 2, 2, 2, 60, 58,
-	3, 2, 2, 2, 61, 63, 7, 38, 2, 2, 62, 64, 7, 39, 2, 2, 63, 62, 3, 2, 2,
+	3, 2, 2, 2, 61, 63, 7, 39, 2, 2, 62, 64, 7, 40, 2, 2, 63, 62, 3, 2, 2,
 	2, 63, 64, 3, 2, 2, 2, 64, 65, 3, 2, 2, 2, 65, 67, 7, 27, 2, 2, 66, 54,
-	3, 2, 2, 2, 66, 67, 3, 2, 2, 2, 67, 114, 3, 2, 2, 2, 68, 80, 7, 37, 2,
-	2, 69, 73, 7, 26, 2, 2, 70, 72, 7, 33, 2, 2, 71, 70, 3, 2, 2, 2, 72, 75,
+	3, 2, 2, 2, 66, 67, 3, 2, 2, 2, 67, 114, 3, 2, 2, 2, 68, 80, 7, 38, 2,
+	2, 69, 73, 7, 26, 2, 2, 70, 72, 7, 34, 2, 2, 71, 70, 3, 2, 2, 2, 72, 75,
 	3, 2, 2, 2, 73, 71, 3, 2, 2, 2, 73, 74, 3, 2, 2, 2, 74, 77, 3, 2, 2, 2,
-	75, 73, 3, 2, 2, 2, 76, 78, 7, 56, 2, 2, 77, 76, 3, 2, 2, 2, 77, 78, 3,
+	75, 73, 3, 2, 2, 2, 76, 78, 7, 57, 2, 2, 77, 76, 3, 2, 2, 2, 77, 78, 3,
 	2, 2, 2, 78, 79, 3, 2, 2, 2, 79, 81, 7, 27, 2, 2, 80, 69, 3, 2, 2, 2, 80,
-	81, 3, 2, 2, 2, 81, 114, 3, 2, 2, 2, 82, 92, 7, 41, 2, 2, 83, 87, 7, 26,
-	2, 2, 84, 86, 7, 33, 2, 2, 85, 84, 3, 2, 2, 2, 86, 89, 3, 2, 2, 2, 87,
+	81, 3, 2, 2, 2, 81, 114, 3, 2, 2, 2, 82, 92, 7, 42, 2, 2, 83, 87, 7, 26,
+	2, 2, 84, 86, 7, 34, 2, 2, 85, 84, 3, 2, 2, 2, 86, 89, 3, 2, 2, 2, 87,
 	85, 3, 2, 2, 2, 87, 88, 3, 2, 2, 2, 88, 90, 3, 2, 2, 2, 89, 87, 3, 2, 2,
-	2, 90, 91, 7, 39, 2, 2, 91, 93, 7, 27, 2, 2, 92, 83, 3, 2, 2, 2, 92, 93,
-	3, 2, 2, 2, 93, 114, 3, 2, 2, 2, 94, 106, 7, 41, 2, 2, 95, 99, 7, 26, 2,
-	2, 96, 98, 7, 33, 2, 2, 97, 96, 3, 2, 2, 2, 98, 101, 3, 2, 2, 2, 99, 97,
+	2, 90, 91, 7, 40, 2, 2, 91, 93, 7, 27, 2, 2, 92, 83, 3, 2, 2, 2, 92, 93,
+	3, 2, 2, 2, 93, 114, 3, 2, 2, 2, 94, 106, 7, 42, 2, 2, 95, 99, 7, 26, 2,
+	2, 96, 98, 7, 34, 2, 2, 97, 96, 3, 2, 2, 2, 98, 101, 3, 2, 2, 2, 99, 97,
 	3, 2, 2, 2, 99, 100, 3, 2, 2, 2, 100, 103, 3, 2, 2, 2, 101, 99, 3, 2, 2,
-	2, 102, 104, 7, 56, 2, 2, 103, 102, 3, 2, 2, 2, 103, 104, 3, 2, 2, 2, 104,
+	2, 102, 104, 7, 57, 2, 2, 103, 102, 3, 2, 2, 2, 103, 104, 3, 2, 2, 2, 104,
 	105, 3, 2, 2, 2, 105, 107, 7, 27, 2, 2, 106, 95, 3, 2, 2, 2, 106, 107,
-	3, 2, 2, 2, 107, 114, 3, 2, 2, 2, 108, 111, 7, 55, 2, 2, 109, 110, 7, 26,
+	3, 2, 2, 2, 107, 114, 3, 2, 2, 2, 108, 111, 7, 56, 2, 2, 109, 110, 7, 26,
 	2, 2, 110, 112, 7, 27, 2, 2, 111, 109, 3, 2, 2, 2, 111, 112, 3, 2, 2, 2,
 	112, 114, 3, 2, 2, 2, 113, 33, 3, 2, 2, 2, 113, 53, 3, 2, 2, 2, 113, 68,
 	3, 2, 2, 2, 113, 82, 3, 2, 2, 2, 113, 94, 3, 2, 2, 2, 113, 108, 3, 2, 2,
@@ -79,10 +79,11 @@ var symbolicNames = []string{
 	"", "LCUR", "RCUR", "LSQ", "RSQ", "EQ", "DQ", "SQ", "SEMI", "DCOLON", "COLON",
 	"DOT", "COMMA", "LCHEVR", "RCHEVR", "STAR", "AT", "STR", "ID", "INT", "FLT",
 	"WS", "LINE_DOC", "LINE_COMMENT", "DOWN", "UP", "ROOT", "ERROR", "ADL",
-	"Module", "Import", "Annotation", "Struct", "Union", "Newtype", "Type",
-	"TypeParam", "TypeExpr", "TypeExprElem", "Field", "Json", "JsonStr", "JsonBool",
-	"JsonNull", "JsonInt", "JsonFloat", "JsonArray", "JsonObj", "ModuleAnno",
-	"DeclAnno", "FieldAnno", "DNAC", "Name", "Exnotation", "Default",
+	"Module", "ImportModule", "ImportScopedName", "Annotation", "Struct", "Union",
+	"Newtype", "Type", "TypeParam", "TypeExpr", "TypeExprElem", "Field", "Json",
+	"JsonStr", "JsonBool", "JsonNull", "JsonInt", "JsonFloat", "JsonArray",
+	"JsonObj", "ModuleAnno", "DeclAnno", "FieldAnno", "DNAC", "Name", "Exnotation",
+	"Default",
 }
 
 var ruleNames = []string{
@@ -116,61 +117,62 @@ func NewDNAC_B_Walker(input antlr.TokenStream) *DNAC_B_Walker {
 
 // DNAC_B_Walker tokens.
 const (
-	DNAC_B_WalkerEOF          = antlr.TokenEOF
-	DNAC_B_WalkerLCUR         = 1
-	DNAC_B_WalkerRCUR         = 2
-	DNAC_B_WalkerLSQ          = 3
-	DNAC_B_WalkerRSQ          = 4
-	DNAC_B_WalkerEQ           = 5
-	DNAC_B_WalkerDQ           = 6
-	DNAC_B_WalkerSQ           = 7
-	DNAC_B_WalkerSEMI         = 8
-	DNAC_B_WalkerDCOLON       = 9
-	DNAC_B_WalkerCOLON        = 10
-	DNAC_B_WalkerDOT          = 11
-	DNAC_B_WalkerCOMMA        = 12
-	DNAC_B_WalkerLCHEVR       = 13
-	DNAC_B_WalkerRCHEVR       = 14
-	DNAC_B_WalkerSTAR         = 15
-	DNAC_B_WalkerAT           = 16
-	DNAC_B_WalkerSTR          = 17
-	DNAC_B_WalkerID           = 18
-	DNAC_B_WalkerINT          = 19
-	DNAC_B_WalkerFLT          = 20
-	DNAC_B_WalkerWS           = 21
-	DNAC_B_WalkerLINE_DOC     = 22
-	DNAC_B_WalkerLINE_COMMENT = 23
-	DNAC_B_WalkerDOWN         = 24
-	DNAC_B_WalkerUP           = 25
-	DNAC_B_WalkerROOT         = 26
-	DNAC_B_WalkerERROR        = 27
-	DNAC_B_WalkerADL          = 28
-	DNAC_B_WalkerModule       = 29
-	DNAC_B_WalkerImport       = 30
-	DNAC_B_WalkerAnnotation   = 31
-	DNAC_B_WalkerStruct       = 32
-	DNAC_B_WalkerUnion        = 33
-	DNAC_B_WalkerNewtype      = 34
-	DNAC_B_WalkerType         = 35
-	DNAC_B_WalkerTypeParam    = 36
-	DNAC_B_WalkerTypeExpr     = 37
-	DNAC_B_WalkerTypeExprElem = 38
-	DNAC_B_WalkerField        = 39
-	DNAC_B_WalkerJson         = 40
-	DNAC_B_WalkerJsonStr      = 41
-	DNAC_B_WalkerJsonBool     = 42
-	DNAC_B_WalkerJsonNull     = 43
-	DNAC_B_WalkerJsonInt      = 44
-	DNAC_B_WalkerJsonFloat    = 45
-	DNAC_B_WalkerJsonArray    = 46
-	DNAC_B_WalkerJsonObj      = 47
-	DNAC_B_WalkerModuleAnno   = 48
-	DNAC_B_WalkerDeclAnno     = 49
-	DNAC_B_WalkerFieldAnno    = 50
-	DNAC_B_WalkerDNAC         = 51
-	DNAC_B_WalkerName         = 52
-	DNAC_B_WalkerExnotation   = 53
-	DNAC_B_WalkerDefault      = 54
+	DNAC_B_WalkerEOF              = antlr.TokenEOF
+	DNAC_B_WalkerLCUR             = 1
+	DNAC_B_WalkerRCUR             = 2
+	DNAC_B_WalkerLSQ              = 3
+	DNAC_B_WalkerRSQ              = 4
+	DNAC_B_WalkerEQ               = 5
+	DNAC_B_WalkerDQ               = 6
+	DNAC_B_WalkerSQ               = 7
+	DNAC_B_WalkerSEMI             = 8
+	DNAC_B_WalkerDCOLON           = 9
+	DNAC_B_WalkerCOLON            = 10
+	DNAC_B_WalkerDOT              = 11
+	DNAC_B_WalkerCOMMA            = 12
+	DNAC_B_WalkerLCHEVR           = 13
+	DNAC_B_WalkerRCHEVR           = 14
+	DNAC_B_WalkerSTAR             = 15
+	DNAC_B_WalkerAT               = 16
+	DNAC_B_WalkerSTR              = 17
+	DNAC_B_WalkerID               = 18
+	DNAC_B_WalkerINT              = 19
+	DNAC_B_WalkerFLT              = 20
+	DNAC_B_WalkerWS               = 21
+	DNAC_B_WalkerLINE_DOC         = 22
+	DNAC_B_WalkerLINE_COMMENT     = 23
+	DNAC_B_WalkerDOWN             = 24
+	DNAC_B_WalkerUP               = 25
+	DNAC_B_WalkerROOT             = 26
+	DNAC_B_WalkerERROR            = 27
+	DNAC_B_WalkerADL              = 28
+	DNAC_B_WalkerModule           = 29
+	DNAC_B_WalkerImportModule     = 30
+	DNAC_B_WalkerImportScopedName = 31
+	DNAC_B_WalkerAnnotation       = 32
+	DNAC_B_WalkerStruct           = 33
+	DNAC_B_WalkerUnion            = 34
+	DNAC_B_WalkerNewtype          = 35
+	DNAC_B_WalkerType             = 36
+	DNAC_B_WalkerTypeParam        = 37
+	DNAC_B_WalkerTypeExpr         = 38
+	DNAC_B_WalkerTypeExprElem     = 39
+	DNAC_B_WalkerField            = 40
+	DNAC_B_WalkerJson             = 41
+	DNAC_B_WalkerJsonStr          = 42
+	DNAC_B_WalkerJsonBool         = 43
+	DNAC_B_WalkerJsonNull         = 44
+	DNAC_B_WalkerJsonInt          = 45
+	DNAC_B_WalkerJsonFloat        = 46
+	DNAC_B_WalkerJsonArray        = 47
+	DNAC_B_WalkerJsonObj          = 48
+	DNAC_B_WalkerModuleAnno       = 49
+	DNAC_B_WalkerDeclAnno         = 50
+	DNAC_B_WalkerFieldAnno        = 51
+	DNAC_B_WalkerDNAC             = 52
+	DNAC_B_WalkerName             = 53
+	DNAC_B_WalkerExnotation       = 54
+	DNAC_B_WalkerDefault          = 55
 )
 
 // DNAC_B_Walker rules.
@@ -692,7 +694,7 @@ func (p *DNAC_B_Walker) Name() (localctx INameContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for ((_la-35)&-(0x1f+1)) == 0 && ((1<<uint((_la-35)))&((1<<(DNAC_B_WalkerType-35))|(1<<(DNAC_B_WalkerField-35))|(1<<(DNAC_B_WalkerName-35))|(1<<(DNAC_B_WalkerExnotation-35)))) != 0 {
+		for ((_la-36)&-(0x1f+1)) == 0 && ((1<<uint((_la-36)))&((1<<(DNAC_B_WalkerType-36))|(1<<(DNAC_B_WalkerField-36))|(1<<(DNAC_B_WalkerName-36))|(1<<(DNAC_B_WalkerExnotation-36)))) != 0 {
 			{
 				p.SetState(22)
 				p.Tld()
@@ -1418,7 +1420,7 @@ func (p *DNAC_B_Walker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for ((_la-35)&-(0x1f+1)) == 0 && ((1<<uint((_la-35)))&((1<<(DNAC_B_WalkerType-35))|(1<<(DNAC_B_WalkerField-35))|(1<<(DNAC_B_WalkerName-35))|(1<<(DNAC_B_WalkerExnotation-35)))) != 0 {
+			for ((_la-36)&-(0x1f+1)) == 0 && ((1<<uint((_la-36)))&((1<<(DNAC_B_WalkerType-36))|(1<<(DNAC_B_WalkerField-36))|(1<<(DNAC_B_WalkerName-36))|(1<<(DNAC_B_WalkerExnotation-36)))) != 0 {
 				{
 					p.SetState(42)
 					p.Tld()

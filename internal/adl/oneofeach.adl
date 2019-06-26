@@ -10,9 +10,9 @@ import sys.types.*;
 @Path "localanno"
 type Hello<A> = Post<HelloReq, HelloResp<Vector<Vector<Vector<A>>>,Int32,Float>>;
 
-struct Const {
+// struct Const {
   
-};
+// };
 
 type Literal<T> = StringMap<T>;
 type StrLiteral = Literal<String>;

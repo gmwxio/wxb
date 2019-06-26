@@ -109,3 +109,48 @@ func (v *treeVisitor) VisitJsonStr(ctx walker.IJsonStrContext, delegate antlr.Pa
 	fmt.Printf("i'm a string '%s'\n", ctx.GetTok())
 	return
 }
+
+type adlVisitor struct {
+	File string `type:"arg" help:"proto file" predict:"files"`
+
+	*antlr.BaseParseTreeVisitor `opts:"-"`
+	indent                      string
+}
+
+func (et *adlVisitor) Run() error {
+	by, err := ioutil.ReadFile(et.File)
+	if err != nil {
+		return err
+	}
+	tr, adl, err := UnmarshalADL(by)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("%v\n%v\n", tr, adl)
+	fmt.Printf("---\n")
+	VisitADL(tr, et)
+	if err != nil {
+		return err
+	}
+	b2, err := json.MarshalIndent(adl, "", "    ")
+	if err != nil {
+		return err
+	}
+	fmt.Printf("js - %v\n", string(b2))
+
+	return nil
+}
+
+func (v *adlVisitor) VisitTerminal(node antlr.TerminalNode) {
+	fmt.Printf("%s term:%v\n", v.indent, node.GetPayload())
+}
+func (v *adlVisitor) VisitErrorNode(node antlr.ErrorNode) {
+	fmt.Printf("ERROR%s %T\n", v.indent, node)
+}
+func (v *adlVisitor) EnterEveryRule(ctx antlr.RuleNode) {
+	v.indent += " "
+	fmt.Printf("%s %T\n", v.indent, ctx)
+}
+func (v *adlVisitor) ExitEveryRule(ctx antlr.RuleNode) {
+	v.indent = v.indent[:len(v.indent)-1]
+}

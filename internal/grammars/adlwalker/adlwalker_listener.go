@@ -22,6 +22,12 @@ type ADLWalkerListener interface {
 	TypeExpr_EntryListener
 	TypeExpr_ExitListener
 
+	ImportModuleEntryListener
+	ImportModuleExitListener
+
+	ImportScopedModuleEntryListener
+	ImportScopedModuleExitListener
+
 	StructEntryListener
 	StructExitListener
 
@@ -116,6 +122,22 @@ type TypeExpr_ExitListener interface {
 // Named alternatives
 //
 //
+// From Rule 'import_'
+type ImportModuleEntryListener interface {
+	EnterImportModule(c *ImportModuleContext)
+}
+type ImportModuleExitListener interface {
+	ExitImportModule(c *ImportModuleContext)
+}
+
+// From Rule 'import_'
+type ImportScopedModuleEntryListener interface {
+	EnterImportScopedModule(c *ImportScopedModuleContext)
+}
+type ImportScopedModuleExitListener interface {
+	ExitImportScopedModule(c *ImportScopedModuleContext)
+}
+
 // From Rule 'tld'
 type StructEntryListener interface {
 	EnterStruct(c *StructContext)

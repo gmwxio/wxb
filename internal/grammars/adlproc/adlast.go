@@ -1,6 +1,12 @@
 package adlproc
 
-type Annotations []struct {
+import (
+	"fmt"
+)
+
+type Annotations []Annotation
+
+type Annotation struct {
 	Key ScopedName  `json:"v1"`
 	Val interface{} `json:"v2"`
 }
@@ -47,17 +53,16 @@ type NewType struct {
 }
 
 type DeclType struct {
-	Struct_  *Name    `json:"struct_,omitempty"`
-	Union_   *Name    `json:"union_,omitempty"`
-	Type_    *TypeDef `json:"type_,omitempty"`
-	Newtype_ *NewType `json:"newtype_,omitempty"`
+	Struct  *Name    `json:"struct_,omitempty"`
+	Union   *Name    `json:"union_,omitempty"`
+	Type    *TypeDef `json:"type_,omitempty"`
+	Newtype *NewType `json:"newtype_,omitempty"`
 }
 
 type Decl struct {
-	MyToken     `json:"-"`
 	Name        string      `json:"name"`
 	Version     *string     `json:"version,omitempty"`
-	Type_       DeclType    `json:"type_"`
+	Type        DeclType    `json:"type_"`
 	Annotations Annotations `json:"annotations"`
 }
 
@@ -75,9 +80,30 @@ type Import struct {
 }
 
 type Module struct {
-	MyToken     `json:"-"`
 	Name        string          `json:"name"`
-	Imports     *[]Import       `json:"imports"`
+	Imports     []Import        `json:"imports"`
 	Decls       map[string]Decl `json:"decls"`
-	Annotations Annotations     `json:"annotations"`
+	Annotations `json:"annotations"`
+}
+
+type AnnotateAble interface {
+	AddAnnotation(an Annotation)
+}
+type ImportableAble interface {
+	AddImport(Import)
+}
+
+func (ans *Annotations) AddAnnotation(an Annotation) {
+	*ans = append(*ans, an)
+}
+func (mo *Module) AddImport(im Import) {
+	mo.Imports = append(mo.Imports, im)
+}
+
+func (m Module) String() string { return fmt.Sprintf("name: %s imports: %v", m.Name, m.Imports) }
+func (i Import) String() string {
+	if i.ModuleName != nil {
+		return *i.ModuleName
+	}
+	return i.ScopedName.ModuleName + ":" + i.ScopedName.Name
 }

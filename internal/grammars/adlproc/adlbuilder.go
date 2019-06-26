@@ -29,11 +29,13 @@ func Register(parent opts.Opts) opts.Opts {
 	wt := walkADL{}
 	ra := readast{}
 	ro := jsonObj{}
+	av := adlVisitor{}
 	rto := parent.
 		AddCommand(opts.New(&rt).Name("adl").
 			AddCommand(opts.New(&et).Name("exec")).
 			AddCommand(opts.New(&wt).Name("walk")).
 			AddCommand(opts.New(&ra).Name("read_ast")).
+			AddCommand(opts.New(&av).Name("visit")).
 			AddCommand(opts.New(&ro).Name("json")),
 		)
 	return rto
@@ -194,20 +196,20 @@ func (tr *ADLBuildListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
 			tr.Builder.Add(n)
 		}
 		tr.Builder.Down()
-	case *parser.ImportStatementContext:
-		if ctx.GetKw().GetText() != "import" {
-			n := &ErrorNode{
-				MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserERROR},
-				Expected: "import", Received: ctx.GetKw().GetText()}
-			tr.Builder.Add(n)
-		} else {
-			n := &ImportNode{
-				MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserImport},
-				Path:    tokens2strings(ctx.GetA()),
-				Star:    ctx.GetS() != nil,
-			}
-			tr.Builder.Add(n)
-		}
+	// case *parser.ImportStatementContext:
+	// 	if ctx.GetKw().GetText() != "import" {
+	// 		n := &ErrorNode{
+	// 			MyToken:  MyToken{Token: ctx.GetKw(), TType: parser.ADLParserERROR},
+	// 			Expected: "import", Received: ctx.GetKw().GetText()}
+	// 		tr.Builder.Add(n)
+	// 	} else {
+	// 		n := &ImportNode{
+	// 			MyToken: MyToken{Token: ctx.GetKw(), TType: parser.ADLParserImport},
+	// 			Path:    tokens2strings(ctx.GetA()),
+	// 			Star:    ctx.GetS() != nil,
+	// 		}
+	// 		tr.Builder.Add(n)
+	// 	}
 	case *parser.LocalAnnoContext:
 		n := &AnnoNode{
 			MyToken: MyToken{Token: ctx.GetA(), TType: parser.ADLParserAnnotation},
@@ -438,7 +440,7 @@ func (tr *ADLBuildListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
 	case *parser.AdlContext:
 	case *parser.ModuleStatementContext:
 		tr.Builder.Up()
-	case *parser.ImportStatementContext:
+	// case *parser.ImportStatementContext:
 	case *parser.LocalAnnoContext:
 		tr.Builder.Up()
 	case *parser.DocAnnoContext:

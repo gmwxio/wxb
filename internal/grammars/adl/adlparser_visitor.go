@@ -11,7 +11,8 @@ type ADLParserHandlers struct {
 
 	Adl                func(ctx IAdlContext, this *ADLParserHandlers, args ...interface{}) (result interface{})
 	ModuleStatement    func(ctx IModuleStatementContext, this *ADLParserHandlers, args ...interface{}) (result interface{})
-	ImportStatement    func(ctx IImportStatementContext, this *ADLParserHandlers, args ...interface{}) (result interface{})
+	ImportScopedName   func(ctx IImportScopedNameContext, this *ADLParserHandlers, args ...interface{}) (result interface{})
+	ImportModuleName   func(ctx IImportModuleNameContext, this *ADLParserHandlers, args ...interface{}) (result interface{})
 	LocalAnno          func(ctx ILocalAnnoContext, this *ADLParserHandlers, args ...interface{}) (result interface{})
 	DocAnno            func(ctx IDocAnnoContext, this *ADLParserHandlers, args ...interface{}) (result interface{})
 	StructOrUnion      func(ctx IStructOrUnionContext, this *ADLParserHandlers, args ...interface{}) (result interface{})
@@ -38,7 +39,8 @@ type ADLParserVisitor interface {
 	antlr.ParseTreeVisitor
 	AdlContextVisitor
 	ModuleStatementContextVisitor
-	ImportStatementContextVisitor
+	ImportScopedNameContextVisitor
+	ImportModuleNameContextVisitor
 	LocalAnnoContextVisitor
 	DocAnnoContextVisitor
 	StructOrUnionContextVisitor
@@ -66,8 +68,11 @@ type AdlContextVisitor interface {
 type ModuleStatementContextVisitor interface {
 	VisitModuleStatement(ctx IModuleStatementContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
 }
-type ImportStatementContextVisitor interface {
-	VisitImportStatement(ctx IImportStatementContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
+type ImportScopedNameContextVisitor interface {
+	VisitImportScopedName(ctx IImportScopedNameContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
+}
+type ImportModuleNameContextVisitor interface {
+	VisitImportModuleName(ctx IImportModuleNameContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
 }
 type LocalAnnoContextVisitor interface {
 	VisitLocalAnno(ctx ILocalAnnoContext, delegate antlr.ParseTreeVisitor, args ...interface{}) (result interface{})
