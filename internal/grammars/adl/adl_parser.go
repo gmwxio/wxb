@@ -15,7 +15,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 53, 278,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 55, 278,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 3, 2,
 	3, 2, 3, 2, 3, 3, 7, 3, 29, 10, 3, 12, 3, 14, 3, 32, 11, 3, 3, 3, 3, 3,
@@ -152,10 +152,11 @@ var symbolicNames = []string{
 	"", "LCUR", "RCUR", "LSQ", "RSQ", "EQ", "DQ", "SQ", "SEMI", "DCOLON", "COLON",
 	"DOT", "COMMA", "LCHEVR", "RCHEVR", "STAR", "AT", "STR", "ID", "INT", "FLT",
 	"WS", "LINE_DOC", "LINE_COMMENT", "DOWN", "UP", "ROOT", "ERROR", "ADL",
-	"Module", "ImportModule", "ImportScopedName", "Annotation", "Struct", "Union",
-	"Newtype", "Type", "TypeParam", "TypeExpr", "TypeExprElem", "Field", "Json",
-	"JsonStr", "JsonBool", "JsonNull", "JsonInt", "JsonFloat", "JsonArray",
-	"JsonObj", "ModuleAnno", "DeclAnno", "FieldAnno",
+	"Module", "ImportModule", "ImportScopedName", "Annotation", "AnnotationNotScoped",
+	"AnnotationScoped", "Struct", "Union", "Newtype", "Type", "TypeParam",
+	"TypeExpr", "TypeExprElem", "Field", "Json", "JsonStr", "JsonBool", "JsonNull",
+	"JsonInt", "JsonFloat", "JsonArray", "JsonObj", "ModuleAnno", "DeclAnno",
+	"FieldAnno",
 }
 
 var ruleNames = []string{
@@ -190,58 +191,60 @@ func NewADLParser(input antlr.TokenStream) *ADLParser {
 
 // ADLParser tokens.
 const (
-	ADLParserEOF              = antlr.TokenEOF
-	ADLParserLCUR             = 1
-	ADLParserRCUR             = 2
-	ADLParserLSQ              = 3
-	ADLParserRSQ              = 4
-	ADLParserEQ               = 5
-	ADLParserDQ               = 6
-	ADLParserSQ               = 7
-	ADLParserSEMI             = 8
-	ADLParserDCOLON           = 9
-	ADLParserCOLON            = 10
-	ADLParserDOT              = 11
-	ADLParserCOMMA            = 12
-	ADLParserLCHEVR           = 13
-	ADLParserRCHEVR           = 14
-	ADLParserSTAR             = 15
-	ADLParserAT               = 16
-	ADLParserSTR              = 17
-	ADLParserID               = 18
-	ADLParserINT              = 19
-	ADLParserFLT              = 20
-	ADLParserWS               = 21
-	ADLParserLINE_DOC         = 22
-	ADLParserLINE_COMMENT     = 23
-	ADLParserDOWN             = 24
-	ADLParserUP               = 25
-	ADLParserROOT             = 26
-	ADLParserERROR            = 27
-	ADLParserADL              = 28
-	ADLParserModule           = 29
-	ADLParserImportModule     = 30
-	ADLParserImportScopedName = 31
-	ADLParserAnnotation       = 32
-	ADLParserStruct           = 33
-	ADLParserUnion            = 34
-	ADLParserNewtype          = 35
-	ADLParserType             = 36
-	ADLParserTypeParam        = 37
-	ADLParserTypeExpr         = 38
-	ADLParserTypeExprElem     = 39
-	ADLParserField            = 40
-	ADLParserJson             = 41
-	ADLParserJsonStr          = 42
-	ADLParserJsonBool         = 43
-	ADLParserJsonNull         = 44
-	ADLParserJsonInt          = 45
-	ADLParserJsonFloat        = 46
-	ADLParserJsonArray        = 47
-	ADLParserJsonObj          = 48
-	ADLParserModuleAnno       = 49
-	ADLParserDeclAnno         = 50
-	ADLParserFieldAnno        = 51
+	ADLParserEOF                 = antlr.TokenEOF
+	ADLParserLCUR                = 1
+	ADLParserRCUR                = 2
+	ADLParserLSQ                 = 3
+	ADLParserRSQ                 = 4
+	ADLParserEQ                  = 5
+	ADLParserDQ                  = 6
+	ADLParserSQ                  = 7
+	ADLParserSEMI                = 8
+	ADLParserDCOLON              = 9
+	ADLParserCOLON               = 10
+	ADLParserDOT                 = 11
+	ADLParserCOMMA               = 12
+	ADLParserLCHEVR              = 13
+	ADLParserRCHEVR              = 14
+	ADLParserSTAR                = 15
+	ADLParserAT                  = 16
+	ADLParserSTR                 = 17
+	ADLParserID                  = 18
+	ADLParserINT                 = 19
+	ADLParserFLT                 = 20
+	ADLParserWS                  = 21
+	ADLParserLINE_DOC            = 22
+	ADLParserLINE_COMMENT        = 23
+	ADLParserDOWN                = 24
+	ADLParserUP                  = 25
+	ADLParserROOT                = 26
+	ADLParserERROR               = 27
+	ADLParserADL                 = 28
+	ADLParserModule              = 29
+	ADLParserImportModule        = 30
+	ADLParserImportScopedName    = 31
+	ADLParserAnnotation          = 32
+	ADLParserAnnotationNotScoped = 33
+	ADLParserAnnotationScoped    = 34
+	ADLParserStruct              = 35
+	ADLParserUnion               = 36
+	ADLParserNewtype             = 37
+	ADLParserType                = 38
+	ADLParserTypeParam           = 39
+	ADLParserTypeExpr            = 40
+	ADLParserTypeExprElem        = 41
+	ADLParserField               = 42
+	ADLParserJson                = 43
+	ADLParserJsonStr             = 44
+	ADLParserJsonBool            = 45
+	ADLParserJsonNull            = 46
+	ADLParserJsonInt             = 47
+	ADLParserJsonFloat           = 48
+	ADLParserJsonArray           = 49
+	ADLParserJsonObj             = 50
+	ADLParserModuleAnno          = 51
+	ADLParserDeclAnno            = 52
+	ADLParserFieldAnno           = 53
 )
 
 // ADLParser rules.

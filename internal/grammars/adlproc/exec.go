@@ -128,7 +128,7 @@ func (et *adlVisitor) Run() error {
 	}
 	fmt.Printf("%v\n%v\n", tr, adl)
 	fmt.Printf("---\n")
-	VisitADL(tr, et)
+	err = VisitADL(tr, et)
 	if err != nil {
 		return err
 	}

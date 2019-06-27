@@ -2,7 +2,8 @@ parser grammar ADLParser;
 
 tokens {
     DOWN, UP, ROOT, ERROR,
-    ADL, Module, ImportModule, ImportScopedName, Annotation, Struct, Union, Newtype, Type, TypeParam, TypeExpr, TypeExprElem, Field,
+    ADL, Module, ImportModule, ImportScopedName, Annotation, AnnotationNotScoped, AnnotationScoped,
+    Struct, Union, Newtype, Type, TypeParam, TypeExpr, TypeExprElem, Field,
     Json, JsonStr, JsonBool, JsonNull, JsonInt, JsonFloat, JsonArray, JsonObj,
     ModuleAnno, DeclAnno, FieldAnno
 }

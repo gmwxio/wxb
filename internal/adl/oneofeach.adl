@@ -37,6 +37,10 @@ annotation MyConfigMap {
 } ;
 
 /// doconstr
+@MyConfigMap { 
+  "a b" : { "b" : { "b" : 10 } },
+  "a a" : { "a" : { "a" : "hw" } }
+}
 @SA { "a" : "b" }
 struct HelloReq {
   String name;

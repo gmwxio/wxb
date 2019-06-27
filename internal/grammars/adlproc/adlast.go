@@ -92,12 +92,18 @@ type AnnotateAble interface {
 type ImportableAble interface {
 	AddImport(Import)
 }
+type Setable interface {
+	Set(val interface{})
+}
 
 func (ans *Annotations) AddAnnotation(an Annotation) {
 	*ans = append(*ans, an)
 }
 func (mo *Module) AddImport(im Import) {
 	mo.Imports = append(mo.Imports, im)
+}
+func (an *Annotation) Set(val interface{}) {
+	an.Val = val
 }
 
 func (m Module) String() string { return fmt.Sprintf("name: %s imports: %v", m.Name, m.Imports) }

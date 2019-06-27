@@ -14,7 +14,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 56, 284,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 58, 300,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 3, 2, 3, 2, 3, 2, 3,
 	2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3,
@@ -38,116 +38,124 @@ var parserATN = []uint16{
 	6, 199, 10, 6, 12, 6, 14, 6, 202, 11, 6, 3, 6, 5, 6, 205, 10, 6, 5, 6,
 	207, 10, 6, 3, 7, 3, 7, 3, 7, 7, 7, 212, 10, 7, 12, 7, 14, 7, 215, 11,
 	7, 3, 7, 5, 7, 218, 10, 7, 3, 7, 5, 7, 221, 10, 7, 3, 7, 5, 7, 224, 10,
-	7, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 5, 8, 231, 10, 8, 3, 9, 3, 9, 3, 9, 6,
-	9, 236, 10, 9, 13, 9, 14, 9, 237, 3, 9, 3, 9, 5, 9, 242, 10, 9, 3, 10,
-	3, 10, 3, 10, 6, 10, 247, 10, 10, 13, 10, 14, 10, 248, 3, 10, 3, 10, 5,
-	10, 253, 10, 10, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11,
-	6, 11, 263, 10, 11, 13, 11, 14, 11, 264, 3, 11, 3, 11, 5, 11, 269, 10,
-	11, 3, 11, 3, 11, 3, 11, 6, 11, 274, 10, 11, 13, 11, 14, 11, 275, 3, 11,
-	3, 11, 5, 11, 280, 10, 11, 5, 11, 282, 10, 11, 3, 11, 2, 2, 12, 2, 4, 6,
-	8, 10, 12, 14, 16, 18, 20, 2, 2, 2, 331, 2, 22, 3, 2, 2, 2, 4, 30, 3, 2,
-	2, 2, 6, 35, 3, 2, 2, 2, 8, 60, 3, 2, 2, 2, 10, 206, 3, 2, 2, 2, 12, 208,
-	3, 2, 2, 2, 14, 225, 3, 2, 2, 2, 16, 232, 3, 2, 2, 2, 18, 243, 3, 2, 2,
-	2, 20, 281, 3, 2, 2, 2, 22, 23, 7, 26, 2, 2, 23, 24, 7, 30, 2, 2, 24, 25,
-	7, 26, 2, 2, 25, 26, 5, 6, 4, 2, 26, 27, 7, 27, 2, 2, 27, 28, 7, 27, 2,
-	2, 28, 29, 7, 2, 2, 3, 29, 3, 3, 2, 2, 2, 30, 31, 7, 26, 2, 2, 31, 32,
-	5, 20, 11, 2, 32, 33, 7, 27, 2, 2, 33, 34, 7, 2, 2, 3, 34, 5, 3, 2, 2,
-	2, 35, 56, 7, 31, 2, 2, 36, 40, 7, 26, 2, 2, 37, 39, 5, 14, 8, 2, 38, 37,
-	3, 2, 2, 2, 39, 42, 3, 2, 2, 2, 40, 38, 3, 2, 2, 2, 40, 41, 3, 2, 2, 2,
-	41, 46, 3, 2, 2, 2, 42, 40, 3, 2, 2, 2, 43, 45, 5, 8, 5, 2, 44, 43, 3,
-	2, 2, 2, 45, 48, 3, 2, 2, 2, 46, 44, 3, 2, 2, 2, 46, 47, 3, 2, 2, 2, 47,
-	52, 3, 2, 2, 2, 48, 46, 3, 2, 2, 2, 49, 51, 5, 10, 6, 2, 50, 49, 3, 2,
-	2, 2, 51, 54, 3, 2, 2, 2, 52, 50, 3, 2, 2, 2, 52, 53, 3, 2, 2, 2, 53, 55,
-	3, 2, 2, 2, 54, 52, 3, 2, 2, 2, 55, 57, 7, 27, 2, 2, 56, 36, 3, 2, 2, 2,
-	56, 57, 3, 2, 2, 2, 57, 7, 3, 2, 2, 2, 58, 61, 7, 32, 2, 2, 59, 61, 7,
-	33, 2, 2, 60, 58, 3, 2, 2, 2, 60, 59, 3, 2, 2, 2, 61, 9, 3, 2, 2, 2, 62,
-	80, 7, 35, 2, 2, 63, 67, 7, 26, 2, 2, 64, 66, 5, 14, 8, 2, 65, 64, 3, 2,
-	2, 2, 66, 69, 3, 2, 2, 2, 67, 65, 3, 2, 2, 2, 67, 68, 3, 2, 2, 2, 68, 71,
-	3, 2, 2, 2, 69, 67, 3, 2, 2, 2, 70, 72, 7, 39, 2, 2, 71, 70, 3, 2, 2, 2,
-	71, 72, 3, 2, 2, 2, 72, 76, 3, 2, 2, 2, 73, 75, 5, 12, 7, 2, 74, 73, 3,
-	2, 2, 2, 75, 78, 3, 2, 2, 2, 76, 74, 3, 2, 2, 2, 76, 77, 3, 2, 2, 2, 77,
-	79, 3, 2, 2, 2, 78, 76, 3, 2, 2, 2, 79, 81, 7, 27, 2, 2, 80, 63, 3, 2,
-	2, 2, 80, 81, 3, 2, 2, 2, 81, 207, 3, 2, 2, 2, 82, 100, 7, 36, 2, 2, 83,
-	87, 7, 26, 2, 2, 84, 86, 5, 14, 8, 2, 85, 84, 3, 2, 2, 2, 86, 89, 3, 2,
-	2, 2, 87, 85, 3, 2, 2, 2, 87, 88, 3, 2, 2, 2, 88, 91, 3, 2, 2, 2, 89, 87,
-	3, 2, 2, 2, 90, 92, 7, 39, 2, 2, 91, 90, 3, 2, 2, 2, 91, 92, 3, 2, 2, 2,
-	92, 96, 3, 2, 2, 2, 93, 95, 5, 12, 7, 2, 94, 93, 3, 2, 2, 2, 95, 98, 3,
-	2, 2, 2, 96, 94, 3, 2, 2, 2, 96, 97, 3, 2, 2, 2, 97, 99, 3, 2, 2, 2, 98,
-	96, 3, 2, 2, 2, 99, 101, 7, 27, 2, 2, 100, 83, 3, 2, 2, 2, 100, 101, 3,
-	2, 2, 2, 101, 207, 3, 2, 2, 2, 102, 123, 7, 38, 2, 2, 103, 107, 7, 26,
-	2, 2, 104, 106, 5, 14, 8, 2, 105, 104, 3, 2, 2, 2, 106, 109, 3, 2, 2, 2,
-	107, 105, 3, 2, 2, 2, 107, 108, 3, 2, 2, 2, 108, 111, 3, 2, 2, 2, 109,
-	107, 3, 2, 2, 2, 110, 112, 7, 39, 2, 2, 111, 110, 3, 2, 2, 2, 111, 112,
-	3, 2, 2, 2, 112, 114, 3, 2, 2, 2, 113, 115, 5, 16, 9, 2, 114, 113, 3, 2,
-	2, 2, 114, 115, 3, 2, 2, 2, 115, 119, 3, 2, 2, 2, 116, 118, 5, 20, 11,
-	2, 117, 116, 3, 2, 2, 2, 118, 121, 3, 2, 2, 2, 119, 117, 3, 2, 2, 2, 119,
-	120, 3, 2, 2, 2, 120, 122, 3, 2, 2, 2, 121, 119, 3, 2, 2, 2, 122, 124,
-	7, 27, 2, 2, 123, 103, 3, 2, 2, 2, 123, 124, 3, 2, 2, 2, 124, 207, 3, 2,
-	2, 2, 125, 146, 7, 37, 2, 2, 126, 130, 7, 26, 2, 2, 127, 129, 5, 14, 8,
-	2, 128, 127, 3, 2, 2, 2, 129, 132, 3, 2, 2, 2, 130, 128, 3, 2, 2, 2, 130,
-	131, 3, 2, 2, 2, 131, 134, 3, 2, 2, 2, 132, 130, 3, 2, 2, 2, 133, 135,
-	7, 39, 2, 2, 134, 133, 3, 2, 2, 2, 134, 135, 3, 2, 2, 2, 135, 137, 3, 2,
-	2, 2, 136, 138, 5, 16, 9, 2, 137, 136, 3, 2, 2, 2, 137, 138, 3, 2, 2, 2,
-	138, 142, 3, 2, 2, 2, 139, 141, 5, 20, 11, 2, 140, 139, 3, 2, 2, 2, 141,
-	144, 3, 2, 2, 2, 142, 140, 3, 2, 2, 2, 142, 143, 3, 2, 2, 2, 143, 145,
-	3, 2, 2, 2, 144, 142, 3, 2, 2, 2, 145, 147, 7, 27, 2, 2, 146, 126, 3, 2,
-	2, 2, 146, 147, 3, 2, 2, 2, 147, 207, 3, 2, 2, 2, 148, 149, 7, 51, 2, 2,
-	149, 150, 7, 26, 2, 2, 150, 151, 5, 20, 11, 2, 151, 152, 7, 27, 2, 2, 152,
-	207, 3, 2, 2, 2, 153, 154, 7, 52, 2, 2, 154, 155, 7, 26, 2, 2, 155, 156,
-	5, 20, 11, 2, 156, 157, 7, 27, 2, 2, 157, 207, 3, 2, 2, 2, 158, 159, 7,
-	53, 2, 2, 159, 160, 7, 26, 2, 2, 160, 161, 5, 20, 11, 2, 161, 162, 7, 27,
-	2, 2, 162, 207, 3, 2, 2, 2, 163, 166, 7, 35, 2, 2, 164, 166, 7, 36, 2,
-	2, 165, 163, 3, 2, 2, 2, 165, 164, 3, 2, 2, 2, 166, 167, 3, 2, 2, 2, 167,
-	171, 7, 26, 2, 2, 168, 170, 5, 14, 8, 2, 169, 168, 3, 2, 2, 2, 170, 173,
-	3, 2, 2, 2, 171, 169, 3, 2, 2, 2, 171, 172, 3, 2, 2, 2, 172, 174, 3, 2,
-	2, 2, 173, 171, 3, 2, 2, 2, 174, 178, 7, 29, 2, 2, 175, 177, 5, 12, 7,
-	2, 176, 175, 3, 2, 2, 2, 177, 180, 3, 2, 2, 2, 178, 176, 3, 2, 2, 2, 178,
-	179, 3, 2, 2, 2, 179, 181, 3, 2, 2, 2, 180, 178, 3, 2, 2, 2, 181, 207,
-	7, 27, 2, 2, 182, 185, 7, 38, 2, 2, 183, 185, 7, 37, 2, 2, 184, 182, 3,
-	2, 2, 2, 184, 183, 3, 2, 2, 2, 185, 186, 3, 2, 2, 2, 186, 190, 7, 26, 2,
-	2, 187, 189, 5, 14, 8, 2, 188, 187, 3, 2, 2, 2, 189, 192, 3, 2, 2, 2, 190,
-	188, 3, 2, 2, 2, 190, 191, 3, 2, 2, 2, 191, 193, 3, 2, 2, 2, 192, 190,
-	3, 2, 2, 2, 193, 195, 7, 29, 2, 2, 194, 196, 5, 16, 9, 2, 195, 194, 3,
-	2, 2, 2, 195, 196, 3, 2, 2, 2, 196, 200, 3, 2, 2, 2, 197, 199, 5, 20, 11,
-	2, 198, 197, 3, 2, 2, 2, 199, 202, 3, 2, 2, 2, 200, 198, 3, 2, 2, 2, 200,
-	201, 3, 2, 2, 2, 201, 204, 3, 2, 2, 2, 202, 200, 3, 2, 2, 2, 203, 205,
-	7, 27, 2, 2, 204, 203, 3, 2, 2, 2, 204, 205, 3, 2, 2, 2, 205, 207, 3, 2,
-	2, 2, 206, 62, 3, 2, 2, 2, 206, 82, 3, 2, 2, 2, 206, 102, 3, 2, 2, 2, 206,
-	125, 3, 2, 2, 2, 206, 148, 3, 2, 2, 2, 206, 153, 3, 2, 2, 2, 206, 158,
-	3, 2, 2, 2, 206, 165, 3, 2, 2, 2, 206, 184, 3, 2, 2, 2, 207, 11, 3, 2,
-	2, 2, 208, 223, 7, 42, 2, 2, 209, 213, 7, 26, 2, 2, 210, 212, 5, 14, 8,
-	2, 211, 210, 3, 2, 2, 2, 212, 215, 3, 2, 2, 2, 213, 211, 3, 2, 2, 2, 213,
-	214, 3, 2, 2, 2, 214, 217, 3, 2, 2, 2, 215, 213, 3, 2, 2, 2, 216, 218,
-	5, 16, 9, 2, 217, 216, 3, 2, 2, 2, 217, 218, 3, 2, 2, 2, 218, 220, 3, 2,
-	2, 2, 219, 221, 5, 20, 11, 2, 220, 219, 3, 2, 2, 2, 220, 221, 3, 2, 2,
-	2, 221, 222, 3, 2, 2, 2, 222, 224, 7, 27, 2, 2, 223, 209, 3, 2, 2, 2, 223,
-	224, 3, 2, 2, 2, 224, 13, 3, 2, 2, 2, 225, 230, 7, 34, 2, 2, 226, 227,
-	7, 26, 2, 2, 227, 228, 5, 20, 11, 2, 228, 229, 7, 27, 2, 2, 229, 231, 3,
-	2, 2, 2, 230, 226, 3, 2, 2, 2, 230, 231, 3, 2, 2, 2, 231, 15, 3, 2, 2,
-	2, 232, 241, 7, 40, 2, 2, 233, 235, 7, 26, 2, 2, 234, 236, 5, 18, 10, 2,
-	235, 234, 3, 2, 2, 2, 236, 237, 3, 2, 2, 2, 237, 235, 3, 2, 2, 2, 237,
-	238, 3, 2, 2, 2, 238, 239, 3, 2, 2, 2, 239, 240, 7, 27, 2, 2, 240, 242,
-	3, 2, 2, 2, 241, 233, 3, 2, 2, 2, 241, 242, 3, 2, 2, 2, 242, 17, 3, 2,
-	2, 2, 243, 252, 7, 41, 2, 2, 244, 246, 7, 26, 2, 2, 245, 247, 5, 18, 10,
-	2, 246, 245, 3, 2, 2, 2, 247, 248, 3, 2, 2, 2, 248, 246, 3, 2, 2, 2, 248,
-	249, 3, 2, 2, 2, 249, 250, 3, 2, 2, 2, 250, 251, 7, 27, 2, 2, 251, 253,
-	3, 2, 2, 2, 252, 244, 3, 2, 2, 2, 252, 253, 3, 2, 2, 2, 253, 19, 3, 2,
-	2, 2, 254, 282, 7, 44, 2, 2, 255, 282, 7, 45, 2, 2, 256, 282, 7, 46, 2,
-	2, 257, 282, 7, 47, 2, 2, 258, 282, 7, 48, 2, 2, 259, 268, 7, 49, 2, 2,
-	260, 262, 7, 26, 2, 2, 261, 263, 5, 20, 11, 2, 262, 261, 3, 2, 2, 2, 263,
-	264, 3, 2, 2, 2, 264, 262, 3, 2, 2, 2, 264, 265, 3, 2, 2, 2, 265, 266,
-	3, 2, 2, 2, 266, 267, 7, 27, 2, 2, 267, 269, 3, 2, 2, 2, 268, 260, 3, 2,
-	2, 2, 268, 269, 3, 2, 2, 2, 269, 282, 3, 2, 2, 2, 270, 279, 7, 50, 2, 2,
-	271, 273, 7, 26, 2, 2, 272, 274, 5, 20, 11, 2, 273, 272, 3, 2, 2, 2, 274,
-	275, 3, 2, 2, 2, 275, 273, 3, 2, 2, 2, 275, 276, 3, 2, 2, 2, 276, 277,
-	3, 2, 2, 2, 277, 278, 7, 27, 2, 2, 278, 280, 3, 2, 2, 2, 279, 271, 3, 2,
-	2, 2, 279, 280, 3, 2, 2, 2, 280, 282, 3, 2, 2, 2, 281, 254, 3, 2, 2, 2,
-	281, 255, 3, 2, 2, 2, 281, 256, 3, 2, 2, 2, 281, 257, 3, 2, 2, 2, 281,
-	258, 3, 2, 2, 2, 281, 259, 3, 2, 2, 2, 281, 270, 3, 2, 2, 2, 282, 21, 3,
-	2, 2, 2, 48, 40, 46, 52, 56, 60, 67, 71, 76, 80, 87, 91, 96, 100, 107,
-	111, 114, 119, 123, 130, 134, 137, 142, 146, 165, 171, 178, 184, 190, 195,
-	200, 204, 206, 213, 217, 220, 223, 230, 237, 241, 248, 252, 264, 268, 275,
-	279, 281,
+	7, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 5, 8, 231, 10, 8, 3, 8, 3, 8, 3, 8, 3,
+	8, 3, 8, 5, 8, 238, 10, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 5, 8, 245, 10,
+	8, 5, 8, 247, 10, 8, 3, 9, 3, 9, 3, 9, 6, 9, 252, 10, 9, 13, 9, 14, 9,
+	253, 3, 9, 3, 9, 5, 9, 258, 10, 9, 3, 10, 3, 10, 3, 10, 6, 10, 263, 10,
+	10, 13, 10, 14, 10, 264, 3, 10, 3, 10, 5, 10, 269, 10, 10, 3, 11, 3, 11,
+	3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 6, 11, 279, 10, 11, 13, 11, 14,
+	11, 280, 3, 11, 3, 11, 5, 11, 285, 10, 11, 3, 11, 3, 11, 3, 11, 6, 11,
+	290, 10, 11, 13, 11, 14, 11, 291, 3, 11, 3, 11, 5, 11, 296, 10, 11, 5,
+	11, 298, 10, 11, 3, 11, 2, 2, 12, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 2,
+	2, 2, 351, 2, 22, 3, 2, 2, 2, 4, 30, 3, 2, 2, 2, 6, 35, 3, 2, 2, 2, 8,
+	60, 3, 2, 2, 2, 10, 206, 3, 2, 2, 2, 12, 208, 3, 2, 2, 2, 14, 246, 3, 2,
+	2, 2, 16, 248, 3, 2, 2, 2, 18, 259, 3, 2, 2, 2, 20, 297, 3, 2, 2, 2, 22,
+	23, 7, 26, 2, 2, 23, 24, 7, 30, 2, 2, 24, 25, 7, 26, 2, 2, 25, 26, 5, 6,
+	4, 2, 26, 27, 7, 27, 2, 2, 27, 28, 7, 27, 2, 2, 28, 29, 7, 2, 2, 3, 29,
+	3, 3, 2, 2, 2, 30, 31, 7, 26, 2, 2, 31, 32, 5, 20, 11, 2, 32, 33, 7, 27,
+	2, 2, 33, 34, 7, 2, 2, 3, 34, 5, 3, 2, 2, 2, 35, 56, 7, 31, 2, 2, 36, 40,
+	7, 26, 2, 2, 37, 39, 5, 14, 8, 2, 38, 37, 3, 2, 2, 2, 39, 42, 3, 2, 2,
+	2, 40, 38, 3, 2, 2, 2, 40, 41, 3, 2, 2, 2, 41, 46, 3, 2, 2, 2, 42, 40,
+	3, 2, 2, 2, 43, 45, 5, 8, 5, 2, 44, 43, 3, 2, 2, 2, 45, 48, 3, 2, 2, 2,
+	46, 44, 3, 2, 2, 2, 46, 47, 3, 2, 2, 2, 47, 52, 3, 2, 2, 2, 48, 46, 3,
+	2, 2, 2, 49, 51, 5, 10, 6, 2, 50, 49, 3, 2, 2, 2, 51, 54, 3, 2, 2, 2, 52,
+	50, 3, 2, 2, 2, 52, 53, 3, 2, 2, 2, 53, 55, 3, 2, 2, 2, 54, 52, 3, 2, 2,
+	2, 55, 57, 7, 27, 2, 2, 56, 36, 3, 2, 2, 2, 56, 57, 3, 2, 2, 2, 57, 7,
+	3, 2, 2, 2, 58, 61, 7, 32, 2, 2, 59, 61, 7, 33, 2, 2, 60, 58, 3, 2, 2,
+	2, 60, 59, 3, 2, 2, 2, 61, 9, 3, 2, 2, 2, 62, 80, 7, 37, 2, 2, 63, 67,
+	7, 26, 2, 2, 64, 66, 5, 14, 8, 2, 65, 64, 3, 2, 2, 2, 66, 69, 3, 2, 2,
+	2, 67, 65, 3, 2, 2, 2, 67, 68, 3, 2, 2, 2, 68, 71, 3, 2, 2, 2, 69, 67,
+	3, 2, 2, 2, 70, 72, 7, 41, 2, 2, 71, 70, 3, 2, 2, 2, 71, 72, 3, 2, 2, 2,
+	72, 76, 3, 2, 2, 2, 73, 75, 5, 12, 7, 2, 74, 73, 3, 2, 2, 2, 75, 78, 3,
+	2, 2, 2, 76, 74, 3, 2, 2, 2, 76, 77, 3, 2, 2, 2, 77, 79, 3, 2, 2, 2, 78,
+	76, 3, 2, 2, 2, 79, 81, 7, 27, 2, 2, 80, 63, 3, 2, 2, 2, 80, 81, 3, 2,
+	2, 2, 81, 207, 3, 2, 2, 2, 82, 100, 7, 38, 2, 2, 83, 87, 7, 26, 2, 2, 84,
+	86, 5, 14, 8, 2, 85, 84, 3, 2, 2, 2, 86, 89, 3, 2, 2, 2, 87, 85, 3, 2,
+	2, 2, 87, 88, 3, 2, 2, 2, 88, 91, 3, 2, 2, 2, 89, 87, 3, 2, 2, 2, 90, 92,
+	7, 41, 2, 2, 91, 90, 3, 2, 2, 2, 91, 92, 3, 2, 2, 2, 92, 96, 3, 2, 2, 2,
+	93, 95, 5, 12, 7, 2, 94, 93, 3, 2, 2, 2, 95, 98, 3, 2, 2, 2, 96, 94, 3,
+	2, 2, 2, 96, 97, 3, 2, 2, 2, 97, 99, 3, 2, 2, 2, 98, 96, 3, 2, 2, 2, 99,
+	101, 7, 27, 2, 2, 100, 83, 3, 2, 2, 2, 100, 101, 3, 2, 2, 2, 101, 207,
+	3, 2, 2, 2, 102, 123, 7, 40, 2, 2, 103, 107, 7, 26, 2, 2, 104, 106, 5,
+	14, 8, 2, 105, 104, 3, 2, 2, 2, 106, 109, 3, 2, 2, 2, 107, 105, 3, 2, 2,
+	2, 107, 108, 3, 2, 2, 2, 108, 111, 3, 2, 2, 2, 109, 107, 3, 2, 2, 2, 110,
+	112, 7, 41, 2, 2, 111, 110, 3, 2, 2, 2, 111, 112, 3, 2, 2, 2, 112, 114,
+	3, 2, 2, 2, 113, 115, 5, 16, 9, 2, 114, 113, 3, 2, 2, 2, 114, 115, 3, 2,
+	2, 2, 115, 119, 3, 2, 2, 2, 116, 118, 5, 20, 11, 2, 117, 116, 3, 2, 2,
+	2, 118, 121, 3, 2, 2, 2, 119, 117, 3, 2, 2, 2, 119, 120, 3, 2, 2, 2, 120,
+	122, 3, 2, 2, 2, 121, 119, 3, 2, 2, 2, 122, 124, 7, 27, 2, 2, 123, 103,
+	3, 2, 2, 2, 123, 124, 3, 2, 2, 2, 124, 207, 3, 2, 2, 2, 125, 146, 7, 39,
+	2, 2, 126, 130, 7, 26, 2, 2, 127, 129, 5, 14, 8, 2, 128, 127, 3, 2, 2,
+	2, 129, 132, 3, 2, 2, 2, 130, 128, 3, 2, 2, 2, 130, 131, 3, 2, 2, 2, 131,
+	134, 3, 2, 2, 2, 132, 130, 3, 2, 2, 2, 133, 135, 7, 41, 2, 2, 134, 133,
+	3, 2, 2, 2, 134, 135, 3, 2, 2, 2, 135, 137, 3, 2, 2, 2, 136, 138, 5, 16,
+	9, 2, 137, 136, 3, 2, 2, 2, 137, 138, 3, 2, 2, 2, 138, 142, 3, 2, 2, 2,
+	139, 141, 5, 20, 11, 2, 140, 139, 3, 2, 2, 2, 141, 144, 3, 2, 2, 2, 142,
+	140, 3, 2, 2, 2, 142, 143, 3, 2, 2, 2, 143, 145, 3, 2, 2, 2, 144, 142,
+	3, 2, 2, 2, 145, 147, 7, 27, 2, 2, 146, 126, 3, 2, 2, 2, 146, 147, 3, 2,
+	2, 2, 147, 207, 3, 2, 2, 2, 148, 149, 7, 53, 2, 2, 149, 150, 7, 26, 2,
+	2, 150, 151, 5, 20, 11, 2, 151, 152, 7, 27, 2, 2, 152, 207, 3, 2, 2, 2,
+	153, 154, 7, 54, 2, 2, 154, 155, 7, 26, 2, 2, 155, 156, 5, 20, 11, 2, 156,
+	157, 7, 27, 2, 2, 157, 207, 3, 2, 2, 2, 158, 159, 7, 55, 2, 2, 159, 160,
+	7, 26, 2, 2, 160, 161, 5, 20, 11, 2, 161, 162, 7, 27, 2, 2, 162, 207, 3,
+	2, 2, 2, 163, 166, 7, 37, 2, 2, 164, 166, 7, 38, 2, 2, 165, 163, 3, 2,
+	2, 2, 165, 164, 3, 2, 2, 2, 166, 167, 3, 2, 2, 2, 167, 171, 7, 26, 2, 2,
+	168, 170, 5, 14, 8, 2, 169, 168, 3, 2, 2, 2, 170, 173, 3, 2, 2, 2, 171,
+	169, 3, 2, 2, 2, 171, 172, 3, 2, 2, 2, 172, 174, 3, 2, 2, 2, 173, 171,
+	3, 2, 2, 2, 174, 178, 7, 29, 2, 2, 175, 177, 5, 12, 7, 2, 176, 175, 3,
+	2, 2, 2, 177, 180, 3, 2, 2, 2, 178, 176, 3, 2, 2, 2, 178, 179, 3, 2, 2,
+	2, 179, 181, 3, 2, 2, 2, 180, 178, 3, 2, 2, 2, 181, 207, 7, 27, 2, 2, 182,
+	185, 7, 40, 2, 2, 183, 185, 7, 39, 2, 2, 184, 182, 3, 2, 2, 2, 184, 183,
+	3, 2, 2, 2, 185, 186, 3, 2, 2, 2, 186, 190, 7, 26, 2, 2, 187, 189, 5, 14,
+	8, 2, 188, 187, 3, 2, 2, 2, 189, 192, 3, 2, 2, 2, 190, 188, 3, 2, 2, 2,
+	190, 191, 3, 2, 2, 2, 191, 193, 3, 2, 2, 2, 192, 190, 3, 2, 2, 2, 193,
+	195, 7, 29, 2, 2, 194, 196, 5, 16, 9, 2, 195, 194, 3, 2, 2, 2, 195, 196,
+	3, 2, 2, 2, 196, 200, 3, 2, 2, 2, 197, 199, 5, 20, 11, 2, 198, 197, 3,
+	2, 2, 2, 199, 202, 3, 2, 2, 2, 200, 198, 3, 2, 2, 2, 200, 201, 3, 2, 2,
+	2, 201, 204, 3, 2, 2, 2, 202, 200, 3, 2, 2, 2, 203, 205, 7, 27, 2, 2, 204,
+	203, 3, 2, 2, 2, 204, 205, 3, 2, 2, 2, 205, 207, 3, 2, 2, 2, 206, 62, 3,
+	2, 2, 2, 206, 82, 3, 2, 2, 2, 206, 102, 3, 2, 2, 2, 206, 125, 3, 2, 2,
+	2, 206, 148, 3, 2, 2, 2, 206, 153, 3, 2, 2, 2, 206, 158, 3, 2, 2, 2, 206,
+	165, 3, 2, 2, 2, 206, 184, 3, 2, 2, 2, 207, 11, 3, 2, 2, 2, 208, 223, 7,
+	44, 2, 2, 209, 213, 7, 26, 2, 2, 210, 212, 5, 14, 8, 2, 211, 210, 3, 2,
+	2, 2, 212, 215, 3, 2, 2, 2, 213, 211, 3, 2, 2, 2, 213, 214, 3, 2, 2, 2,
+	214, 217, 3, 2, 2, 2, 215, 213, 3, 2, 2, 2, 216, 218, 5, 16, 9, 2, 217,
+	216, 3, 2, 2, 2, 217, 218, 3, 2, 2, 2, 218, 220, 3, 2, 2, 2, 219, 221,
+	5, 20, 11, 2, 220, 219, 3, 2, 2, 2, 220, 221, 3, 2, 2, 2, 221, 222, 3,
+	2, 2, 2, 222, 224, 7, 27, 2, 2, 223, 209, 3, 2, 2, 2, 223, 224, 3, 2, 2,
+	2, 224, 13, 3, 2, 2, 2, 225, 230, 7, 34, 2, 2, 226, 227, 7, 26, 2, 2, 227,
+	228, 5, 20, 11, 2, 228, 229, 7, 27, 2, 2, 229, 231, 3, 2, 2, 2, 230, 226,
+	3, 2, 2, 2, 230, 231, 3, 2, 2, 2, 231, 247, 3, 2, 2, 2, 232, 237, 7, 35,
+	2, 2, 233, 234, 7, 26, 2, 2, 234, 235, 5, 20, 11, 2, 235, 236, 7, 27, 2,
+	2, 236, 238, 3, 2, 2, 2, 237, 233, 3, 2, 2, 2, 237, 238, 3, 2, 2, 2, 238,
+	247, 3, 2, 2, 2, 239, 244, 7, 36, 2, 2, 240, 241, 7, 26, 2, 2, 241, 242,
+	5, 20, 11, 2, 242, 243, 7, 27, 2, 2, 243, 245, 3, 2, 2, 2, 244, 240, 3,
+	2, 2, 2, 244, 245, 3, 2, 2, 2, 245, 247, 3, 2, 2, 2, 246, 225, 3, 2, 2,
+	2, 246, 232, 3, 2, 2, 2, 246, 239, 3, 2, 2, 2, 247, 15, 3, 2, 2, 2, 248,
+	257, 7, 42, 2, 2, 249, 251, 7, 26, 2, 2, 250, 252, 5, 18, 10, 2, 251, 250,
+	3, 2, 2, 2, 252, 253, 3, 2, 2, 2, 253, 251, 3, 2, 2, 2, 253, 254, 3, 2,
+	2, 2, 254, 255, 3, 2, 2, 2, 255, 256, 7, 27, 2, 2, 256, 258, 3, 2, 2, 2,
+	257, 249, 3, 2, 2, 2, 257, 258, 3, 2, 2, 2, 258, 17, 3, 2, 2, 2, 259, 268,
+	7, 43, 2, 2, 260, 262, 7, 26, 2, 2, 261, 263, 5, 18, 10, 2, 262, 261, 3,
+	2, 2, 2, 263, 264, 3, 2, 2, 2, 264, 262, 3, 2, 2, 2, 264, 265, 3, 2, 2,
+	2, 265, 266, 3, 2, 2, 2, 266, 267, 7, 27, 2, 2, 267, 269, 3, 2, 2, 2, 268,
+	260, 3, 2, 2, 2, 268, 269, 3, 2, 2, 2, 269, 19, 3, 2, 2, 2, 270, 298, 7,
+	46, 2, 2, 271, 298, 7, 47, 2, 2, 272, 298, 7, 48, 2, 2, 273, 298, 7, 49,
+	2, 2, 274, 298, 7, 50, 2, 2, 275, 284, 7, 51, 2, 2, 276, 278, 7, 26, 2,
+	2, 277, 279, 5, 20, 11, 2, 278, 277, 3, 2, 2, 2, 279, 280, 3, 2, 2, 2,
+	280, 278, 3, 2, 2, 2, 280, 281, 3, 2, 2, 2, 281, 282, 3, 2, 2, 2, 282,
+	283, 7, 27, 2, 2, 283, 285, 3, 2, 2, 2, 284, 276, 3, 2, 2, 2, 284, 285,
+	3, 2, 2, 2, 285, 298, 3, 2, 2, 2, 286, 295, 7, 52, 2, 2, 287, 289, 7, 26,
+	2, 2, 288, 290, 5, 20, 11, 2, 289, 288, 3, 2, 2, 2, 290, 291, 3, 2, 2,
+	2, 291, 289, 3, 2, 2, 2, 291, 292, 3, 2, 2, 2, 292, 293, 3, 2, 2, 2, 293,
+	294, 7, 27, 2, 2, 294, 296, 3, 2, 2, 2, 295, 287, 3, 2, 2, 2, 295, 296,
+	3, 2, 2, 2, 296, 298, 3, 2, 2, 2, 297, 270, 3, 2, 2, 2, 297, 271, 3, 2,
+	2, 2, 297, 272, 3, 2, 2, 2, 297, 273, 3, 2, 2, 2, 297, 274, 3, 2, 2, 2,
+	297, 275, 3, 2, 2, 2, 297, 286, 3, 2, 2, 2, 298, 21, 3, 2, 2, 2, 51, 40,
+	46, 52, 56, 60, 67, 71, 76, 80, 87, 91, 96, 100, 107, 111, 114, 119, 123,
+	130, 134, 137, 142, 146, 165, 171, 178, 184, 190, 195, 200, 204, 206, 213,
+	217, 220, 223, 230, 237, 244, 246, 253, 257, 264, 268, 280, 284, 291, 295,
+	297,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -160,10 +168,11 @@ var symbolicNames = []string{
 	"", "LCUR", "RCUR", "LSQ", "RSQ", "EQ", "DQ", "SQ", "SEMI", "DCOLON", "COLON",
 	"DOT", "COMMA", "LCHEVR", "RCHEVR", "STAR", "AT", "STR", "ID", "INT", "FLT",
 	"WS", "LINE_DOC", "LINE_COMMENT", "DOWN", "UP", "ROOT", "ERROR", "ADL",
-	"Module", "ImportModule", "ImportScopedName", "Annotation", "Struct", "Union",
-	"Newtype", "Type", "TypeParam", "TypeExpr", "TypeExprElem", "Field", "Json",
-	"JsonStr", "JsonBool", "JsonNull", "JsonInt", "JsonFloat", "JsonArray",
-	"JsonObj", "ModuleAnno", "DeclAnno", "FieldAnno", "DNAC", "Name", "Exnotation",
+	"Module", "ImportModule", "ImportScopedName", "Annotation", "AnnotationNotScoped",
+	"AnnotationScoped", "Struct", "Union", "Newtype", "Type", "TypeParam",
+	"TypeExpr", "TypeExprElem", "Field", "Json", "JsonStr", "JsonBool", "JsonNull",
+	"JsonInt", "JsonFloat", "JsonArray", "JsonObj", "ModuleAnno", "DeclAnno",
+	"FieldAnno", "DNAC", "Name", "Exnotation",
 }
 
 var ruleNames = []string{
@@ -198,61 +207,63 @@ func NewADLWalker(input antlr.TokenStream) *ADLWalker {
 
 // ADLWalker tokens.
 const (
-	ADLWalkerEOF              = antlr.TokenEOF
-	ADLWalkerLCUR             = 1
-	ADLWalkerRCUR             = 2
-	ADLWalkerLSQ              = 3
-	ADLWalkerRSQ              = 4
-	ADLWalkerEQ               = 5
-	ADLWalkerDQ               = 6
-	ADLWalkerSQ               = 7
-	ADLWalkerSEMI             = 8
-	ADLWalkerDCOLON           = 9
-	ADLWalkerCOLON            = 10
-	ADLWalkerDOT              = 11
-	ADLWalkerCOMMA            = 12
-	ADLWalkerLCHEVR           = 13
-	ADLWalkerRCHEVR           = 14
-	ADLWalkerSTAR             = 15
-	ADLWalkerAT               = 16
-	ADLWalkerSTR              = 17
-	ADLWalkerID               = 18
-	ADLWalkerINT              = 19
-	ADLWalkerFLT              = 20
-	ADLWalkerWS               = 21
-	ADLWalkerLINE_DOC         = 22
-	ADLWalkerLINE_COMMENT     = 23
-	ADLWalkerDOWN             = 24
-	ADLWalkerUP               = 25
-	ADLWalkerROOT             = 26
-	ADLWalkerERROR            = 27
-	ADLWalkerADL              = 28
-	ADLWalkerModule           = 29
-	ADLWalkerImportModule     = 30
-	ADLWalkerImportScopedName = 31
-	ADLWalkerAnnotation       = 32
-	ADLWalkerStruct           = 33
-	ADLWalkerUnion            = 34
-	ADLWalkerNewtype          = 35
-	ADLWalkerType             = 36
-	ADLWalkerTypeParam        = 37
-	ADLWalkerTypeExpr         = 38
-	ADLWalkerTypeExprElem     = 39
-	ADLWalkerField            = 40
-	ADLWalkerJson             = 41
-	ADLWalkerJsonStr          = 42
-	ADLWalkerJsonBool         = 43
-	ADLWalkerJsonNull         = 44
-	ADLWalkerJsonInt          = 45
-	ADLWalkerJsonFloat        = 46
-	ADLWalkerJsonArray        = 47
-	ADLWalkerJsonObj          = 48
-	ADLWalkerModuleAnno       = 49
-	ADLWalkerDeclAnno         = 50
-	ADLWalkerFieldAnno        = 51
-	ADLWalkerDNAC             = 52
-	ADLWalkerName             = 53
-	ADLWalkerExnotation       = 54
+	ADLWalkerEOF                 = antlr.TokenEOF
+	ADLWalkerLCUR                = 1
+	ADLWalkerRCUR                = 2
+	ADLWalkerLSQ                 = 3
+	ADLWalkerRSQ                 = 4
+	ADLWalkerEQ                  = 5
+	ADLWalkerDQ                  = 6
+	ADLWalkerSQ                  = 7
+	ADLWalkerSEMI                = 8
+	ADLWalkerDCOLON              = 9
+	ADLWalkerCOLON               = 10
+	ADLWalkerDOT                 = 11
+	ADLWalkerCOMMA               = 12
+	ADLWalkerLCHEVR              = 13
+	ADLWalkerRCHEVR              = 14
+	ADLWalkerSTAR                = 15
+	ADLWalkerAT                  = 16
+	ADLWalkerSTR                 = 17
+	ADLWalkerID                  = 18
+	ADLWalkerINT                 = 19
+	ADLWalkerFLT                 = 20
+	ADLWalkerWS                  = 21
+	ADLWalkerLINE_DOC            = 22
+	ADLWalkerLINE_COMMENT        = 23
+	ADLWalkerDOWN                = 24
+	ADLWalkerUP                  = 25
+	ADLWalkerROOT                = 26
+	ADLWalkerERROR               = 27
+	ADLWalkerADL                 = 28
+	ADLWalkerModule              = 29
+	ADLWalkerImportModule        = 30
+	ADLWalkerImportScopedName    = 31
+	ADLWalkerAnnotation          = 32
+	ADLWalkerAnnotationNotScoped = 33
+	ADLWalkerAnnotationScoped    = 34
+	ADLWalkerStruct              = 35
+	ADLWalkerUnion               = 36
+	ADLWalkerNewtype             = 37
+	ADLWalkerType                = 38
+	ADLWalkerTypeParam           = 39
+	ADLWalkerTypeExpr            = 40
+	ADLWalkerTypeExprElem        = 41
+	ADLWalkerField               = 42
+	ADLWalkerJson                = 43
+	ADLWalkerJsonStr             = 44
+	ADLWalkerJsonBool            = 45
+	ADLWalkerJsonNull            = 46
+	ADLWalkerJsonInt             = 47
+	ADLWalkerJsonFloat           = 48
+	ADLWalkerJsonArray           = 49
+	ADLWalkerJsonObj             = 50
+	ADLWalkerModuleAnno          = 51
+	ADLWalkerDeclAnno            = 52
+	ADLWalkerFieldAnno           = 53
+	ADLWalkerDNAC                = 54
+	ADLWalkerName                = 55
+	ADLWalkerExnotation          = 56
 )
 
 // ADLWalker rules.
@@ -945,7 +956,7 @@ func (p *ADLWalker) Module() (localctx IModuleContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for _la == ADLWalkerAnnotation {
+		for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerAnnotation-32))|(1<<(ADLWalkerAnnotationNotScoped-32))|(1<<(ADLWalkerAnnotationScoped-32)))) != 0 {
 			{
 				p.SetState(35)
 				p.Annotation()
@@ -973,7 +984,7 @@ func (p *ADLWalker) Module() (localctx IModuleContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for ((_la-33)&-(0x1f+1)) == 0 && ((1<<uint((_la-33)))&((1<<(ADLWalkerStruct-33))|(1<<(ADLWalkerUnion-33))|(1<<(ADLWalkerNewtype-33))|(1<<(ADLWalkerType-33))|(1<<(ADLWalkerModuleAnno-33))|(1<<(ADLWalkerDeclAnno-33))|(1<<(ADLWalkerFieldAnno-33)))) != 0 {
+		for ((_la-35)&-(0x1f+1)) == 0 && ((1<<uint((_la-35)))&((1<<(ADLWalkerStruct-35))|(1<<(ADLWalkerUnion-35))|(1<<(ADLWalkerNewtype-35))|(1<<(ADLWalkerType-35))|(1<<(ADLWalkerModuleAnno-35))|(1<<(ADLWalkerDeclAnno-35))|(1<<(ADLWalkerFieldAnno-35)))) != 0 {
 			{
 				p.SetState(47)
 				p.Tld()
@@ -2837,7 +2848,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for _la == ADLWalkerAnnotation {
+			for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerAnnotation-32))|(1<<(ADLWalkerAnnotationNotScoped-32))|(1<<(ADLWalkerAnnotationScoped-32)))) != 0 {
 				{
 					p.SetState(62)
 					p.Annotation()
@@ -2901,7 +2912,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for _la == ADLWalkerAnnotation {
+			for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerAnnotation-32))|(1<<(ADLWalkerAnnotationNotScoped-32))|(1<<(ADLWalkerAnnotationScoped-32)))) != 0 {
 				{
 					p.SetState(82)
 					p.Annotation()
@@ -2965,7 +2976,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for _la == ADLWalkerAnnotation {
+			for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerAnnotation-32))|(1<<(ADLWalkerAnnotationNotScoped-32))|(1<<(ADLWalkerAnnotationScoped-32)))) != 0 {
 				{
 					p.SetState(102)
 					p.Annotation()
@@ -3001,7 +3012,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for ((_la-42)&-(0x1f+1)) == 0 && ((1<<uint((_la-42)))&((1<<(ADLWalkerJsonStr-42))|(1<<(ADLWalkerJsonBool-42))|(1<<(ADLWalkerJsonNull-42))|(1<<(ADLWalkerJsonInt-42))|(1<<(ADLWalkerJsonFloat-42))|(1<<(ADLWalkerJsonArray-42))|(1<<(ADLWalkerJsonObj-42)))) != 0 {
+			for ((_la-44)&-(0x1f+1)) == 0 && ((1<<uint((_la-44)))&((1<<(ADLWalkerJsonStr-44))|(1<<(ADLWalkerJsonBool-44))|(1<<(ADLWalkerJsonNull-44))|(1<<(ADLWalkerJsonInt-44))|(1<<(ADLWalkerJsonFloat-44))|(1<<(ADLWalkerJsonArray-44))|(1<<(ADLWalkerJsonObj-44)))) != 0 {
 				{
 					p.SetState(114)
 					p.JsonVal()
@@ -3040,7 +3051,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for _la == ADLWalkerAnnotation {
+			for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerAnnotation-32))|(1<<(ADLWalkerAnnotationNotScoped-32))|(1<<(ADLWalkerAnnotationScoped-32)))) != 0 {
 				{
 					p.SetState(125)
 					p.Annotation()
@@ -3076,7 +3087,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for ((_la-42)&-(0x1f+1)) == 0 && ((1<<uint((_la-42)))&((1<<(ADLWalkerJsonStr-42))|(1<<(ADLWalkerJsonBool-42))|(1<<(ADLWalkerJsonNull-42))|(1<<(ADLWalkerJsonInt-42))|(1<<(ADLWalkerJsonFloat-42))|(1<<(ADLWalkerJsonArray-42))|(1<<(ADLWalkerJsonObj-42)))) != 0 {
+			for ((_la-44)&-(0x1f+1)) == 0 && ((1<<uint((_la-44)))&((1<<(ADLWalkerJsonStr-44))|(1<<(ADLWalkerJsonBool-44))|(1<<(ADLWalkerJsonNull-44))|(1<<(ADLWalkerJsonInt-44))|(1<<(ADLWalkerJsonFloat-44))|(1<<(ADLWalkerJsonArray-44))|(1<<(ADLWalkerJsonObj-44)))) != 0 {
 				{
 					p.SetState(137)
 					p.JsonVal()
@@ -3193,7 +3204,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for _la == ADLWalkerAnnotation {
+		for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerAnnotation-32))|(1<<(ADLWalkerAnnotationNotScoped-32))|(1<<(ADLWalkerAnnotationScoped-32)))) != 0 {
 			{
 				p.SetState(166)
 				p.Annotation()
@@ -3260,7 +3271,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for _la == ADLWalkerAnnotation {
+		for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerAnnotation-32))|(1<<(ADLWalkerAnnotationNotScoped-32))|(1<<(ADLWalkerAnnotationScoped-32)))) != 0 {
 			{
 				p.SetState(185)
 				p.Annotation()
@@ -3289,7 +3300,7 @@ func (p *ADLWalker) Tld() (localctx ITldContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for ((_la-42)&-(0x1f+1)) == 0 && ((1<<uint((_la-42)))&((1<<(ADLWalkerJsonStr-42))|(1<<(ADLWalkerJsonBool-42))|(1<<(ADLWalkerJsonNull-42))|(1<<(ADLWalkerJsonInt-42))|(1<<(ADLWalkerJsonFloat-42))|(1<<(ADLWalkerJsonArray-42))|(1<<(ADLWalkerJsonObj-42)))) != 0 {
+		for ((_la-44)&-(0x1f+1)) == 0 && ((1<<uint((_la-44)))&((1<<(ADLWalkerJsonStr-44))|(1<<(ADLWalkerJsonBool-44))|(1<<(ADLWalkerJsonNull-44))|(1<<(ADLWalkerJsonInt-44))|(1<<(ADLWalkerJsonFloat-44))|(1<<(ADLWalkerJsonArray-44))|(1<<(ADLWalkerJsonObj-44)))) != 0 {
 			{
 				p.SetState(195)
 				p.JsonVal()
@@ -3617,7 +3628,7 @@ func (p *ADLWalker) NameBody() (localctx INameBodyContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for _la == ADLWalkerAnnotation {
+		for ((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(ADLWalkerAnnotation-32))|(1<<(ADLWalkerAnnotationNotScoped-32))|(1<<(ADLWalkerAnnotationScoped-32)))) != 0 {
 			{
 				p.SetState(208)
 				p.Annotation()
@@ -3642,7 +3653,7 @@ func (p *ADLWalker) NameBody() (localctx INameBodyContext) {
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		if ((_la-42)&-(0x1f+1)) == 0 && ((1<<uint((_la-42)))&((1<<(ADLWalkerJsonStr-42))|(1<<(ADLWalkerJsonBool-42))|(1<<(ADLWalkerJsonNull-42))|(1<<(ADLWalkerJsonInt-42))|(1<<(ADLWalkerJsonFloat-42))|(1<<(ADLWalkerJsonArray-42))|(1<<(ADLWalkerJsonObj-42)))) != 0 {
+		if ((_la-44)&-(0x1f+1)) == 0 && ((1<<uint((_la-44)))&((1<<(ADLWalkerJsonStr-44))|(1<<(ADLWalkerJsonBool-44))|(1<<(ADLWalkerJsonNull-44))|(1<<(ADLWalkerJsonInt-44))|(1<<(ADLWalkerJsonFloat-44))|(1<<(ADLWalkerJsonArray-44))|(1<<(ADLWalkerJsonObj-44)))) != 0 {
 			{
 				p.SetState(217)
 				p.JsonVal()
@@ -3683,6 +3694,8 @@ type IAnnotationContext interface {
 	Annotation() antlr.TerminalNode
 	DOWN() antlr.TerminalNode
 	UP() antlr.TerminalNode
+	AnnotationNotScoped() antlr.TerminalNode
+	AnnotationScoped() antlr.TerminalNode
 	//tokenListGetterDecl
 	//tokenListIndexedGetterDecl
 
@@ -3764,6 +3777,14 @@ func (s *AnnotationContext) UP() antlr.TerminalNode {
 	return s.GetToken(ADLWalkerUP, 0)
 }
 
+func (s *AnnotationContext) AnnotationNotScoped() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerAnnotationNotScoped, 0)
+}
+
+func (s *AnnotationContext) AnnotationScoped() antlr.TerminalNode {
+	return s.GetToken(ADLWalkerAnnotationScoped, 0)
+}
+
 //provideCopyFrom
 func (s *AnnotationContext) GetRuleContext() antlr.RuleContext {
 	return s
@@ -3835,31 +3856,96 @@ func (p *ADLWalker) Annotation() (localctx IAnnotationContext) {
 		}
 	}()
 
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(223)
-		var _m = p.Match(ADLWalkerAnnotation)
-		localctx.(*AnnotationContext).tok = _m
-
-	}
-	p.SetState(228)
+	p.SetState(244)
 	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
 
-	if _la == ADLWalkerDOWN {
+	switch p.GetTokenStream().LA(1) {
+	case ADLWalkerAnnotation:
+		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(224)
-			p.Match(ADLWalkerDOWN)
+			p.SetState(223)
+			var _m = p.Match(ADLWalkerAnnotation)
+			localctx.(*AnnotationContext).tok = _m
+
 		}
-		{
-			p.SetState(225)
-			p.JsonVal()
-		}
-		{
-			p.SetState(226)
-			p.Match(ADLWalkerUP)
+		p.SetState(228)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == ADLWalkerDOWN {
+			{
+				p.SetState(224)
+				p.Match(ADLWalkerDOWN)
+			}
+			{
+				p.SetState(225)
+				p.JsonVal()
+			}
+			{
+				p.SetState(226)
+				p.Match(ADLWalkerUP)
+			}
+
 		}
 
+	case ADLWalkerAnnotationNotScoped:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(230)
+			var _m = p.Match(ADLWalkerAnnotationNotScoped)
+			localctx.(*AnnotationContext).tok = _m
+
+		}
+		p.SetState(235)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == ADLWalkerDOWN {
+			{
+				p.SetState(231)
+				p.Match(ADLWalkerDOWN)
+			}
+			{
+				p.SetState(232)
+				p.JsonVal()
+			}
+			{
+				p.SetState(233)
+				p.Match(ADLWalkerUP)
+			}
+
+		}
+
+	case ADLWalkerAnnotationScoped:
+		p.EnterOuterAlt(localctx, 3)
+		{
+			p.SetState(237)
+			var _m = p.Match(ADLWalkerAnnotationScoped)
+			localctx.(*AnnotationContext).tok = _m
+
+		}
+		p.SetState(242)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == ADLWalkerDOWN {
+			{
+				p.SetState(238)
+				p.Match(ADLWalkerDOWN)
+			}
+			{
+				p.SetState(239)
+				p.JsonVal()
+			}
+			{
+				p.SetState(240)
+				p.Match(ADLWalkerUP)
+			}
+
+		}
+
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 
 	return localctx
@@ -4058,36 +4144,36 @@ func (p *ADLWalker) TypeExpr_() (localctx ITypeExpr_Context) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(230)
+		p.SetState(246)
 		var _m = p.Match(ADLWalkerTypeExpr)
 		localctx.(*TypeExpr_Context).tok = _m
 
 	}
-	p.SetState(239)
+	p.SetState(255)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ADLWalkerDOWN {
 		{
-			p.SetState(231)
+			p.SetState(247)
 			p.Match(ADLWalkerDOWN)
 		}
-		p.SetState(233)
+		p.SetState(249)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ok := true; ok; ok = _la == ADLWalkerTypeExprElem {
 			{
-				p.SetState(232)
+				p.SetState(248)
 				p.TypeExprElem_()
 			}
 
-			p.SetState(235)
+			p.SetState(251)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(237)
+			p.SetState(253)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -4358,36 +4444,36 @@ func (p *ADLWalker) TypeExprElem_() (localctx ITypeExprElem_Context) {
 	localctx = NewTypeParamsContext(p, localctx)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(241)
+		p.SetState(257)
 		var _m = p.Match(ADLWalkerTypeExprElem)
 		localctx.(*TypeParamsContext).tok = _m
 
 	}
-	p.SetState(250)
+	p.SetState(266)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ADLWalkerDOWN {
 		{
-			p.SetState(242)
+			p.SetState(258)
 			p.Match(ADLWalkerDOWN)
 		}
-		p.SetState(244)
+		p.SetState(260)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ok := true; ok; ok = _la == ADLWalkerTypeExprElem {
 			{
-				p.SetState(243)
+				p.SetState(259)
 				p.TypeExprElem_()
 			}
 
-			p.SetState(246)
+			p.SetState(262)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(248)
+			p.SetState(264)
 			p.Match(ADLWalkerUP)
 		}
 
@@ -5357,7 +5443,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		}
 	}()
 
-	p.SetState(279)
+	p.SetState(295)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
@@ -5365,7 +5451,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonStrContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(252)
+			p.SetState(268)
 			var _m = p.Match(ADLWalkerJsonStr)
 			localctx.(*JsonStrContext).tok = _m
 
@@ -5375,7 +5461,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonBoolContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(253)
+			p.SetState(269)
 			var _m = p.Match(ADLWalkerJsonBool)
 			localctx.(*JsonBoolContext).tok = _m
 
@@ -5385,7 +5471,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonNullContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(254)
+			p.SetState(270)
 			var _m = p.Match(ADLWalkerJsonNull)
 			localctx.(*JsonNullContext).tok = _m
 
@@ -5395,7 +5481,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonIntContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(255)
+			p.SetState(271)
 			var _m = p.Match(ADLWalkerJsonInt)
 			localctx.(*JsonIntContext).tok = _m
 
@@ -5405,7 +5491,7 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonFloatContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(256)
+			p.SetState(272)
 			var _m = p.Match(ADLWalkerJsonFloat)
 			localctx.(*JsonFloatContext).tok = _m
 
@@ -5415,36 +5501,36 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonArrayContext(p, localctx)
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(257)
+			p.SetState(273)
 			var _m = p.Match(ADLWalkerJsonArray)
 			localctx.(*JsonArrayContext).tok = _m
 
 		}
-		p.SetState(266)
+		p.SetState(282)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(258)
+				p.SetState(274)
 				p.Match(ADLWalkerDOWN)
 			}
-			p.SetState(260)
+			p.SetState(276)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for ok := true; ok; ok = (((_la-42)&-(0x1f+1)) == 0 && ((1<<uint((_la-42)))&((1<<(ADLWalkerJsonStr-42))|(1<<(ADLWalkerJsonBool-42))|(1<<(ADLWalkerJsonNull-42))|(1<<(ADLWalkerJsonInt-42))|(1<<(ADLWalkerJsonFloat-42))|(1<<(ADLWalkerJsonArray-42))|(1<<(ADLWalkerJsonObj-42)))) != 0) {
+			for ok := true; ok; ok = (((_la-44)&-(0x1f+1)) == 0 && ((1<<uint((_la-44)))&((1<<(ADLWalkerJsonStr-44))|(1<<(ADLWalkerJsonBool-44))|(1<<(ADLWalkerJsonNull-44))|(1<<(ADLWalkerJsonInt-44))|(1<<(ADLWalkerJsonFloat-44))|(1<<(ADLWalkerJsonArray-44))|(1<<(ADLWalkerJsonObj-44)))) != 0) {
 				{
-					p.SetState(259)
+					p.SetState(275)
 					p.JsonVal()
 				}
 
-				p.SetState(262)
+				p.SetState(278)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(264)
+				p.SetState(280)
 				p.Match(ADLWalkerUP)
 			}
 
@@ -5454,36 +5540,36 @@ func (p *ADLWalker) JsonVal() (localctx IJsonValContext) {
 		localctx = NewJsonObjContext(p, localctx)
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(268)
+			p.SetState(284)
 			var _m = p.Match(ADLWalkerJsonObj)
 			localctx.(*JsonObjContext).tok = _m
 
 		}
-		p.SetState(277)
+		p.SetState(293)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ADLWalkerDOWN {
 			{
-				p.SetState(269)
+				p.SetState(285)
 				p.Match(ADLWalkerDOWN)
 			}
-			p.SetState(271)
+			p.SetState(287)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			for ok := true; ok; ok = (((_la-42)&-(0x1f+1)) == 0 && ((1<<uint((_la-42)))&((1<<(ADLWalkerJsonStr-42))|(1<<(ADLWalkerJsonBool-42))|(1<<(ADLWalkerJsonNull-42))|(1<<(ADLWalkerJsonInt-42))|(1<<(ADLWalkerJsonFloat-42))|(1<<(ADLWalkerJsonArray-42))|(1<<(ADLWalkerJsonObj-42)))) != 0) {
+			for ok := true; ok; ok = (((_la-44)&-(0x1f+1)) == 0 && ((1<<uint((_la-44)))&((1<<(ADLWalkerJsonStr-44))|(1<<(ADLWalkerJsonBool-44))|(1<<(ADLWalkerJsonNull-44))|(1<<(ADLWalkerJsonInt-44))|(1<<(ADLWalkerJsonFloat-44))|(1<<(ADLWalkerJsonArray-44))|(1<<(ADLWalkerJsonObj-44)))) != 0) {
 				{
-					p.SetState(270)
+					p.SetState(286)
 					p.JsonVal()
 				}
 
-				p.SetState(273)
+				p.SetState(289)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 			}
 			{
-				p.SetState(275)
+				p.SetState(291)
 				p.Match(ADLWalkerUP)
 			}
 

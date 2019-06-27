@@ -33,6 +33,8 @@ nameBody
 ;
 annotation
     : tok=Annotation (DOWN jsonVal UP)?
+    | tok=AnnotationNotScoped (DOWN jsonVal UP)?
+    | tok=AnnotationScoped (DOWN jsonVal UP)?
 ;
 typeExpr_
     : tok=TypeExpr (DOWN typeExprElem_+ UP)?
